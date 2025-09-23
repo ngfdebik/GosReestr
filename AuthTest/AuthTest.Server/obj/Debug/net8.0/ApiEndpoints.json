@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "AuthTest.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "credentials",
+        "Type": "AuthTest.Controllers.AuthController\u002BCredential",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

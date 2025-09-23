@@ -1,0 +1,1 @@
+C:\AuthTest\authtest.client\obj\Debug\authtest.client.esproj.CoreCompileInputs.cache

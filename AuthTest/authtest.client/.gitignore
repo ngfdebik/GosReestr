@@ -9,6 +9,7 @@ lerna-debug.log*
 
 .DS_Store
 coverage
+.vsidx
 *.local
 
 /cypress/videos/

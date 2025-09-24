@@ -48,7 +48,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("VueDev", policy =>
     {
-        policy.WithOrigins("http://localhost:5173") // - порт Vue dev server (AuthTest.Client)
+        policy.WithOrigins("https://localhost:56845") // - порт Vue dev server (AuthTest.Client)
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials(); // если используете куки

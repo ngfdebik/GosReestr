@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "88uZpE8vmzM=",
+  "dgSpecHash": "nnzNSqhve8Y=",
   "success": true,
-  "projectFilePath": "C:\\AuthTest\\AuthTest.Server\\AuthTest.Server.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\GosReestr\\AuthTest\\AuthTest.Server\\AuthTest.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentnhibernate\\3.4.1\\fluentnhibernate.3.4.1.nupkg.sha512",

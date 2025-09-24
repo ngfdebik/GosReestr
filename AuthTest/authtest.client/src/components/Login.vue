@@ -24,7 +24,8 @@
 <script setup>
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import axios from 'axios';
+  import store from '../auth/store'
+  //import axios from 'axios';
   import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
   import '../assets/css/site.css'
 
@@ -46,20 +47,13 @@
     // Сброс ошибок
     errors.value = { login: '', password: '', form: '' };
 
-    try {
-      const response = await axios.post('/api/auth/login', {
-        login: credentials.value.login,
-        password: credentials.value.password
-      });
-
-      // Успешный вход — перенаправление
-      if (response.data.redirectTo) {
-        router.push(response.data.redirectTo);
-      }
-    } catch (err) {
-      const errorData = err.response?.data;
-      if (errorData) {
-        // Сервер возвращает ошибки валидации
+    let login = credentials.value.login
+    let password = credentials.value.password
+    store.dispatch('login', { login, password })
+    .then(resp => 
+      router.push(resp.data.redirectTo)
+    ).catch(err =>{
+      if(err){
         if (errorData.errors) {
           errors.value.login = errorData.errors.Login || '';
           errors.value.password = errorData.errors.Password || '';
@@ -67,10 +61,10 @@
         if (errorData.message) {
           errors.value.form = errorData.message;
         }
-      } else {
+      }else {
         errors.value.form = 'Ошибка соединения с сервером';
       }
-    }
+    })
   };
 </script>
 

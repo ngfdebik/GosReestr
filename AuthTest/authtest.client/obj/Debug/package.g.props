@@ -14,6 +14,7 @@
     <PackageJsonDependenciesVue Condition="$(PackageJsonDependenciesVue) == ''">^3.5.18</PackageJsonDependenciesVue>
     <PackageJsonDependenciesVueJsXlsx Condition="$(PackageJsonDependenciesVueJsXlsx) == ''">^0.0.2</PackageJsonDependenciesVueJsXlsx>
     <PackageJsonDependenciesVueRouter Condition="$(PackageJsonDependenciesVueRouter) == ''">^4.5.1</PackageJsonDependenciesVueRouter>
+    <PackageJsonDependenciesVuex Condition="$(PackageJsonDependenciesVuex) == ''">4.1.0</PackageJsonDependenciesVuex>
     <PackageJsonDevdependenciesEslintJs Condition="$(PackageJsonDevdependenciesEslintJs) == ''">^9.31.0</PackageJsonDevdependenciesEslintJs>
     <PackageJsonDevdependenciesVitejsPluginVue Condition="$(PackageJsonDevdependenciesVitejsPluginVue) == ''">^6.0.1</PackageJsonDevdependenciesVitejsPluginVue>
     <PackageJsonDevdependenciesEslint Condition="$(PackageJsonDevdependenciesEslint) == ''">^9.31.0</PackageJsonDevdependenciesEslint>

@@ -82,3 +82,16 @@ C:\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.dll
 C:\AuthTest\EgrWebEntity\obj\Debug\net7.0\refint\EgrWebEntity.dll
 C:\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.pdb
 C:\AuthTest\EgrWebEntity\obj\Debug\net7.0\ref\EgrWebEntity.dll
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\bin\Debug\net7.0\EgrWebEntity.deps.json
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\bin\Debug\net7.0\EgrWebEntity.dll
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\bin\Debug\net7.0\EgrWebEntity.pdb
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.AssemblyInfo.cs
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.sourcelink.json
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.dll
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\refint\EgrWebEntity.dll
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\EgrWebEntity.pdb
+C:\Users\User\Desktop\GosReestr\AuthTest\EgrWebEntity\obj\Debug\net7.0\ref\EgrWebEntity.dll

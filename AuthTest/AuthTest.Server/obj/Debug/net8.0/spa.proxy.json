@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:56845",
 "RedirectUrl": "",
 "LaunchCommand": "npm run dev",
-"WorkingDirectory": "C:\\AuthTest\\AuthTest.Server\\..\\authtest.client",
+"WorkingDirectory": "C:\\Users\\User\\Desktop\\GosReestr\\AuthTest\\AuthTest.Server\\..\\authtest.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

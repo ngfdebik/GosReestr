@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EgrWebEntity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be5221168db228038c27fc4006875afb9479035d")]
 [assembly: System.Reflection.AssemblyProductAttribute("EgrWebEntity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EgrWebEntity")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

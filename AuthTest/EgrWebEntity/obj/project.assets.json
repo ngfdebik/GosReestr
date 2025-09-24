@@ -5410,11 +5410,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\AuthTest\\EgrWebEntity\\EgrWebEntity.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\GosReestr\\AuthTest\\EgrWebEntity\\EgrWebEntity.csproj",
       "projectName": "EgrWebEntity",
-      "projectPath": "C:\\AuthTest\\EgrWebEntity\\EgrWebEntity.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\GosReestr\\AuthTest\\EgrWebEntity\\EgrWebEntity.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\AuthTest\\EgrWebEntity\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\GosReestr\\AuthTest\\EgrWebEntity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

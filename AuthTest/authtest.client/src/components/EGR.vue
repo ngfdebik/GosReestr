@@ -179,7 +179,8 @@
           <div class="mb-3">
             <select v-model="selectedDetail" class="form-select">
               <option disabled value="">Выберите раздел</option>
-              <option v-for="opt in detailOptions" :key="opt.value" :value="opt.value" v-if="opt.show">
+              <option v-for="opt in detailOptions" :key="opt.value" :value="opt.value">
+                <!--v-if="opt.show"-->
                 {{ opt.label }}
               </option>
             </select>
@@ -214,7 +215,7 @@
 
 <script>
   import { ref, computed } from 'vue';
-  import * as bootstrap from '../assets/lib/bootstrap/dist/css/bootstrap.min.css';
+  import * as bootstrap from 'bootstrap';
 
   export default {
     name: 'EGRView',
@@ -343,11 +344,12 @@
       };
 
       // Загрузка данных при монтировании
+
       const loadData = async () => {
         try {
           const [ipRes, ulRes] = await Promise.all([
-            fetch('/api/egr/ip').then(r => r.json()),
-            fetch('/api/egr/ul').then(r => r.json())
+            fetch('/Home/AllTab?buttonId=IPtable').then(r => r.json()),///api/egr/ip
+            fetch('/Home/AllTab?buttonId=ULtable').then(r => r.json())
           ]);
           IPTableContent.value = ipRes;
           ULTableContent.value = ulRes;
@@ -355,8 +357,20 @@
           console.error('Ошибка загрузки таблиц:', err);
         }
       };
-
       loadData();
+      //Тест
+      //const GetLogsDataqwe = async () =>
+      //{
+      //  const url = '/api/Home/ULtable';
+      //  const response = await fetch(url);
+      //  //const tableData = JSON.parse(response);
+      //  const url1 = '/api/Home/IPtable';
+      //  const response1 = await fetch(url);
+      //  //const tableData1 = JSON.parse(response);
+      //  IPTableContent.value = await response1.json();
+      //  ULTableContent.value = await response.json();
+      //}
+      //GetLogsDataqwe();
 
       return {
 

@@ -1,48 +1,50 @@
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Antlr.Runtime;
+using AuthTest.Server.Models;
+using EgrWebEntity.Map;
+using EgrWebEntity.ModelTable;
+using FluentNHibernate.Data;
+using FluentNHibernate.Testing.Values;
+using LinqToDB;
+using LinqToDB.Data;
+using LinqToDB.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using System;
-using System.Xml;
-using System.IO;
-using System.Text;
-using System.Xml.Linq;
-using System.Xml.Serialization;
-using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System.Drawing.Text;
 using Npgsql;
+using Remotion.Linq.Parsing.Structure.IntermediateModel;
+using System;
+using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Reflection;
 using System.Data.Common;
+using System.Diagnostics;
+using System.Drawing.Text;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Linq;
 using System.Linq.Expressions;
-using EgrWebEntity.ModelTable;
+using System.Net.Http.Headers;
+using System.Reflection;
 using System.Runtime.CompilerServices;
-using EgrWebEntity.Map;
-using System.Text.RegularExpressions;
-using System.Text.Json;
-using System.IO.Compression;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
-using System.Threading;
-using Antlr.Runtime;
-using LinqToDB.EntityFrameworkCore;
-using LinqToDB;
-using FluentNHibernate.Data;
-using LinqToDB.Data;
 using System.Runtime.ExceptionServices;
-using System.ComponentModel;
-using FluentNHibernate.Testing.Values;
-using Remotion.Linq.Parsing.Structure.IntermediateModel;
-using AuthTest.Server.Models;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace AuthTest.Server.Controllers
 {
-    [Route("home")]
     [ApiController]
+    [Route("api/[controller]")]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         //private DbContextTable _dbcontext;
@@ -250,9 +252,8 @@ namespace AuthTest.Server.Controllers
             return View("LoadingDone");
         }
 
-
-        [HttpGet("allTab/buttonId:required")]
-        public async Task<IActionResult> Get(string buttonId)
+        [HttpGet("AllTab")]
+        public IActionResult AllTab([FromQuery]  string buttonId)
         {
             TableViewModel tableViewModel = new TableViewModel();
 
@@ -271,7 +272,7 @@ namespace AuthTest.Server.Controllers
                         tableViewModel.≈√–ﬁÀ_—‚ﬁÀ = _dbcontext.≈√–ﬁÀ_—‚ﬁÀ.ToList();
                         return Json(tableViewModel);
                     default:
-                        return BadRequest("ÕÂ‚ÂÌ˚È buttonId");
+                        return BadRequest("ÕÂÍÓÂÍÚÌ˚È buttonId");
                 }
             }
         }

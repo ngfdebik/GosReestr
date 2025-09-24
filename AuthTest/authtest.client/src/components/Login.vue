@@ -54,12 +54,12 @@
       router.push(resp.data.redirectTo)
     ).catch(err =>{
       if(err){
-        if (errorData.errors) {
-          errors.value.login = errorData.errors.Login || '';
-          errors.value.password = errorData.errors.Password || '';
+        if (err.errors) {
+          errors.value.login = err.errors.Login || '';
+          errors.value.password = err.errors.Password || '';
         }
-        if (errorData.message) {
-          errors.value.form = errorData.message;
+        if (err.message) {
+          errors.value.form = err.message;
         }
       }else {
         errors.value.form = 'Ошибка соединения с сервером';

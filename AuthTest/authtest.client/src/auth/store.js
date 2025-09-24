@@ -31,10 +31,10 @@ export default new Vuex.createStore({
   actions: {
     login({commit}, user){
         return new Promise((resolve, reject) => {
-            commit('aith_request')
+            commit('auth_request')
             axios.post('https://localhost:7229/api/auth/login', {
-                login: user.value.login,
-                password: user.value.password
+                login: user.login,
+                password: user.password
             }).then(resp => {
                 commit('auth_success', 'token')
                 resolve(resp)

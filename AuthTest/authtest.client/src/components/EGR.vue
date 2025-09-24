@@ -214,7 +214,7 @@
 
 <script>
   import { ref, computed } from 'vue';
-  import * as bootstrap from 'bootstrap';
+  import * as bootstrap from '../assets/lib/bootstrap/dist/css/bootstrap.min.css';
 
   export default {
     name: 'EGRView',

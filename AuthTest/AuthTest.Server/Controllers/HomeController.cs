@@ -41,6 +41,8 @@ using AuthTest.Server.Models;
 
 namespace AuthTest.Server.Controllers
 {
+    [Route("home")]
+    [ApiController]
     public class HomeController : Controller
     {
         //private DbContextTable _dbcontext;
@@ -248,7 +250,9 @@ namespace AuthTest.Server.Controllers
             return View("LoadingDone");
         }
 
-        public IActionResult AllTab(string buttonId)
+
+        [HttpGet("allTab/buttonId:required")]
+        public async Task<IActionResult> Get(string buttonId)
         {
             TableViewModel tableViewModel = new TableViewModel();
 
@@ -266,10 +270,10 @@ namespace AuthTest.Server.Controllers
                     case "ULtable":
                         tableViewModel.≈√–ﬁÀ_—‚ﬁÀ = _dbcontext.≈√–ﬁÀ_—‚ﬁÀ.ToList();
                         return Json(tableViewModel);
+                    default:
+                        return BadRequest("ÕÂ‚ÂÌ˚È buttonId");
                 }
             }
-
-            return View();
         }
 
 

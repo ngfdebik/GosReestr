@@ -1,16 +1,16 @@
-using EgrWebEntity.ModelTable;
+using AuthTest.Server;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
-using AuthTest.Server;
+using System.Security.Claims;
 
 namespace AuthTest.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Policy = "MustBeAdmin")]
-    public class UserController : Controller
+    [Authorize(Policy = "MustBeLoggedIn")]
+    public class UserController : ControllerBase
     {
         private readonly DbContextTable _dbcontext;
 
@@ -19,297 +19,151 @@ namespace AuthTest.Controllers
             _dbcontext = dbcontext;
         }
 
-        // GET: User/Manage
-        [HttpGet("Manage")]
-        public IActionResult Manage()
+        // GET: api/user/current
+        [HttpGet("current")]
+        public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
-            var model = new UserManageModel
-            {
-                Roles = GetRolesSelectList(),
-                ExistingUsers = GetExistingUsersSelectList()
-            };
-
-            return Ok(model);
-        }
-
-        // POST: User/Create
-        [HttpPost("Create")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(UserManageModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok( new { 
-                    text = "Manage", 
-                    model
-                });
-            }
-
-            // Проверка уникальности логина
-            if (_dbcontext.Пользователи.Any(u => u.Логин.Equals(model.NewLoginData.Login)))
-            {
-                ModelState.AddModelError("NewLoginData.Login", "Пользователь с таким логином уже существует");
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok(new
-                {
-                    text = "Manage",
-                    model
-                });
-            }
-
-            if (model.NewLoginData.Password != model.NewLoginData.ConfirmPassword)
-            {
-                ModelState.AddModelError("NewLoginData.ConfirmPassword", "Пароли не совпадают");
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok(new
-                {
-                    text = "Manage",
-                    model
-                });
-            }
-
-            if (string.IsNullOrEmpty(model.NewLoginData.SelectedRole))
-            {
-                ModelState.AddModelError("NewLoginData.SelectedRole", "Требуется выбрать роль пользователя");
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok(new
-                {
-                    text = "Manage",
-                    model
-                });
-            }
-
             try
             {
-                var newUser = new Users
+                var userLogin = User.FindFirst(ClaimTypes.GivenName)?.Value;
+
+                if (string.IsNullOrEmpty(userLogin))
                 {
-                    Логин = model.NewLoginData.Login,
-                    Пароль = Hasher.Hash(model.NewLoginData.Password),
-                    Роль = model.NewLoginData.SelectedRole,
-                    ФИО = model.NewLoginData.FullName
-                };
+                    return Unauthorized("Пользователь не авторизован");
+                }
 
-                _dbcontext.Пользователи.Add(newUser);
-                await _dbcontext.SaveChangesAsync();
+                var user = await _dbcontext.Пользователи
+                    .FirstOrDefaultAsync(u => u.Логин.Equals(userLogin));
 
-                TempData["UserCreateStatusMessage"] = "Новый пользователь создан успешно";
-                TempData["MessageType"] = "success";
-            }
-            catch (System.Exception)
-            {
-                TempData["UserCreateStatusMessage"] = "Ошибка при создании пользователя";
-                TempData["MessageType"] = "error";
-            }
+                if (user == null)
+                {
+                    return NotFound("Пользователь не найден");
+                }
 
-            return RedirectToAction("Manage");
-        }
-
-        // GET: User/Load
-        [HttpGet("Load")]
-        public IActionResult Load(string selectedExistingUser)
-        {
-            if (string.IsNullOrEmpty(selectedExistingUser))
-            {
-                TempData["UserEditStatusMessage"] = "Пользователь не выбран";
-                TempData["MessageType"] = "error";
-                return RedirectToAction("Manage");
-            }
-
-            var user = _dbcontext.Пользователи
-                .FirstOrDefault(u => u.Логин.Equals(selectedExistingUser));
-
-            if (user == null)
-            {
-                TempData["UserEditStatusMessage"] = "Пользователь не найден";
-                TempData["MessageType"] = "error";
-                return RedirectToAction("Manage");
-            }
-
-            var model = new UserManageModel
-            {
-                ExistingLoginData = new FullCredential
+                return Ok(new UserDto
                 {
                     Login = user.Логин,
-                    SelectedRole = user.Роль,
-                    FullName = user.ФИО
-                },
-                HiddenSelectedUser = user.Логин,
-                Roles = GetRolesSelectList(),
-                ExistingUsers = GetExistingUsersSelectList(),
-                SelectedExistingUser = user.Логин
-            };
-
-            TempData["LoadedUser"] = user.Логин;
-            return Ok(new
-            {
-                text = "Manage",
-                model
-            });
-        }
-
-        // POST: User/Update
-        [HttpPut("Update")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(UserManageModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok(new
-                {
-                    text = "Manage",
-                    model
+                    FullName = user.ФИО,
+                    Role = user.Роль
                 });
             }
-
-            if (model.ExistingLoginData.Password != model.ExistingLoginData.ConfirmPassword)
+            catch (Exception ex)
             {
-                ModelState.AddModelError("ExistingLoginData.ConfirmPassword", "Пароли не совпадают");
-                model.Roles = GetRolesSelectList();
-                model.ExistingUsers = GetExistingUsersSelectList();
-                return Ok(new
-                {
-                    text = "Manage",
-                    model
-                });
+                return StatusCode(500, $"Ошибка сервера: {ex.Message}");
             }
-
-            try
-            {
-                var existingUser = _dbcontext.Пользователи
-                    .FirstOrDefault(u => u.Логин.Equals(model.HiddenSelectedUser));
-
-                if (existingUser == null)
-                {
-                    TempData["UserEditStatusMessage"] = "Пользователь не найден";
-                    TempData["MessageType"] = "error";
-                    return RedirectToAction("Manage");
-                }
-
-                existingUser.Логин = model.ExistingLoginData.Login;
-                existingUser.Роль = model.ExistingLoginData.SelectedRole;
-                existingUser.ФИО = model.ExistingLoginData.FullName;
-
-                if (!string.IsNullOrEmpty(model.ExistingLoginData.Password))
-                {
-                    existingUser.Пароль = Hasher.Hash(model.ExistingLoginData.Password);
-                }
-
-                _dbcontext.Пользователи.Update(existingUser);
-                await _dbcontext.SaveChangesAsync();
-
-                TempData["UserEditStatusMessage"] = "Пользователь изменен успешно";
-                TempData["MessageType"] = "success";
-            }
-            catch (System.Exception)
-            {
-                TempData["UserEditStatusMessage"] = "Ошибка изменения пользователя";
-                TempData["MessageType"] = "error";
-            }
-
-            return RedirectToAction("Manage");
         }
 
-        // POST: User/Delete
-        [HttpDelete("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(UserManageModel model)
+        // POST: api/user/edit
+        [HttpPost("edit")]
+        public async Task<ActionResult<ApiResponse>> EditUser([FromBody] UserEditRequest request)
         {
             try
             {
-                var existingUser = _dbcontext.Пользователи
-                    .FirstOrDefault(u => u.Логин.Equals(model.HiddenSelectedUser));
-
-                if (existingUser == null)
+                // Валидация модели
+                if (!ModelState.IsValid)
                 {
-                    TempData["UserEditStatusMessage"] = "Пользователь не найден";
-                    TempData["MessageType"] = "error";
-                    return RedirectToAction("Manage");
+                    return BadRequest(new ApiResponse
+                    {
+                        Success = false,
+                        Message = "Данные формы невалидны"
+                    });
                 }
 
-                _dbcontext.Пользователи.Remove(existingUser);
+                var userLogin = User.FindFirst(ClaimTypes.GivenName)?.Value;
+
+                if (string.IsNullOrEmpty(userLogin) || userLogin != request.Login)
+                {
+                    return BadRequest(new ApiResponse
+                    {
+                        Success = false,
+                        Message = "Ошибка изменения пользователя"
+                    });
+                }
+
+                // Проверка совпадения паролей
+                if (request.Password != request.ConfirmPassword)
+                {
+                    return BadRequest(new ApiResponse
+                    {
+                        Success = false,
+                        Message = "Пароли не совпадают"
+                    });
+                }
+
+                var user = await _dbcontext.Пользователи
+                    .FirstOrDefaultAsync(u => u.Логин.Equals(request.Login));
+
+                if (user == null)
+                {
+                    return NotFound(new ApiResponse
+                    {
+                        Success = false,
+                        Message = "Пользователь не найден"
+                    });
+                }
+
+                // Обновление данных
+                if (!string.IsNullOrEmpty(request.FullName))
+                {
+                    user.ФИО = request.FullName;
+                }
+
+                if (!string.IsNullOrEmpty(request.Password))
+                {
+                    user.Пароль = Hasher.Hash(request.Password);
+                }
+
+                _dbcontext.Пользователи.Update(user);
                 await _dbcontext.SaveChangesAsync();
 
-                TempData["UserEditStatusMessage"] = "Пользователь удален успешно";
-                TempData["MessageType"] = "success";
+                return Ok(new ApiResponse
+                {
+                    Success = true,
+                    Message = "Пользователь изменен успешно"
+                });
             }
-            catch (System.Exception)
+            catch (DbUpdateException ex)
             {
-                TempData["UserEditStatusMessage"] = "Ошибка удаления пользователя";
-                TempData["MessageType"] = "error";
+                return StatusCode(500, new ApiResponse
+                {
+                    Success = false,
+                    Message = "Ошибка базы данных при обновлении пользователя"
+                });
             }
-
-            return RedirectToAction("Manage");
-        }
-
-        // Вспомогательные методы
-        private List<SelectListItem> GetRolesSelectList()
-        {
-            return new List<SelectListItem>
+            catch (Exception ex)
             {
-                new SelectListItem { Value = "Администратор", Text = "Администратор" },
-                new SelectListItem { Value = "Пользователь", Text = "Пользователь" }
-            };
-        }
-
-        private List<SelectListItem> GetExistingUsersSelectList()
-        {
-            var users = _dbcontext.Пользователи.ToList();
-            var selectList = new List<SelectListItem>();
-
-            foreach (var user in users)
-            {
-                selectList.Add(new SelectListItem { Value = user.Логин, Text = user.Логин });
+                return StatusCode(500, new ApiResponse
+                {
+                    Success = false,
+                    Message = "Ошибка изменения пользователя"
+                });
             }
-
-            return selectList;
         }
     }
 
-    // Модель представления
-    public class UserManageModel
+    // DTO модели
+    public class UserDto
     {
-        public FullCredential NewLoginData { get; set; } = new FullCredential();
-        public FullCredential ExistingLoginData { get; set; } = new FullCredential();
-        public List<SelectListItem> Roles { get; set; }
-        public List<SelectListItem> ExistingUsers { get; set; }
-        public string SelectedExistingUser { get; set; }
-        public string HiddenSelectedUser { get; set; }
-
-        [TempData]
-        public string UserCreateStatusMessage { get; set; }
-
-        [TempData]
-        public string UserEditStatusMessage { get; set; }
-
-        [TempData]
-        public string MessageType { get; set; }
+        public string Login { get; set; }
+        public string FullName { get; set; }
+        public string Role { get; set; }
     }
 
-    // Модель данных (можно вынести в отдельный файл)
-    public class FullCredential
+    public class UserEditRequest
     {
         [Required(ErrorMessage = "Логин обязателен")]
         public string Login { get; set; }
 
-        [Required(ErrorMessage = "Пароль обязателен")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Подтвердите пароль")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
 
         public string FullName { get; set; }
+    }
 
-        [Required(ErrorMessage = "Роль обязательна")]
-        public string SelectedRole { get; set; }
+    public class ApiResponse
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
     }
 }

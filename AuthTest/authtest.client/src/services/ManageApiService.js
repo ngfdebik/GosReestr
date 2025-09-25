@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const client = axios.create({
-    baseURL: 'https://localhost:7229/api/user',
+    baseURL: 'https://localhost:7229/api/manage',
     json: true
 })
 
@@ -21,10 +21,19 @@ export default {
             return err.response
         })
     },
-    getCurrent(){
-        return this.execute('get', `/current`)
+    manage(){
+        return this.execute('get', `/manage`)
     },
-    edit(userData){
-        return this.execute('get', `/edit`, userData)
+    create(data) {
+        return this.execute('post', `/create`, data)
+    },
+    load(selectedExistingUser){
+        return this.execute('get', `/load/`, selectedExistingUser)
+    },
+    update(data) {
+        return this.execute('put', `/update`, data)
+    },
+    delete(data)  {
+        return this.execute('delete', `/delete`, data)
     }
 }

@@ -113,7 +113,7 @@
 
 <script>
     import { ref } from 'vue';
-    import UserApiService from '@/services/UserApiService';
+    import ManageApiService from '@/services/ManageApiService';
         
         export default {
             name:"ManageComponent",
@@ -258,7 +258,7 @@
                     if (!validateNewUser()) return;
                     
                     loading.value = true;
-                    response = UserApiService.create(newUser);
+                    response = ManageApiService.create(newUser);
                     /*
                     try {
                         // Имитация API вызова
@@ -301,7 +301,7 @@
                     
                     clearMessages();
                     loading.value = true;
-                    response = UserApiService.load(selectedExistingUser)
+                    response = ManageApiService.load(selectedExistingUser)
                     /*
                     try {
                         // Имитация API вызова
@@ -335,7 +335,7 @@
                     if (!validateExistingUser()) return;
                     
                     loading.value = true;
-                    response = UserApiService.update(existingUser)
+                    response = ManageApiService.update(existingUser)
                     /*
                     try {
                         // Имитация API вызова
@@ -380,7 +380,7 @@
                     if (!confirm('Вы уверены, что хотите удалить этого пользователя?')) return;
                     
                     loading.value = true;
-                    response = UserApiService.delete(existingUser)
+                    response = ManageApiService.delete(existingUser)
                     /*
                     try {
                         // Имитация API вызова

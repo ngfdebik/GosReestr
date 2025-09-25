@@ -225,8 +225,8 @@
       const sharedULTableContent = ref([]);
       const sharedIPTableContent = ref([]);
 
-      const showIPHeaders = ref(true);
-      const showULHeaders = ref(true);
+      const showIPHeaders = ref(false);
+      const showULHeaders = ref(false);
       const showSharedHeaders = ref(false);
 
       const filterColumn = ref('');

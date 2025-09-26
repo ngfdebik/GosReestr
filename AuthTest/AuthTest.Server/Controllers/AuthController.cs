@@ -92,6 +92,7 @@ namespace AuthTest.Controllers
 
             return Ok(new { 
                 redirectTo = redirectUrl,
+                login = user.Логин,
                 isAdmin
             });
         }

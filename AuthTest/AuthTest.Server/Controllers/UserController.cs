@@ -20,20 +20,12 @@ namespace AuthTest.Controllers
         }
 
         // GET: api/user/current
-        [HttpGet("current")]
-        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        [HttpGet("current/{login:required}")]
+        public async Task<ActionResult<UserDto>> GetCurrentUser(string login)
         {
             try
             {
-                var userLogin = User.FindFirst(ClaimTypes.GivenName)?.Value;
-
-                if (string.IsNullOrEmpty(userLogin))
-                {
-                    return Unauthorized("Пользователь не авторизован");
-                }
-
-                var user = await _dbcontext.Пользователи
-                    .FirstOrDefaultAsync(u => u.Логин.Equals(userLogin));
+                var user = await _dbcontext.Пользователи.FirstOrDefaultAsync(u => u.Логин == login);//User.FindFirst(ClaimTypes.GivenName)?.Value;
 
                 if (user == null)
                 {

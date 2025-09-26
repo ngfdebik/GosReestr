@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/auth/store';
 
 const client = axios.create({
     baseURL: 'https://localhost:7229/api/user',
@@ -22,7 +23,7 @@ export default {
         })
     },
     getCurrent(){
-        return this.execute('get', `/current`)
+        return this.execute('get', `/current/${store.getters.login}`)
     },
     edit(userData){
         return this.execute('get', `/edit`, userData)

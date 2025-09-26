@@ -91,7 +91,7 @@ namespace AuthTest.Controllers
             };
 
             return Ok(new { 
-                redirectTo = redirectUrl,
+                redirectTo = "/EGR",
                 login = user.Логин,
                 isAdmin
             });

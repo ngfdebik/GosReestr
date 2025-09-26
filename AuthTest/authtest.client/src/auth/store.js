@@ -29,7 +29,9 @@ export default new Vuex.createStore({
     logout(state){
         state.status = ''
         state.token = ''
-    },
+        state.user= ''
+        state.isAdmin = false
+    }
   },
   actions: {
     login({commit}, user){
@@ -49,6 +51,14 @@ export default new Vuex.createStore({
                 reject(err)
             })
         })
+    },
+    logout({ commit }) {
+      return new Promise((resolve) => {
+        commit('logout')
+        //localStorage.removeItem('token')
+        //delete axios.defaults.headers.common['Authorization']
+        resolve()
+      })
     }
   },
   getters: {

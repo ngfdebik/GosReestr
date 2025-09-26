@@ -8,14 +8,14 @@ const client = axios.create({
 
 export default {
     async execute(method, resource, data) {
-        const accessToken = localStorage.getItem('token');
+        //const accessToken = localStorage.getItem('token');
         return await client({
             method,
             url: resource,
             data,
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
+            //headers: {
+            //    Authorization: `Bearer ${accessToken}`
+            //}
         }).then(req => {
             return req.data
         }).catch(err => {

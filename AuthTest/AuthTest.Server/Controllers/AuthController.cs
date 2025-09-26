@@ -83,7 +83,17 @@ namespace AuthTest.Controllers
                 _ => "/"
             };
 
-            return Ok(new { redirectTo = redirectUrl });
+            bool isAdmin = userType switch
+            {
+                "Администратор" => true,
+                "Пользователь" => false,
+                _ => false
+            };
+
+            return Ok(new { 
+                redirectTo = redirectUrl,
+                isAdmin
+            });
         }
 
         public class Credential

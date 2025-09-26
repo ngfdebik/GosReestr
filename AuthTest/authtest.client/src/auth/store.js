@@ -10,15 +10,17 @@ export default new Vuex.createStore({
   state: {
     status: '',
     token: localStorage.getItem('token') || '',
-    user : ''
+    user : '',
+    isAdmin : false,
   },
   mutations: {
     auth_request(state){
         state.status = 'loading'
     },
-    auth_success(state, token){
+    auth_success(state, token, isAdmin){
         state.status = 'success'
         state.token = token
+        state.isAdmin = isAdmin
     },
     auth_error(state){
         state.status = 'error'
@@ -36,7 +38,7 @@ export default new Vuex.createStore({
                 login: user.login,
                 password: user.password
             }).then(resp => {
-                commit('auth_success', 'token')
+                commit('auth_success', 'token', resp.isAdmin)
                 resolve(resp)
             }).catch(err => {
                 commit('auth_error')
@@ -48,5 +50,6 @@ export default new Vuex.createStore({
   getters: {
     isLoggedIn: state => !!state.token,
     authStatus: state => state.status,
+    isAdmin: state => state.isAdmin,
   }
 })

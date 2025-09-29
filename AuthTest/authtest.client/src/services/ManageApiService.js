@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/auth/store';
 
 const client = axios.create({
     baseURL: 'https://localhost:7229/api/manage',

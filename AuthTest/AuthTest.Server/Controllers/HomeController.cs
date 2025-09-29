@@ -14,9 +14,10 @@ using System.Xml.Serialization;
 
 namespace AuthTest.Server.Controllers
 {
-    [ApiController]
+    
     [Route("api/[controller]")]
-    [AllowAnonymous]
+    [ApiController]
+    //[AllowAnonymous]
     public class HomeController : Controller
     {
         //private DbContextTable _dbcontext;
@@ -224,6 +225,7 @@ namespace AuthTest.Server.Controllers
             return View("LoadingDone");
         }
 
+        [Authorize]
         [HttpGet("AllTab")]
         public IActionResult AllTab([FromQuery]  string buttonId)
         {

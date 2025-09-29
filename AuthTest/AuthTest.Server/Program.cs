@@ -1,9 +1,15 @@
-﻿using AuthTest.Server;
+﻿using AuthTest;
+using AuthTest.Server;
 using LinqToDB.Configuration;
 using LinqToDB.Data;
 using LinqToDB.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,22 +23,64 @@ builder.Services.AddControllers().AddJsonOptions(jsonOptions =>
     jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
 
+
+// Конфигурация JWT настроек
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+
+// Регистрация сервисов
+builder.Services.AddScoped<IJwtService, JwtService>();
 //Аутентификация (оставляем куки, но теперь для API — лучше перейти на JWT в будущем)
-builder.Services.AddAuthentication().AddCookie("EGRCookieAuth", options =>
-{
-    options.Cookie.Name = "EGRCookieAuth";
-    // Важно для SPA: разрешить доступ с фронтенда (если фронт на другом порте/домене)
-    options.Cookie.SameSite = SameSiteMode.None; // или Lax, если фронт на том же домене
-    options.Cookie.HttpOnly = false; // если Vue.js должен читать куки (не рекомендуется) — лучше HttpOnly + флаг в теле ответа
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // только по HTTPS
-});
+//builder.Services.AddAuthentication().AddCookie("EGRCookieAuth", options =>
+//{
+//    options.Cookie.Name = "EGRCookieAuth";
+//    // Важно для SPA: разрешить доступ с фронтенда (если фронт на другом порте/домене)
+//    options.Cookie.SameSite = SameSiteMode.None; // или Lax, если фронт на том же домене
+//    options.Cookie.HttpOnly = false; // если Vue.js должен читать куки (не рекомендуется) — лучше HttpOnly + флаг в теле ответа
+//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // только по HTTPS
+//});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Настройка аутентификации
+
+var jwtSettings = builder.Configuration.GetSection("Jwt").Get<JwtSettings>();
+var key = Encoding.UTF8.GetBytes(jwtSettings?.Key ?? GenerateRandomKey());
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = true,
+            ValidIssuer = jwtSettings?.Issuer,
+            ValidateAudience = true,
+            ValidAudience = jwtSettings?.Audience,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine($"Authentication failed: {context.Exception.Message}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token validated successfully");
+                return Task.CompletedTask;
+            }
+        };
+    });
+
 //Авторизация — оставляем как есть (работает и с API)
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim("UserType", "Администратор"));
-    options.AddPolicy("MustBeLoggedIn", policy => policy.RequireClaim("UserType", new string[] { "Администратор", "Пользователь" }));
+    options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, "Администратор"));
+    options.AddPolicy("MustBeLoggedIn", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, new string[] { "Администратор", "Пользователь" }));
 });
 
 //База данных — без изменений
@@ -89,3 +137,10 @@ app.MapControllers(); // ← основной метод для API
 // app.MapFallbackToFile("index.html"); // раскомментировать, если Vue билдится в wwwroot
 
 app.Run();
+
+string GenerateRandomKey()
+{
+    var key = new byte[32];
+    RandomNumberGenerator.Fill(key);
+    return Convert.ToBase64String(key);
+}

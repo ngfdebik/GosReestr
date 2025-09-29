@@ -9,7 +9,7 @@ namespace AuthTest.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Policy = "MustBeLoggedIn")]
+    //[Authorize(Policy = "MustBeLoggedIn")]
     public class UserController : ControllerBase
     {
         private readonly DbContextTable _dbcontext;

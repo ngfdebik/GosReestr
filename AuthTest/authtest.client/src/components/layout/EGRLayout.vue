@@ -1,7 +1,9 @@
 <!-- src/components/layout/EGRLayout.vue -->
 <template>
   <div class="egr-layout">
-    <Header :user-status="userStatus"
+    <!-- user-status="userStatus"-раньше было нужно -->
+    <Header :isAdmin="isAdmin"
+            :isLoggedIn="isLoggedIn"
             @load-all="LoadAllTable"
             @load-ip="LoadIPTable"
             @load-ul="LoadULTable"
@@ -39,8 +41,7 @@
                   :is-visible="isModalOpen"
                   @close="isModalOpen = false"
                   @load-details="handleLoadDetails"
-                  @load-logs="handleLoadLogs"
-                  />
+                  @load-logs="handleLoadLogs" />
   </div>
 </template>
 
@@ -49,6 +50,7 @@
   import MainTableView from '@/components/MainTableView.vue';
   import FiltersPanel from '@/components/FiltersPanel.vue';
   import ModalDetails from '@/components/ModalDetails.vue';
+  import store from '@/auth/store';
   const baseURL = import.meta.env.VITE_API_URL || window.location.origin;//Пока непонятно
   // ВСТАВЬТЕ СЮДА ВЕСЬ ВАШ JS-КОД ИЗ site.js (data, methods, computed)
   // Я покажу структуру
@@ -137,6 +139,12 @@
       };
     },
     computed: {
+      isAdmin() {
+        return store.getters.isAdmin;
+      },
+      isLoggedIn() {
+        return store.getters.isLoggedIn;
+      },
       trimmedDetailsTableData: function () {
         this.detailsTableData.forEach((element) => {
           delete element.Id;

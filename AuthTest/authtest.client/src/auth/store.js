@@ -1,6 +1,7 @@
 import * as Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import api from '@/services/api';
+import TokenService from '@/services/TokenService';
 
 const app = Vue.createApp()
 app.use(Vuex)
@@ -12,8 +13,19 @@ export default new Vuex.createStore({
     token: localStorage.getItem('token') || '',
     user : '',
     isAdmin : false,
+    isAuthenticated: false,
+    isLoading: false,
   },
   mutations: {
+    SET_USER(state, user) {
+      state.user = user;
+    },
+    SET_AUTHENTICATED(state, status) {
+      state.isAuthenticated = status;
+    },
+    SET_LOADING(state, status) {
+      state.isLoading = status;
+    },
     auth_request(state){
         state.status = 'loading'
     },
@@ -34,26 +46,80 @@ export default new Vuex.createStore({
     }
   },
   actions: {
-    login({commit}, user){
-        return new Promise((resolve, reject) => {
-            commit('auth_request')
-            axios.post('https://localhost:7229/api/auth/login', {
-                login: user.login,
-                password: user.password
-            }).then(resp => {
-                const token = resp.data.access_token
-                const isAdmin = resp.data.isAdmin
-                const login = resp.data.login
-                localStorage.setItem('token', token)
-                axios.defaults.headers.common['Authorization'] = token
-                commit('auth_success', {token, isAdmin, login})
-                resolve(resp)
-            }).catch(err => {
-                commit('auth_error')
-                localStorage.removeItem('token')
-                reject(err)
-            })
-        })
+    async login({ commit }, credentials) {
+      commit('SET_LOADING', true);
+      try {
+        const response = await api.post('/auth/login', credentials);
+        const { accessToken, refreshToken, user } = response.data;
+        
+        TokenService.setTokens(accessToken, refreshToken);
+        commit('SET_USER', user);
+        commit('SET_AUTHENTICATED', true);
+        
+        return response.data;
+      } catch (error) {
+        commit('SET_AUTHENTICATED', false);
+        commit('SET_USER', null);
+        throw error;
+      } finally {
+        commit('SET_LOADING', false);
+      }
+    },
+
+    async refreshToken({ commit }) {
+      try {
+        const token = await TokenService.refreshAuthToken();
+        // Можно обновить информацию о пользователе
+        // const userResponse = await api.get('/auth/me');
+        // commit('SET_USER', userResponse.data);
+        return token;
+      } catch (error) {
+        commit('SET_AUTHENTICATED', false);
+        commit('SET_USER', null);
+        throw error;
+      }
+    },
+
+    async logout({ commit }) {
+      commit('SET_LOADING', true);
+      try {
+        await TokenService.logout();
+      } catch (error) {
+        console.error('Logout error:', error);
+      } finally {
+        commit('SET_USER', null);
+        commit('SET_AUTHENTICATED', false);
+        commit('SET_LOADING', false);
+      }
+    },
+
+    async checkAuth({ commit }) {
+      try {
+        const token = await TokenService.getValidToken();
+        if (token) {
+          // Получаем информацию о пользователе
+          // const response = await api.get('/auth/me');
+          // commit('SET_USER', response.data);
+          // commit('SET_AUTHENTICATED', true);
+          return true;
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        commit('SET_AUTHENTICATED', false);
+        commit('SET_USER', null);
+      }
+      return false;
+    },
+
+    initializeAuth({ dispatch }) {
+      // Проверяем наличие токенов при запуске приложения
+      const accessToken = localStorage.getItem('accessToken');
+      const refreshToken = localStorage.getItem('refreshToken');
+      
+      if (accessToken && refreshToken) {
+        return dispatch('checkAuth');
+      }
+      return Promise.resolve(false);
     },
     logout({ commit }) {
       return new Promise((resolve) => {
@@ -69,5 +135,8 @@ export default new Vuex.createStore({
     authStatus: state => state.status,
     isAdmin: state => state.isAdmin,
     login: state => state.user,
+    user: state => state.user,
+    isAuthenticated: state => state.isAuthenticated,
+    isLoading: state => state.isLoading,
   }
 })

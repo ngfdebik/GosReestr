@@ -47,50 +47,51 @@ namespace AuthTest.Controllers
 
         // POST: api/user/edit
         [HttpPut("edit")]
-        public async Task<ActionResult<ApiResponse>> EditUser([FromBody] UserEditRequest request)
+        public async Task<ActionResult> EditUser([FromBody] UserEditRequest request)
         {
             try
             {
                 // Валидация модели
                 if (!ModelState.IsValid)
                 {
-                    return BadRequest(new ApiResponse
+                    return BadRequest(new 
                     {
-                        Success = false,
-                        Message = "Данные формы невалидны"
-                    });
-                }
-
-                var userLogin = User.FindFirst(ClaimTypes.GivenName)?.Value;
-
-                if (string.IsNullOrEmpty(userLogin) || userLogin != request.Login)
-                {
-                    return BadRequest(new ApiResponse
-                    {
-                        Success = false,
-                        Message = "Ошибка изменения пользователя"
-                    });
-                }
-
-                // Проверка совпадения паролей
-                if (request.Password != request.ConfirmPassword)
-                {
-                    return BadRequest(new ApiResponse
-                    {
-                        Success = false,
-                        Message = "Пароли не совпадают"
+                        success = false,
+                        message = "Данные формы невалидны"
                     });
                 }
 
                 var user = await _dbcontext.Пользователи
                     .FirstOrDefaultAsync(u => u.Логин.Equals(request.Login));
 
+                if (string.IsNullOrEmpty(user.Логин))
+                {
+                    return BadRequest(new 
+                    {
+                        success = false,
+                        message = "Ошибка изменения пользователя"
+                    });
+                }
+
+                // Проверка совпадения паролей
+                if (request.Password != request.ConfirmPassword)
+                {
+                    return BadRequest(new
+                    {
+                        success = false,
+                        message = "Пароли не совпадают"
+                    });
+                }
+
+                //var user = await _dbcontext.Пользователи
+                //    .FirstOrDefaultAsync(u => u.Логин.Equals(request.Login));
+
                 if (user == null)
                 {
-                    return NotFound(new ApiResponse
+                    return NotFound(new
                     {
-                        Success = false,
-                        Message = "Пользователь не найден"
+                        success = false,
+                        sessage = "Пользователь не найден"
                     });
                 }
 
@@ -108,26 +109,26 @@ namespace AuthTest.Controllers
                 _dbcontext.Пользователи.Update(user);
                 await _dbcontext.SaveChangesAsync();
 
-                return Ok(new ApiResponse
+                return Ok(new
                 {
-                    Success = true,
-                    Message = "Пользователь изменен успешно"
+                    success = true,
+                    message = "Пользователь изменен успешно"
                 });
             }
             catch (DbUpdateException ex)
             {
-                return StatusCode(500, new ApiResponse
+                return StatusCode(500, new 
                 {
-                    Success = false,
-                    Message = "Ошибка базы данных при обновлении пользователя"
+                    success = false,
+                    message = "Ошибка базы данных при обновлении пользователя"
                 });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new ApiResponse
+                return StatusCode(500, new 
                 {
-                    Success = false,
-                    Message = "Ошибка изменения пользователя"
+                    success = false,
+                    message = "Ошибка изменения пользователя"
                 });
             }
         }
@@ -153,9 +154,9 @@ namespace AuthTest.Controllers
         public string FullName { get; set; }
     }
 
-    public class ApiResponse
-    {
-        public bool Success { get; set; }
-        public string Message { get; set; }
-    }
+    //public class ApiResponse
+    //{
+    //    public bool Success { get; set; }
+    //    public string Message { get; set; }
+    //}
 }

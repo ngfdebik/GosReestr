@@ -109,16 +109,14 @@ export default {
       try {
         const response = await UserApiService.edit(userData)
         
-        if (response.ok) {
-          const result = await response.json()
-          userEditStatusMessage.value = result.message
+        if (response.success) {
+            userEditStatusMessage.value = response.message
           
-          // Очистка полей пароля после успешного обновления
-          if (result.success) {
+            // Очистка полей пароля после успешного обновления
             userData.password = ''
             userData.confirmPassword = ''
-          }
-        } else {
+        }
+        else {
           const error = await response.json()
           userEditStatusMessage.value = error.message || 'Ошибка изменения пользователя'
         }

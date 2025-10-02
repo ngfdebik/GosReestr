@@ -4,10 +4,12 @@ import authService from './TokenService';
 import router from '@/router/Routers';
 
 const API_URL = 'https://localhost:7229/api';
+const accessToken = localStorage.getItem('accessToken');
 
 const api = axios.create({
   baseURL: API_URL,
   headers: {
+    //Authorization: `Bearer ${accessToken}`,
     'Content-Type': 'application/json',
   },
 });

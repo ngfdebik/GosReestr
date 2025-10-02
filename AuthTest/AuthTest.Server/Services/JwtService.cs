@@ -171,10 +171,10 @@ public class JwtService : IJwtService
         {
             var principal = tokenHandler.ValidateToken(refreshToken, validationParameters, out _);
 
-            var userId = principal.FindFirst("user_id")?.Value;
-            var tokenId = principal.FindFirst("token_id")?.Value;
-            var expiresAtStr = principal.FindFirst("expires_at")?.Value;
-            var type = principal.FindFirst("type")?.Value;
+            var userId = principal.Claims.FirstOrDefault(c => c.Type == "user_id")?.Value;
+            var tokenId = principal.Claims.FirstOrDefault(c => c.Type == "token_id")?.Value;
+            var expiresAtStr = principal.Claims.FirstOrDefault(c => c.Type == "expires_at")?.Value;
+            var type = principal.Claims.FirstOrDefault(c => c.Type == "type")?.Value;
 
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(tokenId) ||
                 type != "refresh" || !DateTime.TryParse(expiresAtStr, out var expiresAt))
@@ -205,12 +205,20 @@ public class JwtService : IJwtService
         }
 
         var accessTokenPrincipal = ValidateToken(accessToken);
-        if (accessTokenPrincipal?.FindFirst(JwtRegisteredClaimNames.Sub)?.Value != refreshTokenData.UserId)
+        if (accessTokenPrincipal == null)
+        {
+            throw new SecurityTokenException("Invalid access token");
+        }
+
+        // Используем утилитарные методы
+        var accessTokenUserId = ClaimUtils.GetUserId(accessTokenPrincipal.Claims);
+        var username = ClaimUtils.GetUsername(accessTokenPrincipal.Claims);
+
+        if (accessTokenUserId != refreshTokenData.UserId)
         {
             throw new SecurityTokenException("Token mismatch");
         }
 
-        var username = accessTokenPrincipal.FindFirst(JwtRegisteredClaimNames.UniqueName)?.Value;
         if (string.IsNullOrEmpty(username))
         {
             throw new SecurityTokenException("Invalid access token");

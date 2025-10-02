@@ -2,8 +2,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 // Импортируем ваши компоненты
-import Login from './components/Login.vue'; // Убедитесь, что путь правильный
-import EGR from './components/EGR.vue'; // Убедитесь, что путь правильный
+import Login from '../components/LoginComponent.vue'; // Убедитесь, что путь правильный
+import EGR from '../components/layout/EGRLayout.vue'; // Убедитесь, что путь правильный
+import UserEdit from '../components/UserEditComponent.vue'
 
 // Определяем массив маршрутов
 const routes = [
@@ -15,7 +16,14 @@ const routes = [
   {
     path: '/EGR',
     name: 'EGR',
-    component: EGR
+    component: EGR,
+    meta: {requiresGuest: true}
+  },
+  {
+    path: '/UserEdit',
+    name: 'UserEdit',
+    component: UserEdit,
+    meta: {requiresGuest: true}
   }
   // Добавьте другие маршруты здесь
 ];

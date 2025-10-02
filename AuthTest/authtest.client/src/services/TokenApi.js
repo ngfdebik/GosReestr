@@ -1,9 +1,9 @@
 // services/api.js
 import axios from 'axios';
-import authService from './authService';
-import router from '@/router';
+import authService from './TokenService';
+import router from '@/router/Routers';
 
-const API_URL = 'http://localhost:7229/api';
+const API_URL = 'https://localhost:7229/api';
 
 const api = axios.create({
   baseURL: API_URL,

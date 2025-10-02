@@ -50,6 +50,9 @@ import UserApiService from '@/services/UserApiService'
 
 export default {
   name: 'UserEdit',
+  created(){
+      this.getCurrentUser()
+    },
   setup() {
     const router = useRouter()
     const loading = ref(false)
@@ -66,16 +69,14 @@ export default {
 
     // Получение данных текущего пользователя
     const getCurrentUser = async () => {
-      try {
-        const response = UserApiService.getCurrent();
-        if (response.ok) {
-          const user = await response.json()
-          userData.login = user.login
-          userData.fullName = user.fullName || ''
-        }
-      } catch (error) {
-        console.error('Ошибка загрузки данных пользователя:', error)
-      }
+        UserApiService.getCurrent()
+        .then(resp =>{
+            userData.login = resp.Login
+            userData.fullName = resp.FullName
+        })
+        .catch(error =>{
+            console.error('Ошибка загрузки данных пользователя:', error)
+        })
     }
 
     // Валидация формы
@@ -106,7 +107,7 @@ export default {
       userEditStatusMessage.value = ''
       
       try {
-        const response = await UserApiService.edit(JSON.stringify(userData))
+        const response = await UserApiService.edit(userData)
         
         if (response.ok) {
           const result = await response.json()
@@ -135,9 +136,7 @@ export default {
     }
 
     // Загрузка данных при монтировании компонента
-    onMounted(() => {
-      getCurrentUser()
-    })
+    
 
     return {
       userData,
@@ -145,7 +144,8 @@ export default {
       userEditStatusMessage,
       loading,
       editUser,
-      goBack
+      goBack,
+      getCurrentUser
     }
   }
 }

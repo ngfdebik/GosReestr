@@ -20,8 +20,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('auth', ['isAuthenticated']),
-    ...mapState('auth', ['isLoading']),
+    ...mapGetters(['isAuthenticated']),
+    ...mapState(['isLoading']),
   },
   async created() {
     // Инициализация аутентификации при запуске приложения
@@ -35,7 +35,7 @@ export default {
     this.stopTokenRefreshInterval();
   },
   methods: {
-    ...mapActions('auth', ['initializeAuth', 'logout', 'refreshToken']),
+    ...mapActions(['initializeAuth', 'logout', 'refreshToken']),
     
     async handleLogout() {
       await this.logout();

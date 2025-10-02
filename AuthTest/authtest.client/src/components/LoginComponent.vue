@@ -51,7 +51,7 @@
     let password = credentials.value.password
     store.dispatch('login', { login, password })
     .then(resp => 
-      router.push(resp.data.redirectTo)
+      router.push(resp.redirectTo)
     ).catch(err =>{
       if(err){
         if (err.errors) {

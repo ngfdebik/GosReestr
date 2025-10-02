@@ -10,14 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Новая папка\**" />
-    <Content Remove="Новая папка\**" />
-    <EmbeddedResource Remove="Новая папка\**" />
-    <None Remove="Новая папка\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="linq2db.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>9.0.9</Version>
     </PackageReference>
@@ -32,6 +26,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\EgrWebEntity\EgrWebEntity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Settings\" />
+    <Folder Include="Services\" />
+    <Folder Include="Settings\" />
   </ItemGroup>
 
 </Project>

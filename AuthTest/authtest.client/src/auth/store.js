@@ -1,16 +1,17 @@
 import * as Vue from 'vue'
 import Vuex from 'vuex'
-import api from '@/services/api';
+import api from '../services/TokenApi';
 import TokenService from '@/services/TokenService';
 
-const app = Vue.createApp()
-app.use(Vuex)
+// const app = Vue.createApp()
+// app.use(Vuex)
 
 
 export default new Vuex.createStore({
   state: {
     status: '',
-    token: localStorage.getItem('token') || '',
+    accessToken: '',//localStorage.getItem('token') || '',
+    refreshToken: '',
     user : '',
     isAdmin : false,
     isAuthenticated: false,
@@ -29,9 +30,10 @@ export default new Vuex.createStore({
     auth_request(state){
         state.status = 'loading'
     },
-    auth_success(state, {token, isAdmin, login}){
+    auth_success(state, {access_token, refresh_token, isAdmin, login}){
         state.status = 'success'
-        state.token = token
+        state.accessToken = access_token
+        state.refreshToken = refresh_token
         state.isAdmin = isAdmin
         state.user = login
     },
@@ -50,10 +52,12 @@ export default new Vuex.createStore({
       commit('SET_LOADING', true);
       try {
         const response = await api.post('/auth/login', credentials);
-        const { accessToken, refreshToken, user } = response.data;
+        const { access_token, refresh_token } = response.data;
         
-        TokenService.setTokens(accessToken, refreshToken);
-        commit('SET_USER', user);
+        TokenService.setTokens(access_token, refresh_token);
+
+        commit('auth_success', response.data)
+        //commit('SET_USER', user);
         commit('SET_AUTHENTICATED', true);
         
         return response.data;
@@ -124,6 +128,7 @@ export default new Vuex.createStore({
     logout({ commit }) {
       return new Promise((resolve) => {
         commit('logout')
+        commit('SET_AUTHENTICATED', false);
         //localStorage.removeItem('token')
         //delete axios.defaults.headers.common['Authorization']
         resolve()
@@ -131,7 +136,7 @@ export default new Vuex.createStore({
     }
   },
   getters: {
-    isLoggedIn: state => !!state.token,
+    isLoggedIn: state => !!state.accessToken,
     authStatus: state => state.status,
     isAdmin: state => state.isAdmin,
     login: state => state.user,

@@ -120,7 +120,7 @@
         this.router.push('/Manage');
       },
       logout() {
-        store.dispatch('logout').then(() => { this.router.push({ name: 'Login' }) });
+        store.dispatch('logout').then(() => { this.router.push({ name: 'Home' }) });
       },
       handleClickOutside(event) {
         // Проверяем, кликнули ли вне блока пользователя

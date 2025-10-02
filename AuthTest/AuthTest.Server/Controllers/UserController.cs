@@ -46,7 +46,7 @@ namespace AuthTest.Controllers
         }
 
         // POST: api/user/edit
-        [HttpPost("edit")]
+        [HttpPut("edit")]
         public async Task<ActionResult<ApiResponse>> EditUser([FromBody] UserEditRequest request)
         {
             try

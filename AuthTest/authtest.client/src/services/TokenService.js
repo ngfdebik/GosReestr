@@ -1,3 +1,7 @@
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL || 'https://localhost:7229/api';
+
 class TokenService {
   constructor() {
     this.accessToken = localStorage.getItem('accessToken');
@@ -27,13 +31,30 @@ class TokenService {
     if (!token) return true;
     
     try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      const exp = payload.exp * 1000;
+      // Используем упрощенный парсинг
+      const payload = this.parseJwtSimple(token);
+      if (!payload || !payload.exp) return true;
+      
+      const exp = payload.exp * 1000; // Convert to milliseconds
       // Добавляем запас в 1 минуту до фактического истечения
       return Date.now() >= (exp - 60000);
     } catch (error) {
-      console.error('Error parsing token:', error);
+      console.error('Error checking token expiration:', error);
       return true;
+    }
+  }
+
+  parseJwtSimple(token) {
+    if (!token) return null;
+    
+    try {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = atob(base64);
+      return JSON.parse(jsonPayload);
+    } catch (error) {
+      console.error('Error parsing JWT (simple):', error);
+      return null;
     }
   }
 

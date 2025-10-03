@@ -105,7 +105,7 @@ namespace AuthTest.Controllers
                 _ => false
             };
 
-            var tokens = _jwtService.GenerateTokens(user.Id.ToString(), user.Логин);
+            var tokens = _jwtService.GenerateTokens(user.Id.ToString(), user.Логин, new List<string> { user.Роль });
 
             return Ok(new { 
                 access_token = tokens.AccessToken,
@@ -117,14 +117,15 @@ namespace AuthTest.Controllers
         }
 
         [HttpPost("refresh")]
-        public ActionResult<TokenResponse> Refresh([FromBody] RefreshTokenRequest request)
+        public async Task<ActionResult<TokenResponse>> Refresh([FromBody] RefreshTokenRequest request)
         {
             try
             {
-                var tokens = _jwtService.RefreshTokens(request.AccessToken, request.RefreshToken);
+                // Получаем роли пользователя из базы данных
+                var userId = GetUserIdFromToken(request.AccessToken); // Нужно реализовать этот метод
+                var userRoles = await _dbcontext.Пользователи.FirstOrDefaultAsync(u => u.Id.ToString().Equals(userId));
 
-                // Здесь можно обновить refresh token в базе данных
-                // await _userService.UpdateRefreshTokenAsync(request.RefreshToken, tokens.RefreshToken);
+                var tokens = _jwtService.RefreshTokens(request.AccessToken, request.RefreshToken, new List<string> { userRoles.Роль });
 
                 return Ok(tokens);
             }
@@ -176,6 +177,26 @@ namespace AuthTest.Controllers
 
             // если пользователя не найдено
             return null;
+        }
+
+        private string GetUserIdFromToken(string token)
+        {
+            try
+            {
+                var principal = _jwtService.ValidateToken(token);
+                return GetUserIdFromClaims(principal.Claims);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private string GetUserIdFromClaims(IEnumerable<Claim> claims)
+        {
+            return claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value
+                ?? claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value
+                ?? claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
         }
 
         public class Credential

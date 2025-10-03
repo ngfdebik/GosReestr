@@ -8,7 +8,7 @@ const client = axios.create({
 
 export default {
     async execute(method, resource, data) {
-        const accessToken = localStorage.getItem('token');
+        const accessToken = localStorage.getItem('accessToken');
         return await client({
             method,
             url: resource,

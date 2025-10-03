@@ -9,11 +9,11 @@ using Microsoft.Extensions.Options;
 using AuthTest;
 public interface IJwtService
 {
-    TokenResponse GenerateTokens(string userId, string username);
+    TokenResponse GenerateTokens(string userId, string username, List<string> roles);
     ClaimsPrincipal ValidateToken(string token);
     //string GenerateRefreshToken();
     RefreshTokenData ValidateRefreshToken(string refreshToken);
-    TokenResponse RefreshTokens(string accessToken, string refreshToken);
+    TokenResponse RefreshTokens(string accessToken, string refreshToken, List<string> roles);
 }
 
 public class JwtService : IJwtService
@@ -53,9 +53,9 @@ public class JwtService : IJwtService
         return keyBytes;
     }
 
-    public TokenResponse GenerateTokens(string userId, string username)
+    public TokenResponse GenerateTokens(string userId, string username, List<string> roles)
     {
-        var accessToken = GenerateAccessToken(userId, username);
+        var accessToken = GenerateAccessToken(userId, username, roles);
         var refreshToken = GenerateRefreshToken(userId);
 
         return new TokenResponse
@@ -67,18 +67,24 @@ public class JwtService : IJwtService
         };
     }
 
-    private string GenerateAccessToken(string userId, string username)
+    private string GenerateAccessToken(string userId, string username, List<string> roles)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = new SymmetricSecurityKey(_jwtSecret);
 
-        var claims = new[]
+        var claims = new List<Claim>
         {
             new Claim(JwtRegisteredClaimNames.Sub, userId),
             new Claim(JwtRegisteredClaimNames.UniqueName, username),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
         };
+
+        // Добавляем роли в claims
+        foreach (var role in roles)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, role));
+        }
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -196,7 +202,7 @@ public class JwtService : IJwtService
         }
     }
 
-    public TokenResponse RefreshTokens(string accessToken, string refreshToken)
+    public TokenResponse RefreshTokens(string accessToken, string refreshToken, List<string> roles)
     {
         var refreshTokenData = ValidateRefreshToken(refreshToken);
         if (refreshTokenData == null)
@@ -210,9 +216,8 @@ public class JwtService : IJwtService
             throw new SecurityTokenException("Invalid access token");
         }
 
-        // Используем утилитарные методы
-        var accessTokenUserId = ClaimUtils.GetUserId(accessTokenPrincipal.Claims);
-        var username = ClaimUtils.GetUsername(accessTokenPrincipal.Claims);
+        var accessTokenUserId = GetUserIdFromClaims(accessTokenPrincipal.Claims);
+        var username = GetUsernameFromClaims(accessTokenPrincipal.Claims);
 
         if (accessTokenUserId != refreshTokenData.UserId)
         {
@@ -224,6 +229,24 @@ public class JwtService : IJwtService
             throw new SecurityTokenException("Invalid access token");
         }
 
-        return GenerateTokens(refreshTokenData.UserId, username);
+        // Теперь передаем roles в GenerateTokens
+        return GenerateTokens(refreshTokenData.UserId, username, roles);
+    }
+
+    private string GetUserIdFromClaims(IEnumerable<Claim> claims)
+    {
+        return claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)?.Value
+            ?? claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value
+            ?? claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value;
+    }
+
+    private string GetUsernameFromClaims(IEnumerable<Claim> claims)
+    {
+        return claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.UniqueName)?.Value
+            ?? claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value
+            ?? claims.FirstOrDefault(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")?.Value
+            ?? claims.FirstOrDefault(c => c.Type == "username")?.Value
+            ?? claims.FirstOrDefault(c => c.Type == "user")?.Value
+            ?? claims.FirstOrDefault(c => c.Type == "preferred_username")?.Value;
     }
 }

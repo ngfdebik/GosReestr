@@ -106,7 +106,10 @@ namespace AuthTest.Controllers
                 TempData["MessageType"] = "error";
             }
 
-            return RedirectToAction("Manage");
+            return Ok(new
+            {
+                redirectTo = "/Manage"
+            });
         }
 
         // GET: User/Load
@@ -213,7 +216,11 @@ namespace AuthTest.Controllers
                 TempData["MessageType"] = "error";
             }
 
-            return RedirectToAction("Manage");
+            return Ok(new
+            {
+                status = "success",
+                redirectTo = "/Manage"
+            });
         }
 
         // POST: User/Delete

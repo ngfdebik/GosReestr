@@ -52,36 +52,38 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(key),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                builder.Configuration["Jwt:Key"] ?? GenerateRandomKey())),
             ValidateIssuer = true,
-            ValidIssuer = jwtSettings?.Issuer,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidateAudience = true,
-            ValidAudience = jwtSettings?.Audience,
+            ValidAudience = builder.Configuration["Jwt:Audience"],
             ValidateLifetime = true,
-            ClockSkew = TimeSpan.Zero
-        };
-
-        options.Events = new JwtBearerEvents
-        {
-            OnAuthenticationFailed = context =>
-            {
-                Console.WriteLine($"Authentication failed: {context.Exception.Message}");
-                return Task.CompletedTask;
-            },
-            OnTokenValidated = context =>
-            {
-                Console.WriteLine("Token validated successfully");
-                return Task.CompletedTask;
-            }
+            ClockSkew = TimeSpan.Zero,
+            // Важно: указываем где искать роли
+            RoleClaimType = ClaimTypes.Role
         };
     });
 
-//Авторизация — оставляем как есть (работает и с API)
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, "Администратор"));
-    options.AddPolicy("MustBeLoggedIn", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, new string[] { "Администратор", "Пользователь" }));
+    options.AddPolicy("MustBeAdmin", policy =>
+        policy.RequireRole("Администратор"));
+
+    options.AddPolicy("MustBeLoggedIn", policy =>
+        policy.RequireRole("Администратор", "Пользователь"));
+
+    //// Альтернативный вариант через claims (если предпочитаете)
+    //options.AddPolicy("MustBeAdminClaim", policy =>
+    //    policy.RequireClaim(ClaimTypes.Role, "Администратор"));
 });
+
+//Авторизация — оставляем как есть (работает и с API)
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, "Администратор"));
+//    options.AddPolicy("MustBeLoggedIn", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, new string[] { "Администратор", "Пользователь" }));
+//});
 
 //База данных — без изменений
 LinqToDBForEFTools.Initialize();

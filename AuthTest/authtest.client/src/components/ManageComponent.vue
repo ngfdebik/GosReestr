@@ -55,7 +55,7 @@
                             <label class="mb-1" for="existingUserSelect">Пользователь</label>
                             <select id="existingUserSelect" v-model="selectedExistingUser" class="form-select mb-2" style="width:100%">
                                 <option value="">Выберите пользователя</option>
-                                <option v-for="user in existingUsers" :key="user.value" :value="user.value">{{ user.text }}</option>
+                                <option v-for="user in existingUsers" :key="user.Value" :value="user.Value">{{ user.Text }}</option>
                             </select>
                             
                             <button type="button" @click="loadUser" class="btn btn-primary" style="width:100%" 
@@ -112,11 +112,15 @@
 </template>
 
 <script>
-    import { ref } from 'vue';
+    import { ref, reactive, onMounted } from 'vue'
     import ManageApiService from '@/services/ManageApiService';
+import router from '@/router/Routers';
         
         export default {
             name:"ManageComponent",
+            created(){
+                this.loadUsers();
+            },
             setup() {
                 // Состояние загрузки
                 const loading = ref(false);
@@ -152,35 +156,40 @@
                 const selectedExistingUser = ref('');
                 
                 // Списки данных
-                const roles = ref([
-                    { value: 'Администратор', text: 'Администратор' },
-                    { value: 'Пользователь', text: 'Пользователь' }
-                ]);
-                /*
-                // Имитация данных из базы
-                const existingUsers = ref([
-                    { value: 'admin', text: 'admin' },
-                    { value: 'user1', text: 'user1' },
-                    { value: 'user2', text: 'user2' }
-                ]);
+                const roles = ref([]);
                 
-                // Имитация базы пользователей
-                const mockUsersDb = reactive([
-                    { login: 'admin', password: 'hashed_password', role: 'Администратор', fullName: 'Администратор Системы' },
-                    { login: 'user1', password: 'hashed_password1', role: 'Пользователь', fullName: 'Иванов И.И.' },
-                    { login: 'user2', password: 'hashed_password2', role: 'Пользователь', fullName: 'Петров П.П.' }
-                ]);
-                */
+                // Имитация данных из базы
+                const existingUsers = ref([]);
                 // Функции
                 const goBack = () => {
-                    // Здесь должна быть логика возврата на предыдущую страницу
-                    console.log('Возврат на предыдущую страницу');
-                    // В реальном приложении: window.history.back() или router.go(-1)
+                    router.go(-1)
                 };
                 
                 const clearMessages = () => {
                     userCreateStatusMessage.value = '';
                     userEditStatusMessage.value = '';
+                };
+
+                const loadUsers = async() => {
+                    try {
+                        const response = await ManageApiService.manage();
+                        
+                        // Очищаем массивы правильно
+                        existingUsers.value = []; // Используем присваивание
+                        roles.value = [];         // Используем присваивание
+                        
+                        // Добавляем данные в массивы правильно
+                        if (response.ExistingUsers && Array.isArray(response.ExistingUsers)) {
+                            existingUsers.value = response.ExistingUsers;
+                        }
+                        
+                        if (response.Roles && Array.isArray(response.Roles)) {
+                            roles.value = response.Roles;
+                        }
+                    } catch (error) {
+                        console.error('Error loading users:', error);
+                        userEditStatusMessage.value = 'Ошибка загрузки данных';
+                    }
                 };
                 
                 const validateNewUser = () => {
@@ -246,51 +255,23 @@
                     
                     return isValid;
                 };
-                /*
-                // Имитация хэширования пароля
-                const hashPassword = (password) => {
-                    return 'hashed_' + password; // В реальном приложении используйте bcrypt или аналоги
-                };
-                */
                 const createUser = async () => {
                     clearMessages();
                     
                     if (!validateNewUser()) return;
                     
                     loading.value = true;
-                    response = ManageApiService.create(newUser);
-                    /*
-                    try {
-                        // Имитация API вызова
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        
-                        // Создание нового пользователя
-                        const newUserData = {
-                            login: newUser.login,
-                            password: newUser.password,
-                            role: newUser.selectedRole,
-                            fullName: newUser.fullName || ''
-                        };
-                        
-                        mockUsersDb.push(newUserData);
-                        
-                        // Обновление списка пользователей
-                        existingUsers.value.push({
-                            value: newUser.login,
-                            text: newUser.login
-                        });
-                        
-                        userCreateStatusMessage.value = 'Новый пользователь создан успешно';
-                        
-                        // Очистка формы после успешного создания
-                        Object.keys(newUser).forEach(key => newUser[key] = '');
-                    } catch (error) {
+                    try{
+                        const response = ManageApiService.create(newUser);
+                        if(response.status){
+                            userCreateStatusMessage.value = 'Новый пользователь создан успешно';
+                        }
+                    }catch (error) {
                         userCreateStatusMessage.value = 'Ошибка при создании пользователя';
                         console.error('Ошибка создания пользователя:', error);
                     } finally {
                         loading.value = false;
                     }
-                        */
                 };
                 
                 const loadUser = async () => {
@@ -301,23 +282,16 @@
                     
                     clearMessages();
                     loading.value = true;
-                    response = ManageApiService.load(selectedExistingUser)
-                    /*
-                    try {
-                        // Имитация API вызова
-                        await new Promise(resolve => setTimeout(resolve, 500));
-                        
-                        // Поиск пользователя в "базе"
-                        const user = mockUsersDb.find(u => u.login === selectedExistingUser.value);
-                        
-                        if (user) {
+                    try{
+                        const response = ManageApiService.load(selectedExistingUser)
+                        if (response) {
                             Object.assign(existingUser, {
-                                login: user.login,
+                                login: response.ExistingLoginData.login,
                                 password: '',
                                 confirmPassword: '',
-                                selectedRole: user.role,
-                                fullName: user.fullName,
-                                hiddenSelectedUser: user.login
+                                selectedRole: response.ExistingLoginData.Role,
+                                fullName: response.ExistingLoginData.FullName,
+                                hiddenSelectedUser: response.ExistingLoginData.login
                             });
                         } else {
                             userEditStatusMessage.value = 'Пользователь не найден';
@@ -328,76 +302,37 @@
                     } finally {
                         loading.value = false;
                     }
-                        */
                 };
                 
                 const updateUser = async () => {
                     if (!validateExistingUser()) return;
                     
                     loading.value = true;
-                    response = ManageApiService.update(existingUser)
-                    /*
-                    try {
-                        // Имитация API вызова
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        
-                        // Поиск и обновление пользователя
-                        const userIndex = mockUsersDb.findIndex(u => u.login === existingUser.hiddenSelectedUser);
-                        
-                        if (userIndex !== -1) {
-                            mockUsersDb[userIndex].login = existingUser.login;
-                            mockUsersDb[userIndex].role = existingUser.selectedRole;
-                            mockUsersDb[userIndex].fullName = existingUser.fullName;
-                            
-                            // Обновление пароля, если он указан
-                            if (existingUser.password) {
-                                mockUsersDb[userIndex].password = existingUser.password;
-                            }
-                            
-                            // Обновление списка пользователей
-                            const userInListIndex = existingUsers.value.findIndex(u => u.value === existingUser.hiddenSelectedUser);
-                            if (userInListIndex !== -1) {
-                                existingUsers.value[userInListIndex] = {
-                                    value: existingUser.login,
-                                    text: existingUser.login
-                                };
-                            }
-                            
+
+                    try{
+                        const response = ManageApiService.update(existingUser)
+                        if(response.status == "success"){
                             userEditStatusMessage.value = 'Пользователь изменен успешно';
+                            router.push(response.redirectTo)
                         } else {
                             userEditStatusMessage.value = 'Пользователь не найден';
                         }
-                    } catch (error) {
+                    }catch (error) {
                         userEditStatusMessage.value = 'Ошибка изменения пользователя';
                         console.error('Ошибка обновления пользователя:', error);
                     } finally {
                         loading.value = false;
                     }
-                    */
                 };
                 
                 const deleteUser = async () => {
                     if (!confirm('Вы уверены, что хотите удалить этого пользователя?')) return;
                     
                     loading.value = true;
-                    response = ManageApiService.delete(existingUser)
-                    /*
-                    try {
-                        // Имитация API вызова
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        
-                        // Удаление пользователя
-                        const userIndex = mockUsersDb.findIndex(u => u.login === existingUser.hiddenSelectedUser);
-                        
-                        if (userIndex !== -1) {
-                            mockUsersDb.splice(userIndex, 1);
-                            
-                            // Удаление из списка пользователей
-                            const userInListIndex = existingUsers.value.findIndex(u => u.value === existingUser.hiddenSelectedUser);
-                            if (userInListIndex !== -1) {
-                                existingUsers.value.splice(userInListIndex, 1);
-                            }
-                            
+
+                    try{
+                        const response = ManageApiService.delete(existingUser)
+                        if(response){
                             userEditStatusMessage.value = 'Пользователь удален успешно';
                             
                             // Очистка формы после удаления
@@ -412,7 +347,6 @@
                     } finally {
                         loading.value = false;
                     }
-                    */
                 };
                 
                 return {
@@ -426,6 +360,7 @@
                     selectedExistingUser,
                     roles,
                     existingUsers,
+                    loadUsers,
                     goBack,
                     createUser,
                     loadUser,

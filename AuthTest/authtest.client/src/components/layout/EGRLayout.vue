@@ -9,23 +9,116 @@
             @load-ul="LoadULTable"
             @export-excel="exportToExcel"
             @export-doc="ExportToDoc" />
+    <nav id="paginationShared" v-if="showSharedHeaders">
+      <div class="d-flex justify-content-between mb-2">
+        <!-- Пагинация -->
+        <ul class="pagination justify-content-center flex-wrap">
+          <!-- Кнопка "Предыдущая" -->
+          <li class="page-item" :class="{ disabled: page <= 1 }">
+            <button class="page-link" @click="ChangePageShared(page - 1)" :disabled="page <= 1">
+              Предыдущая
+            </button>
+          </li>
 
+          <!-- Страницы -->
+          <li v-for="pageNum in visiblePagesShared"
+              :key="pageNum"
+              class="page-item"
+              :class="{ active: page === pageNum }">
+            <button class="page-link" @click="ChangePageShared(pageNum)">
+              {{ pageNum }}
+            </button>
+          </li>
+
+          <!-- Кнопка "Следующая" -->
+          <li class="page-item" :class="{ disabled: page >= pagesCountShared }">
+            <button class="page-link"
+                    @click="ChangePageShared(page + 1)"
+                    :disabled="page >= pagesCountShared">
+              Следующая
+            </button>
+          </li>
+        </ul>
+
+        <!-- Переход по номеру -->
+        <div class="d-flex align-items-center">
+          <input type="number"
+                 class="form-control me-2"
+                 v-model.number="page_number"
+                 min="1"
+                 :max="pagesCountShared"
+                 style="width: 80px" />
+          <button type="button" class="btn btn-primary" @click="goToPage('shared')">
+            Перейти
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Для IP -->
+    <nav id="paginationIP" v-if="showIPHeaders">
+      <div class="d-flex justify-content-between mb-2">
+        <ul class="pagination justify-content-center flex-wrap">
+          <li class="page-item" :class="{ disabled: page <= 1 }">
+            <button class="page-link" @click="ChangePageIP(page - 1)" :disabled="page <= 1">Предыдущая</button>
+          </li>
+          <li v-for="pageNum in visiblePagesIP"
+              :key="pageNum"
+              class="page-item"
+              :class="{ active: page === pageNum }">
+            <button class="page-link" @click="ChangePageIP(pageNum)">{{ pageNum }}</button>
+          </li>
+          <li class="page-item" :class="{ disabled: page >= pagesCountIP }">
+            <button class="page-link" @click="ChangePageIP(page + 1)" :disabled="page >= pagesCountIP">Следующая</button>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <input type="number" class="form-control me-2" v-model.number="page_number" min="1" :max="pagesCountIP" style="width: 80px" />
+          <button type="button" class="btn btn-primary" @click="goToPage('ip')">Перейти</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Для UL -->
+    <nav id="paginationUL" v-if="showULHeaders">
+      <div class="d-flex justify-content-between mb-2">
+        <ul class="pagination justify-content-center flex-wrap">
+          <li class="page-item" :class="{ disabled: page <= 1 }">
+            <button class="page-link" @click="ChangePageUL(page - 1)" :disabled="page <= 1">Предыдущая</button>
+          </li>
+          <li v-for="pageNum in visiblePagesUL"
+              :key="pageNum"
+              class="page-item"
+              :class="{ active: page === pageNum }">
+            <button class="page-link" @click="ChangePageUL(pageNum)">{{ pageNum }}</button>
+          </li>
+          <li class="page-item" :class="{ disabled: page >= pagesCountUL }">
+            <button class="page-link" @click="ChangePageUL(page + 1)" :disabled="page >= pagesCountUL">Следующая</button>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <input type="number" class="form-control me-2" v-model.number="page_number" min="1" :max="pagesCountUL" style="width: 80px" />
+          <button type="button" class="btn btn-primary" @click="goToPage('ul')">Перейти</button>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid mt-3">
       <div class="row">
         <div class="col-9">
           <MainTableView :show-shared-headers="showSharedHeaders"
-                         :show-ip-headers="showIPHeaders"
-                         :show-ul-headers="showULHeaders"
-                         :shared-ip-rows="SharedTableContent.sharedIPTableContent"
-                         :shared-ul-rows="SharedTableContent.sharedULTableContent"
+                         :show-i-p-headers="showIPHeaders"
+                         :show-u-l-headers="showULHeaders"
+                         :shared-i-p-rows="SharedTableContent.sharedIPTableContent"
+                         :shared-u-l-rows="SharedTableContent.sharedULTableContent"
                          :ip-rows="IPTableContent"
                          :ul-rows="ULTableContent"
                          @open-modal="handleOpenModal" />
         </div>
         <div class="col-3">
+          <FileUploadZone @upload-complete="getfileuploadzone" />
           <FiltersPanel :filters="filters"
-                        :show-ip-headers="showIPHeaders"
-                        :show-ul-headers="showULHeaders"
+                        :show-i-p-headers="showIPHeaders"
+                        :show-u-l-headers="showULHeaders"
                         :show-shared-headers="showSharedHeaders"
                         @update:filters="filters = $event"
                         @apply-filters="FilterTable" />
@@ -50,8 +143,10 @@
   import MainTableView from '@/components/MainTableView.vue';
   import FiltersPanel from '@/components/FiltersPanel.vue';
   import ModalDetails from '@/components/ModalDetails.vue';
+  import FileUploadZone from '@/components/FileUploadZone.vue';
   import store from '@/auth/store';
-  const baseURL = import.meta.env.VITE_API_URL || window.location.origin;//Пока непонятно
+  import api from '@/services/TokenApi';
+  //const baseURL = import.meta.env.VITE_API_URL || window.location.origin;//Пока непонятно
   // ВСТАВЬТЕ СЮДА ВЕСЬ ВАШ JS-КОД ИЗ site.js (data, methods, computed)
   // Я покажу структуру
 
@@ -61,7 +156,8 @@
       Header,
       MainTableView,
       FiltersPanel,
-      ModalDetails
+      ModalDetails,
+      FileUploadZone
     },
     data() {
       return {
@@ -91,9 +187,11 @@
         //данные всех основных таблиц
         IPTableContent: [],
         ULTableContent: [],
-        sharedULTableContent: [],
-        sharedIPTableContent: [],
-        SharedTableContent: [],
+        
+        SharedTableContent: {
+          sharedULTableContent: [],
+          sharedIPTableContent: []
+        },
         extraTableContent: [],
 
         //хранилища данных таблиц (используются после очистки фильтров)
@@ -129,7 +227,7 @@
         pagesCountShared: 0,
 
         //для перехода на страницу
-        page_number: 0,
+        page_number: 1,
         // ...все ваши данные из site.js...
         userStatus: 'Администратор',
         isModalOpen: false,
@@ -155,14 +253,69 @@
 
         return this.detailsTableData;
       },
+      visiblePagesShared() {
+        return this.getVisiblePages(this.page, this.pagesCountShared);
+      },
+      visiblePagesIP() {
+        return this.getVisiblePages(this.page, this.pagesCountIP);
+      },
+      visiblePagesUL() {
+        return this.getVisiblePages(this.page, this.pagesCountUL);
+      }
     },
     methods: {
+      getVisiblePages(current, total) {
+        if (total <= 7) {
+          return Array.from({ length: total }, (_, i) => i + 1);
+        }
+
+        const delta = 2;
+        const range = [];
+        const left = current - delta;
+        const right = current + delta;
+
+        for (let i = Math.max(1, left); i <= Math.min(total, right); i++) {
+          range.push(i);
+        }
+
+        if (left > 1) {
+          range.unshift(1);
+          if (left > 2) range.unshift('...');
+        }
+
+        if (right < total) {
+          range.push(total);
+          if (right < total - 1) range.push('...');
+        }
+
+        return range;
+      },
+
+      goToPage(type) {
+        const pageNum = this.page_number;
+        if (!pageNum || pageNum < 1) return;
+
+        switch (type) {
+          case 'shared':
+            if (pageNum <= this.pagesCountShared) this.ChangePageShared(pageNum);
+            break;
+          case 'ip':
+            if (pageNum <= this.pagesCountIP) this.ChangePageIP(pageNum);
+            break;
+          case 'ul':
+            if (pageNum <= this.pagesCountUL) this.ChangePageUL(pageNum);
+            break;
+        }
+      },
+      getfileuploadzone() {
+
+      },
       // Все методы из site.js: LoadAllTable, FilterTable, exportToExcel и т.д.
       async GetDetailsData(table, id) {
         //очищаем отображаемую таблицу из ДопИНФ
         this.detailsTableData = [];
         this.detailsTableHeaders = [];
-        
+
         //получаем данные по выбранной таблице
         var url = baseURL + '/Home/Details?table=' + table + '&id=' + id;
         let response = await fetch(url);
@@ -267,8 +420,8 @@
         this.ULTableHeaders = [];
         this.ULTableContent = [];
 
-        this.sharedULTableContent = [];
-        this.sharedIPTableContent = [];
+        this.SharedTableContent.sharedULTableContent = [];
+        this.SharedTableContent.sharedIPTableContent = [];
 
         this.extraTableContent = [];
         this.extraTableHeaders = [];
@@ -294,42 +447,50 @@
         //this.exportTableID.push('ULTable');
         this.exportTableID.push('sharedTable');
         this.entityType = 'IPUL';
+        this.page_number = 1;
+        try {
+          const response = await api.get('/Home/AllTab', {
+            params: { buttonId: 'Alltable' }
+          });
 
-        var url = baseURL + '/Home/AllTab?buttonId=Alltable';
-        let response = await fetch(url);
-        let tableData = await response.json();
+          const tableData = response.data;
 
-        for (var i = 1; i <= 6; i++) {
-          this.IPTableHeaders.push(Object.keys(tableData.ЕГРИП_СвИП[0])[i]);
+          // Заполняем IP-таблицу
+          for (var i = 1; i <= 6; i++) {
+            this.IPTableHeaders.push(Object.keys(tableData.ЕГРИП_СвИП[0])[i]);
+          }
+
+          //Object.keys(tableData.егриП_СвИП[0]).forEach((element) => {
+          //    this.IPTableHeaders.push(element);
+          //})
+
+          tableData.ЕГРИП_СвИП.forEach((entity) => {
+            if (entity.idЛицо != null) {
+              this.SharedTableContent.sharedIPTableContent.push(entity);
+            }
+          });
+
+          //Object.keys(tableData.ЕГРЮЛ_СвЮЛ[0]).forEach((element) => {
+          //    this.ULTableHeaders.push(element);
+          //})
+
+          tableData.ЕГРЮЛ_СвЮЛ.forEach((entity) => {
+            if (entity.idЛицо != null) {
+              this.SharedTableContent.sharedULTableContent.push(entity);
+            }
+          });
+
+          this.sharedIPTableContent_buffer = this.filteredSharedIPTableContent = this.SharedTableContent.sharedIPTableContent;
+          this.sharedULTableContent_buffer = this.filteredSharedULTableContent = this.SharedTableContent.sharedULTableContent;
+
+          //this.SharedTableContent.sharedIPTableContent = this.sharedIPTableContent_buffer;
+          //this.SharedTableContent.sharedULTableContent = this.sharedULTableContent_buffer;
+          this.ChangePageShared(1);
+          this.pagesCountShared = Math.ceil((this.sharedIPTableContent_buffer.length + this.sharedULTableContent_buffer.length) / this.pagination_items_per_page);
+        } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+          // Можно показать уведомление пользователю
         }
-
-        //Object.keys(tableData.егриП_СвИП[0]).forEach((element) => {
-        //    this.IPTableHeaders.push(element);
-        //})
-
-        tableData.ЕГРИП_СвИП.forEach((entity) => {
-          if (entity.idЛицо != null) {
-            this.sharedIPTableContent.push(entity);
-          }
-        });
-
-        //Object.keys(tableData.ЕГРЮЛ_СвЮЛ[0]).forEach((element) => {
-        //    this.ULTableHeaders.push(element);
-        //})
-
-        tableData.ЕГРЮЛ_СвЮЛ.forEach((entity) => {
-          if (entity.idЛицо != null) {
-            this.sharedULTableContent.push(entity);
-          }
-        });
-
-        this.sharedIPTableContent_buffer = this.filteredSharedIPTableContent = this.sharedIPTableContent;
-        this.sharedULTableContent_buffer = this.filteredSharedULTableContent = this.sharedULTableContent;
-
-        //this.SharedTableContent.sharedIPTableContent = this.sharedIPTableContent_buffer;
-        //this.SharedTableContent.sharedULTableContent = this.sharedULTableContent_buffer;
-        this.ChangePageShared(1);
-        this.pagesCountShared = Math.ceil((this.sharedIPTableContent_buffer.length + this.sharedULTableContent_buffer.length) / this.pagination_items_per_page);
       },
 
       async LoadIPTable() {
@@ -339,8 +500,8 @@
         this.ULTableHeaders = [];
         this.ULTableContent = [];
 
-        this.sharedULTableContent = [];
-        this.sharedIPTableContent = [];
+        this.SharedTableContent.sharedIPTableContent = [];
+        this.SharedTableContent.sharedULTableContent = [];
 
         this.extraTableContent = [];
         this.extraTableHeaders = [];
@@ -352,7 +513,7 @@
         this.sharedIPTableContent_buffer = [];
         this.sharedULTableContent_buffer = [];
         this.ULTableContent_buffer = [];
-        this.SharedTableContent = [];
+        //this.SharedTableContent = [];
 
         this.filteredSharedIPTableContent = [];
         this.filteredSharedULTableContent = [];
@@ -364,24 +525,30 @@
         this.exportTableID = [];
         this.exportTableID.push('IPTable');
         this.entityType = 'IP';
+        this.page_number = 1;
+        try {
+          const response = await api.get('/Home/AllTab', {
+            params: { buttonId: 'IPtable' }
+          });
 
-        var url = baseURL + '/Home/AllTab?buttonId=IPtable';
-        let response = await fetch(url);
-        let tableData = await response.json();
+          const tableData = response.data;
 
-        //Object.keys(tableData.ЕГРИП_СвИП[0]).forEach((element) => {
-        //    this.IPTableHeaders.push(element);
-        //})
+          // Заполняем IP-таблицу
+          this.IPTableContent = tableData.ЕГРИП_СвИП.filter(entity => entity.idЛицо != null);//Id -idЛицо
 
-        tableData.ЕГРИП_СвИП.forEach((entity) => {
-          if (entity.idЛицо != null) {
-            this.IPTableContent.push(entity);
-          }
-        });
+          // Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
+          this.SharedTableContent.sharedIPTableContent = [...this.IPTableContent]; // или нужные данные
+          this.SharedTableContent.sharedULTableContent = []; // пусто для IP
 
-        this.IPTableContent_buffer = this.filteredIPTableContent = this.IPTableContent;
-        this.ChangePageIP(1);
-        this.pagesCountIP = Math.ceil(this.IPTableContent_buffer.length / this.pagination_items_per_page);
+          // Буферы
+          this.IPTableContent_buffer = [...this.IPTableContent];
+          this.filteredIPTableContent = [...this.IPTableContent];
+          this.ChangePageIP(1);
+          this.pagesCountIP = Math.ceil(this.IPTableContent_buffer.length / this.pagination_items_per_page);
+        } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+          // Можно показать уведомление пользователю
+        }
       },
 
       async LoadULTable() {
@@ -391,8 +558,8 @@
         this.ULTableHeaders = [];
         this.ULTableContent = [];
 
-        this.sharedULTableContent = [];
-        this.sharedIPTableContent = [];
+        this.SharedTableContent.sharedULTableContent = [];
+        this.SharedTableContent.sharedIPTableContent = [];
 
         this.extraTableContent = [];
         this.extraTableHeaders = [];
@@ -404,7 +571,6 @@
         this.sharedIPTableContent_buffer = [];
         this.sharedULTableContent_buffer = [];
         this.IPTableContent_buffer = [];
-        this.SharedTableContent = [];
 
         this.filteredSharedIPTableContent = [];
         this.filteredSharedULTableContent = [];
@@ -416,24 +582,28 @@
         this.exportTableID = [];
         this.exportTableID.push('ULTable');
         this.entityType = 'UL';
+        this.page_number = 1;
+        try {
+          const response = await api.get('/Home/AllTab', {
+            params: { buttonId: 'ULtable' }
+          });
 
-        var url = baseURL + '/Home/AllTab?buttonId=ULtable';
-        let response = await fetch(url);
-        let tableData = await response.json();
+          const tableData = response.data;
+          this.ULTableContent = tableData.ЕГРЮЛ_СвЮЛ.filter(entity => entity.idЛицо != null);//Id -idЛицо
 
-        //Object.keys(tableData.ЕГРЮЛ_СвЮЛ[0]).forEach((element) => {
-        //    this.ULTableHeaders.push(element);
-        //})
+          // Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
+          this.SharedTableContent.sharedIPTableContent = []; // или нужные данные
+          this.SharedTableContent.sharedULTableContent = [...this.ULTableContent]; // пусто для IP
 
-        tableData.ЕГРЮЛ_СвЮЛ.forEach((entity) => {
-          if (entity.idЛицо != null) {
-            this.ULTableContent.push(entity);
-          }
-        });
-
-        this.ULTableContent_buffer = this.filteredULTableContent = this.ULTableContent;
-        this.ChangePageUL(1);
-        this.pagesCountUL = Math.ceil(this.ULTableContent_buffer.length / this.pagination_items_per_page);
+          // Буферы
+          this.ULTableContent_buffer = [...this.ULTableContent];
+          this.filteredULTableContent = [...this.ULTableContent];
+          this.ChangePageUL(1);
+          this.pagesCountUL = Math.ceil(this.ULTableContent_buffer.length / this.pagination_items_per_page);
+        } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+          // Можно показать уведомление пользователю
+        }
       },
 
       FilterTable() {
@@ -721,7 +891,7 @@
       //    var footer = "</body></html>";
 
       //    var html = header;
-      //    html += document.getElementById('tableView').innerHTML; 
+      //    html += document.getElementById('tableView').innerHTML;
 
       //    html += footer;
 
@@ -847,7 +1017,7 @@
         this.detailsTableHeaders = Object.keys(firstRow);
       },
     }
-      
+
   };
 </script>
 

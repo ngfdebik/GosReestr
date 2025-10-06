@@ -104,7 +104,7 @@ export default new Vuex.createStore({
           // Получаем информацию о пользователе
           // const response = await api.get('/auth/me');
           // commit('SET_USER', response.data);
-          // commit('SET_AUTHENTICATED', true);
+          commit('SET_AUTHENTICATED', true);
           return true;
         }
       } catch (error) {
@@ -129,6 +129,8 @@ export default new Vuex.createStore({
       return new Promise((resolve) => {
         commit('logout')
         commit('SET_AUTHENTICATED', false);
+        authService.clearTokens();
+        commit('SET_USER', null);
         //localStorage.removeItem('token')
         //delete axios.defaults.headers.common['Authorization']
         resolve()

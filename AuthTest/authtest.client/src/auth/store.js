@@ -10,10 +10,10 @@ import TokenService from '@/services/TokenService';
 export default new Vuex.createStore({
   state: {
     status: '',
-    accessToken: '',//localStorage.getItem('token') || '',
-    refreshToken: '',
-    user : '',
-    isAdmin : false,
+    accessToken: localStorage.getItem('accessToken') || '',
+    refreshToken: localStorage.getItem('refreshToken') || '',
+    user : localStorage.getItem('login') || '',
+    isAdmin : localStorage.getItem('isAdmin') || '',
     isAuthenticated: false,
     isLoading: false,
   },
@@ -35,7 +35,9 @@ export default new Vuex.createStore({
         state.accessToken = access_token
         state.refreshToken = refresh_token
         state.isAdmin = isAdmin
+        localStorage.setItem('isAdmin', isAdmin)
         state.user = login
+        localStorage.setItem('login', login)
     },
     auth_error(state){
         state.status = 'error'
@@ -55,7 +57,6 @@ export default new Vuex.createStore({
         const { access_token, refresh_token } = response.data;
         
         TokenService.setTokens(access_token, refresh_token);
-
         commit('auth_success', response.data)
         //commit('SET_USER', user);
         commit('SET_AUTHENTICATED', true);
@@ -84,18 +85,18 @@ export default new Vuex.createStore({
       }
     },
 
-    async logout({ commit }) {
-      commit('SET_LOADING', true);
-      try {
-        await TokenService.logout();
-      } catch (error) {
-        console.error('Logout error:', error);
-      } finally {
-        commit('SET_USER', null);
-        commit('SET_AUTHENTICATED', false);
-        commit('SET_LOADING', false);
-      }
-    },
+    // async logout({ commit }) {
+    //   commit('SET_LOADING', true);
+    //   try {
+    //     await TokenService.logout();
+    //   } catch (error) {
+    //     console.error('Logout error:', error);
+    //   } finally {
+    //     commit('SET_USER', null);
+    //     commit('SET_AUTHENTICATED', false);
+    //     commit('SET_LOADING', false);
+    //   }
+    // },
 
     async checkAuth({ commit }) {
       try {
@@ -129,7 +130,7 @@ export default new Vuex.createStore({
       return new Promise((resolve) => {
         commit('logout')
         commit('SET_AUTHENTICATED', false);
-        authService.clearTokens();
+        TokenService.clearTokens();
         commit('SET_USER', null);
         //localStorage.removeItem('token')
         //delete axios.defaults.headers.common['Authorization']

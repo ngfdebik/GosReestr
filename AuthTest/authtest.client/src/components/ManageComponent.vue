@@ -258,7 +258,7 @@ import router from '@/router/Routers';
                 const createUser = async () => {
                     clearMessages();
                     
-                    if (!validateNewUser()) return;
+                    //if (!validateNewUser()) return;
                     
                     loading.value = true;
                     ManageApiService.create(newUser)
@@ -270,6 +270,7 @@ import router from '@/router/Routers';
                        console.error(err);
                     })
                     loading.value = false;
+                    this.loadUsers();
                 };
                 
                 const loadUser = async () => {

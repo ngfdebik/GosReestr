@@ -24,34 +24,32 @@ namespace AuthTest.Controllers
         [HttpGet("Manage")]
         public IActionResult Manage()
         {
-            var model = new UserManageModel
+            return Ok(new
             {
                 Roles = GetRolesSelectList(),
                 ExistingUsers = GetExistingUsersSelectList()
-            };
-
-            return Ok(model);
+            });
         }
 
         // POST: User/Create
         [HttpPost("Create")]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([FromBody] UserManageModel model)
+        public async Task<IActionResult> Create([FromBody] CreateUserRequest req)
         {
             try
             {
                 // Валидация модели
-                if (model?.NewLoginData == null)
-                {
-                    return BadRequest(new
-                    {
-                        success = false,
-                        error = "Неверный формат данных"
-                    });
-                }
+                //if (model?.NewLoginData == null)
+                //{
+                //    return BadRequest(new
+                //    {
+                //        success = false,
+                //        error = "Неверный формат данных"
+                //    });
+                //}
 
                 // Валидация обязательных полей
-                if (string.IsNullOrEmpty(model.NewLoginData.Login))
+                if (string.IsNullOrEmpty(req.Login))
                 {
                     return BadRequest(new
                     {
@@ -60,7 +58,7 @@ namespace AuthTest.Controllers
                     });
                 }
 
-                if (string.IsNullOrEmpty(model.NewLoginData.Password))
+                if (string.IsNullOrEmpty(req.Password))
                 {
                     return BadRequest(new
                     {
@@ -69,7 +67,7 @@ namespace AuthTest.Controllers
                     });
                 }
 
-                if (string.IsNullOrEmpty(model.NewLoginData.SelectedRole))
+                if (string.IsNullOrEmpty(req.SelectedRole))
                 {
                     return BadRequest(new
                     {
@@ -79,7 +77,7 @@ namespace AuthTest.Controllers
                 }
 
                 // Проверка длины пароля
-                if (model.NewLoginData.Password.Length < 6)
+                if (req.Password.Length < 6)
                 {
                     return BadRequest(new
                     {
@@ -89,7 +87,7 @@ namespace AuthTest.Controllers
                 }
 
                 // Проверка совпадения паролей
-                if (model.NewLoginData.Password != model.NewLoginData.ConfirmPassword)
+                if (req.Password != req.ConfirmPassword)
                 {
                     return BadRequest(new
                     {
@@ -99,7 +97,7 @@ namespace AuthTest.Controllers
                 }
 
                 // Проверка уникальности логина
-                if (_dbcontext.Пользователи.Any(u => u.Логин.Equals(model.NewLoginData.Login)))
+                if (_dbcontext.Пользователи.Any(u => u.Логин.Equals(req.Login)))
                 {
                     return BadRequest(new
                     {
@@ -111,10 +109,10 @@ namespace AuthTest.Controllers
                 // Создание нового пользователя
                 var newUser = new Users
                 {
-                    Логин = model.NewLoginData.Login,
-                    Пароль = Hasher.Hash(model.NewLoginData.Password),
-                    Роль = model.NewLoginData.SelectedRole,
-                    ФИО = model.NewLoginData.FullName ?? string.Empty
+                    Логин = req.Login,
+                    Пароль = Hasher.Hash(req.Password),
+                    Роль = req.SelectedRole,
+                    ФИО = req.FullName ?? string.Empty
                 };
 
                 _dbcontext.Пользователи.Add(newUser);
@@ -191,12 +189,12 @@ namespace AuthTest.Controllers
         // POST: User/Update
         [HttpPut("Update")]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update([FromBody] UserManageModel model)
+        public async Task<IActionResult> Update([FromBody] UpdateUserRequest req)
         {
             try
             {
                 // Валидация модели
-                if (model == null || model.ExistingLoginData == null)
+                if (req == null)
                 {
                     return BadRequest(new
                     {
@@ -205,7 +203,7 @@ namespace AuthTest.Controllers
                     });
                 }
 
-                if (string.IsNullOrEmpty(model.HiddenSelectedUser))
+                if (string.IsNullOrEmpty(req.HiddenSelectedUser))
                 {
                     return BadRequest(new
                     {
@@ -214,7 +212,7 @@ namespace AuthTest.Controllers
                     });
                 }
 
-                if (string.IsNullOrEmpty(model.ExistingLoginData.Login))
+                if (string.IsNullOrEmpty(req.Login))
                 {
                     return BadRequest(new
                     {
@@ -223,7 +221,7 @@ namespace AuthTest.Controllers
                     });
                 }
 
-                if (string.IsNullOrEmpty(model.ExistingLoginData.SelectedRole))
+                if (string.IsNullOrEmpty(req.SelectedRole))
                 {
                     return BadRequest(new
                     {
@@ -233,8 +231,8 @@ namespace AuthTest.Controllers
                 }
 
                 // Проверка совпадения паролей
-                if (!string.IsNullOrEmpty(model.ExistingLoginData.Password) &&
-                    model.ExistingLoginData.Password != model.ExistingLoginData.ConfirmPassword)
+                if (!string.IsNullOrEmpty(req.Password) &&
+                    req.Password != req.ConfirmPassword)
                 {
                     return BadRequest(new
                     {
@@ -245,7 +243,7 @@ namespace AuthTest.Controllers
 
                 // Поиск пользователя
                 var existingUser = _dbcontext.Пользователи
-                    .FirstOrDefault(u => u.Логин.Equals(model.HiddenSelectedUser));
+                    .FirstOrDefault(u => u.Логин.Equals(req.HiddenSelectedUser));
 
                 if (existingUser == null)
                 {
@@ -257,11 +255,11 @@ namespace AuthTest.Controllers
                 }
 
                 // Проверка на уникальность логина
-                if (model.ExistingLoginData.Login != model.HiddenSelectedUser)
+                if (req.Login != req.HiddenSelectedUser)
                 {
                     var userWithSameLogin = _dbcontext.Пользователи
-                        .FirstOrDefault(u => u.Логин.Equals(model.ExistingLoginData.Login) &&
-                                           u.Логин != model.HiddenSelectedUser);
+                        .FirstOrDefault(u => u.Логин.Equals(req.Login) &&
+                                           u.Логин != req.HiddenSelectedUser);
 
                     if (userWithSameLogin != null)
                     {
@@ -274,13 +272,13 @@ namespace AuthTest.Controllers
                 }
 
                 // Обновление данных
-                existingUser.Логин = model.ExistingLoginData.Login;
-                existingUser.Роль = model.ExistingLoginData.SelectedRole;
-                existingUser.ФИО = model.ExistingLoginData.FullName;
+                existingUser.Логин = req.Login;
+                existingUser.Роль = req.SelectedRole;
+                existingUser.ФИО = req.FullName;
 
-                if (!string.IsNullOrEmpty(model.ExistingLoginData.Password))
+                if (!string.IsNullOrEmpty(req.Password))
                 {
-                    existingUser.Пароль = Hasher.Hash(model.ExistingLoginData.Password);
+                    existingUser.Пароль = Hasher.Hash(req.Password);
                 }
 
                 _dbcontext.Пользователи.Update(existingUser);
@@ -415,43 +413,61 @@ namespace AuthTest.Controllers
     }
 
     // Модель представления
-    public class UserManageModel
+    //public class UserManageModel
+    //{
+    //    public FullCredential NewLoginData { get; set; } = new FullCredential();
+    //    public FullCredential ExistingLoginData { get; set; } = new FullCredential();
+    //    public List<SelectListItem> Roles { get; set; }
+    //    public List<SelectListItem> ExistingUsers { get; set; }
+    //    public string SelectedExistingUser { get; set; }
+    //    public string HiddenSelectedUser { get; set; }
+
+    //    [TempData]
+    //    public string UserCreateStatusMessage { get; set; }
+
+    //    [TempData]
+    //    public string UserEditStatusMessage { get; set; }
+
+    //    [TempData]
+    //    public string MessageType { get; set; }
+    //}
+    public class UpdateUserRequest
     {
-        public FullCredential NewLoginData { get; set; } = new FullCredential();
-        public FullCredential ExistingLoginData { get; set; } = new FullCredential();
-        public List<SelectListItem> Roles { get; set; }
-        public List<SelectListItem> ExistingUsers { get; set; }
-        public string SelectedExistingUser { get; set; }
         public string HiddenSelectedUser { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string SelectedRole { get; set; }
+        public string FullName { get; set; }
+    }
 
-        [TempData]
-        public string UserCreateStatusMessage { get; set; }
-
-        [TempData]
-        public string UserEditStatusMessage { get; set; }
-
-        [TempData]
-        public string MessageType { get; set; }
+    public class CreateUserRequest
+    {
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+        public string SelectedRole { get; set; }
+        public string FullName { get; set; }
     }
 
     // Модель данных (можно вынести в отдельный файл)
-    public class FullCredential
-    {
-        [Required(ErrorMessage = "Логин обязателен")]
-        public string Login { get; set; }
+    //public class FullCredential
+    //{
+    //    [Required(ErrorMessage = "Логин обязателен")]
+    //    public string Login { get; set; }
 
-        [Required(ErrorMessage = "Пароль обязателен")]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+    //    [Required(ErrorMessage = "Пароль обязателен")]
+    //    [DataType(DataType.Password)]
+    //    public string Password { get; set; }
 
-        [Required(ErrorMessage = "Подтвердите пароль")]
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
-        public string ConfirmPassword { get; set; }
+    //    [Required(ErrorMessage = "Подтвердите пароль")]
+    //    [DataType(DataType.Password)]
+    //    [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+    //    public string ConfirmPassword { get; set; }
 
-        public string FullName { get; set; }
+    //    public string FullName { get; set; }
 
-        [Required(ErrorMessage = "Роль обязательна")]
-        public string SelectedRole { get; set; }
-    }
+    //    [Required(ErrorMessage = "Роль обязательна")]
+    //    public string SelectedRole { get; set; }
+    //}
 }

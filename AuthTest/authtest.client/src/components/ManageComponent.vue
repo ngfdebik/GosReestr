@@ -28,7 +28,7 @@
                         <label class="mb-1 mt-2" for="newRole">Роль</label>
                         <select id="newRole" v-model="newUser.selectedRole" class="form-select" :class="{'is-invalid': newUserErrors.selectedRole}">
                             <option value="">Выберите роль</option>
-                            <option v-for="role in roles" :key="role.value" :value="role.value">{{ role.text }}</option>
+                            <option v-for="role in roles" :key="role.Value" :value="role.Value">{{ role.Text }}</option>
                         </select>
                         <span v-if="newUserErrors.selectedRole" class="text-danger mb-2">{{ newUserErrors.selectedRole }}</span>
 
@@ -85,7 +85,7 @@
                             <label class="mb-1 mt-2" for="existingRole">Роль</label>
                             <select id="existingRole" v-model="existingUser.selectedRole" class="form-select" :class="{'is-invalid': existingUserErrors.selectedRole}">
                                 <option value="">Выберите роль</option>
-                                <option v-for="role in roles" :key="role.value" :value="role.value">{{ role.text }}</option>
+                                <option v-for="role in roles" :key="role.Value" :value="role.Value">{{ role.Text }}</option>
                             </select>
                             <span v-if="existingUserErrors.selectedRole" class="text-danger mb-2">{{ existingUserErrors.selectedRole }}</span>
 
@@ -261,17 +261,15 @@ import router from '@/router/Routers';
                     if (!validateNewUser()) return;
                     
                     loading.value = true;
-                    try{
-                        const response = ManageApiService.create(newUser);
-                        if(response.status){
-                            userCreateStatusMessage.value = 'Новый пользователь создан успешно';
-                        }
-                    }catch (error) {
-                        userCreateStatusMessage.value = 'Ошибка при создании пользователя';
-                        console.error('Ошибка создания пользователя:', error);
-                    } finally {
-                        loading.value = false;
-                    }
+                    ManageApiService.create(newUser)
+                    .then(resp => {
+                        userCreateStatusMessage.value = resp.message;
+                        Object.keys(newUser).forEach(key => newUser[key] = '');
+                    })
+                    .catch (err => {
+                       console.error(err);
+                    })
+                    loading.value = false;
                 };
                 
                 const loadUser = async () => {
@@ -282,47 +280,39 @@ import router from '@/router/Routers';
                     
                     clearMessages();
                     loading.value = true;
-                    try{
-                        const response = ManageApiService.load(selectedExistingUser)
-                        if (response) {
-                            Object.assign(existingUser, {
-                                login: response.ExistingLoginData.login,
-                                password: '',
-                                confirmPassword: '',
-                                selectedRole: response.ExistingLoginData.Role,
-                                fullName: response.ExistingLoginData.FullName,
-                                hiddenSelectedUser: response.ExistingLoginData.login
-                            });
-                        } else {
-                            userEditStatusMessage.value = 'Пользователь не найден';
-                        }
-                    } catch (error) {
-                        userEditStatusMessage.value = 'Ошибка загрузки данных пользователя';
-                        console.error('Ошибка загрузки пользователя:', error);
-                    } finally {
-                        loading.value = false;
-                    }
-                };
+                    ManageApiService.load(selectedExistingUser.value)
+                    .then(resp => {
+                        Object.assign(existingUser, {
+                            login: resp.data.ExistingLoginData.Login,
+                            password: '',
+                            confirmPassword: '',
+                            selectedRole: resp.data.ExistingLoginData.SelectedRole,
+                            fullName: resp.data.ExistingLoginData.FullName,
+                            hiddenSelectedUser: resp.data.ExistingLoginData.Login
+                        })
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })
+                        
+                    loading.value = false;
+                }
                 
                 const updateUser = async () => {
                     if (!validateExistingUser()) return;
                     
                     loading.value = true;
 
-                    try{
-                        const response = ManageApiService.update(existingUser)
-                        if(response.status == "success"){
-                            userEditStatusMessage.value = 'Пользователь изменен успешно';
-                            router.push(response.redirectTo)
-                        } else {
-                            userEditStatusMessage.value = 'Пользователь не найден';
-                        }
-                    }catch (error) {
-                        userEditStatusMessage.value = 'Ошибка изменения пользователя';
-                        console.error('Ошибка обновления пользователя:', error);
-                    } finally {
-                        loading.value = false;
-                    }
+                    ManageApiService.update(existingUser)
+                    .then(resp => {
+                        userEditStatusMessage.value = resp.message;
+                        //router.push(response.redirectTo)
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    })
+
+                    loading.value = false;
                 };
                 
                 const deleteUser = async () => {
@@ -330,23 +320,19 @@ import router from '@/router/Routers';
                     
                     loading.value = true;
 
-                    try{
-                        const response = ManageApiService.delete(existingUser)
-                        if(response){
-                            userEditStatusMessage.value = 'Пользователь удален успешно';
-                            
-                            // Очистка формы после удаления
-                            Object.keys(existingUser).forEach(key => existingUser[key] = '');
+                    ManageApiService.delete(existingUser)
+                    .then(resp => {
+                        userEditStatusMessage.value = resp.message
+                        
+                        Object.keys(existingUser).forEach(key => existingUser[key] = '');
                             selectedExistingUser.value = '';
-                        } else {
-                            userEditStatusMessage.value = 'Пользователь не найден';
-                        }
-                    } catch (error) {
+                    })
+                    .catch (err => {
                         userEditStatusMessage.value = 'Ошибка удаления пользователя';
-                        console.error('Ошибка удаления пользователя:', error);
-                    } finally {
-                        loading.value = false;
-                    }
+                        console.error('Ошибка удаления пользователя:', err);
+                    })
+
+                    loading.value = false;
                 };
                 
                 return {

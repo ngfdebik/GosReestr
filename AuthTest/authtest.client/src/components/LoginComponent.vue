@@ -1,23 +1,21 @@
 <!-- src/views/Login.vue -->
 <template>
-  <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-    <div class="justify-content-md-center">
-      <form class="row border shadow p-3" @submit.prevent="login" style="width: 25vw; border-radius: 20px">
-        <img src="/svg/LogoText.svg" class="m-auto" alt="Логотип" />
-        <div v-if="errors.form" class="text-danger">{{ errors.form }}</div>
-        <b class="p-2 align-self-center">Вход в систему</b>
+  <div class="login-page">
+      <form class="login-form" @submit.prevent="login"><!--</form> style="width: 25vw; border-radius: 20px">-->
+        <img src="/svg/LogoText.svg" class="logo" alt="Логотип" />
+        <div v-if="errors.form" class="error-label">{{ errors.form }}</div>
+        <b class="form-name-label">Вход в систему</b>
 
-        <label class="mb-1">Логин</label>
-        <input type="text" v-model="credentials.login" class="form-control" />
-        <div v-if="errors.login" class="text-danger mb-2">{{ errors.login }}</div>
+        <label class="field-name-label">Логин</label>
+        <input type="text" v-model="credentials.login"/>
+        <div v-if="errors.login" class="error-label error-login">{{ errors.login }}</div>
 
-        <label class="mb-1">Пароль</label>
-        <input type="password" v-model="credentials.password" class="form-control" />
-        <div v-if="errors.password" class="text-danger mb-4">{{ errors.password }}</div>
+        <label class="field-name-label">Пароль</label>
+        <input type="password" v-model="credentials.password"/>
+        <div v-if="errors.password" class="error-label error-password">{{ errors.password }}</div>
 
-        <button type="submit" class="btn btn-primary">Вход</button>
+        <button type="submit" class="login-button">Вход</button>
       </form>
-    </div>
   </div>
 </template>
 
@@ -68,6 +66,83 @@
   };
 </script>
 
-<style scoped>
-  /* Можно вынести в отдельный CSS файл */
+<style>
+  .login-page{
+    display: flex; 
+    flex-direction :column; 
+    min-width: 100vh;
+    min-height: 100vh;
+    justify-content: center; 
+    align-items: center;
+  }
+
+  .login-form{
+    width: 25vw;
+    border-radius: 20px;
+    border: 1px solid #dee2e6 !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .logo{
+    max-width: 100%;
+  }
+
+  .error-label{
+    color: #dc3545;
+  }
+
+  .form-name-label{
+    align-self: center;
+  }
+
+  .field-name-label{
+    margin-left: .5rem;
+  }
+
+  .error-login{
+    margin-bottom: .5rem;
+  }
+
+  .error-password{
+    margin-bottom: 1.5rem;
+  }
+
+  .login-button{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+
+  }
+
+  input{
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+
+  }
+  
 </style>

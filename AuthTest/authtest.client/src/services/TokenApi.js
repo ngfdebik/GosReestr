@@ -1,22 +1,38 @@
-// services/api.js
+// src/services/TokenApi.js
 import axios from 'axios';
+import store from '@/auth/store';
 import authService from './TokenService';
 import router from '@/router/Routers';
 
-const API_URL = 'https://localhost:7229/api';
-const accessToken = localStorage.getItem('accessToken');
-
-const api = axios.create({
-  baseURL: API_URL,
+const apiClient = axios.create({
+  baseURL: 'https://localhost:7229/api',
+  timeout: 10000,
   headers: {
-    //Authorization: `Bearer ${accessToken}`,
-    'Content-Type': 'application/json',
-  },
+    'Content-Type': 'application/json'
+  }
 });
 
-// Request interceptor
-api.interceptors.request.use(
+let delayTimer = null;
+
+const setGlobalLoading = (isLoading) => {
+  if (isLoading) {
+    delayTimer = setTimeout(() => {
+      store.commit('SET_GLOBAL_LOADING', true);
+    }, 300);
+  } else {
+    if (delayTimer) {
+      clearTimeout(delayTimer);
+      delayTimer = null;
+    }
+    store.commit('SET_GLOBAL_LOADING', false);
+  }
+};
+
+// Request interceptor — с авторизацией И лоадером
+apiClient.interceptors.request.use(
   async (config) => {
+    setGlobalLoading(true);
+
     // Не добавляем токен для эндпоинтов аутентификации
     if (config.url.includes('/auth/') && !config.url.includes('/auth/refresh')) {
       return config;
@@ -29,40 +45,41 @@ api.interceptors.request.use(
       }
     } catch (error) {
       console.error('Error getting valid token:', error);
-      // Перенаправляем на логин если не удалось получить токен
       if (!config.url.includes('/auth/login')) {
         router.push('/login');
       }
     }
-    
+
     return config;
   },
   (error) => {
+    setGlobalLoading(false);
     return Promise.reject(error);
   }
 );
 
-// Response interceptor
-api.interceptors.response.use(
-  (response) => response,
+// Response interceptor — с обработкой 401 И лоадером
+apiClient.interceptors.response.use(
+  (response) => {
+    setGlobalLoading(false);
+    return response;
+  },
   async (error) => {
+    setGlobalLoading(false);
+
     const originalRequest = error.config;
 
-    // Если ошибка 401 и это не запрос на обновление токена
-    if (error.response?.status === 401 && 
-        !originalRequest.url.includes('/auth/refresh') &&
-        !originalRequest._retry) {
-      
+    if (error.response?.status === 401 &&
+      !originalRequest.url.includes('/auth/refresh') &&
+      !originalRequest._retry) {
+
       originalRequest._retry = true;
 
       try {
-        // Пытаемся обновить токен
         await authService.refreshAuthToken();
-        
-        // Повторяем оригинальный запрос с новым токеном
         const token = authService.accessToken;
         originalRequest.headers.Authorization = `Bearer ${token}`;
-        return api(originalRequest);
+        return apiClient(originalRequest);
       } catch (refreshError) {
         console.error('Token refresh failed:', refreshError);
         authService.clearTokens();
@@ -75,4 +92,4 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+export default apiClient;

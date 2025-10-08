@@ -8,19 +8,19 @@
             @load-ip="LoadIPTable"
             @load-ul="LoadULTable"
             @export-excel="exportToExcel"
-            @export-doc="ExportToDoc" />
-    <nav id="paginationShared" v-if="showSharedHeaders">
+            @export-doc="ExportToDoc"/>
+    <!--<nav id="paginationShared" v-if="showSharedHeaders">
       <div class="d-flex justify-content-between mb-2">
-        <!-- Пагинация -->
+         Пагинация 
         <ul class="pagination justify-content-center flex-wrap">
-          <!-- Кнопка "Предыдущая" -->
+           Кнопка "Предыдущая" 
           <li class="page-item" :class="{ disabled: page <= 1 }">
             <button class="page-link" @click="ChangePageShared(page - 1)" :disabled="page <= 1">
               Предыдущая
             </button>
           </li>
 
-          <!-- Страницы -->
+           Страницы 
           <li v-for="pageNum in visiblePagesShared"
               :key="pageNum"
               class="page-item"
@@ -30,7 +30,7 @@
             </button>
           </li>
 
-          <!-- Кнопка "Следующая" -->
+           Кнопка "Следующая" 
           <li class="page-item" :class="{ disabled: page >= pagesCountShared }">
             <button class="page-link"
                     @click="ChangePageShared(page + 1)"
@@ -40,7 +40,7 @@
           </li>
         </ul>
 
-        <!-- Переход по номеру -->
+         Переход по номеру 
         <div class="d-flex align-items-center">
           <input type="number"
                  class="form-control me-2"
@@ -55,7 +55,7 @@
       </div>
     </nav>
 
-    <!-- Для IP -->
+     Для IP 
     <nav id="paginationIP" v-if="showIPHeaders">
       <div class="d-flex justify-content-between mb-2">
         <ul class="pagination justify-content-center flex-wrap">
@@ -79,7 +79,7 @@
       </div>
     </nav>
 
-    <!-- Для UL -->
+     Для UL 
     <nav id="paginationUL" v-if="showULHeaders">
       <div class="d-flex justify-content-between mb-2">
         <ul class="pagination justify-content-center flex-wrap">
@@ -101,7 +101,7 @@
           <button type="button" class="btn btn-primary" @click="goToPage('ul')">Перейти</button>
         </div>
       </div>
-    </nav>
+    </nav>-->
     <div class="container-fluid mt-3">
       <div class="row">
         <div class="col-9">
@@ -112,10 +112,14 @@
                          :shared-u-l-rows="SharedTableContent.sharedULTableContent"
                          :ip-rows="IPTableContent"
                          :ul-rows="ULTableContent"
-                         @open-modal="handleOpenModal" />
+                         :show-load-more="showLoadMore"
+                         @open-modal="handleOpenModal"
+                         @load-more="handleLoadMore" />
         </div>
         <div class="col-3">
-          <FileUploadZone @upload-complete="getfileuploadzone" />
+          <!--<div v-if="isAdmin">
+            <FileUploadZone  @upload-complete="getfileuploadzone" />
+          </div>-->
           <FiltersPanel :filters="filters"
                         :show-i-p-headers="showIPHeaders"
                         :show-u-l-headers="showULHeaders"
@@ -132,6 +136,8 @@
                   :entity-type="modalEntityType"
                   :entity-name="modalEntity.НаимСокр"
                   :is-visible="isModalOpen"
+                  :details-data="detailsTableData"
+                  :details-headers="detailsTableHeaders"
                   @close="isModalOpen = false"
                   @load-details="handleLoadDetails"
                   @load-logs="handleLoadLogs" />
@@ -146,6 +152,22 @@
   import FileUploadZone from '@/components/FileUploadZone.vue';
   import store from '@/auth/store';
   import api from '@/services/TokenApi';
+  import ExcelJS from 'exceljs';
+  import { saveAs } from 'file-saver';
+  import {
+    Document,
+    Paragraph,
+    Table,
+    TableRow,
+    TableCell,
+    WidthType,
+    HeadingLevel,
+    TextRun,
+    AlignmentType,
+    VerticalAlign,
+    BorderStyle,
+    Packer
+  } from 'docx';
   //const baseURL = import.meta.env.VITE_API_URL || window.location.origin;//Пока непонятно
   // ВСТАВЬТЕ СЮДА ВЕСЬ ВАШ JS-КОД ИЗ site.js (data, methods, computed)
   // Я покажу структуру
@@ -207,7 +229,10 @@
 
         //массив id элементов таблиц для экспорта
         exportTableID: [],
-
+        filteredSharedIPTableContent: [], //
+        filteredSharedULTableContent: [], //
+        filteredIPTableContent: [],       //
+        filteredULTableContent: [],       //
         //массив фильтров
         filters: [],
         //переменные для создания объекта фильтра
@@ -216,27 +241,38 @@
         filterValue: "",
 
         //для пагинации
-        pagination_IP_items_total: 0,
-        pagination_UL_items_total: 0,
-        pagination_All_items_total: 0,
-        pagination_items_per_page: 50,
-        page: 1,
-        pagination_offset: 0,
-        pagesCountIP: 0,
-        pagesCountUL: 0,
-        pagesCountShared: 0,
-
-        //для перехода на страницу
-        page_number: 1,
+        //pagination_IP_items_total: 0,
+        //pagination_UL_items_total: 0,
+        //pagination_All_items_total: 0,
+        //pagination_items_per_page: 50,
+        //page: 1,
+        //pagination_offset: 0,
+        //pagesCountIP: 0,
+        //pagesCountUL: 0,
+        //pagesCountShared: 0,
+        //page_number: 1,
         // ...все ваши данные из site.js...
         userStatus: 'Администратор',
         isModalOpen: false,
         modalEntity: {},
         modalEntityType: '',
-        // остальные данные...
+        // ленивая загрузка
+        loadedCount: 50,
       };
     },
     computed: {
+      showLoadMore() {
+        if (this.showIPHeaders) {
+          return this.loadedCount < this.filteredIPTableContent.length;
+        } else if (this.showULHeaders) {
+          return this.loadedCount < this.filteredULTableContent.length;
+        } else if (this.showSharedHeaders) {
+          const total = this.filteredSharedIPTableContent.length + this.filteredSharedULTableContent.length;
+          return this.loadedCount < total;
+        }
+        return false;
+      },
+      
       isAdmin() {
         return store.getters.isAdmin;
       },
@@ -252,114 +288,96 @@
         });
 
         return this.detailsTableData;
-      },
-      visiblePagesShared() {
-        return this.getVisiblePages(this.page, this.pagesCountShared);
-      },
-      visiblePagesIP() {
-        return this.getVisiblePages(this.page, this.pagesCountIP);
-      },
-      visiblePagesUL() {
-        return this.getVisiblePages(this.page, this.pagesCountUL);
       }
+      //,
+      //visiblePagesShared() {
+      //  return this.getVisiblePages(this.page, this.pagesCountShared);
+      //},
+      //visiblePagesIP() {
+      //  return this.getVisiblePages(this.page, this.pagesCountIP);
+      //},
+      //visiblePagesUL() {
+      //  return this.getVisiblePages(this.page, this.pagesCountUL);
+      //}
     },
     methods: {
-      getVisiblePages(current, total) {
-        if (total <= 7) {
-          return Array.from({ length: total }, (_, i) => i + 1);
-        }
+      //getVisiblePages(current, total) {
+      //  if (total <= 7) {
+      //    return Array.from({ length: total }, (_, i) => i + 1);
+      //  }
 
-        const delta = 2;
-        const range = [];
-        const left = current - delta;
-        const right = current + delta;
+      //  const delta = 2;
+      //  const range = [];
+      //  const left = current - delta;
+      //  const right = current + delta;
 
-        for (let i = Math.max(1, left); i <= Math.min(total, right); i++) {
-          range.push(i);
-        }
+      //  for (let i = Math.max(1, left); i <= Math.min(total, right); i++) {
+      //    range.push(i);
+      //  }
 
-        if (left > 1) {
-          range.unshift(1);
-          if (left > 2) range.unshift('...');
-        }
+      //  if (left > 1) {
+      //    range.unshift(1);
+      //    if (left > 2) range.unshift('...');
+      //  }
 
-        if (right < total) {
-          range.push(total);
-          if (right < total - 1) range.push('...');
-        }
+      //  if (right < total) {
+      //    range.push(total);
+      //    if (right < total - 1) range.push('...');
+      //  }
 
-        return range;
-      },
-
-      goToPage(type) {
-        const pageNum = this.page_number;
-        if (!pageNum || pageNum < 1) return;
-
-        switch (type) {
-          case 'shared':
-            if (pageNum <= this.pagesCountShared) this.ChangePageShared(pageNum);
-            break;
-          case 'ip':
-            if (pageNum <= this.pagesCountIP) this.ChangePageIP(pageNum);
-            break;
-          case 'ul':
-            if (pageNum <= this.pagesCountUL) this.ChangePageUL(pageNum);
-            break;
-        }
-      },
-      getfileuploadzone() {
-
-      },
-      // Все методы из site.js: LoadAllTable, FilterTable, exportToExcel и т.д.
-      async GetDetailsData(table, id) {
-        //очищаем отображаемую таблицу из ДопИНФ
-        this.detailsTableData = [];
-        this.detailsTableHeaders = [];
-
-        //получаем данные по выбранной таблице
-        var url = baseURL + '/Home/Details?table=' + table + '&id=' + id;
-        let response = await fetch(url);
-        let tableData = await response.json();
-        this.detailsTableData = tableData;
-
-        //удаляем неотображаемые поля
-        delete tableData[0].Id;
-        delete tableData[0].idЛицо;
-        delete tableData[0].ИП;
-        delete tableData[0].ЮрЛицо;
-
-        Object.keys(tableData[0]).forEach((element) => {
-          this.detailsTableHeaders.push(element);
-        })
-      },
-      async GetLogsData(table, INN) {
-        //очищаем отображаемую таблицу из ДопИНФ
-        this.detailsTableData = [];
-        this.detailsTableHeaders = [];
-
-        //получаем данные по выбранной таблице
-        var url = baseURL + '/Home/GetLogs?table=' + table + '&INN=' + INN;
-        let response = await fetch(url);
-        let tableData = await response.json();
-        this.detailsTableData = tableData;
-
-        //удаляем неотображаемое поле
-        delete tableData[0].Id;
-
-        Object.keys(tableData[0]).forEach((element) => {
-          this.detailsTableHeaders.push(element);
-        })
-      },
-      //TrimTableRow(row) {
-      //    displayRow = $.extend(true, {}, row);
-
-      //    delete displayRow.id;
-      //    delete displayRow.idЛицо;
-      //    delete displayRow.ип;
-      //    delete displayRow.юрЛицо;
-
-      //    return displayRow;
+      //  return range;
       //},
+
+      //goToPage(type) {
+      //  const pageNum = this.page_number;
+      //  if (!pageNum || pageNum < 1) return;
+
+      //  switch (type) {
+      //    case 'shared':
+      //      if (pageNum <= this.pagesCountShared) this.ChangePageShared(pageNum);
+      //      break;
+      //    case 'ip':
+      //      if (pageNum <= this.pagesCountIP) this.ChangePageIP(pageNum);
+      //      break;
+      //    case 'ul':
+      //      if (pageNum <= this.pagesCountUL) this.ChangePageUL(pageNum);
+      //      break;
+      //  }
+      //},
+      updateDisplayedRows() {
+        if (this.showIPHeaders) {
+          this.IPTableContent = this.filteredIPTableContent.slice(0, this.loadedCount);
+        } else if (this.showULHeaders) {
+          this.ULTableContent = this.filteredULTableContent.slice(0, this.loadedCount);
+        } else if (this.showSharedHeaders) {
+          const allSharedIP = this.filteredSharedIPTableContent;
+          const allSharedUL = this.filteredSharedULTableContent;
+          const total = allSharedIP.length + allSharedUL.length;
+          const limit = Math.min(this.loadedCount, total);
+
+          let ipToShow = Math.min(allSharedIP.length, limit);
+          let ulToShow = limit - ipToShow;
+          if (ulToShow < 0) {
+            ipToShow += ulToShow;
+            ulToShow = 0;
+          }
+
+          this.SharedTableContent.sharedIPTableContent = allSharedIP.slice(0, ipToShow);
+          this.SharedTableContent.sharedULTableContent = allSharedUL.slice(0, ulToShow);
+        }
+      },
+      handleLoadMore() {
+        this.loadedCount += 50;
+        this.updateDisplayedRows();
+
+        // Прокручиваем к низу таблицы
+        this.$nextTick(() => {
+          const tableView = document.getElementById('tableView');
+          if (tableView) {
+            tableView.scrollTop = tableView.scrollHeight;
+          }
+        });
+      },
       OpenModal(entityID, entityINN, type, name) {
         this.modalEntity = {
           idЛицо: entityID,
@@ -485,8 +503,8 @@
 
           //this.SharedTableContent.sharedIPTableContent = this.sharedIPTableContent_buffer;
           //this.SharedTableContent.sharedULTableContent = this.sharedULTableContent_buffer;
-          this.ChangePageShared(1);
-          this.pagesCountShared = Math.ceil((this.sharedIPTableContent_buffer.length + this.sharedULTableContent_buffer.length) / this.pagination_items_per_page);
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         } catch (error) {
           console.error('Ошибка загрузки данных:', error);
           // Можно показать уведомление пользователю
@@ -543,8 +561,8 @@
           // Буферы
           this.IPTableContent_buffer = [...this.IPTableContent];
           this.filteredIPTableContent = [...this.IPTableContent];
-          this.ChangePageIP(1);
-          this.pagesCountIP = Math.ceil(this.IPTableContent_buffer.length / this.pagination_items_per_page);
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         } catch (error) {
           console.error('Ошибка загрузки данных:', error);
           // Можно показать уведомление пользователю
@@ -598,8 +616,8 @@
           // Буферы
           this.ULTableContent_buffer = [...this.ULTableContent];
           this.filteredULTableContent = [...this.ULTableContent];
-          this.ChangePageUL(1);
-          this.pagesCountUL = Math.ceil(this.ULTableContent_buffer.length / this.pagination_items_per_page);
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         } catch (error) {
           console.error('Ошибка загрузки данных:', error);
           // Можно показать уведомление пользователю
@@ -609,18 +627,26 @@
       FilterTable() {
         if (this.filters.length == 0 && (this.sharedIPTableContent_buffer != null || this.sharedIPTableContent_buffer != undefined)) {
           this.filteredSharedIPTableContent = this.sharedIPTableContent_buffer;
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         }
 
         if (this.filters.length == 0 && (this.sharedULTableContent_buffer != null || this.sharedULTableContent_buffer != undefined)) {
           this.filteredSharedULTableContent = this.sharedULTableContent_buffer;
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         }
 
         if (this.filters.length == 0 && (this.IPTableContent_buffer != null || this.IPTableContent_buffer != undefined)) {
           this.filteredIPTableContent = this.IPTableContent_buffer;
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
         }
 
         if (this.filters.length == 0 && (this.ULTableContent_buffer != null || this.ULTableContent_buffer != undefined)) {
           this.filteredULTableContent = this.ULTableContent_buffer;
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
           return;
         }
 
@@ -827,20 +853,8 @@
           //this.SharedTableContent.sharedIPTableContent = filteredSharedIPTableContent;
           //this.SharedTableContent.sharedULTableContent = filteredSharedULTableContent;
 
-          if (this.showSharedHeaders) {
-            this.pagesCountShared = Math.ceil((this.filteredSharedIPTableContent.length + this.filteredSharedULTableContent.length) / this.pagination_items_per_page);
-            this.ChangePageShared(1);
-          }
-
-          if (this.showIPHeaders) {
-            this.pagesCountIP = Math.ceil(this.filteredIPTableContent.length / this.pagination_items_per_page);
-            this.ChangePageIP(1);
-          }
-
-          if (this.showULHeaders) {
-            this.pagesCountUL = Math.ceil(this.filteredULTableContent.length / this.pagination_items_per_page);
-            this.ChangePageUL(1);
-          }
+          this.loadedCount = 50;
+          this.updateDisplayedRows();
 
           //this.extraTableContent = filteredExtraTableContent;
         });
@@ -870,19 +884,157 @@
       //book = TableToExcel.tableToBook(ULTable, { sheet: { name: "ЮрЛица" } });
       //TableToExcel.tableToSheet(book, IPTable, { sheet: { name: "ИП" } });
       //TableToExcel.save(book, "ЕГР Экспорт.xlsx")
-      exportToExcel() {
-        if (!this.exportTableID || !this.exportTableID.length) {
-          alert('Нет таблицы для экспорта.');
+
+      async exportToExcel() {
+        // Определяем данные и название листа
+        let rows = [];
+        let columns = [];
+        let sheetName = 'ГосРеестр';
+
+        const formatDate = (dateStr) => {
+          if (!dateStr) return '';
+          const d = new Date(dateStr);
+          return isNaN(d) ? '' : d.toLocaleDateString('ru-RU'); // ДД.ММ.ГГГГ
+        };
+
+        if (this.showSharedHeaders) {
+          const ipRows = this.SharedTableContent.sharedIPTableContent.map(row => ({
+            ИНН: row.ИНН || '',
+            ОГРН: row.ОГРН || '',
+            ДатаОГРН: formatDate(row.ДатаОГРН),
+            НаимСокр: row.НаимСокр || '',
+            ОКВЭДОсн: row.ОКВЭДОсн || '',
+            ДатаВып: formatDate(row.ДатаВып)
+          }));
+          const ulRows = this.SharedTableContent.sharedULTableContent.map(row => ({
+            ИНН: row.ИНН || '',
+            ОГРН: row.ОГРН || '',
+            ДатаОГРН: formatDate(row.ДатаОГРН),
+            НаимСокр: row.НаимСокр || '',
+            ОКВЭДОсн: row.ОКВЭДОсн || '',
+            ДатаВып: formatDate(row.ДатаВып)
+          }));
+          rows = [...ipRows, ...ulRows];
+          columns = [
+            { header: 'ИНН', key: 'ИНН', width: 15 },
+            { header: 'ОГРН', key: 'ОГРН', width: 18 },
+            { header: 'Дата ОГРН', key: 'ДатаОГРН', width: 14 },
+            { header: 'Наименование', key: 'НаимСокр', width: 25 },
+            { header: 'ОКВЭД', key: 'ОКВЭДОсн', width: 15 },
+            { header: 'Дата выписки', key: 'ДатаВып', width: 14 }
+          ];
+          /*sheetName = '';*/
+        }
+        else if (this.showIPHeaders) {
+          rows = this.IPTableContent.map(row => ({
+            ИНН: row.ИНН || '',
+            ОГРНИП: row.ОГРН || '',
+            ДатаОГРНИП: formatDate(row.ДатаОГРН),
+            НаимВидИП: row.НаимВидИП || '',
+            НаимСокр: row.НаимСокр || '',
+            ОКВЭДОсн: row.ОКВЭДОсн || '',
+            ДатаВып: formatDate(row.ДатаВып),
+            КодВидИП: row.КодВидИП || '',
+          }));
+          columns = [
+            { header: 'ИНН', key: 'ИНН', width: 15 },
+            { header: 'ОГРНИП', key: 'ОГРНИП', width: 18 },
+            { header: 'Дата ОГРНИП', key: 'ДатаОГРНИП', width: 14 },
+            { header: 'Вид ИП', key: 'НаимВидИП', width: 20 },
+            { header: 'Наименование', key: 'НаимСокр', width: 25 },
+            { header: 'ОКВЭД', key: 'ОКВЭДОсн', width: 15 },
+            { header: 'Дата выписки', key: 'ДатаВып', width: 14 },
+            { header: 'Код вида', key: 'КодВидИП', width: 12 }
+          ];
+            /*sheetName = '';*/
+        }
+        else if (this.showULHeaders) {
+          rows = this.ULTableContent.map(row => ({
+            ИНН: row.ИНН || '',
+            КПП: row.КПП || '',
+            ОГРН: row.ОГРН || '',
+            ДатаОГРН: formatDate(row.ДатаОГРН),
+            ПолнНаимОПФ: row.ПолнНаимОПФ || '',
+            НаимСокр: row.НаимСокр || '',
+            ОКВЭДОсн: row.ОКВЭДОсн || '',
+            СпрОПФ: row.СпрОПФ || '',
+            КодОПФ: row.КодОПФ || '',
+            ДатаВып: formatDate(row.ДатаВып)
+          }));
+          columns = [
+            { header: 'ИНН', key: 'ИНН', width: 15 },
+            { header: 'КПП', key: 'КПП', width: 12 },
+            { header: 'ОГРН', key: 'ОГРН', width: 18 },
+            { header: 'Дата ОГРН', key: 'ДатаОГРН', width: 14 },
+            { header: 'Полное наименование', key: 'ПолнНаимОПФ', width: 30 },
+            { header: 'Сокращённое', key: 'НаимСокр', width: 25 },
+            { header: 'ОКВЭД', key: 'ОКВЭДОсн', width: 15 },
+            { header: 'Справочник ОПФ', key: 'СпрОПФ', width: 18 },
+            { header: 'Код ОПФ', key: 'КодОПФ', width: 12 },
+            { header: 'Дата выписки', key: 'ДатаВып', width: 14 }
+          ];
+          /*sheetName = '';*/
+        }
+        else {
+          alert('Нет данных для экспорта.');
           return;
         }
 
-        const exportTable = document.getElementById(this.exportTableID[0]);
-        if (!exportTable) {
-          alert('Таблица с id="' + this.exportTableID[0] + '" не найдена.');
+        if (rows.length === 0) {
+          alert('Нет данных для экспорта.');
           return;
         }
-        const book = TableToExcel.tableToBook(exportTable, { sheet: { name: "Лица" } });
-        TableToExcel.save(book, "ЕГР Экспорт.xlsx");
+
+        // Создаём книгу и лист
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet(sheetName);
+
+        // Настраиваем столбцы (ширина)
+        worksheet.columns = columns;
+
+        // Стиль заголовков: жирный + по центру + перенос
+        const headerRow = worksheet.getRow(1);
+        headerRow.eachCell((cell, colNumber) => {
+          cell.value = columns[colNumber - 1].header;
+          cell.font = { bold: true };
+          cell.alignment = {
+            horizontal: 'center',
+            vertical: 'middle',
+            wrapText: true
+          };
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'E0E0E0' } // светло-серый фон (опционально)
+          };
+        });
+
+        // Добавляем данные
+        worksheet.addRows(rows);
+
+        // Применяем стиль ко всем ячейкам с данными: перенос текста
+        for (let i = 2; i <= rows.length + 1; i++) {
+          const row = worksheet.getRow(i);
+          row.eachCell((cell) => {
+            cell.alignment = {
+              vertical: 'middle',
+              wrapText: true
+            };
+            // Опционально: убрать перенос для дат/ИНН, если нужно
+          });
+        }
+
+        // Сохраняем файл
+        const buffer = await workbook.xlsx.writeBuffer();
+        const blob = new Blob([buffer], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `ЕГР Экспорт.xlsx`;
+        a.click();
+        window.URL.revokeObjectURL(url);
       },
 
       //ExportToDocOLD(filename = '') {
@@ -925,48 +1077,184 @@
 
       //    document.body.removeChild(downloadLink);
       //},
+      async ExportToDoc() {
+        const formatDate = (dateStr) => {
+          if (!dateStr) return '';
+          const d = new Date(dateStr);
+          return isNaN(d) ? '' : d.toLocaleDateString('ru-RU');
+        };
 
-      ExportToDoc() {
-        var content = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body style=\"font-family: serif;\">";
-        content += document.getElementById('tableView').innerHTML;
-        content += "</body></html>";
+        let headers = [];
+        let rows = [];
+        let title = 'Выписка из ЕГР';
 
-        var converted = htmlDocx.asBlob(content, { orientation: 'landscape' });
-        saveAs(converted, 'ЕГР Экспорт.docx');
-      },
-      ChangePageIP: function (page_num) {
-        this.page = page_num;
-        this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-        this.IPTableContent = this.filteredIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-        window.scrollTo(0, 0);
-      },
-      ChangePageUL: function (page_num) {
-        this.page = page_num;
-        this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-        this.ULTableContent = this.filteredULTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-        window.scrollTo(0, 0);
-      },
-      ChangePageShared: function (page_num) {
-        this.page = page_num;
-        this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-        var count = this.pagination_offset + this.pagination_items_per_page - this.filteredSharedIPTableContent.length;
-        if (count > 0) {
-          if (this.pagination_offset <= this.filteredSharedIPTableContent.length) {
-            this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.sharedIPTableContent_buffer.length);
-          }
-          else {
-            this.SharedTableContent.sharedIPTableContent = [];
-          }
-          var pagination_offset_ul = this.pagination_offset - this.filteredSharedIPTableContent.length > 0 ? this.pagination_offset - this.filteredSharedIPTableContent.length : 0;
-          this.SharedTableContent.sharedULTableContent = this.filteredSharedULTableContent.slice(pagination_offset_ul, count);
+        if (this.showSharedHeaders) {
+          headers = ['ИНН', 'ОГРН', 'Дата ОГРН', 'Наименование', 'ОКВЭД', 'Дата выписки'/*, 'ДопИНФ'*/];
+          const ipRows = this.SharedTableContent.sharedIPTableContent.map(row => [
+            row.ИНН || '',
+            row.ОГРН || '',
+            formatDate(row.ДатаОГРН),
+            row.НаимСокр || '',
+            row.ОКВЭДОсн || '',
+            formatDate(row.ДатаВып)
+            //,'...'
+          ]);
+          const ulRows = this.SharedTableContent.sharedULTableContent.map(row => [
+            row.ИНН || '',
+            row.ОГРН || '',
+            formatDate(row.ДатаОГРН),
+            row.НаимСокр || '',
+            row.ОКВЭДОсн || '',
+            formatDate(row.ДатаВып)
+            //,'...'
+          ]);
+          rows = [...ipRows, ...ulRows];
+          title = 'Все лица';
+        }
+        else if (this.showIPHeaders) {
+          headers = ['ИНН', 'ОГРНИП', 'Дата ОГРНИП', 'Вид ИП', 'Наименование', 'ОКВЭД', 'Дата выписки', 'Код вида'/*, 'ДопИНФ'*/];
+          rows = this.IPTableContent.map(row => [
+            row.ИНН || '',
+            row.ОГРН || '',
+            formatDate(row.ДатаОГРН),
+            row.НаимВидИП || '',
+            row.НаимСокр || '',
+            row.ОКВЭДОсн || '',
+            formatDate(row.ДатаВып),
+            row.КодВидИП || ''
+            //,'...'
+          ]);
+          title = 'Индивидуальные предприниматели';
+        }
+        else if (this.showULHeaders) {
+          headers = ['ИНН', 'КПП', 'ОГРН', 'Дата ОГРН', 'Полное наименование', 'Сокращённое', 'ОКВЭД', 'Спр. ОПФ', 'Код ОПФ', 'Дата выписки'/*, 'ДопИНФ'*/];
+          rows = this.ULTableContent.map(row => [
+            row.ИНН || '',
+            row.КПП || '',
+            row.ОГРН || '',
+            formatDate(row.ДатаОГРН),
+            row.ПолнНаимОПФ || '',
+            row.НаимСокр || '',
+            row.ОКВЭДОсн || '',
+            row.СпрОПФ || '',
+            row.КодОПФ || '',
+            formatDate(row.ДатаВып)
+            //,'...'
+          ]);
+          title = 'Юридические лица';
         }
         else {
-          this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-          this.SharedTableContent.sharedULTableContent = [];
+          alert('Нет данных для экспорта.');
+          return;
         }
 
-        window.scrollTo(0, 0);
+        if (rows.length === 0) {
+          alert('Нет данных для экспорта.');
+          return;
+        }
+
+        // === Создаём документ ===
+        const headerRow = new TableRow({
+          children: headers.map(text =>
+            new TableCell({
+              children: [new Paragraph({ text, heading: HeadingLevel.HEADING_6 })],
+              verticalAlign: VerticalAlign.CENTER,
+              margins: { top: 100, bottom: 100, left: 100, right: 100 },
+              shading: { fill: "E0E0E0" }
+            })
+          )
+        });
+
+        const dataRows = rows.map(row =>
+          new TableRow({
+            children: row.map(cell =>
+              new TableCell({
+                children: [new Paragraph(cell)],
+                verticalAlign: VerticalAlign.TOP,
+                margins: { top: 100, bottom: 100, left: 100, right: 100 }
+              })
+            )
+          })
+        );
+
+        const table = new Table({
+          rows: [headerRow, ...dataRows],
+          width: { size: 100, type: WidthType.PERCENTAGE },
+          margins: { top: 200, bottom: 200 },
+          borders: {
+            top: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+            bottom: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+            left: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+            right: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+            insideHorizontal: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+            insideVertical: { style: BorderStyle.SINGLE, size: 6, color: "000000" }
+          }
+        });
+
+        const doc = new Document({
+          sections: [{
+            properties: {
+              page: {
+                margin: {
+                  top: 1440,    // 1 дюйм = 1440 twips
+                  bottom: 1440,
+                  left: 1440,
+                  right: 1440
+                },
+                size: {
+                  orientation: "landscape" // Альбомная ориентация!
+                }
+              }
+            },
+            children: [
+              new Paragraph({
+                text: `Выписка из ЕГР: ${title}`,
+                heading: HeadingLevel.HEADING_1,
+                alignment: AlignmentType.CENTER,
+                spacing: { after: 300 }
+              }),
+              table
+            ]
+          }]
+        });
+
+        // Сохраняем
+        const blob = await Packer.toBlob(doc);
+        saveAs(blob, `ЕГР_Экспорт_${title}.docx`);
       },
+      //ChangePageIP: function (page_num) {
+      //  this.page = page_num;
+      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
+      //  this.IPTableContent = this.filteredIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
+      //  window.scrollTo(0, 0);
+      //},
+      //ChangePageUL: function (page_num) {
+      //  this.page = page_num;
+      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
+      //  this.ULTableContent = this.filteredULTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
+      //  window.scrollTo(0, 0);
+      //},
+      //ChangePageShared: function (page_num) {
+      //  this.page = page_num;
+      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
+      //  var count = this.pagination_offset + this.pagination_items_per_page - this.filteredSharedIPTableContent.length;
+      //  if (count > 0) {
+      //    if (this.pagination_offset <= this.filteredSharedIPTableContent.length) {
+      //      this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.sharedIPTableContent_buffer.length);
+      //    }
+      //    else {
+      //      this.SharedTableContent.sharedIPTableContent = [];
+      //    }
+      //    var pagination_offset_ul = this.pagination_offset - this.filteredSharedIPTableContent.length > 0 ? this.pagination_offset - this.filteredSharedIPTableContent.length : 0;
+      //    this.SharedTableContent.sharedULTableContent = this.filteredSharedULTableContent.slice(pagination_offset_ul, count);
+      //  }
+      //  else {
+      //    this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
+      //    this.SharedTableContent.sharedULTableContent = [];
+      //  }
+
+      //  window.scrollTo(0, 0);
+      //},
       handleOpenModal({ row, type }) {
         this.OpenModal(row.idЛицо, row.ИНН, type, row.НаимСокр);
       },
@@ -980,41 +1268,52 @@
         this.detailsTableHeaders = [];
 
         // Загружаем
-        const url = `${baseURL}/Home/Details?table=${table}&id=${id}`;
-        const response = await fetch(url);
-        const tableData = await response.json();
+        try {
+          const response = await api.get('/Home/Details', {
+            params: { table: `${table}`, id: `${id}` }
+          });
+          const tableData = response.data;
 
-        if (!tableData || tableData.length === 0) return;
+          if (!tableData || tableData.length === 0) return;
 
-        this.detailsTableData = tableData;
+          this.detailsTableData = tableData;
 
-        // Формируем заголовки (без служебных полей)
-        const firstRow = { ...tableData[0] };
-        delete firstRow.Id;
-        delete firstRow.idЛицо;
-        delete firstRow.ИП;
-        delete firstRow.ЮрЛицо;
+          // Формируем заголовки (без служебных полей)
+          const firstRow = { ...tableData[0] };
+          delete firstRow.Id;
+          delete firstRow.idЛицо;
+          delete firstRow.ИП;
+          delete firstRow.ЮрЛицо;
 
-        this.detailsTableHeaders = Object.keys(firstRow);
+          this.detailsTableHeaders = Object.keys(firstRow);
+        } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+          // Можно показать уведомление пользователю
+        }
       },
 
       async handleLoadLogs({ table, inn }) {
         // Очищаем
         this.detailsTableData = [];
         this.detailsTableHeaders = [];
+        try {
+          const response = await api.get('/Home/GetLogs', {
+            params: { table: `${table}`, INN: `${inn}` }
+          });
+          const tableData = response.data;
 
-        const url = `${baseURL}/Home/GetLogs?table=${table}&INN=${inn}`;
-        const response = await fetch(url);
-        const tableData = await response.json();
+          if (!tableData || tableData.length === 0) return;
 
-        if (!tableData || tableData.length === 0) return;
+          this.detailsTableData = tableData;
 
-        this.detailsTableData = tableData;
+          const firstRow = { ...tableData[0] };
+          delete firstRow.Id;
 
-        const firstRow = { ...tableData[0] };
-        delete firstRow.Id;
-
-        this.detailsTableHeaders = Object.keys(firstRow);
+          this.detailsTableHeaders = Object.keys(firstRow);
+        } catch (error) {
+          console.error('Ошибка загрузки данных:', error);
+          // Можно показать уведомление пользователю
+        }
       },
     }
 

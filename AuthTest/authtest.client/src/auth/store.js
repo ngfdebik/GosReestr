@@ -16,8 +16,12 @@ export default new Vuex.createStore({
     isAdmin : localStorage.getItem('isAdmin') || '',
     isAuthenticated: false,
     isLoading: false,
+    globalLoading: false,
   },
   mutations: {
+    SET_GLOBAL_LOADING(state, status) {
+      state.globalLoading = status;
+    },
     SET_USER(state, user) {
       state.user = user;
     },
@@ -146,5 +150,6 @@ export default new Vuex.createStore({
     user: state => state.user,
     isAuthenticated: state => state.isAuthenticated,
     isLoading: state => state.isLoading,
+    isGlobalLoading: state => state.globalLoading,
   }
 })

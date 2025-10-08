@@ -1,31 +1,12 @@
-import axios from 'axios'
-import store from '@/auth/store';
-
-const client = axios.create({
-    baseURL: 'https://localhost:7229/api/user',
-    json: true
-})
+// src/services/UserApiService.js
+import api from './TokenApi'; // ← изменили импорт
+import store from '@/auth/store'
 
 export default {
-    async execute(method, resource, data) {
-        const accessToken = localStorage.getItem('accessToken');
-        return await client({
-            method,
-            url: resource,
-            data,
-            headers: {
-               Authorization: `Bearer ${accessToken}`
-            }
-        }).then(req => {
-            return req.data
-        }).catch(err => {
-            return err.response
-        })
-    },
-    getCurrent(){
-        return this.execute('get', `/current/${store.getters.login}`)
-    },
-    edit(userData){
-        return this.execute('put', `/edit`, userData)
-    }
+  getCurrent() {
+    return api.get(`/user/current/${store.getters.login}`).then(response => response.data); // ← baseURL уже /api, логин не нужен в URL
+  },
+  edit(userData) {
+    return api.put('/user/edit', userData).then(response => response.data);//.then(response => response.data)
+  }
 }

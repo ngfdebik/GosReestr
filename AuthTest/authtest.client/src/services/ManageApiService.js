@@ -1,39 +1,20 @@
-import axios from 'axios'
-import store from '@/auth/store';
-
-const client = axios.create({
-    baseURL: 'https://localhost:7229/api/manage'
-})
+// src/services/ManageApiService.js
+import api from './TokenApi';
 
 export default {
-    async execute(method, resource, data = null) {
-        const accessToken = localStorage.getItem('accessToken');
-        return await client({
-            method,
-            url: resource,
-            data,
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
-        }).then(req => {
-            return req.data
-        }).catch(err => {
-            return err.response
-        })
-    },
-    manage(){
-        return this.execute('get', `/manage`)
-    },
-    create(data) {
-        return this.execute('post', `/create`, data)
-    },
-    load(selectedExistingUser){
-        return this.execute('get', `/load/${selectedExistingUser}`)
-    },
-    update(data) {
-        return this.execute('put', `/update`, data)
-    },
-    delete(selectedExistingUser)  {
-        return this.execute('delete', `/delete/${selectedExistingUser}`)
-    }
+  manage() {
+    return api.get('/manage/manage').then(response => response.data);
+  },
+  create(data) {
+    return api.post('/manage/create', data).then(response => response.data); // ← .data
+  },
+  load(selectedExistingUser) {
+    return api.get(`/manage/load/${selectedExistingUser}`).then(response => response.data).then(response => response.data);
+  },
+  update(data) {
+    return api.put('/manage/update', data).then(response => response.data); // ← .data
+  },
+  delete(login) {
+    return api.delete(`/manage/delete/${login}`).then(response => response.data); // ← .data
+  }
 }

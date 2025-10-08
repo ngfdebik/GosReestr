@@ -1,6 +1,7 @@
 
 <template>
   <main>
+    <GlobalLoader />
     <router-view>
     </router-view>
   </main>
@@ -10,10 +11,14 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex';
+  import { mapActions, mapGetters, mapState } from 'vuex';
+  import GlobalLoader from '@/components/layout/GlobalLoader.vue';
 
 export default {
-  name: 'App',
+    name: 'App',
+    components: {
+      GlobalLoader //зарегистрировано
+    },
   data() {
     return {
       authChecked: false,

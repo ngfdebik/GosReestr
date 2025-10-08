@@ -1,44 +1,137 @@
+<style>
+.edit-page{
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edit-component{
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex !important;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.edit-form{
+    width: 25vw;
+    border-radius: 20px;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    flex-wrap: wrap;
+    display: flex;
+    gap: .5rem;
+}
+
+.form-name-label{
+    align-self: center;
+    font-size: 1.25rem;
+    font-weight: 300;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: .5rem;
+}
+
+.error-text{
+    color: #dc3545;
+}
+
+.success-text{
+    color: #198754
+}
+
+.success-label{
+    margin-top: 1rem;
+}
+
+.submit-button{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    width: 100%;
+}
+
+label{
+    padding-left: .5rem;
+}
+
+span{
+    margin-bottom: .25rem;
+    padding-left: .5rem;
+}
+
+input{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: .25rem;
+}
+
+</style>
+
 <template>
-  <div>
-    <div class="row">
-      <button @click="goBack" class="ml-2 btn btn-link">Вернуться</button>
+  <div class="edit-page">
+    <div class="">
+      <button @click="goBack" class="">Вернуться</button>
     </div>
-    <div class="d-flex min-vh-98 justify-content-center align-items-center">
-      <div class="justify-content-md-center">
-        <form class="row border shadow p-3" @submit.prevent="editUser" style="width: 25vw; border-radius: 20px">
+    <div class="edit-component">
+        <form class="edit-form" @submit.prevent="editUser">
           <div v-if="Object.keys(errors).length > 0" class="text-danger mb-2">
             <div v-for="error in Object.values(errors)" :key="error">{{ error }}</div>
           </div>
           
-          <label class="lead m-0 align-self-center mb-3">
+          <label class="form-name-label">
             Редактирование пользователя {{ userData.login }}
           </label>
           
           <input type="hidden" v-model="userData.login" />
 
-          <label class="mb-1" for="password">Новый пароль</label>
-          <input type="password" id="password" v-model="userData.password" class="form-control" 
+          <label class="" for="password">Новый пароль</label>
+          <input type="password" id="password" v-model="userData.password" class="" 
                  :class="{'is-invalid': errors.password}">
-          <span v-if="errors.password" class="text-danger mb-2">{{ errors.password }}</span>
+          <span v-if="errors.password" class="error-text">{{ errors.password }}</span>
 
-          <label class="mb-1 mt-2" for="confirmPassword">Подтвердите пароль</label>
-          <input type="password" id="confirmPassword" v-model="userData.confirmPassword" class="form-control"
+          <label class="" for="confirmPassword">Подтвердите пароль</label>
+          <input type="password" id="confirmPassword" v-model="userData.confirmPassword" class=""
                  :class="{'is-invalid': errors.confirmPassword}">
-          <span v-if="errors.confirmPassword" class="text-danger mb-2">{{ errors.confirmPassword }}</span>
+          <span v-if="errors.confirmPassword" class="error-text">{{ errors.confirmPassword }}</span>
 
-          <label class="mb-1 mt-2" for="fullName">ФИО</label>
-          <input type="text" id="fullName" v-model="userData.fullName" class="form-control mb-4">
+          <label class="" for="fullName">ФИО</label>
+          <input type="text" id="fullName" v-model="userData.fullName" class="">
           
-          <button type="submit" class="btn btn-primary" :disabled="loading">
+          <button type="submit" class="submit-button" :disabled="loading">
             {{ loading ? 'Загрузка...' : 'Изменить' }}
           </button>
           
-          <div v-if="userEditStatusMessage" class="mt-2" 
-               :class="userEditStatusMessage.includes('успеш') ? 'text-success' : 'text-danger'">
+          <div v-if="userEditStatusMessage" class="success-label" 
+               :class="userEditStatusMessage.includes('успеш') ? 'success-text' : 'error-text'">
             {{ userEditStatusMessage }}
           </div>
-        </form>
-      </div>       
+        </form>   
     </div>
   </div>
 </template>

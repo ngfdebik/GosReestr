@@ -26,7 +26,7 @@ const routes = [
     path: '/UserEdit',
     name: 'UserEdit',
     component: UserEdit,
-    meta: {requiresGuest: false}
+    meta: {requiresGuest: true}
   },
   {
     path: '/Manage',

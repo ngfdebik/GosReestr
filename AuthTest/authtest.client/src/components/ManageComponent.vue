@@ -284,12 +284,12 @@ import router from '@/router/Routers';
                     ManageApiService.load(selectedExistingUser.value)
                     .then(resp => {
                         Object.assign(existingUser, {
-                            login: resp.data.ExistingLoginData.Login,
+                            login: resp.ExistingLoginData.Login,
                             password: '',
                             confirmPassword: '',
-                            selectedRole: resp.data.ExistingLoginData.SelectedRole,
-                            fullName: resp.data.ExistingLoginData.FullName,
-                            hiddenSelectedUser: resp.data.ExistingLoginData.Login
+                            selectedRole: resp.ExistingLoginData.SelectedRole,
+                            fullName: resp.ExistingLoginData.FullName,
+                            hiddenSelectedUser: resp.ExistingLoginData.Login
                         })
                     })
                     .catch(err => {

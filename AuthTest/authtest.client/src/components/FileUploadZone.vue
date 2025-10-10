@@ -3,9 +3,9 @@
   <div class="upload-zone">
     <h5 class="mb-3">Загрузка данных</h5>
     <div class="dropzone p-4"
-         @dragover.prevent
-         @dragenter.prevent
-         @dragleave="isDragging = false"
+         @dragover="handleDragOver"
+         @dragenter="handleDragEnter"
+         @dragleave="handleDragLeave"
          @drop="handleDrop"
          @click="triggerFileInput"
          :class="{ 'dropzone--dragover': isDragging }">
@@ -45,7 +45,23 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
         statusClass: '',
       };
     },
+    mounted() {
+      // Критически важные обработчики на уровне документа
+      document.addEventListener('dragover', this.preventDragDrop, false);
+      document.addEventListener('drop', this.preventDragDrop, false);
+    },
+    beforeUnmount() {
+      document.removeEventListener('dragover', this.preventDragDrop, false);
+      document.removeEventListener('drop', this.preventDragDrop, false);
+    },
     methods: {
+
+      // Универсальный метод для предотвращения поведения по умолчанию
+      preventDragDrop(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      },
       triggerFileInput() {
         this.$refs.fileInput.click();
       },
@@ -54,6 +70,31 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
         const file = event.target.files[0];
         if (file) {
           this.uploadFile(file);
+        }
+      },
+
+      handleDragOver(event) {
+        this.preventDragDrop(event);
+        if (!this.isDragging) {
+          this.isDragging = true;
+        }
+        // Указываем браузеру, что мы хотим скопировать файл
+        event.dataTransfer.dropEffect = 'copy';
+      },
+
+      handleDragEnter(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.isDragging = true;
+      },
+
+      handleDragLeave(event) {
+        this.preventDragDrop(event);
+        this.dragCounter--;
+        
+        // Сбрасываем состояние только когда вышли из элемента
+        if (this.dragCounter === 0) {
+          this.isDragging = false;
         }
       },
 

@@ -96,80 +96,141 @@ namespace AuthTest.Server.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpPost]
+        [Authorize]
+        [HttpPost("upload")]
         [DisableRequestSizeLimit,
         RequestFormLimits(MultipartBodyLengthLimit = int.MaxValue,
         ValueLengthLimit = int.MaxValue)]
-        public async Task<IActionResult> Загрузить(IFormFile file)
+        public async Task<IActionResult> Upload(IFormFile file)
         {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
-            if (file == null || file.Length == 0)
+            try
             {
-                return BadRequest("Файл пустой");
-            }
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            entitiesInWork.Clear();
-            IPSubTables.ClearIPSubTables();
-            ULSubTables.ClearULSubTables();
-            finishedWorkersCount = 0;
-
-            if (Path.GetExtension(file.FileName) == ".xml")
-            {
-                using var stream = new StreamReader(file.OpenReadStream(), Encoding.GetEncoding(1251));
-                var serializer = new XmlSerializer(typeof(Файл));
-                var model = serializer.Deserialize(stream) as Файл;
-
-                docCount += Convert.ToInt32(model.КолДок);
-
-                if (model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД"))
+                // Валидация файла
+                if (file == null || file.Length == 0)
                 {
-                    foreach (Документ document in model.Документ)
+                    return BadRequest(new
                     {
-                        try
-                        {
-                            ThreadPool.QueueUserWorkItem(ParseULDataDB, document);
-                        }
-                        catch (Exception e)
-                        {
+                        success = false,
+                        error = "Файл пустой"
+                    });
+                }
 
-                        }
-                    }
+                // Сброс глобальных переменных
+                entitiesInWork.Clear();
+                IPSubTables.ClearIPSubTables();
+                ULSubTables.ClearULSubTables();
+                finishedWorkersCount = 0;
+                docCount = 0;
+
+                var processingResult = new UploadProcessingResult
+                {
+                    FileName = file.FileName,
+                    FileSize = file.Length,
+                    StartTime = DateTime.UtcNow
+                };
+
+                // Обработка XML файла
+                if (Path.GetExtension(file.FileName) == ".xml")
+                {
+                    await ProcessXmlFile(file, processingResult);
+                }
+                // Обработка ZIP архива
+                else if (Path.GetExtension(file.FileName) == ".zip")
+                {
+                    await ProcessZipFile(file, processingResult);
                 }
                 else
                 {
-                    foreach (Документ document in model.Документ)
+                    return BadRequest(new
                     {
-                        try
-                        {
-                            ThreadPool.QueueUserWorkItem(ParseIPDataDB, document);
-                        }
-                        catch (Exception e)
-                        {
-
-                        }
-                    }
+                        success = false,
+                        error = "Неподдерживаемый формат файла"
+                    });
                 }
 
-                while (docCount != finishedWorkersCount)
+                // Ожидание завершения обработки
+                await WaitForProcessingCompletion();
+
+                processingResult.EndTime = DateTime.UtcNow;
+                processingResult.TotalProcessed = docCount;
+                processingResult.TotalDuration = processingResult.EndTime - processingResult.StartTime;
+
+                return Ok(new
                 {
-                    Thread.Sleep(5000);
-                }
-
-                return View("LoadingDone");
+                    success = true,
+                    message = "Файл успешно обработан",
+                    data = processingResult
+                });
             }
-            else if (Path.GetExtension(file.FileName) == ".zip")
+            catch (Exception ex)
             {
-                var fileName = Path.GetFileName(file.FileName);
+                return StatusCode(500, new
+                {
+                    success = false,
+                    error = "Внутренняя ошибка сервера при обработке файла"
+                });
+            }
+        }
+
+        // Вспомогательные методы остаются без изменений
+
+        private async Task ProcessXmlFile(IFormFile file, UploadProcessingResult result)
+        {
+            using var stream = new StreamReader(file.OpenReadStream(), Encoding.GetEncoding(1251));
+            var serializer = new XmlSerializer(typeof(Файл));
+            var model = serializer.Deserialize(stream) as Файл;
+
+            if (model == null)
+            {
+                throw new InvalidOperationException("Не удалось десериализовать XML файл");
+            }
+
+            result.TotalDocuments = Convert.ToInt32(model.КолДок);
+            docCount = result.TotalDocuments;
+
+            var isULType = model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД");
+            result.DataType = isULType ? "Юридические лица" : "Индивидуальные предприниматели";
+
+            foreach (Документ document in model.Документ)
+            {
+                try
+                {
+                    if (isULType)
+                    {
+                        ThreadPool.QueueUserWorkItem(ParseULDataDB, document);
+                    }
+                    else
+                    {
+                        ThreadPool.QueueUserWorkItem(ParseIPDataDB, document);
+                    }
+                    result.SuccessfulDocuments++;
+                }
+                catch (Exception ex)
+                {
+                    result.FailedDocuments++;
+                }
+            }
+        }
+
+        private async Task ProcessZipFile(IFormFile file, UploadProcessingResult result)
+        {
+            var fileName = Path.GetFileName(file.FileName);
+            var tempPath = Path.Combine(Path.GetTempPath(), fileName);
+
+            try
+            {
                 // Сохраняем файл на сервере
-                var path = Path.Combine(Path.GetTempPath(), fileName);
-                using (var stream = new FileStream(path, FileMode.Create))
+                using (var stream = new FileStream(tempPath, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
 
-                using (var uploadedZip = ZipFile.Open(path, ZipArchiveMode.Read))
+                using (var uploadedZip = ZipFile.Open(tempPath, ZipArchiveMode.Read))
                 {
+                    result.TotalFilesInArchive = uploadedZip.Entries.Count;
+
                     // цикл по всем файлам в архиве
                     foreach (var entry in uploadedZip.Entries)
                     {
@@ -178,52 +239,91 @@ namespace AuthTest.Server.Controllers
                             var serializer = new XmlSerializer(typeof(Файл));
                             var model = serializer.Deserialize(entryStream) as Файл;
 
-                            docCount += Convert.ToInt32(model.КолДок);
-
-                            if (model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД"))
+                            if (model != null)
                             {
-                                foreach (Документ document in model.Документ)
-                                {
-                                    try
-                                    {
-                                        ThreadPool.QueueUserWorkItem(ParseULDataDB, document);
-                                    }
-                                    catch (Exception e)
-                                    {
+                                result.TotalDocuments += Convert.ToInt32(model.КолДок);
+                                docCount = result.TotalDocuments;
 
+                                if (model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД"))
+                                {
+                                    foreach (Документ document in model.Документ)
+                                    {
+                                        try
+                                        {
+                                            ThreadPool.QueueUserWorkItem(ParseULDataDB, document);
+                                            result.SuccessfulDocuments++;
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            result.FailedDocuments++;
+                                        }
                                     }
                                 }
-                            }
-                            else
-                            {
-                                foreach (Документ document in model.Документ)
+                                else
                                 {
-                                    try
+                                    foreach (Документ document in model.Документ)
                                     {
-                                        ThreadPool.QueueUserWorkItem(ParseIPDataDB, document);
-                                    }
-                                    catch (Exception e)
-                                    {
-
+                                        try
+                                        {
+                                            ThreadPool.QueueUserWorkItem(ParseIPDataDB, document);
+                                            result.SuccessfulDocuments++;
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            result.FailedDocuments++;
+                                        }
                                     }
                                 }
                             }
                         }
+                        result.ProcessedFiles++;
                     }
                 }
             }
-            else
+            finally
             {
-                return BadRequest("Неподдерживаемый формат файла");
+                // Очистка временного файла
+                if (System.IO.File.Exists(tempPath))
+                {
+                    System.IO.File.Delete(tempPath);
+                }
             }
+        }
+
+        private async Task WaitForProcessingCompletion()
+        {
+            var maxWaitTime = TimeSpan.FromMinutes(30);
+            var checkInterval = TimeSpan.FromSeconds(5);
+            var startTime = DateTime.UtcNow;
 
             while (docCount != finishedWorkersCount)
             {
-                Thread.Sleep(5000);
-            }
+                if (DateTime.UtcNow - startTime > maxWaitTime)
+                {
+                    throw new TimeoutException("Превышено время ожидания обработки файла");
+                }
 
-            return View("LoadingDone");
+                await Task.Delay(checkInterval);
+            }
         }
+
+        // DTO класс для результата обработки
+        public class UploadProcessingResult
+        {
+            public string FileName { get; set; }
+            public long FileSize { get; set; }
+            public DateTime StartTime { get; set; }
+            public DateTime EndTime { get; set; }
+            public TimeSpan TotalDuration { get; set; }
+            public string DataType { get; set; }
+            public int TotalFilesInArchive { get; set; }
+            public int ProcessedFiles { get; set; }
+            public int TotalDocuments { get; set; }
+            public int SuccessfulDocuments { get; set; }
+            public int FailedDocuments { get; set; }
+            public int TotalProcessed { get; set; }
+        }
+
 
         [Authorize]
         [HttpGet("AllTab")]

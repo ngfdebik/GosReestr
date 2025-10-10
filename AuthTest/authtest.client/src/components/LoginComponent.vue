@@ -25,7 +25,7 @@
   import store from '../auth/store'
   //import axios from 'axios';
   import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
-  import '../assets/css/site.css'
+  import '@/css/site.css'
 
   const credentials = ref({
     login: '',
@@ -129,7 +129,6 @@
     padding: .375rem .75rem;
     font-size: 1rem;
     border-radius: .25rem;
-
   }
 
   input{
@@ -142,7 +141,6 @@
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-
   }
   
 </style>

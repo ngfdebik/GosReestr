@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import UploadApiSrvice from '@/services/UploadApiSrvice';
+
   export default {
     name: 'FileUploadZone',
     data() {
@@ -78,28 +80,44 @@
         const formData = new FormData();
         formData.append('file', file);
 
-        try {
+        // try {
           // Используем тот же origin, что и основной сайт
-          const response = await fetch('/api/upload/upload', {
-            method: 'POST',
-            body: formData,
-          });
+          // const response = await fetch('/api/Home/upload', {
+          //   method: 'POST',
+          //   body: formData,
+          // });
 
-          if (response.ok) {
+          UploadApiSrvice.uploadFile(formData)
+          .then(resp => {
             this.showMessage('Файл успешно загружен и обработан!', 'alert-success');
             // Опционально: уведомить родителя о завершении
             this.$emit('upload-complete');
-          } else {
-            const errorText = await response.text();
-            this.showMessage(`Ошибка: ${errorText || 'Неизвестная ошибка'}`, 'alert-danger');
-          }
-        } catch (err) {
-          console.error('Upload error:', err);
-          this.showMessage('Не удалось подключиться к серверу', 'alert-danger');
-        } finally {
+            console.log(resp);
+          })
+          .catch(err => {
+            //this.showMessage(`Ошибка: ${err || 'Неизвестная ошибка'}`, 'alert-danger');
+            console.error('Upload error:', err);
+            this.showMessage('Не удалось подключиться к серверу', 'alert-danger')
+          })
+
           this.isUploading = false;
-          this.$refs.fileInput.value = ''; // сброс для повторной загрузки
-        }
+          this.$refs.fileInput.value = '';
+        // }
+
+        //   if (response.ok) {
+        //     this.showMessage('Файл успешно загружен и обработан!', 'alert-success');
+        //     // Опционально: уведомить родителя о завершении
+        //     this.$emit('upload-complete');
+        //   } else {
+        //     const errorText = await response.text();
+        //     this.showMessage(`Ошибка: ${errorText || 'Неизвестная ошибка'}`, 'alert-danger');
+        //   }
+        // } catch (err) {
+        //   console.error('Upload error:', err);
+        //   this.showMessage('Не удалось подключиться к серверу', 'alert-danger');
+        // } finally {
+        //    // сброс для повторной загрузки
+        // }
       },
 
       showMessage(message, className) {

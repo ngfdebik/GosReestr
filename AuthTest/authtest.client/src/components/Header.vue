@@ -80,6 +80,11 @@
                 <FileUploadZone @upload-complete="handleUploadComplete" />
               </div>
             </div>
+            <button class="btn btn-sm clear-filters-btn mt-2"
+                    @click="$emit('clear-filters')"
+                    type="button">
+              Сбросить фильтры
+            </button>
           </div>
           
         </div>
@@ -107,7 +112,7 @@
       isAdmin: Boolean,
       isLoggedIn: Boolean
     },
-    emits: ['load-all', 'load-ip', 'load-ul', 'export-excel', 'export-doc'],
+    emits: ['load-all', 'load-ip', 'load-ul', 'export-excel', 'export-doc', 'clear-filters'],
     data() {
       return {
         userFullName: '',
@@ -176,7 +181,21 @@
   .user-block {
     position: relative; /* Добавьте это свойство */
   }
+  .clear-filters-btn {
+    background-color: #dc3545; /* красный, как "очистить" */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+    height: auto;
+    min-width: 120px;
+    text-align: center;
+  }
 
+    .clear-filters-btn:hover {
+      background-color: #c82333;
+    }
   .user-menu {
     position: absolute;
     top: 100%;

@@ -8,7 +8,8 @@
             @load-ip="LoadIPTable"
             @load-ul="LoadULTable"
             @export-excel="exportToExcel"
-            @export-doc="ExportToDoc"/>
+            @export-doc="ExportToDoc"
+            @clear-filters="ClearFilters"/>
     <!--<nav id="paginationShared" v-if="showSharedHeaders">
       <div class="d-flex justify-content-between mb-2">
          Пагинация 
@@ -112,21 +113,24 @@
                          :shared-u-l-rows="SharedTableContent.sharedULTableContent"
                          :ip-rows="IPTableContent"
                          :ul-rows="ULTableContent"
+                         :filters="filters"
                          :show-load-more="showLoadMore"
                          @open-modal="handleOpenModal"
-                         @load-more="handleLoadMore" />
+                         @load-more="handleLoadMore"
+                         @update:filters="filters = $event"
+                         @apply-filters="FilterTable"/>
         </div>
-        <div class="col-3">
+        <!--<div class="col-3">-->
           <!--<div v-if="isAdmin">
             <FileUploadZone  @upload-complete="getfileuploadzone" />
           </div>-->
-          <FiltersPanel :filters="filters"
+          <!--<FiltersPanel :filters="filters"
                         :show-i-p-headers="showIPHeaders"
                         :show-u-l-headers="showULHeaders"
                         :show-shared-headers="showSharedHeaders"
                         @update:filters="filters = $event"
                         @apply-filters="FilterTable" />
-        </div>
+        </div>-->
       </div>
     </div>
 
@@ -147,7 +151,7 @@
 <script>
   import Header from '@/components/Header.vue';
   import MainTableView from '@/components/MainTableView.vue';
-  import FiltersPanel from '@/components/FiltersPanel.vue';
+  //import FiltersPanel from '@/components/FiltersPanel.vue';
   import ModalDetails from '@/components/ModalDetails.vue';
   import FileUploadZone from '@/components/FileUploadZone.vue';
   import store from '@/auth/store';
@@ -177,7 +181,7 @@
     components: {
       Header,
       MainTableView,
-      FiltersPanel,
+      //FiltersPanel,
       ModalDetails,
       FileUploadZone
     },
@@ -432,6 +436,7 @@
         this.extraTableContent_buffer = this.extraTableContent
       },
       async LoadAllTable() {
+        this.ClearFilters();
         this.IPTableHeaders = [];
         this.IPTableContent = [];
 
@@ -512,6 +517,7 @@
       },
 
       async LoadIPTable() {
+        this.ClearFilters();
         this.IPTableHeaders = [];
         this.IPTableContent = [];
 
@@ -570,6 +576,7 @@
       },
 
       async LoadULTable() {
+        this.ClearFilters();
         this.IPTableHeaders = [];
         this.IPTableContent = [];
 
@@ -654,210 +661,56 @@
         //    this.extraTableContent = this.extraTableContent_buffer;
         //    return;
         //}
-        this.filteredIPTableContent = this.IPTableContent_buffer;
-        this.filteredULTableContent = this.ULTableContent_buffer;
-
-        this.filteredSharedIPTableContent = this.sharedIPTableContent_buffer;
-        this.filteredSharedULTableContent = this.sharedULTableContent_buffer;
-
-        //let filteredExtraTableContent;
+        this.filteredIPTableContent = [...this.IPTableContent_buffer];
+        this.filteredULTableContent = [...this.ULTableContent_buffer];
+        this.filteredSharedIPTableContent = [...this.sharedIPTableContent_buffer];
+        this.filteredSharedULTableContent = [...this.sharedULTableContent_buffer];
 
         this.filters.forEach((filter) => {
-          switch (filter.mode) {
-            case '=':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] == filter.value;
-              })
+          const isDateCol = filter.col.includes('Дата');
 
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] == filter.value;
-              })
+          const filterValue = isDateCol ? filter.value : filter.value; // уже строка
 
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] == filter.value;
-              })
+          // Функция для извлечения даты из строки вида "2023-07-03T00:00:00"
+          const extractDatePart = (dateStr) => {
+            if (!dateStr) return '';
+            return dateStr.split('T')[0]; // "2023-07-03"
+          };
 
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] == filter.value;
-              })
+          const applyFilter = (row) => {
+            const cellValue = row[filter.col];
+            if (cellValue == null) return false;
 
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return row[filter.col] == filter.value;
-              //})
-              break
+            const compareValue = isDateCol ? extractDatePart(cellValue) : String(cellValue);
 
-            case '!=':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] != filter.value;
-              })
+            switch (filter.mode) {
+              case '=':
+                return compareValue === filterValue;
+              case '!=':
+                return compareValue !== filterValue;
+              case 'содержит':
+                return !isDateCol && compareValue.includes(filterValue);
+              case 'начинается с':
+                return !isDateCol && compareValue.startsWith(filterValue);
+              case 'заканчивается на':
+                return !isDateCol && compareValue.endsWith(filterValue);
+              case '>':
+                return compareValue > filterValue;
+              case '<':
+                return compareValue < filterValue;
+              default:
+                return true;
+            }
+          };
 
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] != filter.value;
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] != filter.value;
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col] != filter.value;
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return row[filter.col] != filter.value;
-              //})
-              break
-
-            case 'содержит':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].includes(filter.value);
-              })
-
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].includes(filter.value);
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].includes(filter.value);
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].includes(filter.value);
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return row[filter.col].includes(filter.value);
-              //})
-              break
-
-            case 'начинается с':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].startsWith(filter.value);
-              })
-
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].startsWith(filter.value);
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].startsWith(filter.value);
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].startsWith(filter.value);
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return row[filter.col].startsWith(filter.value);
-              //})
-              break
-
-            case 'заканчивается на':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].endsWith(filter.value);
-              })
-
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].endsWith(filter.value);
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].endsWith(filter.value);
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return row[filter.col].endsWith(filter.value);
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return row[filter.col].endsWith(filter.value);
-              //})
-              break
-
-            case '>':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) > Date.parse(filter.value);
-              })
-
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) > Date.parse(filter.value);
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) > Date.parse(filter.value);
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) > Date.parse(filter.value);
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return Date.parse(row[filter.col]) > Date.parse(filter.value);
-              //})
-              break
-
-            case '<':
-              this.filteredIPTableContent = this.filteredIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) < Date.parse(filter.value);
-              })
-
-              this.filteredULTableContent = this.filteredULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) < Date.parse(filter.value);
-              })
-
-              this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) < Date.parse(filter.value);
-              })
-
-              this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(function (row) {
-                if (row[filter.col])
-                  return Date.parse(row[filter.col]) < Date.parse(filter.value);
-              })
-
-              //filteredExtraTableContent = this.extraTableContent.filter(function (row) {
-              //    return Date.parse(row[filter.col]) < Date.parse(filter.value);
-              //})
-              break
-          }
-
-          //this.IPTableContent = filteredIPTableContent;
-          //this.ULTableContent = filteredULTableContent;
-
-          //this.SharedTableContent.sharedIPTableContent = filteredSharedIPTableContent;
-          //this.SharedTableContent.sharedULTableContent = filteredSharedULTableContent;
-
-          this.loadedCount = 50;
-          this.updateDisplayedRows();
-
-          //this.extraTableContent = filteredExtraTableContent;
+          this.filteredIPTableContent = this.filteredIPTableContent.filter(applyFilter);
+          this.filteredULTableContent = this.filteredULTableContent.filter(applyFilter);
+          this.filteredSharedIPTableContent = this.filteredSharedIPTableContent.filter(applyFilter);
+          this.filteredSharedULTableContent = this.filteredSharedULTableContent.filter(applyFilter);
         });
+
+        this.loadedCount = 50;
+        this.updateDisplayedRows();
       },
 
       AddFilter() {

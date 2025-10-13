@@ -493,7 +493,8 @@ import router from '@/router/Routers';
     color: #fff;
     text-align: center;
     text-decoration: none;
-    vertical-align: middle;
+    /* display: flex;
+    vertical-align: middle; */
     cursor: pointer;
     user-select: none;
     background-color: #0d6efd;

@@ -67,10 +67,8 @@
               </thead>
               <tbody>
                 <tr v-for="(row, i) in trimmedData" :key="i">
-                  <td v-for="(cell, j) in row"
-                      :key="j"
-                      style="font-family:'Times New Roman';">
-                    {{ cell }}
+                  <td v-for="header in detailsHeaders" :key="header" style="font-family:'Times New Roman';">
+                    {{ formatCell(row[header]) }}
                   </td>
                 </tr>
               </tbody>
@@ -107,14 +105,18 @@
       trimmedData() {
         return this.detailsData.map(row => {
           const { Id, idЛицо, ИП, ЮрЛицо, ...rest } = row;
-          return Object.values(rest);
+          return rest;
         });
       }
     },
     mounted() {
+      const modalEl = this.$refs.modal;
       this.modalInstance = new bootstrap.Modal(this.$refs.modal, {
         backdrop: 'static',
         keyboard: false
+      });
+      modalEl.addEventListener('hidden.bs.modal', () => {
+        this.$emit('close');
       });
       this.showModal();
     },
@@ -122,14 +124,28 @@
       if (this.modalInstance) {
         this.modalInstance.dispose();
       }
+      if (this.$refs.modal) {
+        this.$refs.modal.removeEventListener('hidden.bs.modal', this.handleModalHidden);
+      }
     },
     methods: {
+      formatCell(value) {
+        if (typeof value !== 'string') return value;
+
+        // Проверяем, похоже ли значение на дату в формате ISO
+        if (/^\d{4}-\d{2}-\d{2}T/.test(value)) {
+          const date = new Date(value);
+          if (!isNaN(date.getTime())) {
+            return date.toLocaleDateString('ru-RU'); // → "15.05.2020"
+          }
+        }
+        return value;
+      },
       showModal() {
         this.modalInstance.show();
       },
       hideModal() {
         this.modalInstance.hide();
-        this.$emit('close');
       },
       emitLoadDetails() {
         if (!this.localSelectedDetail) return;

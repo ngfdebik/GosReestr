@@ -138,7 +138,7 @@
       <tbody>
         <tr v-for="row in ulRows" :key="row.idЛицо">
           <td v-for="field in ulFields" :key="field" :data-t="field.includes('Дата') ? 'd' : 's'">
-            {{ field.includes('Дата') ? formatDate(row[field]) : row[field] }}
+            {{ field.includes('Дата') ? formatDate(row[field]) : row[field] }}<!--.toLocaleDateString()-->
           </td>
           <td data-exclude="true">
             <button @click="openModal(row, 'UL')">Подробнее</button>
@@ -201,7 +201,7 @@
     },
     methods: {
       formatDate(dateString) {
-        return dateString ? dateString.split('T')[0] : '';
+        return dateString ? dateString.split('T')[0].split("-").reverse().join(".") : '';
       },
       openModal(row, type) {
         this.$emit('open-modal', { row, type });

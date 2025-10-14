@@ -397,10 +397,10 @@
     z-index: 1;
     border-radius: 15px;
     position: absolute;
-    width: 30%;
+    width: 30vw;
     height: auto;
     top: 40vh;
-    left: 50%;
+    right: 20%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
 }

@@ -158,6 +158,7 @@
   import api from '@/services/TokenApi';
   import ExcelJS from 'exceljs';
   import { saveAs } from 'file-saver';
+  import JSZip from 'jszip';
   import {
     Document,
     Paragraph,
@@ -293,61 +294,8 @@
 
         return this.detailsTableData;
       }
-      //,
-      //visiblePagesShared() {
-      //  return this.getVisiblePages(this.page, this.pagesCountShared);
-      //},
-      //visiblePagesIP() {
-      //  return this.getVisiblePages(this.page, this.pagesCountIP);
-      //},
-      //visiblePagesUL() {
-      //  return this.getVisiblePages(this.page, this.pagesCountUL);
-      //}
     },
     methods: {
-      //getVisiblePages(current, total) {
-      //  if (total <= 7) {
-      //    return Array.from({ length: total }, (_, i) => i + 1);
-      //  }
-
-      //  const delta = 2;
-      //  const range = [];
-      //  const left = current - delta;
-      //  const right = current + delta;
-
-      //  for (let i = Math.max(1, left); i <= Math.min(total, right); i++) {
-      //    range.push(i);
-      //  }
-
-      //  if (left > 1) {
-      //    range.unshift(1);
-      //    if (left > 2) range.unshift('...');
-      //  }
-
-      //  if (right < total) {
-      //    range.push(total);
-      //    if (right < total - 1) range.push('...');
-      //  }
-
-      //  return range;
-      //},
-
-      //goToPage(type) {
-      //  const pageNum = this.page_number;
-      //  if (!pageNum || pageNum < 1) return;
-
-      //  switch (type) {
-      //    case 'shared':
-      //      if (pageNum <= this.pagesCountShared) this.ChangePageShared(pageNum);
-      //      break;
-      //    case 'ip':
-      //      if (pageNum <= this.pagesCountIP) this.ChangePageIP(pageNum);
-      //      break;
-      //    case 'ul':
-      //      if (pageNum <= this.pagesCountUL) this.ChangePageUL(pageNum);
-      //      break;
-      //  }
-      //},
       updateDisplayedRows() {
         if (this.showIPHeaders) {
           this.IPTableContent = this.filteredIPTableContent.slice(0, this.loadedCount);
@@ -396,45 +344,45 @@
         this.detailsTableHeaders = [];
         this.selectedDetailTable = '';
       },
-      async onChangeSelectedTable() {
-        if (this.selectedTable == 'default' || this.selectedTable == "") {
-          return;
-        }
+      //async onChangeSelectedTable() {
+      //  if (this.selectedTable == 'default' || this.selectedTable == "") {
+      //    return;
+      //  }
 
-        //очищаем отображаемую основную таблицу
-        this.IPTableHeaders = [];
-        this.IPTableContent = [];
-        this.ULTableHeaders = [];
-        this.ULTableContent = [];
-        this.showIPHeaders = false;
-        this.showULHeaders = false;
+      //  //очищаем отображаемую основную таблицу
+      //  this.IPTableHeaders = [];
+      //  this.IPTableContent = [];
+      //  this.ULTableHeaders = [];
+      //  this.ULTableContent = [];
+      //  this.showIPHeaders = false;
+      //  this.showULHeaders = false;
 
-        this.extraTableContent = [];
-        this.extraTableHeaders = [];
-        this.entityType = '';
+      //  this.extraTableContent = [];
+      //  this.extraTableHeaders = [];
+      //  this.entityType = '';
 
-        //подгружаем выбранную основную таблицу
-        var url = baseURL + '/Home/GetExtraTable?table=' + this.selectedTable;
-        let response = await fetch(url);
-        let tableData = await response.json();
+      //  //подгружаем выбранную основную таблицу
+      //  var url = baseURL + '/Home/GetExtraTable?table=' + this.selectedTable;
+      //  let response = await fetch(url);
+      //  let tableData = await response.json();
 
-        this.extraTableContent = tableData;
+      //  this.extraTableContent = tableData;
 
-        //удаляем неотображаемые поля
-        delete tableData[0].Id;
-        delete tableData[0].idЛицо;
-        delete tableData[0].ИП;
-        delete tableData[0].ЮрЛицо
+      //  //удаляем неотображаемые поля
+      //  delete tableData[0].Id;
+      //  delete tableData[0].idЛицо;
+      //  delete tableData[0].ИП;
+      //  delete tableData[0].ЮрЛицо
 
-        Object.keys(tableData[0]).forEach((element) => {
-          this.extraTableHeaders.push(element);
-        })
+      //  Object.keys(tableData[0]).forEach((element) => {
+      //    this.extraTableHeaders.push(element);
+      //  })
 
-        this.extraTableHeaders.push('ДопИнф');
+      //  this.extraTableHeaders.push('ДопИнф');
 
-        //сохраняем таблицу в хранилище
-        this.extraTableContent_buffer = this.extraTableContent
-      },
+      //  //сохраняем таблицу в хранилище
+      //  this.extraTableContent_buffer = this.extraTableContent
+      //},
       async LoadAllTable() {
         this.ClearFilters();
         this.IPTableHeaders = [];
@@ -751,7 +699,7 @@
         };
 
         if (this.showSharedHeaders) {
-          const ipRows = this.SharedTableContent.sharedIPTableContent.map(row => ({
+          const ipRows = this.filteredSharedIPTableContent.map(row => ({
             ИНН: row.ИНН || '',
             ОГРН: row.ОГРН || '',
             ДатаОГРН: formatDate(row.ДатаОГРН),
@@ -759,7 +707,7 @@
             ОКВЭДОсн: row.ОКВЭДОсн || '',
             ДатаВып: formatDate(row.ДатаВып)
           }));
-          const ulRows = this.SharedTableContent.sharedULTableContent.map(row => ({
+          const ulRows = this.filteredSharedULTableContent.map(row => ({
             ИНН: row.ИНН || '',
             ОГРН: row.ОГРН || '',
             ДатаОГРН: formatDate(row.ДатаОГРН),
@@ -779,7 +727,7 @@
           /*sheetName = '';*/
         }
         else if (this.showIPHeaders) {
-          rows = this.IPTableContent.map(row => ({
+          rows = this.filteredIPTableContent.map(row => ({
             ИНН: row.ИНН || '',
             ОГРНИП: row.ОГРН || '',
             ДатаОГРНИП: formatDate(row.ДатаОГРН),
@@ -802,7 +750,7 @@
             /*sheetName = '';*/
         }
         else if (this.showULHeaders) {
-          rows = this.ULTableContent.map(row => ({
+          rows = this.filteredULTableContent.map(row => ({
             ИНН: row.ИНН || '',
             КПП: row.КПП || '',
             ОГРН: row.ОГРН || '',
@@ -889,47 +837,6 @@
         a.click();
         window.URL.revokeObjectURL(url);
       },
-
-      //ExportToDocOLD(filename = '') {
-      //    var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body style=\"font-family: serif;\">";
-
-      //    var footer = "</body></html>";
-
-      //    var html = header;
-      //    html += document.getElementById('tableView').innerHTML;
-
-      //    html += footer;
-
-      //    var blob = new Blob(['\ufeff', html], {
-      //        type: 'application/msword'
-      //    });
-
-      //    // Specify link url
-      //    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-
-      //    // Specify file name
-      //    filename = filename ? filename + '.docx' : 'document.docx';
-
-      //    // Create download link element
-      //    var downloadLink = document.createElement("a");
-
-      //    document.body.appendChild(downloadLink);
-
-      //    if (navigator.msSaveOrOpenBlob) {
-      //        navigator.msSaveOrOpenBlob(blob, filename);
-      //    } else {
-      //        // Create a link to the file
-      //        downloadLink.href = url;
-
-      //        // Setting the file name
-      //        downloadLink.download = filename;
-
-      //        //triggering the function
-      //        downloadLink.click();
-      //    }
-
-      //    document.body.removeChild(downloadLink);
-      //},
       async ExportToDoc() {
         const formatDate = (dateStr) => {
           if (!dateStr) return '';
@@ -943,7 +850,7 @@
 
         if (this.showSharedHeaders) {
           headers = ['ИНН', 'ОГРН', 'Дата ОГРН', 'Наименование', 'ОКВЭД', 'Дата выписки'/*, 'ДопИНФ'*/];
-          const ipRows = this.SharedTableContent.sharedIPTableContent.map(row => [
+          const ipRows = this.filteredSharedIPTableContent.map(row => [
             row.ИНН || '',
             row.ОГРН || '',
             formatDate(row.ДатаОГРН),
@@ -952,7 +859,7 @@
             formatDate(row.ДатаВып)
             //,'...'
           ]);
-          const ulRows = this.SharedTableContent.sharedULTableContent.map(row => [
+          const ulRows = this.filteredSharedULTableContent.map(row => [
             row.ИНН || '',
             row.ОГРН || '',
             formatDate(row.ДатаОГРН),
@@ -966,7 +873,7 @@
         }
         else if (this.showIPHeaders) {
           headers = ['ИНН', 'ОГРНИП', 'Дата ОГРНИП', 'Вид ИП', 'Наименование', 'ОКВЭД', 'Дата выписки', 'Код вида'/*, 'ДопИНФ'*/];
-          rows = this.IPTableContent.map(row => [
+          rows = this.filteredIPTableContent.map(row => [
             row.ИНН || '',
             row.ОГРН || '',
             formatDate(row.ДатаОГРН),
@@ -981,7 +888,7 @@
         }
         else if (this.showULHeaders) {
           headers = ['ИНН', 'КПП', 'ОГРН', 'Дата ОГРН', 'Полное наименование', 'Сокращённое', 'ОКВЭД', 'Спр. ОПФ', 'Код ОПФ', 'Дата выписки'/*, 'ДопИНФ'*/];
-          rows = this.ULTableContent.map(row => [
+          rows = this.filteredULTableContent.map(row => [
             row.ИНН || '',
             row.КПП || '',
             row.ОГРН || '',
@@ -1006,108 +913,116 @@
           return;
         }
 
-        // === Создаём документ ===
-        const headerRow = new TableRow({
-          children: headers.map(text =>
-            new TableCell({
-              children: [new Paragraph({ text, heading: HeadingLevel.HEADING_6 })],
-              verticalAlign: VerticalAlign.CENTER,
-              margins: { top: 100, bottom: 100, left: 100, right: 100 },
-              shading: { fill: "E0E0E0" }
-            })
-          )
-        });
+        const MAX_ROWS_PER_DOC = 10000;
+        const totalRows = rows.length;
 
-        const dataRows = rows.map(row =>
-          new TableRow({
-            children: row.map(cell =>
+        // === Проверка на большое количество строк ===
+        if (totalRows > MAX_ROWS_PER_DOC) {
+          const confirmMsg = `Вы пытаетесь экспортировать ${totalRows} строк. 
+Максимум 10 000 строк в одном файле.
+Будет создан ZIP-архив с ${Math.ceil(totalRows / MAX_ROWS_PER_DOC)} файлами.
+Продолжить?`;
+
+          if (!confirm(confirmMsg)) {
+            return; // пользователь отменил
+          }
+        }
+
+        // === Вспомогательная функция: создать один документ ===
+        const createDoc = (docRows, docIndex = 0) => {
+          const headerRow = new TableRow({
+            children: headers.map(text =>
               new TableCell({
-                children: [new Paragraph(cell)],
-                verticalAlign: VerticalAlign.TOP,
-                margins: { top: 100, bottom: 100, left: 100, right: 100 }
+                children: [new Paragraph({ text, heading: HeadingLevel.HEADING_6 })],
+                verticalAlign: VerticalAlign.CENTER,
+                margins: { top: 100, bottom: 100, left: 100, right: 100 },
+                shading: { fill: "E0E0E0" }
               })
             )
-          })
-        );
+          });
 
-        const table = new Table({
-          rows: [headerRow, ...dataRows],
-          width: { size: 100, type: WidthType.PERCENTAGE },
-          margins: { top: 200, bottom: 200 },
-          borders: {
-            top: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
-            bottom: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
-            left: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
-            right: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
-            insideHorizontal: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
-            insideVertical: { style: BorderStyle.SINGLE, size: 6, color: "000000" }
-          }
-        });
+          const dataRows = docRows.map(row =>
+            new TableRow({
+              children: row.map(cell =>
+                new TableCell({
+                  children: [new Paragraph(String(cell ?? ''))], // защита от null/undefined
+                  verticalAlign: VerticalAlign.TOP,
+                  margins: { top: 100, bottom: 100, left: 100, right: 100 }
+                })
+              )
+            })
+          );
 
-        const doc = new Document({
-          sections: [{
-            properties: {
-              page: {
-                margin: {
-                  top: 1440,    // 1 дюйм = 1440 twips
-                  bottom: 1440,
-                  left: 1440,
-                  right: 1440
-                },
-                size: {
-                  orientation: "landscape" // Альбомная ориентация!
+          const table = new Table({
+            rows: [headerRow, ...dataRows],
+            width: { size: 100, type: WidthType.PERCENTAGE },
+            margins: { top: 200, bottom: 200 },
+            borders: {
+              top: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+              bottom: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+              left: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+              right: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+              insideHorizontal: { style: BorderStyle.SINGLE, size: 6, color: "000000" },
+              insideVertical: { style: BorderStyle.SINGLE, size: 6, color: "000000" }
+            }
+          });
+
+          return new Document({
+            sections: [{
+              properties: {
+                page: {
+                  margin: {
+                    top: 1440,
+                    bottom: 1440,
+                    left: 1440,
+                    right: 1440
+                  },
+                  size: {
+                    orientation: "landscape"
+                  }
                 }
-              }
-            },
-            children: [
-              new Paragraph({
-                text: `Выписка из ЕГР: ${title}`,
-                heading: HeadingLevel.HEADING_1,
-                alignment: AlignmentType.CENTER,
-                spacing: { after: 300 }
-              }),
-              table
-            ]
-          }]
-        });
+              },
+              children: [
+                new Paragraph({
+                  text: `Выписка из ЕГР: ${title} (часть ${docIndex + 1})`,
+                  heading: HeadingLevel.HEADING_1,
+                  alignment: AlignmentType.CENTER,
+                  spacing: { after: 300 }
+                }),
+                table
+              ]
+            }]
+          });
+        };
 
-        // Сохраняем
-        const blob = await Packer.toBlob(doc);
-        saveAs(blob, `ЕГР_Экспорт_${title}.docx`);
+        // === Разбиваем на чанки ===
+        const chunks = [];
+        for (let i = 0; i < rows.length; i += MAX_ROWS_PER_DOC) {
+          chunks.push(rows.slice(i, i + MAX_ROWS_PER_DOC));
+        }
+
+        if (chunks.length === 1) {
+          // Обычный экспорт — как раньше
+          const doc = createDoc(chunks[0]);
+          const blob = await Packer.toBlob(doc);
+          saveAs(blob, `ЕГР_Экспорт_${title}.docx`);
+        } else {
+          // === Множественный экспорт в ZIP ===
+          const zip = new JSZip();
+          const promises = chunks.map(async (chunk, index) => {
+            const doc = createDoc(chunk, index);
+            const blob = await Packer.toBlob(doc);
+            const filename = `ЕГР_Экспорт_${title}_часть_${index + 1}.docx`;
+            zip.file(filename, blob);
+          });
+
+          await Promise.all(promises);
+
+          // Генерируем ZIP-файл
+          const zipBlob = await zip.generateAsync({ type: 'blob' });
+          saveAs(zipBlob, `ЕГР_Экспорт_${title}_архив.zip`);
+        }
       },
-      //ChangePageIP: function (page_num) {
-      //  this.page = page_num;
-      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-      //  this.IPTableContent = this.filteredIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-      //  window.scrollTo(0, 0);
-      //},
-      //ChangePageUL: function (page_num) {
-      //  this.page = page_num;
-      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-      //  this.ULTableContent = this.filteredULTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-      //  window.scrollTo(0, 0);
-      //},
-      //ChangePageShared: function (page_num) {
-      //  this.page = page_num;
-      //  this.pagination_offset = (this.pagination_items_per_page * page_num) - this.pagination_items_per_page;
-      //  var count = this.pagination_offset + this.pagination_items_per_page - this.filteredSharedIPTableContent.length;
-      //  if (count > 0) {
-      //    if (this.pagination_offset <= this.filteredSharedIPTableContent.length) {
-      //      this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.sharedIPTableContent_buffer.length);
-      //    }
-      //    else {
-      //      this.SharedTableContent.sharedIPTableContent = [];
-      //    }
-      //    var pagination_offset_ul = this.pagination_offset - this.filteredSharedIPTableContent.length > 0 ? this.pagination_offset - this.filteredSharedIPTableContent.length : 0;
-      //    this.SharedTableContent.sharedULTableContent = this.filteredSharedULTableContent.slice(pagination_offset_ul, count);
-      //  }
-      //  else {
-      //    this.SharedTableContent.sharedIPTableContent = this.filteredSharedIPTableContent.slice(this.pagination_offset, this.pagination_offset + this.pagination_items_per_page);
-      //    this.SharedTableContent.sharedULTableContent = [];
-      //  }
-
-      //  window.scrollTo(0, 0);
-      //},
       handleOpenModal({ row, type }) {
         this.OpenModal(row.idЛицо, row.ИНН, type, row.НаимСокр);
       },

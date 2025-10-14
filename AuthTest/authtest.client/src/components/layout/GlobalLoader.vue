@@ -1,4 +1,3 @@
-<!-- src/components/GlobalLoader.vue -->
 <template>
   <div v-if="isGlobalLoading" class="global-loader-overlay">
     <div class="global-loader-spinner"></div>

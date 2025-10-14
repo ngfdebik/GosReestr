@@ -1,100 +1,94 @@
-<!-- src/components/Header.vue -->
 <template>
-  <header>
-    <div class="row row-cols-auto" style="background-color: #e4e3e8; position: relative;">
-      <!-- Логотип -->
-      <div class="col-2 d-flex align-items-center">
-        <img src="/svg/Logo.svg" style="height: 8vh;" class="ps-3" />
-      </div>
-
-      <!-- Кнопки фильтрации -->
-      <div class="col-1 offset-1 d-flex justify-content-center">
-        <button class="mainButton p-1" @click="$emit('load-all')">
-          <img src="/svg/All.svg" title="Все" class="m-auto" style="height: 8vh;" />
-          <p class="m-0">Все</p>
-        </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center">
-        <button class="mainButton p-1" @click="$emit('load-ip')">
-          <img src="/svg/IP.svg" title="ИП" class="m-auto" style="height: 8vh;" />
-          <p class="m-0">ИП</p>
-        </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center">
-        <button class="mainButton p-1" @click="$emit('load-ul')">
-          <img src="/svg/UL.svg" title="ЮЛ" class="m-auto" style="height: 8vh;" />
-          <p class="m-0">ЮЛ</p>
-        </button>
-      </div>
-
-      <!-- Кнопки экспорта -->
-      <div class="col-1 d-flex justify-content-center">
-        <button @click="$emit('export-excel')" class="mainButton p-1">
-          <img src="/svg/Export.svg" title="Экспорт в Excel" class="m-auto" style="height: 8vh;" />
-          <p class="m-0">Экспорт в Excel</p>
-        </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center">
-        <button @click="$emit('export-doc')" class="mainButton p-1">
-          <img src="/svg/Export.svg" title="Экспорт в Word" class="m-auto" style="height: 8vh;" />
-          <p class="m-0">Экспорт в Word</p>
-        </button>
-      </div>
-
-      <!-- Блок с пользователем -->
-      <div class="col-2 offset-2 d-flex justify-content-end align-items-start user-block">
-        <div v-if="isLoggedIn" class="pt-2 d-flex flex-column align-items-end">
-          <!-- Имя пользователя и иконка редактирования -->
-          <div class="d-flex align-items-center mb-1">
-            <p class="m-0 text-end me-2">{{ userFullName || 'Пользователь' }}</p>
-            <button class="p-0"
-                    style="border: none; background-color: #e4e3e8;"
-                    @click="goToEdit">
-              <img src="/svg/Pen.svg" style="height: 2.5vh;" />
-            </button>
-            <div class="btn p-0 avatarContainer" @click="toggleMenu">
-              <img class="avatarContainer" src="/svg/Avatar.svg" />
-              <p class="avatarText">{{ userInitial }}</p>
-              <div v-if="isMenuOpen" class="user-menu mt-1">
-                <div v-if="isAdmin" class="text-start">
-                  <button class="btn btn-link p-0" @click="goToManage">Администрирование</button>
-                </div>
-                <div class="text-start">
-                  <button class="btn btn-link p-0" @click="logout">Выйти</button>
-                </div>
-              </div>
+  <header class="page-header">
+        <div class="header-content">
+            <!-- Логотип -->
+            <div class="logo-section">
+                <img src="/svg/Logo.svg" class="logo-image" />
             </div>
-          </div>
 
-
-          <!--НОВАЯ КНОПКА: Загрузка файлов (только для админа) -->
-          <div>
-            <button v-if="isAdmin"
-                    class="btn btn-sm upload-files-btn mt-2"
-                    @click="toggleUploadZone"
-                    type="button">
-              Загрузка файлов
-            </button>
-            <div v-if="isUploadOpen && isAdmin" class="upload-zone-container mt-2">
-              <div class="upload-zone-wrapper">
-                <FileUploadZone @upload-complete="handleUploadComplete" />
-              </div>
+            <!-- Кнопки фильтрации -->
+            <div class="button-section">
+                <button class="nav-button" @click="$emit('load-all')">
+                    <img src="/svg/All.svg" title="Все" class="button-icon" />
+                    <p class="button-text">Все</p>
+                </button>
             </div>
-            <button class="btn btn-sm clear-filters-btn mt-2"
-                    @click="$emit('clear-filters')"
-                    type="button">
-              Сбросить фильтры
-            </button>
-          </div>
-          
+            <div class="button-section">
+                <button class="nav-button" @click="$emit('load-ip')">
+                    <img src="/svg/IP.svg" title="ИП" class="button-icon" />
+                    <p class="button-text">ИП</p>
+                </button>
+            </div>
+            <div class="button-section">
+                <button class="nav-button" @click="$emit('load-ul')">
+                    <img src="/svg/UL.svg" title="ЮЛ" class="button-icon" />
+                    <p class="button-text">ЮЛ</p>
+                </button>
+            </div>
+
+            <!-- Кнопки экспорта -->
+            <div class="button-section">
+                <button @click="$emit('export-excel')" class="nav-button">
+                    <img src="/svg/Export.svg" title="Экспорт в Excel" class="button-icon" />
+                    <p class="button-text">Экспорт в Excel</p>
+                </button>
+            </div>
+            <div class="button-section">
+                <button @click="$emit('export-doc')" class="nav-button">
+                    <img src="/svg/Export.svg" title="Экспорт в Word" class="button-icon" />
+                    <p class="button-text">Экспорт в Word</p>
+                </button>
+            </div>
+
+            <!-- Блок с пользователем -->
+            <div class="user-section">
+                <div v-if="isLoggedIn" class="user-info">
+                    <!-- Имя пользователя и иконка редактирования -->
+                    <div class="user-main">
+                        <p class="user-name">{{ userFullName || 'Пользователь' }}</p>
+                        <button class="edit-button"
+                                @click="goToEdit">
+                            <img src="/svg/Pen.svg" class="edit-icon" />
+                        </button>
+                        <div class="avatar-wrapper" @click="toggleMenu">
+                            <img class="avatar-image" src="/svg/Avatar.svg" />
+                            <p class="avatar-initial">{{ userInitial }}</p>
+                            <div v-if="isMenuOpen" class="user-menu">
+                                <div v-if="isAdmin" class="menu-item">
+                                    <button class="menu-link" @click="goToManage">Администрирование</button>
+                                </div>
+                                <div class="menu-item">
+                                    <button class="menu-link" @click="logout">Выйти</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--НОВАЯ КНОПКА: Загрузка файлов (только для админа) -->
+                    <div class="user-actions">
+                        <button v-if="isAdmin"
+                                class="action-button upload-button"
+                                @click="toggleUploadZone"
+                                type="button">
+                            Загрузка файлов
+                        </button>
+                        <div v-if="isUploadOpen && isAdmin" class="upload-container">
+                            <div class="upload-wrapper">
+                                <FileUploadZone @upload-complete="handleUploadComplete" />
+                            </div>
+                        </div>
+                        <button class="action-button clear-button"
+                                @click="$emit('clear-filters')"
+                                type="button">
+                            Сбросить фильтры
+                        </button>
+                    </div>
+                    
+                </div>
+                
+            </div>
         </div>
-        
-      </div>
-    </div>
-
-    <!--ФОРМА ЗАГРУЗКИ -->
-    
-  </header>
+    </header>
 </template>
 
 <script>
@@ -162,9 +156,14 @@
         // Опционально: this.isUploadOpen = false;
       },
       handleClickOutside(event) {
-        const userBlock = this.$el.querySelector('.user-block');
+        const userBlock = this.$el.querySelector('.user-info');
         if (userBlock && !userBlock.contains(event.target)) {
           this.isMenuOpen = false;
+        }
+
+        const uploadBlock = this.$el.querySelector('.upload-container');
+        if (userBlock && !userBlock.contains(event.target)) {
+          this.isUploadOpen = false;
         }
       }
     },
@@ -178,87 +177,295 @@
 </script>
 
 <style scoped>
-  .user-block {
-    position: relative; /* Добавьте это свойство */
-  }
-  .clear-filters-btn {
-    background-color: #dc3545; /* красный, как "очистить" */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 0.85rem;
-    height: auto;
-    min-width: 120px;
-    text-align: center;
-  }
-
-    .clear-filters-btn:hover {
-      background-color: #c82333;
-    }
-  .user-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-    z-index: 1030;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    min-width: 180px;
-  }
-
-  .avatarContainer {
+/* Header Styles */
+.page-header {
+    background-color: #e4e3e8;
     position: relative;
-    width: 32px;
-    height: 32px;
-  }
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 160px;
+}
 
-  .avatarText {
+.header-content {
+    display: flex;
+    width: 100%;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    padding: 0 15px;
+}
+
+/* Logo Section */
+.logo-section {
+    /* flex: 0 0 16.666667%; */
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.logo-image {
+    height: 8vh;
+    padding-left: 1rem;
+}
+
+/* Button Sections */
+.button-section {
+    flex: 0 0 8.333333%;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.button-section:nth-child(2) {
+    margin-left: 8.333333%;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.nav-button:hover {
+    background-color: #d4d3d9;
+    border-radius: 0.375rem;
+}
+
+.button-icon {
+    height: 8vh;
+    margin: 0 auto;
+}
+
+.button-text {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #212529;
+    text-align: center;
+}
+
+/* User Section */
+.user-section {
+    /* flex: 0 0 16.666667%; */
+    margin-left: 17%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0 15px;
+}
+
+.user-info {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.user-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.user-name {
+    margin: 0;
+    text-align: right;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+    color: #212529;
+}
+
+.edit-button {
+    padding: 0;
+    border: none;
+    background-color: #e4e3e8;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.edit-icon {
+    height: 2.5vh;
+}
+
+.avatar-wrapper {
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.avatar-image {
+    position: relative;
+}
+
+.avatar-initial {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -25%);
-    color: white;
-    font-weight: bold;
-    font-size: 0.8rem;
+    transform: translate(-50%, -50%);
     margin: 0;
-  }
+    font-size: 0.75rem;
+    color: #212529;
+    font-weight: 500;
+}
 
-  /*Стили для кнопки "Загрузка файлов" */
-  .upload-files-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 0.85rem;
-    height: auto;
-    min-width: 100px;
-    text-align: center;
-  }
-
-    .upload-files-btn:hover {
-      background-color: #0056b3;
-    }
-
-  /*Контейнер формы загрузки */
-  .upload-zone-container {
+.user-menu {
     position: absolute;
-    top: 100%;
     right: 0;
+    top: 100%;
     background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-    z-index: 1030;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    min-width: 180px;
-  }
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    min-width: 160px;
+    margin-top: 0.25rem;
+}
 
-  .upload-zone-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.menu-item {
+    text-align: left;
+}
+
+.menu-link {
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: #0d6efd;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.menu-link:hover {
+    color: #0a58ca;
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.action-button {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.upload-button {
+    color: #fff;
+    background-color: #198754;
+    border-color: #6c757d;
+}
+
+.upload-button:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+
+.clear-button {
+    color: #fff;
+    background-color: #cd1010;
+    border-color: #6c757d;
+}
+
+.clear-button:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+
+/* Upload Container */
+.upload-container {
+    /* margin-top: 0.5rem; */
+    /* width: 100%; */
+    z-index: 1;
+    border-radius: 15px;
+    position: absolute;
+    width: 30%;
+    height: auto;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+}
+
+.upload-wrapper {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .header-content {
+        padding: 0 10px;
+    }
+    
+    .button-section {
+        flex: 0 0 10%;
+        padding: 0 10px;
+    }
+    
+    .logo-section {
+        flex: 0 0 15%;
+    }
+    
+    .user-section {
+        flex: 0 0 20%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    
+    .logo-section,
+    .button-section,
+    .user-section {
+        flex: 0 0 100%;
+        margin: 0;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+    
+    .button-section:nth-child(2) {
+        margin-left: 0;
+    }
+    
+    .user-info {
+        align-items: center;
+    }
+    
+    .user-main {
+        justify-content: center;
+    }
+    
+    .user-actions {
+        align-items: center;
+    }
+    
+    .user-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 </style>

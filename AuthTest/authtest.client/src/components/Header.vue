@@ -254,7 +254,9 @@
 /* User Section */
 .user-section {
     /* flex: 0 0 16.666667%; */
-    margin-left: 17%;
+    /* margin-left: 17%; */
+    position: absolute;
+    right: 0%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -399,9 +401,9 @@
     position: absolute;
     width: 30vw;
     height: auto;
-    top: 40vh;
-    right: 20%;
-    transform: translate(-50%, -50%);
+    top: 30vh;
+    right: 35vw;
+    /* transform: translate(-50%, -50%); */
     box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
 }
 

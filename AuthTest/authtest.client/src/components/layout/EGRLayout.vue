@@ -1,151 +1,46 @@
 <!-- src/components/layout/EGRLayout.vue -->
 <template>
   <div class="egr-layout">
-    <!-- user-status="userStatus"-раньше было нужно -->
-    <Header :isAdmin="isAdmin"
-            :isLoggedIn="isLoggedIn"
-            @load-all="LoadAllTable"
-            @load-ip="LoadIPTable"
-            @load-ul="LoadULTable"
-            @export-excel="exportToExcel"
-            @export-doc="ExportToDoc"
-            @clear-filters="ClearFilters"/>
-    <!--<nav id="paginationShared" v-if="showSharedHeaders">
-      <div class="d-flex justify-content-between mb-2">
-         Пагинация 
-        <ul class="pagination justify-content-center flex-wrap">
-           Кнопка "Предыдущая" 
-          <li class="page-item" :class="{ disabled: page <= 1 }">
-            <button class="page-link" @click="ChangePageShared(page - 1)" :disabled="page <= 1">
-              Предыдущая
-            </button>
-          </li>
-
-           Страницы 
-          <li v-for="pageNum in visiblePagesShared"
-              :key="pageNum"
-              class="page-item"
-              :class="{ active: page === pageNum }">
-            <button class="page-link" @click="ChangePageShared(pageNum)">
-              {{ pageNum }}
-            </button>
-          </li>
-
-           Кнопка "Следующая" 
-          <li class="page-item" :class="{ disabled: page >= pagesCountShared }">
-            <button class="page-link"
-                    @click="ChangePageShared(page + 1)"
-                    :disabled="page >= pagesCountShared">
-              Следующая
-            </button>
-          </li>
-        </ul>
-
-         Переход по номеру 
-        <div class="d-flex align-items-center">
-          <input type="number"
-                 class="form-control me-2"
-                 v-model.number="page_number"
-                 min="1"
-                 :max="pagesCountShared"
-                 style="width: 80px" />
-          <button type="button" class="btn btn-primary" @click="goToPage('shared')">
-            Перейти
-          </button>
+        <Header :isAdmin="isAdmin"
+                :isLoggedIn="isLoggedIn"
+                @load-all="LoadAllTable"
+                @load-ip="LoadIPTable"
+                @load-ul="LoadULTable"
+                @export-excel="exportToExcel"
+                @export-doc="ExportToDoc"
+                @clear-filters="ClearFilters"/>
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="table-section">
+                    <MainTableView :show-shared-headers="showSharedHeaders"
+                                 :show-i-p-headers="showIPHeaders"
+                                 :show-u-l-headers="showULHeaders"
+                                 :shared-i-p-rows="SharedTableContent.sharedIPTableContent"
+                                 :shared-u-l-rows="SharedTableContent.sharedULTableContent"
+                                 :ip-rows="IPTableContent"
+                                 :ul-rows="ULTableContent"
+                                 :filters="filters"
+                                 :show-load-more="showLoadMore"
+                                 @open-modal="handleOpenModal"
+                                 @load-more="handleLoadMore"
+                                 @update:filters="filters = $event"
+                                 @apply-filters="FilterTable"/>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
 
-     Для IP 
-    <nav id="paginationIP" v-if="showIPHeaders">
-      <div class="d-flex justify-content-between mb-2">
-        <ul class="pagination justify-content-center flex-wrap">
-          <li class="page-item" :class="{ disabled: page <= 1 }">
-            <button class="page-link" @click="ChangePageIP(page - 1)" :disabled="page <= 1">Предыдущая</button>
-          </li>
-          <li v-for="pageNum in visiblePagesIP"
-              :key="pageNum"
-              class="page-item"
-              :class="{ active: page === pageNum }">
-            <button class="page-link" @click="ChangePageIP(pageNum)">{{ pageNum }}</button>
-          </li>
-          <li class="page-item" :class="{ disabled: page >= pagesCountIP }">
-            <button class="page-link" @click="ChangePageIP(page + 1)" :disabled="page >= pagesCountIP">Следующая</button>
-          </li>
-        </ul>
-        <div class="d-flex align-items-center">
-          <input type="number" class="form-control me-2" v-model.number="page_number" min="1" :max="pagesCountIP" style="width: 80px" />
-          <button type="button" class="btn btn-primary" @click="goToPage('ip')">Перейти</button>
-        </div>
-      </div>
-    </nav>
-
-     Для UL 
-    <nav id="paginationUL" v-if="showULHeaders">
-      <div class="d-flex justify-content-between mb-2">
-        <ul class="pagination justify-content-center flex-wrap">
-          <li class="page-item" :class="{ disabled: page <= 1 }">
-            <button class="page-link" @click="ChangePageUL(page - 1)" :disabled="page <= 1">Предыдущая</button>
-          </li>
-          <li v-for="pageNum in visiblePagesUL"
-              :key="pageNum"
-              class="page-item"
-              :class="{ active: page === pageNum }">
-            <button class="page-link" @click="ChangePageUL(pageNum)">{{ pageNum }}</button>
-          </li>
-          <li class="page-item" :class="{ disabled: page >= pagesCountUL }">
-            <button class="page-link" @click="ChangePageUL(page + 1)" :disabled="page >= pagesCountUL">Следующая</button>
-          </li>
-        </ul>
-        <div class="d-flex align-items-center">
-          <input type="number" class="form-control me-2" v-model.number="page_number" min="1" :max="pagesCountUL" style="width: 80px" />
-          <button type="button" class="btn btn-primary" @click="goToPage('ul')">Перейти</button>
-        </div>
-      </div>
-    </nav>-->
-    <div class="container-fluid mt-3">
-      <div class="row">
-        <div class="col-9">
-          <MainTableView :show-shared-headers="showSharedHeaders"
-                         :show-i-p-headers="showIPHeaders"
-                         :show-u-l-headers="showULHeaders"
-                         :shared-i-p-rows="SharedTableContent.sharedIPTableContent"
-                         :shared-u-l-rows="SharedTableContent.sharedULTableContent"
-                         :ip-rows="IPTableContent"
-                         :ul-rows="ULTableContent"
-                         :filters="filters"
-                         :show-load-more="showLoadMore"
-                         @open-modal="handleOpenModal"
-                         @load-more="handleLoadMore"
-                         @update:filters="filters = $event"
-                         @apply-filters="FilterTable"/>
-        </div>
-        <!--<div class="col-3">-->
-          <!--<div v-if="isAdmin">
-            <FileUploadZone  @upload-complete="getfileuploadzone" />
-          </div>-->
-          <!--<FiltersPanel :filters="filters"
-                        :show-i-p-headers="showIPHeaders"
-                        :show-u-l-headers="showULHeaders"
-                        :show-shared-headers="showSharedHeaders"
-                        @update:filters="filters = $event"
-                        @apply-filters="FilterTable" />
-        </div>-->
-      </div>
+        <ModalDetails v-if="isModalOpen"
+                      :entity-id="modalEntity.idЛицо"
+                      :entity-inn="modalEntity.ИНН"
+                      :entity-type="modalEntityType"
+                      :entity-name="modalEntity.НаимСокр"
+                      :is-visible="isModalOpen"
+                      :details-data="detailsTableData"
+                      :details-headers="detailsTableHeaders"
+                      @close="isModalOpen = false"
+                      @load-details="handleLoadDetails"
+                      @load-logs="handleLoadLogs" />
     </div>
-
-    <ModalDetails v-if="isModalOpen"
-                  :entity-id="modalEntity.idЛицо"
-                  :entity-inn="modalEntity.ИНН"
-                  :entity-type="modalEntityType"
-                  :entity-name="modalEntity.НаимСокр"
-                  :is-visible="isModalOpen"
-                  :details-data="detailsTableData"
-                  :details-headers="detailsTableHeaders"
-                  @close="isModalOpen = false"
-                  @load-details="handleLoadDetails"
-                  @load-logs="handleLoadLogs" />
-  </div>
 </template>
 
 <script>
@@ -1096,4 +991,70 @@
     min-height: 100%;
     position: relative;*/
   }
+
+  .content-wrapper {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1rem;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.table-section {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .table-section {
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+
+@media (max-width: 992px) {
+    .table-section {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .content-wrapper {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    .main-content {
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-top: 0.5rem;
+    }
+    
+    .main-content {
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+    
+    .table-section {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
 </style>

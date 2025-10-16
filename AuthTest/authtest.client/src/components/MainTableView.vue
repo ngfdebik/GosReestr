@@ -14,11 +14,11 @@
               <select v-model="tempFilter.mode" class="filter-input">
                 <option value="=">Равно</option>
                 <option value="!=">Не равно</option>
-                <option value="содержит">Содержит</option>
-                <option value="начинается с">Начинается с</option>
-                <option value="заканчивается на">Заканчивается на</option>
-                <option value=">">Больше (дата)</option>
-                <option value="<">Меньше (дата)</option>
+                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
+                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
+                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
+                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
               </select>
               <template v-if="isDateColumn(header)">
                 <input type="date"
@@ -68,11 +68,11 @@
               <select v-model="tempFilter.mode" class="filter-input">
                 <option value="=">Равно</option>
                 <option value="!=">Не равно</option>
-                <option value="содержит">Содержит</option>
-                <option value="начинается с">Начинается с</option>
-                <option value="заканчивается на">Заканчивается на</option>
-                <option value=">">Больше (дата)</option>
-                <option value="<">Меньше (дата)</option>
+                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
+                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
+                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
+                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
               </select>
               <template v-if="isDateColumn(header)">
                 <input type="date"
@@ -114,11 +114,11 @@
               <select v-model="tempFilter.mode" class="filter-input">
                 <option value="=">Равно</option>
                 <option value="!=">Не равно</option>
-                <option value="содержит">Содержит</option>
-                <option value="начинается с">Начинается с</option>
-                <option value="заканчивается на">Заканчивается на</option>
-                <option value=">">Больше (дата)</option>
-                <option value="<">Меньше (дата)</option>
+                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
+                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
+                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
+                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
               </select>
               <template v-if="isDateColumn(header)">
                 <input type="date"
@@ -145,12 +145,19 @@
           </td>
         </tr>
       </tbody>
+      <tfoot v-if="showLoadMore">
+        <tr>
+          <td :colspan="ulHeaders.length" class="load-more-cell">
+            <button @click="$emit('load-more')" class="load-more-button">Загрузить ещё</button>
+          </td>
+        </tr>
+      </tfoot>
     </table>
 
     <!-- Кнопка "Загрузить ещё" -->
-    <div v-if="showLoadMore" class="load-more">
+    <!--<div v-if="showLoadMore" class="load-more">
       <button @click="$emit('load-more')" class="load-more-button">Загрузить ещё</button>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -270,13 +277,28 @@
   font-family: "Times New Roman", serif;
   font-weight: normal;
 }
-
-.tableView-table th,
-.tableView-table td {
+  .tableView-table td {
   padding: 0.5rem;
   border: 1px solid #212529;
-}
+  }
   .tableView-table th {
+    padding: 0.5rem;
+    border-top-width: 0px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(33, 37, 41);
+    border-right-color: rgb(33, 37, 41);
+    border-bottom-color: rgb(33, 37, 41);
+    border-left-color: rgb(33, 37, 41);
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
     background-color: var(--modal-header-bg);
     color: #000;
     font-weight: bold;
@@ -349,7 +371,7 @@
   border-radius: 0.25rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
-  z-index: 10;
+  z-index: 150;
   min-width: 200px;
   font-size: 0.875rem;
 }
@@ -378,4 +400,39 @@
 .filter-button:hover {
   background-color: #5a6268;
 }
+  .load-more-cell {
+    text-align: center;
+    padding: 10px !important;
+    background: #f8f9fa;
+    border-top: 2px solid #dee2e6;
+  }
+
+  .load-more-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #0d6efd;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #0d6efd;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+    .load-more-button:hover {
+      color: #fff;
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .load-more-button:active {
+      transform: translateY(0);
+    }
 </style>

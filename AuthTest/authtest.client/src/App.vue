@@ -14,6 +14,7 @@
   import { mapActions, mapGetters, mapState } from 'vuex';
   import GlobalLoader from '@/components/layout/GlobalLoader.vue';
 
+
 export default {
     name: 'App',
     components: {
@@ -22,25 +23,35 @@ export default {
   data() {
     return {
       authChecked: false,
+      //новые
+      tokenRefreshInterval: null,
+      isComponentMounted: false
     };
   },
   computed: {
     ...mapGetters(['isAuthenticated']),
     ...mapState(['isLoading']),
   },
-  async created() {
-    // Инициализация аутентификации при запуске приложения
-    await this.initializeAuth();
-    this.authChecked = true;
-    
-    // Запускаем периодическую проверку токена
-    this.startTokenRefreshInterval();
-  },
-  beforeUnmount() {
-    this.stopTokenRefreshInterval();
-  },
+    async created() {
+      try {
+        await this.initializeAuth();
+        this.authChecked = true;
+      } catch (error) {
+        console.error('Auth initialization failed:', error);
+      }
+    },
+
+    mounted() {
+      this.isComponentMounted = true;
+      this.startTokenRefreshInterval();
+    },
+
+    beforeUnmount() {
+      this.isComponentMounted = false;
+      this.stopTokenRefreshInterval();
+    },
   methods: {
-    ...mapActions(['initializeAuth', 'logout', 'refreshToken']),
+    ...mapActions(['initializeAuth', 'logout', 'refreshAuthToken']),
     
     async handleLogout() {
       await this.logout();
@@ -52,7 +63,7 @@ export default {
       this.tokenRefreshInterval = setInterval(async () => {
         if (this.isAuthenticated) {
           try {
-            await this.refreshToken();
+            await this.refreshAuthToken();
             console.log('Token refreshed successfully');
           } catch (error) {
             console.error('Background token refresh failed:', error);

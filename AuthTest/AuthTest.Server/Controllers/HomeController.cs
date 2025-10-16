@@ -351,9 +351,9 @@ namespace AuthTest.Server.Controllers
             }
         }
 
-
-        [HttpGet]
-        public IActionResult Details(string table, int id)
+        [Authorize]
+        [HttpGet("Details")]
+        public IActionResult Details([FromQuery] string table, [FromQuery] int id)
         {
             List<dynamic> details = new List<dynamic>();
 
@@ -376,8 +376,9 @@ namespace AuthTest.Server.Controllers
             return Json(details);
         }
 
-        [HttpGet]
-        public IActionResult GetExtraTable(string table)
+        [Authorize]
+        [HttpGet("GetExtraTable")]
+        public IActionResult GetExtraTable([FromQuery] string table)
         {
             IQueryable? dbSet;
             using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
@@ -388,8 +389,9 @@ namespace AuthTest.Server.Controllers
             return Json(dbSet);
         }
 
-        [HttpGet]
-        public IActionResult GetLogs(string table, string INN)
+        [Authorize]
+        [HttpGet("GetLogs")]
+        public IActionResult GetLogs([FromQuery] string table, [FromQuery] string INN)
         {
             List<ChangeLog> logs = new List<ChangeLog>();
 

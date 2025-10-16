@@ -1,2 +1,3 @@
 C:\AuthTest\authtest.client\obj\Debug\authtest.client.esproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\GosReestr\AuthTest\authtest.client\obj\Debug\authtest.client.esproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\GosReestr\AuthTest\authtest.client\obj\Debug\authtest.client.esproj.CoreCompileInputs.cache

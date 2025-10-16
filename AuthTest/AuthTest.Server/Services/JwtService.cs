@@ -89,7 +89,7 @@ public class JwtService : IJwtService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
+            Expires = DateTime.Now.AddMinutes(_jwtSettings.AccessTokenExpiryMinutes),
             Issuer = _jwtSettings.Issuer,
             Audience = _jwtSettings.Audience,
             SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
@@ -150,7 +150,7 @@ public class JwtService : IJwtService
         {
             return tokenHandler.ValidateToken(token, validationParameters, out _);
         }
-        catch
+        catch (Exception ex)
         {
             return null;
         }

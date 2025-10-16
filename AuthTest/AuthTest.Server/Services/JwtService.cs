@@ -102,7 +102,7 @@ public class JwtService : IJwtService
     private string GenerateRefreshToken(string userId)
     {
         var tokenId = Guid.NewGuid().ToString();
-        var expiresAt = DateTime.UtcNow.AddDays(_jwtSettings.RefreshTokenExpiryDays);
+        var expiresAt = DateTime.Now.AddDays(_jwtSettings.RefreshTokenExpiryDays);
 
         var claims = new[]
         {
@@ -150,7 +150,7 @@ public class JwtService : IJwtService
         {
             return tokenHandler.ValidateToken(token, validationParameters, out _);
         }
-        catch (Exception ex)
+        catch
         {
             return null;
         }

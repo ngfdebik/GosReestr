@@ -29,15 +29,13 @@
             </div>
         </div>
 
-        <ModalDetails v-if="isModalOpen"
-                      :entity-id="modalEntity.idЛицо"
+        <ModalDetails v-model="isModalOpen"
+                      :entity-id="String(modalEntity.idЛицо)"
                       :entity-inn="modalEntity.ИНН"
                       :entity-type="modalEntityType"
                       :entity-name="modalEntity.НаимСокр"
-                      :is-visible="isModalOpen"
                       :details-data="detailsTableData"
                       :details-headers="detailsTableHeaders"
-                      @close="isModalOpen = false"
                       @load-details="handleLoadDetails"
                       @load-logs="handleLoadLogs" />
     </div>
@@ -1009,8 +1007,7 @@
 }
 
 .table-section {
-    flex: 0 0 75%;
-    max-width: 75%;
+    width:100%;
     padding-right: 15px;
     padding-left: 15px;
 }

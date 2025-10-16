@@ -23,8 +23,6 @@
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
   import store from '../auth/store'
-  //import axios from 'axios';
-  import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
   import '@/css/site.css'
 
   const credentials = ref({
@@ -141,6 +139,7 @@
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
+    box-sizing:border-box;
   }
   
 </style>

@@ -257,10 +257,6 @@ import router from '@/router/Routers';
                 };
                 const createUser = async () => {
                     clearMessages();
-                    
-                    //if (!validateNewUser()) return;
-                    
-                    loading.value = true;
                     ManageApiService.create(newUser)
                     .then(resp => {
                         userCreateStatusMessage.value = resp.message;
@@ -268,9 +264,9 @@ import router from '@/router/Routers';
                     })
                     .catch (err => {
                        console.error(err);
+                    }).finally(() => {
+                      loadUsers();
                     })
-                    loading.value = false;
-                    this.loadUsers();
                 };
                 
                 const loadUser = async () => {
@@ -280,7 +276,6 @@ import router from '@/router/Routers';
                     }
                     
                     clearMessages();
-                    loading.value = true;
                     ManageApiService.load(selectedExistingUser.value)
                     .then(resp => {
                         Object.assign(existingUser, {
@@ -295,15 +290,13 @@ import router from '@/router/Routers';
                     .catch(err => {
                         console.error(err);
                     })
-                        
-                    loading.value = false;
+                      .finally(() => {
+                        loadUsers();
+                      })
                 }
                 
                 const updateUser = async () => {
                     if (!validateExistingUser()) return;
-                    
-                    loading.value = true;
-
                     ManageApiService.update(existingUser)
                     .then(resp => {
                         userEditStatusMessage.value = resp.message;
@@ -312,16 +305,14 @@ import router from '@/router/Routers';
                     .catch(err => {
                         console.error(err);
                     })
-
-                    loading.value = false;
+                      .finally(() => {
+                        loadUsers();
+                      })
                 };
                 
                 const deleteUser = async () => {
                     if (!confirm('Вы уверены, что хотите удалить этого пользователя?')) return;
-                    
-                    loading.value = true;
-
-                    ManageApiService.delete(existingUser)
+                    ManageApiService.delete(existingUser.login)
                     .then(resp => {
                         userEditStatusMessage.value = resp.message
                         
@@ -332,8 +323,10 @@ import router from '@/router/Routers';
                         userEditStatusMessage.value = 'Ошибка удаления пользователя';
                         console.error('Ошибка удаления пользователя:', err);
                     })
+                      .finally(() => {
+                        loadUsers();
+                      })
 
-                    loading.value = false;
                 };
                 
                 return {

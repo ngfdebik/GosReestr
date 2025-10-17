@@ -1,37 +1,32 @@
-
 <template>
   <main>
     <GlobalLoader />
-    <router-view>
-    </router-view>
+    <router-view />
   </main>
-  <!--<main>
-    <Login />
-  </main>-->
 </template>
 
 <script>
-  import { mapActions, mapGetters, mapState } from 'vuex';
+  import { mapGetters, mapState, mapActions } from 'vuex';
   import GlobalLoader from '@/components/layout/GlobalLoader.vue';
+  import authService from '@/services/TokenService'; // ← прямой импорт сервиса токенов
+  import router from '@/router/Routers'; // ← если нужно для редиректа (опционально)
 
-
-export default {
+  export default {
     name: 'App',
     components: {
-      GlobalLoader //зарегистрировано
+      GlobalLoader
     },
-  data() {
-    return {
-      authChecked: false,
-      //новые
-      tokenRefreshInterval: null,
-      isComponentMounted: false
-    };
-  },
-  computed: {
-    ...mapGetters(['isAuthenticated']),
-    ...mapState(['isLoading']),
-  },
+    data() {
+      return {
+        authChecked: false,
+        tokenRefreshInterval: null,
+        isComponentMounted: false
+      };
+    },
+    computed: {
+      ...mapGetters(['isAuthenticated']),
+      ...mapState(['isLoading'])
+    },
     async created() {
       try {
         await this.initializeAuth();
@@ -40,46 +35,50 @@ export default {
         console.error('Auth initialization failed:', error);
       }
     },
-
     mounted() {
       this.isComponentMounted = true;
       this.startTokenRefreshInterval();
     },
-
     beforeUnmount() {
       this.isComponentMounted = false;
       this.stopTokenRefreshInterval();
     },
-  methods: {
-    ...mapActions(['initializeAuth', 'logout', 'refreshAuthToken']),
-    
-    async handleLogout() {
-      await this.logout();
-      this.$router.push('/login');
-    },
-    
-    startTokenRefreshInterval() {
-      // Проверяем токен каждые 10 минут
-      this.tokenRefreshInterval = setInterval(async () => {
-        if (this.isAuthenticated) {
-          try {
-            await this.refreshAuthToken();
-            console.log('Token refreshed successfully');
-          } catch (error) {
-            console.error('Background token refresh failed:', error);
+    methods: {
+      // Только реальные Vuex-экшны
+      ...mapActions(['initializeAuth', 'logout']),
+
+      async handleLogout() {
+        await this.logout();
+        router.push('/login');
+      },
+
+      startTokenRefreshInterval() {
+        // Обновляем токен каждые 10 минут, если пользователь авторизован
+        this.tokenRefreshInterval = setInterval(async () => {
+          if (this.isAuthenticated && this.isComponentMounted) {
+            try {
+              await authService.refreshAuthToken();
+              console.log('Token refreshed successfully in background');
+            } catch (error) {
+              console.error('Background token refresh failed:', error);
+              // Опционально: перенаправить на логин при неудаче
+              authService.clearTokens();
+              router.push('/login');
+            }
           }
+        }, 10 * 60 * 1000); // 10 минут
+      },
+
+      stopTokenRefreshInterval() {
+        if (this.tokenRefreshInterval) {
+          clearInterval(this.tokenRefreshInterval);
+          this.tokenRefreshInterval = null;
         }
-      }, 10 * 60 * 1000); // 10 minutes
-    },
-    
-    stopTokenRefreshInterval() {
-      if (this.tokenRefreshInterval) {
-        clearInterval(this.tokenRefreshInterval);
       }
-    },
-  },
-};
+    }
+  };
 </script>
 
 <style scoped>
+  /* Стили по необходимости */
 </style>

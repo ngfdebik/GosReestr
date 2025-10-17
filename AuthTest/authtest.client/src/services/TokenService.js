@@ -78,9 +78,8 @@ class TokenService {
         accessToken: this.accessToken,
         refreshToken: this.refreshToken
       });
-
-      const { accessToken, refreshToken, expiresAt } = response.data;
-      
+      const accessToken = response.data.AccessToken;
+      const refreshToken = response.data.RefreshToken;
       this.setTokens(accessToken, refreshToken);
       
       // Обрабатываем ожидающие запросы

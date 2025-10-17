@@ -1,5 +1,6 @@
 <!-- src/components/FileUploadZone.vue -->
 <template>
+  
   <div class="upload-zone">
     <h5 class="upload-title">Загрузка данных</h5>
       <div class="drop-zone"
@@ -9,15 +10,25 @@
            @drop="handleDrop"
            @click="triggerFileInput"
            :class="{ 'drop-zone--active': isDragging }">
-          <p v-if="!isUploading">
-              {{ isDragging ? 'Отпустите файл' : 'Перетащите сюда XML или ZIP' }}
-              <br />
-              <small class="file-hint">Поддерживаются .xml и .zip</small>
-          </p>
-          <p v-else>
-              Загрузка...
-              <span v-if="uploadProgress > 0">{{ uploadProgress }}%</span>
-          </p>
+          
+          <!-- Контент когда НЕ загружается -->
+          <div v-if="!isUploading" class="upload-content">
+              <p>
+                  {{ isDragging ? 'Отпустите файл' : 'Перетащите сюда XML или ZIP' }}
+                  <br />
+                  <small class="file-hint">Поддерживаются .xml и .zip</small>
+              </p>
+          </div>
+          
+          <!-- Контент когда загружается -->
+          <div v-else class="uploading-content">
+              <div class="loading-animation">
+                  <div class="loading-spinner"></div>
+                  <p class="loading-text">Загрузка данных...</p>
+                  <span v-if="uploadProgress > 0" class="progress-text">{{ uploadProgress }}%</span>
+              </div>
+          </div>
+          
           <input type="file"
                  ref="fileInput"
                  class="file-input"
@@ -35,6 +46,13 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
 
   export default {
     name: 'FileUploadZone',
+    props: {
+      // Добавляем пропс для внешнего управления состоянием загрузки
+      externalUploading: {
+        type: Boolean,
+        default: false
+      }
+    },
     data() {
       return {
         isDragging: false,
@@ -42,7 +60,35 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
         uploadProgress: 0,
         statusMessage: '',
         statusClass: '',
+        dragCounter: 0, // Добавлено для корректной работы drag&drop
+
+        // Локальное состояние для отслеживания активной загрузки
+        activeUpload: false
       };
+    },
+    computed: {
+      // Комбинируем внешнее и внутреннее состояние
+      actualUploading() {
+        return this.externalUploading || this.isUploading;
+      }
+    },
+    watch: {
+      // Следим за изменениями внешнего состояния
+      externalUploading(newVal) {
+        if (newVal) {
+          this.activeUpload = true;
+        }
+      },
+      isUploading(newVal) {
+        if (newVal) {
+          this.activeUpload = true;
+        } else {
+          // Сбрасываем activeUpload только когда загрузка полностью завершена
+          setTimeout(() => {
+            this.activeUpload = false;
+          }, 100);
+        }
+      }
     },
     mounted() {
       // Критически важные обработчики на уровне документа
@@ -62,28 +108,34 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
         return false;
       },
       triggerFileInput() {
-        this.$refs.fileInput.click();
+        if (!this.isUploading) {
+          this.$refs.fileInput.click();
+        }
       },
 
       handleFileSelect(event) {
         const file = event.target.files[0];
-        if (file) {
+        if (file && !this.isUploading) {
           this.uploadFile(file);
         }
       },
 
       handleDragOver(event) {
         this.preventDragDrop(event);
-        if (!this.isDragging) {
+        if (!this.isDragging && !this.isUploading) {
           this.isDragging = true;
         }
         // Указываем браузеру, что мы хотим скопировать файл
-        event.dataTransfer.dropEffect = 'copy';
+        if (!this.isUploading) {
+          event.dataTransfer.dropEffect = 'copy';
+        }
       },
 
       handleDragEnter(event) {
+        if (this.isUploading) return;
         event.preventDefault();
         event.stopPropagation();
+        this.dragCounter++;
         this.isDragging = true;
       },
 
@@ -98,7 +150,9 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
       },
 
       handleDrop(event) {
+        if (this.isUploading) return;
         this.isDragging = false;
+        this.dragCounter = 0;
         const file = event.dataTransfer.files[0];
         if (this.isValidFile(file)) {
           this.uploadFile(file);
@@ -108,6 +162,7 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
       },
 
       isValidFile(file) {
+        if (!file) return false;
         const validExtensions = ['.xml', '.zip'];
         const ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
         return validExtensions.includes(ext);
@@ -115,34 +170,46 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
 
       async uploadFile(file) {
         this.isUploading = true;
+        this.activeUpload = true;
         this.uploadProgress = 0;
-        this.statusMessage = '';
+        
         const formData = new FormData();
         formData.append('file', file);
 
           UploadApiSrvice.uploadFile(formData)
           .then(resp => {
-            this.showMessage('Файл успешно загружен и обработан!', 'alert-success');
+            // this.showMessage('Файл успешно загружен и обработан!', 'success');
             // Опционально: уведомить родителя о завершении
-            this.$emit('upload-complete');
+            // this.$emit('upload-complete', 'Файл успешно загружен и обработан!', 'success');
+            if (window.showGlobalAlert) {
+              window.showGlobalAlert('Файл успешно загружен и обработан!', 'success');
+            }
             console.log(resp);
           })
           .catch(err => {
             console.error('Upload error:', err);
-            this.showMessage('Не удалось подключиться к серверу', 'alert-danger')
+            if (window.showGlobalAlert) {
+              window.showGlobalAlert('Не удалось подключиться к серверу', 'error');
+            }
+            // this.emit('upload-complete', 'Не удалось подключиться к серверу', 'alert-danger')
+            
+            // this.showMessage('Не удалось подключиться к серверу', 'alert-danger')
           })
+          .finally(() => {
+            this.isUploading = false;
+            this.uploadProgress = 0;
+            this.resetFileInput();
+          })
+      },
 
-          this.isUploading = false;
+      resetFileInput() {
+        // Безопасный способ сброса file input
+        if (this.$refs.fileInput && this.$refs.fileInput.value) {
           this.$refs.fileInput.value = '';
+        }
       },
 
-      showMessage(message, className) {
-        this.statusMessage = message;
-        this.statusClass = className;
-        setTimeout(() => {
-          this.statusMessage = '';
-        }, 5000);
-      },
+      
     },
   };
 </script>
@@ -153,36 +220,6 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
     border-radius: 8px;
     padding: 16px;
   }
-
-  /* .dropzone {
-    border: 2px dashed #ced4da;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  } */
-
-    /* .dropzone:hover {
-      border-color: #007bff;
-      background-color: #e9f2ff;
-    }
-
-  .dropzone--dragover {
-    border-color: #28a745;
-    background-color: #e6f9ee;
-  }
-
-  .alert {
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 0.9em;
-  } */
-
   .upload-title {
     font-size: 1.25rem;
     font-weight: 500;
@@ -232,6 +269,60 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
 
 .file-input {
     display: none;
+}
+
+/* Стили для анимации загрузки */
+.uploading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e3e3e3;
+  border-top: 4px solid #0d6efd;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  color: #0d6efd;
+  font-weight: 500;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.progress-text {
+  color: #6c757d;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Отключаем взаимодействие во время загрузки */
+.drop-zone:has(.uploading-content) {
+  cursor: not-allowed;
+  background-color: #f8f9fa;
+}
+
+.drop-zone:has(.uploading-content):hover {
+  border-color: #dee2e6;
+  background-color: #f8f9fa;
 }
 
 /* Status Alert Styles */
@@ -284,6 +375,16 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
     
     .file-hint {
         font-size: 0.8rem;
+    }
+    
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border-width: 3px;
+    }
+    
+    .loading-text {
+      font-size: 0.9rem;
     }
   }
 </style>

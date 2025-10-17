@@ -1,7 +1,17 @@
 <template>
   <main>
+    <!-- Глобальный алерт на уровне приложения -->
+    <CustomAlert
+      v-model:visible="globalAlert.show"
+      :title="globalAlert.title"
+      :message="globalAlert.message"
+      :alert-class="globalAlert.alertClass"
+      :header-color="globalAlert.headerColor"
+    />
+    
     <GlobalLoader />
-    <router-view />
+    <router-view></router-view>
+
   </main>
 </template>
 
@@ -10,17 +20,28 @@
   import GlobalLoader from '@/components/layout/GlobalLoader.vue';
   import authService from '@/services/TokenService'; // ← прямой импорт сервиса токенов
   import router from '@/router/Routers'; // ← если нужно для редиректа (опционально)
+  import GlobalLoader from '@/components/layout/GlobalLoader.vue';
+  import CustomAlert from '@/components/features/AlertComponent.vue';
 
   export default {
     name: 'App',
     components: {
-      GlobalLoader
+      GlobalLoader,
+      CustomAlert,
     },
     data() {
       return {
         authChecked: false,
         tokenRefreshInterval: null,
-        isComponentMounted: false
+        isComponentMounted: false,
+        // Глобальный алерт
+        globalAlert: {
+          show: false,
+          title: '',
+          message: '',
+          alertClass: 'default',
+          headerColor: '#4CAF50'
+        }
       };
     },
     computed: {
@@ -38,15 +59,53 @@
     mounted() {
       this.isComponentMounted = true;
       this.startTokenRefreshInterval();
+
+      // Глобальная функция для показа алерта
+      window.showGlobalAlert = this.showGlobalAlert;
     },
     beforeUnmount() {
       this.isComponentMounted = false;
       this.stopTokenRefreshInterval();
+
+      window.showGlobalAlert = null;
     },
     methods: {
       // Только реальные Vuex-экшны
       ...mapActions(['initializeAuth', 'logout']),
 
+      // Глобальная функция для показа алерта
+      showGlobalAlert(message, type = 'info') {
+        const alertConfig = {
+          success: {
+            title: 'Успех',
+            alertClass: 'success',
+            headerColor: '#4CAF50'
+          },
+          error: {
+            title: 'Ошибка',
+            alertClass: 'error',
+            headerColor: '#f44336'
+          },
+          warning: {
+            title: 'Предупреждение',
+            alertClass: 'warning',
+            headerColor: '#ff9800'
+          },
+          info: {
+            title: 'Информация',
+            alertClass: 'info',
+            headerColor: '#2196F3'
+          }
+        };
+
+        const config = alertConfig[type] || alertConfig.info;
+        
+        this.globalAlert.title = config.title;
+        this.globalAlert.message = message;
+        this.globalAlert.alertClass = config.alertClass;
+        this.globalAlert.headerColor = config.headerColor;
+        this.globalAlert.show = true;
+      },
       async handleLogout() {
         await this.logout();
         router.push('/login');
@@ -80,5 +139,4 @@
 </script>
 
 <style scoped>
-  /* Стили по необходимости */
 </style>

@@ -7,11 +7,11 @@
         <b class="form-name-label">Вход в систему</b>
 
         <label class="field-name-label">Логин</label>
-        <input type="text" v-model="credentials.login"/>
+        <input class="input" type="text" v-model="credentials.login"/>
         <div v-if="errors.login" class="error-label error-login">{{ errors.login }}</div>
 
         <label class="field-name-label">Пароль</label>
-        <input type="password" v-model="credentials.password"/>
+        <input class="input" type="password" v-model="credentials.password"/>
         <div v-if="errors.password" class="error-label error-password">{{ errors.password }}</div>
 
         <button type="submit" class="login-button">Вход</button>
@@ -129,7 +129,7 @@
     border-radius: .25rem;
   }
 
-  input{
+  .input{
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;

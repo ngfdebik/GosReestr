@@ -1,183 +1,220 @@
 <template>
   <header class="page-header">
-        <div class="header-content">
-            <!-- Логотип -->
-            <div class="logo-section">
-                <img src="/svg/Logo.svg" class="logo-image" />
-            </div>
+    
+    <div class="header-content">
+      <!-- Логотип -->
+      <div class="logo-section">
+        <img src="/svg/Logo.svg" class="logo-image" />
+      </div>
 
-            <!-- Кнопки фильтрации -->
-            <div class="button-section">
-                <button class="nav-button" @click="$emit('load-all')">
-                    <img src="/svg/All.svg" title="Все" class="button-icon" />
-                    <p class="button-text">Все</p>
-                </button>
-            </div>
-            <div class="button-section">
-                <button class="nav-button" @click="$emit('load-ip')">
-                    <img src="/svg/IP.svg" title="ИП" class="button-icon" />
-                    <p class="button-text">ИП</p>
-                </button>
-            </div>
-            <div class="button-section">
-                <button class="nav-button" @click="$emit('load-ul')">
-                    <img src="/svg/UL.svg" title="ЮЛ" class="button-icon" />
-                    <p class="button-text">ЮЛ</p>
-                </button>
-            </div>
+      <!-- Кнопки фильтрации -->
+      <div class="button-section">
+        <button class="nav-button" @click="$emit('load-all')">
+          <img src="/svg/All.svg" title="Все" class="button-icon" />
+          <p class="button-text">Все</p>
+        </button>
+      </div>
+      <div class="button-section">
+        <button class="nav-button" @click="$emit('load-ip')">
+          <img src="/svg/IP.svg" title="ИП" class="button-icon" />
+          <p class="button-text">ИП</p>
+        </button>
+      </div>
+      <div class="button-section">
+        <button class="nav-button" @click="$emit('load-ul')">
+          <img src="/svg/UL.svg" title="ЮЛ" class="button-icon" />
+          <p class="button-text">ЮЛ</p>
+        </button>
+      </div>
 
-            <!-- Кнопки экспорта -->
-            <div class="button-section">
-                <button @click="$emit('export-excel')" class="nav-button">
-                    <img src="/svg/Export.svg" title="Экспорт в Excel" class="button-icon" />
-                    <p class="button-text">Экспорт в Excel</p>
-                </button>
-            </div>
-            <div class="button-section">
-                <button @click="$emit('export-doc')" class="nav-button">
-                    <img src="/svg/Export.svg" title="Экспорт в Word" class="button-icon" />
-                    <p class="button-text">Экспорт в Word</p>
-                </button>
-            </div>
+      <!-- Кнопки экспорта -->
+      <div class="button-section">
+        <button @click="$emit('export-excel')" class="nav-button">
+          <img src="/svg/Export.svg" title="Экспорт в Excel" class="button-icon" />
+          <p class="button-text">Экспорт в Excel</p>
+        </button>
+      </div>
+      <div class="button-section">
+        <button @click="$emit('export-doc')" class="nav-button">
+          <img src="/svg/Export.svg" title="Экспорт в Word" class="button-icon" />
+          <p class="button-text">Экспорт в Word</p>
+        </button>
+      </div>
 
-            <!-- Блок с пользователем -->
-            <div class="user-section">
-                <div v-if="isLoggedIn" class="user-info">
-                    <!-- Имя пользователя и иконка редактирования -->
-                    <div class="user-main">
-                        <p class="user-name">{{ userFullName || 'Пользователь' }}</p>
-                        <button class="edit-button"
-                                @click="goToEdit">
-                            <img src="/svg/Pen.svg" class="edit-icon" />
-                        </button>
-                        <div class="avatar-wrapper" @click="toggleMenu">
-                            <img class="avatar-image" src="/svg/Avatar.svg" />
-                            <p class="avatar-initial">{{ userInitial }}</p>
-                            <div v-if="isMenuOpen" class="user-menu">
-                                <div v-if="isAdmin" class="menu-item">
-                                    <button class="menu-link" @click="goToManage">Администрирование</button>
-                                </div>
-                                <div class="menu-item">
-                                    <button class="menu-link" @click="logout">Выйти</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--НОВАЯ КНОПКА: Загрузка файлов (только для админа) -->
-                    <div class="user-actions">
-                        <button v-if="isAdmin"
-                                class="action-button upload-button"
-                                @click="toggleUploadZone"
-                                type="button">
-                            Загрузка файлов
-                        </button>
-                        <div v-if="isUploadOpen && isAdmin" class="upload-container">
-                            <div class="upload-wrapper">
-                                <FileUploadZone @upload-complete="handleUploadComplete" />
-                            </div>
-                        </div>
-                        <button class="action-button clear-button"
-                                @click="$emit('clear-filters')"
-                                type="button">
-                            Сбросить фильтры
-                        </button>
-                    </div>
-                    
+      <!-- Блок с пользователем -->
+      <div class="user-section">
+        <div v-if="isLoggedIn" class="user-info">
+          <!-- Имя пользователя и иконка редактирования -->
+          <div class="user-main">
+            <p class="user-name">{{ userFullName || 'Пользователь' }}</p>
+            <button class="edit-button"
+                    @click="goToEdit">
+              <img src="/svg/Pen.svg" class="edit-icon" />
+            </button>
+            <div class="avatar-wrapper" @click="toggleMenu">
+              <img class="avatar-image" src="/svg/Avatar.svg" />
+              <p class="avatar-initial">{{ userInitial }}</p>
+              <div v-if="isMenuOpen" class="user-menu">
+                <div v-if="isAdmin" class="menu-item">
+                  <button class="menu-link" @click="goToManage">Администрирование</button>
                 </div>
-                
+                <div class="menu-item">
+                  <button class="menu-link" @click="logout">Выйти</button>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!--НОВАЯ КНОПКА: Загрузка файлов (только для админа) -->
+          <div class="user-actions">
+            <button v-if="isAdmin"
+                    class="action-button upload-button"
+                    @click="toggleUploadZone"
+                    type="button"
+                    :disabled="isUploadInProgress">
+              {{ getUploadButtonText }}
+            </button>
+            <div v-show="isUploadOpen && isAdmin" class="upload-container">
+              <div class="upload-wrapper">
+                <FileUploadZone 
+                  ref="fileUploadZone"
+                  @upload-complete="handleUploadComplete"
+                />
+              </div>
+            </div>
+            <button class="action-button clear-button"
+                    @click="$emit('clear-filters')"
+                    type="button">
+              Сбросить фильтры
+            </button>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
-  import userApi from '@/services/UserApiService';
-  import { useRouter } from 'vue-router';
-  import store from '@/auth/store';
-  import FileUploadZone from '@/components/FileUploadZone.vue';
+import userApi from '@/services/UserApiService';
+import { useRouter } from 'vue-router';
+import store from '@/auth/store';
+import FileUploadZone from '@/components/FileUploadZone.vue';
 
-  export default {
-    name: 'Header',
-    components: {
-      FileUploadZone
+export default {
+  name: 'Header',
+  components: {
+    FileUploadZone,
+  },
+  props: {
+    isAdmin: Boolean,
+    isLoggedIn: Boolean
+  },
+  emits: ['load-all', 'load-ip', 'load-ul', 'export-excel', 'export-doc', 'clear-filters'],
+  data() {
+    return {
+      isUploadInProgress: false,
+      //остальные поля
+      userFullName: '',
+      isMenuOpen: false,
+      isUploadOpen: false,
+      router: useRouter()
+    };
+  },
+  computed: {
+    userInitial() {
+      return this.userFullName ? this.userFullName[0]?.toUpperCase() || '?' : '?';
     },
-    props: {
-      isAdmin: Boolean,
-      isLoggedIn: Boolean
-    },
-    emits: ['load-all', 'load-ip', 'load-ul', 'export-excel', 'export-doc', 'clear-filters'],
-    data() {
-      return {
-        userFullName: '',
-        isMenuOpen: false,
-        isUploadOpen: false,
-        router: useRouter()
-      };
-    },
-    computed: {
-      userInitial() {
-        return this.userFullName ? this.userFullName[0]?.toUpperCase() || '?' : '?';
+    getUploadButtonText() {
+      if (this.isUploadInProgress) {
+        return 'Идет загрузка...';
       }
-    },
-    async created() {
-      if (this.isLoggedIn) {
-        await this.loadCurrentUser();
-      }
-    },
-    methods: {
-      async loadCurrentUser() {
-        try {
-          const response = await userApi.getCurrent();
-          this.userFullName = response.FullName;
-        } catch (error) {
-          console.error('Ошибка загрузки данных пользователя:', error);
-        }
-      },
-      toggleMenu() {
-        this.isMenuOpen = !this.isMenuOpen;
-      },
-      goToEdit() {
-        this.router.push('/UserEdit');
-      },
-      goToManage() {
-        this.router.push('/Manage');
-      },
-      logout() {
-        store.dispatch('logout').then(() => {
-          this.router.push({ name: 'Home' });
-        });
-      },
-      toggleUploadZone() {
-        this.isUploadOpen = !this.isUploadOpen;
-      },
-      handleUploadComplete(data) {
-        console.log('Загрузка завершена:', data);
-        // Опционально: this.isUploadOpen = false;
-      },
-      handleClickOutside(event) {
-        const userBlock = this.$el.querySelector('.user-info');
-        if (userBlock && !userBlock.contains(event.target)) {
-          this.isMenuOpen = false;
-        }
-
-        const uploadBlock = this.$el.querySelector('.upload-container');
-        if (userBlock && !userBlock.contains(event.target)) {
-          this.isUploadOpen = false;
-        }
-      }
-    },
-    mounted() {
-      document.addEventListener('click', this.handleClickOutside);
-    },
-    beforeUnmount() {
-      document.removeEventListener('click', this.handleClickOutside);
+      return this.isUploadOpen ? 'Закрыть загрузку' : 'Загрузка файлов';
     }
-  };
+  },
+  async created() {
+    if (this.isLoggedIn) {
+      await this.loadCurrentUser();
+    }
+  },
+  methods: {
+    async loadCurrentUser() {
+      try {
+        const response = await userApi.getCurrent();
+        this.userFullName = response.FullName;
+      } catch (error) {
+        console.error('Ошибка загрузки данных пользователя:', error);
+      }
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+      // Закрываем зону загрузки при открытии меню
+      if (this.isMenuOpen) {
+        this.isUploadOpen = false;
+      }
+    },
+    goToEdit() {
+      this.router.push('/UserEdit');
+    },
+    goToManage() {
+      this.router.push('/Manage');
+    },
+    logout() {
+      store.dispatch('logout').then(() => {
+        this.router.push({ name: 'Home' });
+      });
+    },
+    toggleUploadZone() {
+      this.isUploadOpen = !this.isUploadOpen;
+      // Закрываем меню при открытии зоны загрузки
+      if (this.isUploadOpen) {
+        this.isMenuOpen = false;
+      }
+    },
+    
+    handleUploadComplete(uploadData) {
+        console.log('Загрузка завершена в Header:', uploadData);
+            
+        // Сбрасываем флаг загрузки
+        this.isUploadInProgress = false;
+        
+        // Закрываем зону загрузки после успешной загрузки
+        if (uploadData.success) {
+            setTimeout(() => {
+            this.isUploadOpen = false;
+            }, 1000);
+        }
+    },
+    
+    handleClickOutside(event) {
+      const userBlock = this.$el.querySelector('.user-info');
+      const uploadBlock = this.$el.querySelector('.upload-container');
+      const uploadButton = this.$el.querySelector('.upload-button');
+      
+      // Проверяем, был ли клик по кнопке загрузки
+      const isUploadButtonClick = uploadButton && uploadButton.contains(event.target);
+      
+      // Закрываем меню только если клик был вне user блока
+      if (userBlock && !userBlock.contains(event.target)) {
+        this.isMenuOpen = false;
+      }
+
+      // Закрываем зону загрузки только если клик был вне upload контейнера И не по кнопке загрузки
+      if (uploadBlock && !uploadBlock.contains(event.target) && !isUploadButtonClick) {
+        this.isUploadOpen = false;
+      }
+    },
+  },
+  mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.handleClickOutside);
+  }
+};
 </script>
 
 <style scoped>
-/* Header Styles */
+/* Стили остаются без изменений */
 .page-header {
     background-color: #e4e3e8;
     position: relative;
@@ -192,14 +229,12 @@
 .header-content {
     display: flex;
     width: 100%;
-    /* flex-wrap: wrap; */
     align-items: center;
     padding: 0 15px;
 }
 
 /* Logo Section */
 .logo-section {
-    /* flex: 0 0 16.666667%; */
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -253,8 +288,6 @@
 
 /* User Section */
 .user-section {
-    /* flex: 0 0 16.666667%; */
-    /* margin-left: 17%; */
     position: absolute;
     right: 0%;
     display: flex;
@@ -358,6 +391,7 @@
     flex-direction: row;
     align-items: flex-end;
     width: 100%;
+    position: relative;
 }
 
 .action-button {
@@ -368,6 +402,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .upload-button {
@@ -394,22 +429,22 @@
 
 /* Upload Container */
 .upload-container {
-    /* margin-top: 0.5rem; */
-    /* width: 100%; */
-    z-index: 1;
+    z-index: 1000;
     border-radius: 15px;
     position: absolute;
     width: 30vw;
     height: auto;
-    top: 30vh;
-    right: 35vw;
-    /* transform: translate(-50%, -50%); */
-    box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    border: 1px solid #dee2e6;
 }
 
 .upload-wrapper {
     position: relative;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 /* Responsive Design */
@@ -430,6 +465,11 @@
     .user-section {
         flex: 0 0 20%;
         margin-left: 10%;
+    }
+    
+    .upload-container {
+        width: 40vw;
+        right: -50%;
     }
 }
 
@@ -462,12 +502,25 @@
     
     .user-actions {
         align-items: center;
+        flex-direction: column;
     }
     
     .user-menu {
         right: auto;
         left: 50%;
         transform: translateX(-50%);
+    }
+    
+    .upload-container {
+        width: 90vw;
+        right: 5%;
+        top: 100%;
+    }
+    
+    .action-button {
+        margin-left: 0;
+        margin-bottom: 0.25rem;
+        width: 100%;
     }
 }
 </style>

@@ -1,6 +1,7 @@
 <!-- src/components/layout/EGRLayout.vue -->
 <template>
   <div class="egr-layout">
+        
         <Header :isAdmin="isAdmin"
                 :isLoggedIn="isLoggedIn"
                 @load-all="LoadAllTable"
@@ -77,7 +78,7 @@
       MainTableView,
       //FiltersPanel,
       ModalDetails,
-      FileUploadZone
+      FileUploadZone,
     },
     data() {
       return {
@@ -952,6 +953,7 @@
           // Можно показать уведомление пользователю
         }
       },
+      
 
       async handleLoadLogs({ table, inn }) {
         // Очищаем

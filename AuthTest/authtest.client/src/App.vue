@@ -20,7 +20,6 @@
   import GlobalLoader from '@/components/layout/GlobalLoader.vue';
   import authService from '@/services/TokenService'; // ← прямой импорт сервиса токенов
   import router from '@/router/Routers'; // ← если нужно для редиректа (опционально)
-  import GlobalLoader from '@/components/layout/GlobalLoader.vue';
   import CustomAlert from '@/components/features/AlertComponent.vue';
 
   export default {

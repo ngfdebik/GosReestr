@@ -6,31 +6,16 @@
       <thead>
         <tr>
           <th v-for="header in sharedHeaders" :key="header" class="table-header">
-            {{ header }}
-            <span v-if="header !== 'ДопИНФ'" class="filter-icon" @click.stop="toggleFilter(header, 'shared')">
-              ⬇️
-            </span>
-            <div v-if="activeFilterColumn === header && activeFilterTable === 'shared'" class="filter-dropdown">
-              <select v-model="tempFilter.mode" class="filter-input">
-                <option value="=">Равно</option>
-                <option value="!=">Не равно</option>
-                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
-                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
-                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
-                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
-                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
-              </select>
-              <template v-if="isDateColumn(header)">
-                <input type="date"
-                       v-model="tempFilter.value"
-                       class="filter-input" />
-              </template>
-              <template v-else>
-                <input v-model="tempFilter.value"
-                       placeholder="Значение"
-                       class="filter-input" />
-              </template>
-              <button @click="applyColumnFilter(header)" class="filter-button">Применить</button>
+            <div class="header-content">
+              <span class="header-text">{{ header }}</span>
+              <span v-if="header !== 'ДопИНФ'"
+                    ref="filterIcons"
+                    :data-column="header"
+                    :data-table="'shared'"
+                    class="filter-icon"
+                    @click.stop="toggleFilter($event, header, 'shared')">
+                ⬇️
+              </span>
             </div>
           </th>
         </tr>
@@ -60,31 +45,16 @@
       <thead>
         <tr>
           <th v-for="header in ipHeaders" :key="header" class="table-header">
-            {{ header }}
-            <span v-if="header !== 'ДопИНФ'" class="filter-icon" @click.stop="toggleFilter(header, 'ip')">
-              ⬇️
-            </span>
-            <div v-if="activeFilterColumn === header && activeFilterTable === 'ip'" class="filter-dropdown">
-              <select v-model="tempFilter.mode" class="filter-input">
-                <option value="=">Равно</option>
-                <option value="!=">Не равно</option>
-                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
-                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
-                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
-                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
-                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
-              </select>
-              <template v-if="isDateColumn(header)">
-                <input type="date"
-                       v-model="tempFilter.value"
-                       class="filter-input" />
-              </template>
-              <template v-else>
-                <input v-model="tempFilter.value"
-                       placeholder="Значение"
-                       class="filter-input" />
-              </template>
-              <button @click="applyColumnFilter(header)" class="filter-button">Применить</button>
+            <div class="header-content">
+              <span class="header-text">{{ header }}</span>
+              <span v-if="header !== 'ДопИНФ'"
+                    ref="filterIcons"
+                    :data-column="header"
+                    :data-table="'ip'"
+                    class="filter-icon"
+                    @click.stop="toggleFilter($event, header, 'ip')">
+                ⬇️
+              </span>
             </div>
           </th>
         </tr>
@@ -106,31 +76,16 @@
       <thead>
         <tr>
           <th v-for="header in ulHeaders" :key="header" class="table-header">
-            {{ header }}
-            <span v-if="header !== 'ДопИНФ'" class="filter-icon" @click.stop="toggleFilter(header, 'ul')">
-              ⬇️
-            </span>
-            <div v-if="activeFilterColumn === header && activeFilterTable === 'ul'" class="filter-dropdown">
-              <select v-model="tempFilter.mode" class="filter-input">
-                <option value="=">Равно</option>
-                <option value="!=">Не равно</option>
-                <option v-if="!header.includes('Дата')" value="содержит">Содержит</option>
-                <option v-if="!header.includes('Дата')" value="начинается с">Начинается с</option>
-                <option v-if="!header.includes('Дата')" value="заканчивается на">Заканчивается на</option>
-                <option v-if="header.includes('Дата')" value=">">Больше (дата)</option>
-                <option v-if="header.includes('Дата')" value="<">Меньше (дата)</option>
-              </select>
-              <template v-if="isDateColumn(header)">
-                <input type="date"
-                       v-model="tempFilter.value"
-                       class="filter-input" />
-              </template>
-              <template v-else>
-                <input v-model="tempFilter.value"
-                       placeholder="Значение"
-                       class="filter-input" />
-              </template>
-              <button @click="applyColumnFilter(header)" class="filter-button">Применить</button>
+            <div class="header-content">
+              <span class="header-text">{{ header }}</span>
+              <span v-if="header !== 'ДопИНФ'"
+                    ref="filterIcons"
+                    :data-column="header"
+                    :data-table="'ul'"
+                    class="filter-icon"
+                    @click.stop="toggleFilter($event, header, 'ul')">
+                ⬇️
+              </span>
             </div>
           </th>
         </tr>
@@ -153,12 +108,73 @@
         </tr>
       </tfoot>
     </table>
-
-    <!-- Кнопка "Загрузить ещё" -->
-    <!--<div v-if="showLoadMore" class="load-more">
-      <button @click="$emit('load-more')" class="load-more-button">Загрузить ещё</button>
-    </div>-->
   </div>
+
+  <!-- Teleport для Shared Filter -->
+  <Teleport to="body" v-if="activeFilterColumn && activeFilterTable === 'shared'">
+    <div class="filter-dropdown" :style="filterStyle">
+      <select v-model="tempFilter.mode" class="filter-input">
+        <option value="=">Равно</option>
+        <option value="!=">Не равно</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="содержит">Содержит</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="начинается с">Начинается с</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value=">">Больше (дата)</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value="<">Меньше (дата)</option>
+      </select>
+      <template v-if="isDateColumn(activeFilterColumn)">
+        <input type="date" v-model="tempFilter.value" class="filter-input" />
+      </template>
+      <template v-else>
+        <input v-model="tempFilter.value" placeholder="Значение" class="filter-input" />
+      </template>
+      <button @click="applyColumnFilter(activeFilterColumn)" class="filter-button">Применить</button>
+    </div>
+  </Teleport>
+
+  <!-- Teleport для IP Filter -->
+  <Teleport to="body" v-if="activeFilterColumn && activeFilterTable === 'ip'">
+    <div class="filter-dropdown" :style="filterStyle">
+      <select v-model="tempFilter.mode" class="filter-input">
+        <option value="=">Равно</option>
+        <option value="!=">Не равно</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="содержит">Содержит</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="начинается с">Начинается с</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value=">">Больше (дата)</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value="<">Меньше (дата)</option>
+      </select>
+      <template v-if="isDateColumn(activeFilterColumn)">
+        <input type="date" v-model="tempFilter.value" class="filter-input" />
+      </template>
+      <template v-else>
+        <input v-model="tempFilter.value" placeholder="Значение" class="filter-input" />
+      </template>
+      <button @click="applyColumnFilter(activeFilterColumn)" class="filter-button">Применить</button>
+    </div>
+  </Teleport>
+
+  <!-- Teleport для UL Filter -->
+  <Teleport to="body" v-if="activeFilterColumn && activeFilterTable === 'ul'">
+    <div class="filter-dropdown" :style="filterStyle">
+      <select v-model="tempFilter.mode" class="filter-input">
+        <option value="=">Равно</option>
+        <option value="!=">Не равно</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="содержит">Содержит</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="начинается с">Начинается с</option>
+        <option v-if="!activeFilterColumn.includes('Дата')" value="заканчивается на">Заканчивается на</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value=">">Больше (дата)</option>
+        <option v-if="activeFilterColumn.includes('Дата')" value="<">Меньше (дата)</option>
+      </select>
+      <template v-if="isDateColumn(activeFilterColumn)">
+        <input type="date" v-model="tempFilter.value" class="filter-input" />
+      </template>
+      <template v-else>
+        <input v-model="tempFilter.value" placeholder="Значение" class="filter-input" />
+      </template>
+      <button @click="applyColumnFilter(activeFilterColumn)" class="filter-button">Применить</button>
+    </div>
+  </Teleport>
 </template>
 
 <script>
@@ -183,6 +199,12 @@
         tempFilter: {
           mode: '=',
           value: ''
+        },
+        filterStyle: {
+          position: 'absolute',
+          top: '0px',
+          left: '0px',
+          zIndex: 1000
         }
       };
     },
@@ -216,18 +238,61 @@
       isDateColumn(col) {
         return col && col.includes('Дата');
       },
-      toggleFilter(column, tableType) {
+      toggleFilter(event, column, tableType) {
+        event.stopPropagation();
+
         if (this.activeFilterColumn === column && this.activeFilterTable === tableType) {
           this.activeFilterColumn = null;
           this.activeFilterTable = null;
-        } else {
+          return;
+        }
+
+        // Закрываем предыдущий
+        this.activeFilterColumn = null;
+        this.activeFilterTable = null;
+
+        this.$nextTick(() => {
+          const icon = event.currentTarget;
+          if (!icon) return;
+
+          const rect = icon.getBoundingClientRect();
+          const dropdownWidth = 220; // Примерная ширина фильтра (можно уточнить)
+          const spaceRight = window.innerWidth - rect.right;
+          const spaceLeft = rect.left;
+
+          let left = rect.left + window.scrollX;
+
+          // Если недостаточно места справа — прижимаем к правому краю иконки
+          if (spaceRight < dropdownWidth) {
+            if (spaceLeft > dropdownWidth) {
+              // Есть место слева — показываем слева от иконки
+              left = rect.right - dropdownWidth + window.scrollX;
+            } else {
+              // Нет места ни слева, ни справа — прижимаем к левому краю экрана
+              left = 10 + window.scrollX;
+            }
+          }
+
+          this.filterStyle = {
+            position: 'absolute',
+            top: rect.bottom + window.scrollY + 'px',
+            left: left + 'px',
+            zIndex: 1000,
+            minWidth: '200px',
+            maxWidth: '300px' // Ограничение ширины
+          };
+
           this.activeFilterColumn = column;
           this.activeFilterTable = tableType;
           this.tempFilter = { mode: '=', value: '' };
-        }
+        });
       },
       applyColumnFilter(column) {
-        if (!this.tempFilter.value) return;
+        if (!this.tempFilter.value.trim()) {
+          this.activeFilterColumn = null;
+          this.activeFilterTable = null;
+          return;
+        }
 
         const newFilter = {
           id: Date.now(),
@@ -248,12 +313,13 @@
 </script>
 
 <style scoped>
-.table-container {
-  height: 80vh;
-  position: relative;
-  border: 1px solid #212529;
-  overflow: auto;
-}
+  /* ... остальной CSS без изменений ... */
+  .table-container {
+    height: 80vh;
+    position: relative;
+    border: 1px solid #212529;
+    overflow: auto;
+  }
 
   .tableView-table {
     width: 100%;
@@ -267,139 +333,40 @@
     --modal-header-bg: #e2e3e5;
   }
 
-.table-header {
-  position: sticky;
-  top: 0;
-  padding: 8px;
-  border: 1px solid #212529;
-  background-color: #e2e3e5;
-  color: #000;
-  font-family: "Times New Roman", serif;
-  font-weight: normal;
-}
-  .tableView-table td {
-  padding: 0.5rem;
-  border: 1px solid #212529;
+  .table-header {
+    position: sticky;
+    top: 0;
+    padding: 8px;
+    border: 1px solid #212529;
+    background-color: #e2e3e5;
+    color: #000;
+    font-family: "Times New Roman", serif;
+    font-weight: normal;
+    /* z-index не обязателен при использовании Teleport, но оставим для надёжности */
+    z-index: 10;
   }
+
+  .tableView-table td {
+    padding: 0.5rem;
+    border: 1px solid #212529;
+  }
+
   .tableView-table th {
     padding: 0.5rem;
-    border-top-width: 0px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: rgb(33, 37, 41);
-    border-right-color: rgb(33, 37, 41);
-    border-bottom-color: rgb(33, 37, 41);
-    border-left-color: rgb(33, 37, 41);
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
+    border: 1px solid #212529;
     background-color: var(--modal-header-bg);
     color: #000;
     font-weight: bold;
   }
-.tableView-table tbody tr:nth-child(odd) {
-  background-color: var(--table-striped-bg);
-}
 
-.tableView-table tbody tr:hover {
-  background-color: var(--table-hover-bg);
-}
+  .tableView-table tbody tr:nth-child(odd) {
+    background-color: var(--table-striped-bg);
+  }
 
-.load-more {
-  text-align: center;
-  padding: 10px;
-  background: #f8f9fa;
-  border-top: 1px solid #dee2e6;
-}
+  .tableView-table tbody tr:hover {
+    background-color: var(--table-hover-bg);
+  }
 
-.load-more-button {
-  display: inline-block;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #0d6efd;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #0d6efd;
-  border-radius: 0.25rem;
-  transition: all 0.15s ease-in-out;
-}
-
-.load-more-button:hover {
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-}
-
-.detail-button {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  border: 1px solid #6c757d;
-  border-radius: 0.2rem;
-  background: transparent;
-  color: #6c757d;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-}
-
-.detail-button:hover {
-  background-color: #6c757d;
-  color: #fff;
-}
-
-.filter-icon {
-  cursor: pointer;
-  font-size: 0.75rem;
-  margin-left: 0.375rem;
-  color: #6c757d;
-}
-
-.filter-dropdown {
-  position: absolute;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem;
-  z-index: 150;
-  min-width: 200px;
-  font-size: 0.875rem;
-}
-
-.filter-input {
-  width: 100%;
-  margin-bottom: 0.25rem;
-  padding: 0.25rem;
-  border: 1px solid #ced4da;
-  border-radius: 0.2rem;
-  font-size: 0.875rem;
-}
-
-.filter-button {
-  width: 100%;
-  padding: 0.375rem;
-  font-size: 0.875rem;
-  background-color: #6c757d;
-  color: #fff;
-  border: none;
-  border-radius: 0.2rem;
-  cursor: pointer;
-  transition: background-color 0.15s ease-in-out;
-}
-
-.filter-button:hover {
-  background-color: #5a6268;
-}
   .load-more-cell {
     text-align: center;
     padding: 10px !important;
@@ -434,5 +401,83 @@
 
     .load-more-button:active {
       transform: translateY(0);
+    }
+
+  .detail-button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border: 1px solid #6c757d;
+    border-radius: 0.2rem;
+    background: transparent;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+  }
+
+    .detail-button:hover {
+      background-color: #6c757d;
+      color: #fff;
+    }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    gap: 4px;
+  }
+
+  .header-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
+
+  .filter-icon {
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #6c757d;
+    flex-shrink: 0; /* Не сжимать иконку */
+  }
+
+  /* Стили для выпадающего меню (теперь в body) */
+  .filter-dropdown {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    min-width: 200px;
+    max-width: 300px; /* ← добавьте это */
+    width: max-content;/**/
+    box-sizing: border-box;/**/
+    font-size: 0.875rem;
+    z-index: 1000;
+  }
+
+  .filter-input {
+    width: 100%;
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.2rem;
+    font-size: 0.875rem;
+  }
+
+  .filter-button {
+    width: 100%;
+    padding: 0.375rem;
+    font-size: 0.875rem;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+
+    .filter-button:hover {
+      background-color: #5a6268;
     }
 </style>

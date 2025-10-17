@@ -62,7 +62,7 @@
                                     :disabled="!selectedExistingUser || loading">Редактировать</button>
                         </div>
                         
-                        <form class="edit-form" v-if="existingUser.login" @submit.prevent="updateUser">
+                        <form class="manage-form" v-if="existingUser.login" @submit.prevent="updateUser">
                             <div v-if="Object.keys(existingUserErrors).length > 0" class="error-group">
                                 <div v-for="error in existingUserErrors" :key="error">{{ error }}</div>
                             </div>
@@ -614,8 +614,9 @@ import router from '@/router/Routers';
     margin-top: 1rem;
 }
 
-.edit-form {
+.manage-form {
     margin-top: 1rem;
+    /*width:auto;*/
 }
 
 .action-buttons {

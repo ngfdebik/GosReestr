@@ -1,5 +1,4 @@
-﻿// Controllers/AuthController.cs
-using AuthTest.Server;
+﻿using AuthTest.Server;
 using EgrWebEntity.ModelTable;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -48,27 +47,16 @@ namespace AuthTest.Controllers
             {
                 return BadRequest(new
                 {
-                    errors = new { Login = "Неверно указан логин" }
+                    error = "Введен неверный логин или пароль."
                 });
             }
-
             if (!Hasher.Verify(credentials.Password, user.Пароль))
             {
                 return BadRequest(new
                 {
-                    errors = new { Password = "Неверный пароль" }
+                    error = "Введен неверный логин или пароль."
                 });
             }
-            /*
-            // Создаём Claims
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.ФИО),
-                new Claim(ClaimTypes.GivenName, user.Логин)
-            };
-            */
-            //var person = _dbcontext.Пользователи.FirstOrDefault(x => x.Логин == username && Hasher.Verify(password, x.Пароль));
-
             var identity = GetIdentity(user);
             string userType = user.Роль switch
             {
@@ -81,23 +69,6 @@ namespace AuthTest.Controllers
             {
                 return NotFound();
             }
-            //var encodedJwt = JWT.getJWT(identity);
-            
-            //claims.Add(new Claim("UserType", userType));
-
-            //var identity = new ClaimsIdentity(claims, "EGRCookieAuth");
-            //var claimsPrincipal = new ClaimsPrincipal(identity);
-
-            //await HttpContext.SignInAsync("EGRCookieAuth", claimsPrincipal);
-
-            // Возвращаем URL для редиректа
-            string redirectUrl = userType switch
-            {
-                "Администратор" => "/EGRAdmin",
-                "Пользователь" => "/EGR",
-                _ => "/"
-            };
-
             bool isAdmin = userType switch
             {
                 "Администратор" => true,
@@ -209,11 +180,11 @@ namespace AuthTest.Controllers
         }
     }
 
-    public class LoginRequest
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
+    //public class LoginRequest
+    //{
+    //    public string Username { get; set; }
+    //    public string Password { get; set; }
+    //}
 
     public class LogoutRequest
     {

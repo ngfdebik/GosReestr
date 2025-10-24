@@ -1,4 +1,4 @@
-using EgrWebEntity.ModelTable;
+п»їusing EgrWebEntity.ModelTable;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -38,23 +38,23 @@ namespace AuthTest.Controllers
         {
             try
             {
-                // Валидация модели
+                // Р’Р°Р»РёРґР°С†РёСЏ РјРѕРґРµР»Рё
                 //if (model?.NewLoginData == null)
                 //{
                 //    return BadRequest(new
                 //    {
                 //        success = false,
-                //        error = "Неверный формат данных"
+                //        error = "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…"
                 //    });
                 //}
 
-                // Валидация обязательных полей
+                // Р’Р°Р»РёРґР°С†РёСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹С… РїРѕР»РµР№
                 if (string.IsNullOrEmpty(req.Login))
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Логин обязателен"
+                        error = "Р›РѕРіРёРЅ РѕР±СЏР·Р°С‚РµР»РµРЅ"
                     });
                 }
 
@@ -63,7 +63,7 @@ namespace AuthTest.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Пароль обязателен"
+                        error = "РџР°СЂРѕР»СЊ РѕР±СЏР·Р°С‚РµР»РµРЅ"
                     });
                 }
 
@@ -72,61 +72,61 @@ namespace AuthTest.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Роль обязательна"
+                        error = "Р РѕР»СЊ РѕР±СЏР·Р°С‚РµР»СЊРЅР°"
                     });
                 }
 
-                // Проверка длины пароля
+                // РџСЂРѕРІРµСЂРєР° РґР»РёРЅС‹ РїР°СЂРѕР»СЏ
                 if (req.Password.Length < 6)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Пароль должен содержать не менее 6 символов"
+                        error = "РџР°СЂРѕР»СЊ РґРѕР»Р¶РµРЅ СЃРѕРґРµСЂР¶Р°С‚СЊ РЅРµ РјРµРЅРµРµ 6 СЃРёРјРІРѕР»РѕРІ"
                     });
                 }
 
-                // Проверка совпадения паролей
+                // РџСЂРѕРІРµСЂРєР° СЃРѕРІРїР°РґРµРЅРёСЏ РїР°СЂРѕР»РµР№
                 if (req.Password != req.ConfirmPassword)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Пароли не совпадают"
+                        error = "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚"
                     });
                 }
 
-                // Проверка уникальности логина
-                if (_dbcontext.Пользователи.Any(u => u.Логин.Equals(req.Login)))
+                // РџСЂРѕРІРµСЂРєР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚Рё Р»РѕРіРёРЅР°
+                if (_dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.Any(u => u.Р›РѕРіРёРЅ.Equals(req.Login)))
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Пользователь с таким логином уже существует"
+                        error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚"
                     });
                 }
 
-                // Создание нового пользователя
+                // РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
                 var newUser = new Users
                 {
-                    Логин = req.Login,
-                    Пароль = Hasher.Hash(req.Password),
-                    Роль = req.SelectedRole,
-                    ФИО = req.FullName ?? string.Empty
+                    Р›РѕРіРёРЅ = req.Login,
+                    РџР°СЂРѕР»СЊ = Hasher.Hash(req.Password),
+                    Р РѕР»СЊ = req.SelectedRole,
+                    Р¤РРћ = req.FullName ?? string.Empty
                 };
 
-                _dbcontext.Пользователи.Add(newUser);
+                _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.Add(newUser);
                 await _dbcontext.SaveChangesAsync();
 
                 return Ok(new
                 {
                     success = true,
-                    message = "Новый пользователь создан успешно",
+                    message = "РќРѕРІС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃРѕР·РґР°РЅ СѓСЃРїРµС€РЅРѕ",
                     data = new
                     {
-                        login = newUser.Логин,
-                        selectedRole = newUser.Роль,
-                        fullName = newUser.ФИО
+                        login = newUser.Р›РѕРіРёРЅ,
+                        selectedRole = newUser.Р РѕР»СЊ,
+                        fullName = newUser.Р¤РРћ
                     }
                 });
             }
@@ -135,7 +135,7 @@ namespace AuthTest.Controllers
                 return StatusCode(500, new
                 {
                     success = false,
-                    error = "Внутренняя ошибка сервера при создании пользователя"
+                    error = "Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР° РїСЂРё СЃРѕР·РґР°РЅРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
                 });
             }
         }
@@ -149,19 +149,19 @@ namespace AuthTest.Controllers
                 return BadRequest(new
                 {
                     success = false,
-                    error = "Пользователь не выбран"
+                    error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РІС‹Р±СЂР°РЅ"
                 });
             }
 
-            var user = _dbcontext.Пользователи
-                .FirstOrDefault(u => u.Логин.Equals(selectedExistingUser));
+            var user = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+                .FirstOrDefault(u => u.Р›РѕРіРёРЅ.Equals(selectedExistingUser));
 
             if (user == null)
             {
                 return NotFound(new
                 {
                     success = false,
-                    error = "Пользователь не найден"
+                    error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ"
                 });
             }
 
@@ -169,14 +169,14 @@ namespace AuthTest.Controllers
             {
                 ExistingLoginData = new
                 {
-                    Login = user.Логин,
-                    SelectedRole = user.Роль,
-                    FullName = user.ФИО
+                    Login = user.Р›РѕРіРёРЅ,
+                    SelectedRole = user.Р РѕР»СЊ,
+                    FullName = user.Р¤РРћ
                 },
-                HiddenSelectedUser = user.Логин,
+                HiddenSelectedUser = user.Р›РѕРіРёРЅ,
                 Roles = GetRolesSelectList(),
                 ExistingUsers = GetExistingUsersSelectList(),
-                SelectedExistingUser = user.Логин
+                SelectedExistingUser = user.Р›РѕРіРёРЅ
             };
 
             return Ok(new
@@ -193,13 +193,13 @@ namespace AuthTest.Controllers
         {
             try
             {
-                // Валидация модели
+                // Р’Р°Р»РёРґР°С†РёСЏ РјРѕРґРµР»Рё
                 if (req == null)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Неверный формат данных"
+                        error = "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РґР°РЅРЅС‹С…"
                     });
                 }
 
@@ -208,7 +208,7 @@ namespace AuthTest.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Не указан пользователь для изменения"
+                        error = "РќРµ СѓРєР°Р·Р°РЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ"
                     });
                 }
 
@@ -217,7 +217,7 @@ namespace AuthTest.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Логин обязателен"
+                        error = "Р›РѕРіРёРЅ РѕР±СЏР·Р°С‚РµР»РµРЅ"
                     });
                 }
 
@@ -226,74 +226,74 @@ namespace AuthTest.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Роль обязательна"
+                        error = "Р РѕР»СЊ РѕР±СЏР·Р°С‚РµР»СЊРЅР°"
                     });
                 }
 
-                // Проверка совпадения паролей
+                // РџСЂРѕРІРµСЂРєР° СЃРѕРІРїР°РґРµРЅРёСЏ РїР°СЂРѕР»РµР№
                 if (!string.IsNullOrEmpty(req.Password) &&
                     req.Password != req.ConfirmPassword)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Пароли не совпадают"
+                        error = "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚"
                     });
                 }
 
-                // Поиск пользователя
-                var existingUser = _dbcontext.Пользователи
-                    .FirstOrDefault(u => u.Логин.Equals(req.HiddenSelectedUser));
+                // РџРѕРёСЃРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+                var existingUser = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+                    .FirstOrDefault(u => u.Р›РѕРіРёРЅ.Equals(req.HiddenSelectedUser));
 
                 if (existingUser == null)
                 {
                     return NotFound(new
                     {
                         success = false,
-                        error = "Пользователь не найден"
+                        error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ"
                     });
                 }
 
-                // Проверка на уникальность логина
+                // РџСЂРѕРІРµСЂРєР° РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ Р»РѕРіРёРЅР°
                 if (req.Login != req.HiddenSelectedUser)
                 {
-                    var userWithSameLogin = _dbcontext.Пользователи
-                        .FirstOrDefault(u => u.Логин.Equals(req.Login) &&
-                                           u.Логин != req.HiddenSelectedUser);
+                    var userWithSameLogin = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+                        .FirstOrDefault(u => u.Р›РѕРіРёРЅ.Equals(req.Login) &&
+                                           u.Р›РѕРіРёРЅ != req.HiddenSelectedUser);
 
                     if (userWithSameLogin != null)
                     {
                         return BadRequest(new
                         {
                             success = false,
-                            error = "Пользователь с таким логином уже существует"
+                            error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚"
                         });
                     }
                 }
 
-                // Обновление данных
-                existingUser.Логин = req.Login;
-                existingUser.Роль = req.SelectedRole;
-                existingUser.ФИО = req.FullName;
+                // РћР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С…
+                existingUser.Р›РѕРіРёРЅ = req.Login;
+                existingUser.Р РѕР»СЊ = req.SelectedRole;
+                existingUser.Р¤РРћ = req.FullName;
 
                 if (!string.IsNullOrEmpty(req.Password))
                 {
-                    existingUser.Пароль = Hasher.Hash(req.Password);
+                    existingUser.РџР°СЂРѕР»СЊ = Hasher.Hash(req.Password);
                 }
 
-                _dbcontext.Пользователи.Update(existingUser);
+                _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.Update(existingUser);
                 await _dbcontext.SaveChangesAsync();
 
                 return Ok(new
                 {
                     success = true,
-                    message = "Пользователь изменен успешно",
+                    message = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РёР·РјРµРЅРµРЅ СѓСЃРїРµС€РЅРѕ",
                     data = new
                     {
-                        login = existingUser.Логин,
-                        selectedRole = existingUser.Роль,
-                        fullName = existingUser.ФИО,
-                        hiddenSelectedUser = existingUser.Логин
+                        login = existingUser.Р›РѕРіРёРЅ,
+                        selectedRole = existingUser.Р РѕР»СЊ,
+                        fullName = existingUser.Р¤РРћ,
+                        hiddenSelectedUser = existingUser.Р›РѕРіРёРЅ
                     }
                 });
             }
@@ -302,7 +302,7 @@ namespace AuthTest.Controllers
                 return StatusCode(500, new
                 {
                     success = false,
-                    error = "Внутренняя ошибка сервера при обновлении пользователя"
+                    error = "Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР° РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
                 });
             }
         }
@@ -314,67 +314,67 @@ namespace AuthTest.Controllers
         {
             try
             {
-                // Валидация обязательных полей
+                // Р’Р°Р»РёРґР°С†РёСЏ РѕР±СЏР·Р°С‚РµР»СЊРЅС‹С… РїРѕР»РµР№
                 if (string.IsNullOrEmpty(selectedExistingUser))
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Не указан пользователь для удаления"
+                        error = "РќРµ СѓРєР°Р·Р°РЅ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ"
                     });
                 }
 
-                // Поиск пользователя
-                var existingUser = _dbcontext.Пользователи
-                    .FirstOrDefault(u => u.Логин.Equals(selectedExistingUser));
+                // РџРѕРёСЃРє РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+                var existingUser = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+                    .FirstOrDefault(u => u.Р›РѕРіРёРЅ.Equals(selectedExistingUser));
 
                 if (existingUser == null)
                 {
                     return NotFound(new
                     {
                         success = false,
-                        error = "Пользователь не найден"
+                        error = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ"
                     });
                 }
 
-                // Проверка: нельзя удалить самого себя
+                // РџСЂРѕРІРµСЂРєР°: РЅРµР»СЊР·СЏ СѓРґР°Р»РёС‚СЊ СЃР°РјРѕРіРѕ СЃРµР±СЏ
                 var currentUserLogin = User.FindFirst(JwtRegisteredClaimNames.UniqueName)?.Value;
-                if (existingUser.Логин.Equals(currentUserLogin))
+                if (existingUser.Р›РѕРіРёРЅ.Equals(currentUserLogin))
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Нельзя удалить собственный аккаунт"
+                        error = "РќРµР»СЊР·СЏ СѓРґР°Р»РёС‚СЊ СЃРѕР±СЃС‚РІРµРЅРЅС‹Р№ Р°РєРєР°СѓРЅС‚"
                     });
                 }
 
-                // Проверка: нельзя удалить последнего администратора
-                if (existingUser.Роль == "Администратор")
+                // РџСЂРѕРІРµСЂРєР°: РЅРµР»СЊР·СЏ СѓРґР°Р»РёС‚СЊ РїРѕСЃР»РµРґРЅРµРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°
+                if (existingUser.Р РѕР»СЊ == "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ")
                 {
-                    var adminCount = _dbcontext.Пользователи
-                        .Count(u => u.Роль == "Администратор");
+                    var adminCount = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+                        .Count(u => u.Р РѕР»СЊ == "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ");
 
                     if (adminCount <= 1)
                     {
                         return BadRequest(new
                         {
                             success = false,
-                            error = "Нельзя удалить последнего администратора"
+                            error = "РќРµР»СЊР·СЏ СѓРґР°Р»РёС‚СЊ РїРѕСЃР»РµРґРЅРµРіРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°"
                         });
                     }
                 }
 
-                // Удаление пользователя
-                _dbcontext.Пользователи.Remove(existingUser);
+                // РЈРґР°Р»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+                _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.Remove(existingUser);
                 await _dbcontext.SaveChangesAsync();
 
                 return Ok(new
                 {
                     success = true,
-                    message = "Пользователь удален успешно",
+                    message = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ",
                     data = new
                     {
-                        deletedUser = existingUser.Логин
+                        deletedUser = existingUser.Р›РѕРіРёРЅ
                     }
                 });
             }
@@ -383,36 +383,36 @@ namespace AuthTest.Controllers
                 return StatusCode(500, new
                 {
                     success = false,
-                    error = "Внутренняя ошибка сервера при удалении пользователя"
+                    error = "Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР° РїСЂРё СѓРґР°Р»РµРЅРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
                 });
             }
         }
 
-        // Вспомогательные методы
+        // Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹
         private List<SelectListItem> GetRolesSelectList()
         {
             return new List<SelectListItem>
             {
-                new SelectListItem { Value = "Администратор", Text = "Администратор" },
-                new SelectListItem { Value = "Пользователь", Text = "Пользователь" }
+                new SelectListItem { Value = "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ", Text = "РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ" },
+                new SelectListItem { Value = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ", Text = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ" }
             };
         }
 
         private List<SelectListItem> GetExistingUsersSelectList()
         {
-            var users = _dbcontext.Пользователи.ToList();
+            var users = _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.ToList();
             var selectList = new List<SelectListItem>();
 
             foreach (var user in users)
             {
-                selectList.Add(new SelectListItem { Value = user.Логин, Text = user.Логин });
+                selectList.Add(new SelectListItem { Value = user.Р›РѕРіРёРЅ, Text = user.Р›РѕРіРёРЅ });
             }
 
             return selectList;
         }
     }
 
-    // Модель представления
+    // РњРѕРґРµР»СЊ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ
     //public class UserManageModel
     //{
     //    public FullCredential NewLoginData { get; set; } = new FullCredential();
@@ -450,24 +450,24 @@ namespace AuthTest.Controllers
         public string FullName { get; set; }
     }
 
-    // Модель данных (можно вынести в отдельный файл)
+    // РњРѕРґРµР»СЊ РґР°РЅРЅС‹С… (РјРѕР¶РЅРѕ РІС‹РЅРµСЃС‚Рё РІ РѕС‚РґРµР»СЊРЅС‹Р№ С„Р°Р№Р»)
     //public class FullCredential
     //{
-    //    [Required(ErrorMessage = "Логин обязателен")]
+    //    [Required(ErrorMessage = "Р›РѕРіРёРЅ РѕР±СЏР·Р°С‚РµР»РµРЅ")]
     //    public string Login { get; set; }
 
-    //    [Required(ErrorMessage = "Пароль обязателен")]
+    //    [Required(ErrorMessage = "РџР°СЂРѕР»СЊ РѕР±СЏР·Р°С‚РµР»РµРЅ")]
     //    [DataType(DataType.Password)]
     //    public string Password { get; set; }
 
-    //    [Required(ErrorMessage = "Подтвердите пароль")]
+    //    [Required(ErrorMessage = "РџРѕРґС‚РІРµСЂРґРёС‚Рµ РїР°СЂРѕР»СЊ")]
     //    [DataType(DataType.Password)]
-    //    [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+    //    [Compare("Password", ErrorMessage = "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚")]
     //    public string ConfirmPassword { get; set; }
 
     //    public string FullName { get; set; }
 
-    //    [Required(ErrorMessage = "Роль обязательна")]
+    //    [Required(ErrorMessage = "Р РѕР»СЊ РѕР±СЏР·Р°С‚РµР»СЊРЅР°")]
     //    public string SelectedRole { get; set; }
     //}
 }

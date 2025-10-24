@@ -1,4 +1,4 @@
-// Services/JwtService.cs
+п»ї// Services/JwtService.cs
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -26,7 +26,7 @@ public class JwtService : IJwtService
     {
         _jwtSettings = jwtSettings.Value;
 
-        // Инициализация ключей
+        // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РєР»СЋС‡РµР№
         _jwtSecret = GetValidKey(_jwtSettings.Key);
         _refreshSecret = GetValidKey(_jwtSettings.RefreshKey);
     }
@@ -35,7 +35,7 @@ public class JwtService : IJwtService
     {
         if (string.IsNullOrEmpty(key))
         {
-            // Генерация случайного ключа
+            // Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РєР»СЋС‡Р°
             var randomKey = new byte[32];
             RandomNumberGenerator.Fill(randomKey);
             return randomKey;
@@ -44,7 +44,7 @@ public class JwtService : IJwtService
         var keyBytes = Encoding.UTF8.GetBytes(key);
         if (keyBytes.Length < 32)
         {
-            // Дополнение ключа до 32 байт
+            // Р”РѕРїРѕР»РЅРµРЅРёРµ РєР»СЋС‡Р° РґРѕ 32 Р±Р°Р№С‚
             var newKey = new byte[32];
             Array.Copy(keyBytes, newKey, Math.Min(keyBytes.Length, 32));
             return newKey;
@@ -80,7 +80,7 @@ public class JwtService : IJwtService
             new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
         };
 
-        // Добавляем роли в claims
+        // Р”РѕР±Р°РІР»СЏРµРј СЂРѕР»Рё РІ claims
         foreach (var role in roles)
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
@@ -128,7 +128,7 @@ public class JwtService : IJwtService
         return tokenHandler.WriteToken(token);
     }
 
-    // Остальные методы остаются без изменений...
+    // РћСЃС‚Р°Р»СЊРЅС‹Рµ РјРµС‚РѕРґС‹ РѕСЃС‚Р°СЋС‚СЃСЏ Р±РµР· РёР·РјРµРЅРµРЅРёР№...
     public ClaimsPrincipal ValidateToken(string token)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -229,7 +229,7 @@ public class JwtService : IJwtService
             throw new SecurityTokenException("Invalid access token");
         }
 
-        // Теперь передаем roles в GenerateTokens
+        // РўРµРїРµСЂСЊ РїРµСЂРµРґР°РµРј roles РІ GenerateTokens
         return GenerateTokens(refreshTokenData.UserId, username, roles);
     }
 

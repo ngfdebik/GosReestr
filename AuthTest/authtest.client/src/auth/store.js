@@ -1,4 +1,3 @@
-import * as Vue from 'vue'
 import Vuex from 'vuex'
 import api from '../services/TokenApi';
 import TokenService from '@/services/TokenService';

@@ -4,6 +4,7 @@ using LinqToDB.Configuration;
 using LinqToDB.Data;
 using LinqToDB.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,10 +13,6 @@ using System.Security.Cryptography;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// УДАЛИЛИ Razor Pages и MVC Views — оставили только API
-// builder.Services.AddRazorPages()-УДАЛЕНО
-// builder.Services.AddMvc().AddRazorPagesOptions-УДАЛЕНО
 
 //Добавляем только API-контроллеры
 builder.Services.AddControllers().AddJsonOptions(jsonOptions =>
@@ -29,15 +26,6 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"))
 
 // Регистрация сервисов
 builder.Services.AddScoped<IJwtService, JwtService>();
-//Аутентификация (оставляем куки, но теперь для API — лучше перейти на JWT в будущем)
-//builder.Services.AddAuthentication().AddCookie("EGRCookieAuth", options =>
-//{
-//    options.Cookie.Name = "EGRCookieAuth";
-//    // Важно для SPA: разрешить доступ с фронтенда (если фронт на другом порте/домене)
-//    options.Cookie.SameSite = SameSiteMode.None; // или Lax, если фронт на том же домене
-//    options.Cookie.HttpOnly = false; // если Vue.js должен читать куки (не рекомендуется) — лучше HttpOnly + флаг в теле ответа
-//    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // только по HTTPS
-//});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -78,20 +66,48 @@ builder.Services.AddAuthorization(options =>
     //    policy.RequireClaim(ClaimTypes.Role, "Администратор"));
 });
 
-//Авторизация — оставляем как есть (работает и с API)
-//builder.Services.AddAuthorization(options =>
-//{
-//    options.AddPolicy("MustBeAdmin", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, "Администратор"));
-//    options.AddPolicy("MustBeLoggedIn", policy => policy.RequireClaim(ClaimsIdentity.DefaultRoleClaimType, new string[] { "Администратор", "Пользователь" }));
-//});
 
-//База данных — без изменений
 LinqToDBForEFTools.Initialize();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContextFactory<DbContextTable>(options =>
     options.UseNpgsql(connectionString));
+
 builder.Services.AddScoped<DbContextTable>();
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+//LinqToDBForEFTools.Initialize();
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+//    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+//// Добавьте параметры в connection string если их нет
+//var updatedConnectionString = connectionString;
+//if (!connectionString.Contains("CommandTimeout"))
+//    updatedConnectionString += ";CommandTimeout=300";
+//if (!connectionString.Contains("Timeout"))
+//    updatedConnectionString += ";Timeout=300";
+//if (!connectionString.Contains("Keepalive"))
+//    updatedConnectionString += ";Keepalive=30";
+
+//builder.Services.AddDbContextFactory<DbContextTable>(options =>
+//    options.UseNpgsql(updatedConnectionString, npgsqlOptions =>
+//    {
+//        npgsqlOptions.CommandTimeout(300); // 5 минут
+//        npgsqlOptions.EnableRetryOnFailure(
+//            maxRetryCount: 3,
+//            maxRetryDelay: TimeSpan.FromSeconds(5),
+//            errorCodesToAdd: null);
+//    }));
+
+//builder.Services.AddDbContext<DbContextTable>(options =>
+//    options.UseNpgsql(updatedConnectionString, npgsqlOptions =>
+//    {
+//        npgsqlOptions.CommandTimeout(300);
+//        npgsqlOptions.EnableRetryOnFailure(3, TimeSpan.FromSeconds(5), null);
+//    }));
+
+//builder.Services.AddScoped<DbContextTable>();
+//AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 //CORS — ОБЯЗАТЕЛЬНО для SPA, если фронт на другом порту (например, localhost:5173)
 builder.Services.AddCors(options =>
@@ -103,6 +119,20 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()
               .AllowCredentials(); // если используете куки
     });
+});
+
+builder.Services.Configure<IISServerOptions>(options =>
+{
+    options.MaxRequestBodySize = 100_000_000; // 100MB
+});
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 100_000_000; // 100MB
+    options.ValueLengthLimit = int.MaxValue;
+    options.MultipartBoundaryLengthLimit = int.MaxValue;
+    options.MultipartHeadersCountLimit = int.MaxValue;
+    options.MultipartHeadersLengthLimit = int.MaxValue;
 });
 
 var app = builder.Build();

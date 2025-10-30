@@ -6,7 +6,7 @@ import router from '@/router/Routers';
 
 const uploadApi = axios.create({
     baseURL: 'https://localhost:7229/api',
-    timeout: 60000,
+    // timeout: 60000,
     headers: {
         'Content-Type': 'multipart/form-data',
     },

@@ -50,12 +50,12 @@
       router.push(resp.redirectTo)
     ).catch(err =>{
       if(err){
-        if (err.errors) {
-          errors.value.login = err.errors.Login || '';
-          errors.value.password = err.errors.Password || '';
+        if (err.response.data.errors) {
+          if (err.response.data.errors.Login) errors.value.login = err.response.data.errors.Login[0] || '';
+          if (err.response.data.errors.Password) errors.value.password = err.response.data.errors.Password[0] || '';
         }
-        if (err.message) {
-          errors.value.form = err.message;
+        if (err.response.data.error) {
+          errors.value.form = err.response.data.error;
         }
       }else {
         errors.value.form = 'Ошибка соединения с сервером';

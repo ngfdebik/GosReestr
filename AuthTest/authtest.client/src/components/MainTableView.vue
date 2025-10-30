@@ -38,6 +38,13 @@
           </td>
         </tr>
       </tbody>
+      <tfoot v-if="showLoadMore">
+        <tr>
+          <td :colspan="sharedHeaders.length" class="load-more-cell">
+            <button @click="$emit('load-more')" class="load-more-button">Загрузить ещё</button>
+          </td>
+        </tr>
+      </tfoot>
     </table>
 
     <!-- IP Table -->
@@ -69,6 +76,13 @@
           </td>
         </tr>
       </tbody>
+      <tfoot v-if="showLoadMore">
+        <tr>
+          <td :colspan="ipHeaders.length" class="load-more-cell">
+            <button @click="$emit('load-more')" class="load-more-button">Загрузить ещё</button>
+          </td>
+        </tr>
+      </tfoot>
     </table>
 
     <!-- UL Table -->
@@ -311,54 +325,70 @@
     }
   };
 </script>
-
 <style scoped>
-  /* ... остальной CSS без изменений ... */
   .table-container {
     height: 80vh;
-    position: relative;
-    border: 1px solid #212529;
     overflow: auto;
+    /* Убираем border у контейнера — граница теперь только у таблицы */
   }
 
   .tableView-table {
     width: 100%;
-    border-collapse: collapse;
+    table-layout: fixed;
+    border-collapse: separate; 
+    border-spacing: 0; 
     color: #212529;
     vertical-align: top;
     margin: 0;
+    border: 0px solid #212529;
     --table-striped-bg: rgba(0, 0, 0, 0.05);
     --table-active-bg: rgba(0, 0, 0, 0.1);
     --table-hover-bg: rgba(0, 0, 0, 0.075);
     --modal-header-bg: #e2e3e5;
   }
 
+    /* Общие стили для всех ячеек */
+    .tableView-table th {
+      padding: 0.5rem;
+      border-right: 1px solid #212529;
+      border-bottom: 1px solid #212529;
+      border-top: 1px solid #212529;
+    }
+    .tableView-table td {
+      padding: 0.5rem;
+      border-right: 1px solid #212529;
+      border-bottom: 1px solid #212529;
+      word-wrap: break-word; /* Перенос длинных слов */
+      word-break: break-word; /* Альтернативный вариант переноса */
+      overflow-wrap: break-word; /* Современное свойство */
+      white-space: normal; /* Разрешаем перенос строк */
+      line-height: 1.2; /* Улучшаем читаемость */
+    }
+      .tableView-table th:first-child,
+      .tableView-table td:first-child {
+        border-left: 1px solid #212529;
+      }
+    /*.tableView-table th:last-child,
+    .tableView-table td:last-child {
+      border-right: none;
+    }*/
+
+  /* Стили заголовков */
   .table-header {
     position: sticky;
     top: 0;
-    padding: 8px;
-    border: 1px solid #212529;
     background-color: #e2e3e5;
     color: #000;
     font-family: "Times New Roman", serif;
     font-weight: normal;
-    /* z-index не обязателен при использовании Teleport, но оставим для надёжности */
     z-index: 10;
+    border-bottom: 1px solid #212529; /* ← теперь работает! */
   }
-
-  .tableView-table td {
-    padding: 0.5rem;
-    border: 1px solid #212529;
-  }
-
   .tableView-table th {
-    padding: 0.5rem;
-    border: 1px solid #212529;
-    background-color: var(--modal-header-bg);
-    color: #000;
     font-weight: bold;
   }
 
+  /* Стили строк тела таблицы */
   .tableView-table tbody tr:nth-child(odd) {
     background-color: var(--table-striped-bg);
   }
@@ -367,17 +397,18 @@
     background-color: var(--table-hover-bg);
   }
 
+  /* === Кнопка "Загрузить ещё" === */
   .load-more-cell {
     text-align: center;
-    padding: 10px !important;
+    padding: 0 !important;
     background: #f8f9fa;
-    border-top: 2px solid #dee2e6;
+    border-top: 1px solid #dee2e6;
   }
 
   .load-more-button {
     display: block;
     width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 0;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5;
@@ -386,23 +417,19 @@
     text-decoration: none;
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid #0d6efd;
-    border-radius: 0.375rem;
-    transition: all 0.2s ease-in-out;
+    border: none;
+    border-radius: 0;
+    transition: background-color 0.2s ease-in-out;
+    margin: 0;
+    box-sizing: border-box;
   }
 
     .load-more-button:hover {
       color: #fff;
       background-color: #0d6efd;
-      border-color: #0d6efd;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .load-more-button:active {
-      transform: translateY(0);
-    }
-
+  /* === Кнопка "Подробнее" === */
   .detail-button {
     padding: 0.25rem 0.5rem;
     font-size: 0.875rem;
@@ -419,6 +446,7 @@
       color: #fff;
     }
 
+  /* === Заголовок с иконкой фильтра === */
   .header-content {
     display: flex;
     align-items: center;
@@ -428,7 +456,7 @@
   }
 
   .header-text {
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis;
     flex: 1;
   }
@@ -437,10 +465,10 @@
     cursor: pointer;
     font-size: 0.75rem;
     color: #6c757d;
-    flex-shrink: 0; /* Не сжимать иконку */
+    flex-shrink: 0;
   }
 
-  /* Стили для выпадающего меню (теперь в body) */
+  /* === Выпадающее меню фильтра (Teleport) === */
   .filter-dropdown {
     position: absolute;
     background: #fff;
@@ -449,9 +477,9 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     padding: 0.5rem;
     min-width: 200px;
-    max-width: 300px; /* ← добавьте это */
-    width: max-content;/**/
-    box-sizing: border-box;/**/
+    max-width: 300px;
+    width: max-content;
+    box-sizing: border-box;
     font-size: 0.875rem;
     z-index: 1000;
   }

@@ -1,45 +1,46 @@
 <!-- src/components/layout/EGRLayout.vue -->
 <template>
   <div class="egr-layout">
-        
-        <Header :isAdmin="isAdmin"
-                :isLoggedIn="isLoggedIn"
-                @load-all="LoadAllTable"
-                @load-ip="LoadIPTable"
-                @load-ul="LoadULTable"
-                @export-excel="exportToExcel"
-                @export-doc="ExportToDoc"
-                @clear-filters="ClearFilters"/>
-        <div class="content-wrapper">
-            <div class="main-content">
-                <div class="table-section">
-                    <MainTableView :show-shared-headers="showSharedHeaders"
-                                 :show-i-p-headers="showIPHeaders"
-                                 :show-u-l-headers="showULHeaders"
-                                 :shared-i-p-rows="SharedTableContent.sharedIPTableContent"
-                                 :shared-u-l-rows="SharedTableContent.sharedULTableContent"
-                                 :ip-rows="IPTableContent"
-                                 :ul-rows="ULTableContent"
-                                 :filters="filters"
-                                 :show-load-more="showLoadMore"
-                                 @open-modal="handleOpenModal"
-                                 @load-more="handleLoadMore"
-                                 @update:filters="filters = $event"
-                                 @apply-filters="FilterTable"/>
-                </div>
-            </div>
-        </div>
 
-        <ModalDetails v-model="isModalOpen"
-                      :entity-id="String(modalEntity.idЛицо)"
-                      :entity-inn="modalEntity.ИНН"
-                      :entity-type="modalEntityType"
-                      :entity-name="modalEntity.НаимСокр"
-                      :details-data="detailsTableData"
-                      :details-headers="detailsTableHeaders"
-                      @load-details="handleLoadDetails"
-                      @load-logs="handleLoadLogs" />
+    <!--:isUploadingExcel="isUploadingExcel"-->
+    <Header :isAdmin="isAdmin"
+            :isLoggedIn="isLoggedIn"
+            @load-all="LoadAllTable"
+            @load-ip="LoadIPTable"
+            @load-ul="LoadULTable"
+            @export-excel="exportToExcel"
+            @export-doc="ExportToDoc"
+            @clear-filters="ClearFilters" />
+    <div class="content-wrapper">
+      <div class="main-content">
+        <div class="table-section">
+          <MainTableView :show-shared-headers="showSharedHeaders"
+                         :show-i-p-headers="showIPHeaders"
+                         :show-u-l-headers="showULHeaders"
+                         :shared-i-p-rows="SharedTableContent.sharedIPTableContent"
+                         :shared-u-l-rows="SharedTableContent.sharedULTableContent"
+                         :ip-rows="IPTableContent"
+                         :ul-rows="ULTableContent"
+                         :filters="filters"
+                         :show-load-more="showLoadMore"
+                         @open-modal="handleOpenModal"
+                         @load-more="handleLoadMore"
+                         @update:filters="filters = $event"
+                         @apply-filters="FilterTable" />
+        </div>
+      </div>
     </div>
+
+    <ModalDetails v-model="isModalOpen"
+                  :entity-id="String(modalEntity.idЛицо)"
+                  :entity-inn="modalEntity.ИНН"
+                  :entity-type="modalEntityType"
+                  :entity-name="modalEntity.НаимСокр"
+                  :details-data="detailsTableData"
+                  :details-headers="detailsTableHeaders"
+                  @load-details="handleLoadDetails"
+                  @load-logs="handleLoadLogs" />
+  </div>
 </template>
 
 <script>
@@ -217,12 +218,12 @@
         this.updateDisplayedRows();
 
         // Прокручиваем к низу таблицы
-        this.$nextTick(() => {
-          const tableView = document.getElementById('tableView');
-          if (tableView) {
-            tableView.scrollTop = tableView.scrollHeight;
-          }
-        });
+        //this.$nextTick(() => {
+        //  const tableView = document.getElementById('tableView');
+        //  if (tableView) {
+        //    tableView.scrollTop = tableView.scrollHeight;
+        //  }
+        //});
       },
       OpenModal(entityID, entityINN, type, name) {
         this.modalEntity = {
@@ -994,8 +995,8 @@
 
   .content-wrapper {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    /*padding-right: 15px;
+    padding-left: 15px;*/
     margin-right: auto;
     margin-left: auto;
     margin-top: 1rem;
@@ -1004,14 +1005,14 @@
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    /*margin-right: -15px;
+    margin-left: -15px;*/
 }
 
 .table-section {
     width:100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    /*padding-right: 15px;
+    padding-left: 15px;*/
 }
 
 /* Responsive Design */

@@ -1,4 +1,4 @@
-п»їusing AuthTest.Server;
+using AuthTest.Server;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,23 +25,23 @@ namespace AuthTest.Controllers
         {
             try
             {
-                var user = await _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.FirstOrDefaultAsync(u => u.Р›РѕРіРёРЅ == login);//User.FindFirst(ClaimTypes.GivenName)?.Value;
+                var user = await _dbcontext.Пользователи.FirstOrDefaultAsync(u => u.Логин == login);//User.FindFirst(ClaimTypes.GivenName)?.Value;
 
                 if (user == null)
                 {
-                    return NotFound("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ");
+                    return NotFound("Пользователь не найден");
                 }
 
                 return Ok(new UserDto
                 {
-                    Login = user.Р›РѕРіРёРЅ,
-                    FullName = user.Р¤РРћ,
-                    Role = user.Р РѕР»СЊ
+                    Login = user.Логин,
+                    FullName = user.ФИО,
+                    Role = user.Роль
                 });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"РћС€РёР±РєР° СЃРµСЂРІРµСЂР°: {ex.Message}");
+                return StatusCode(500, $"Ошибка сервера: {ex.Message}");
             }
         }
 
@@ -51,68 +51,68 @@ namespace AuthTest.Controllers
         {
             try
             {
-                // Р’Р°Р»РёРґР°С†РёСЏ РјРѕРґРµР»Рё
+                // Валидация модели
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(new 
                     {
                         success = false,
-                        message = "Р”Р°РЅРЅС‹Рµ С„РѕСЂРјС‹ РЅРµРІР°Р»РёРґРЅС‹"
+                        message = "Данные формы невалидны"
                     });
                 }
 
-                var user = await _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
-                    .FirstOrDefaultAsync(u => u.Р›РѕРіРёРЅ.Equals(request.Login));
+                var user = await _dbcontext.Пользователи
+                    .FirstOrDefaultAsync(u => u.Логин.Equals(request.Login));
 
-                if (string.IsNullOrEmpty(user.Р›РѕРіРёРЅ))
+                if (string.IsNullOrEmpty(user.Логин))
                 {
                     return BadRequest(new 
                     {
                         success = false,
-                        message = "РћС€РёР±РєР° РёР·РјРµРЅРµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
+                        message = "Ошибка изменения пользователя"
                     });
                 }
 
-                // РџСЂРѕРІРµСЂРєР° СЃРѕРІРїР°РґРµРЅРёСЏ РїР°СЂРѕР»РµР№
+                // Проверка совпадения паролей
                 if (request.Password != request.ConfirmPassword)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        message = "РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚"
+                        message = "Пароли не совпадают"
                     });
                 }
 
-                //var user = await _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
-                //    .FirstOrDefaultAsync(u => u.Р›РѕРіРёРЅ.Equals(request.Login));
+                //var user = await _dbcontext.Пользователи
+                //    .FirstOrDefaultAsync(u => u.Логин.Equals(request.Login));
 
                 if (user == null)
                 {
                     return NotFound(new
                     {
                         success = false,
-                        sessage = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ РЅР°Р№РґРµРЅ"
+                        sessage = "Пользователь не найден"
                     });
                 }
 
-                // РћР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С…
+                // Обновление данных
                 if (!string.IsNullOrEmpty(request.FullName))
                 {
-                    user.Р¤РРћ = request.FullName;
+                    user.ФИО = request.FullName;
                 }
 
                 if (!string.IsNullOrEmpty(request.Password))
                 {
-                    user.РџР°СЂРѕР»СЊ = Hasher.Hash(request.Password);
+                    user.Пароль = Hasher.Hash(request.Password);
                 }
 
-                _dbcontext.РџРѕР»СЊР·РѕРІР°С‚РµР»Рё.Update(user);
+                _dbcontext.Пользователи.Update(user);
                 await _dbcontext.SaveChangesAsync();
 
                 return Ok(new
                 {
                     success = true,
-                    message = "РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РёР·РјРµРЅРµРЅ СѓСЃРїРµС€РЅРѕ"
+                    message = "Пользователь изменен успешно"
                 });
             }
             catch (DbUpdateException ex)
@@ -120,7 +120,7 @@ namespace AuthTest.Controllers
                 return StatusCode(500, new 
                 {
                     success = false,
-                    message = "РћС€РёР±РєР° Р±Р°Р·С‹ РґР°РЅРЅС‹С… РїСЂРё РѕР±РЅРѕРІР»РµРЅРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
+                    message = "Ошибка базы данных при обновлении пользователя"
                 });
             }
             catch (Exception ex)
@@ -128,13 +128,13 @@ namespace AuthTest.Controllers
                 return StatusCode(500, new 
                 {
                     success = false,
-                    message = "РћС€РёР±РєР° РёР·РјРµРЅРµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"
+                    message = "Ошибка изменения пользователя"
                 });
             }
         }
     }
 
-    // DTO РјРѕРґРµР»Рё
+    // DTO модели
     public class UserDto
     {
         public string Login { get; set; }
@@ -144,7 +144,7 @@ namespace AuthTest.Controllers
 
     public class UserEditRequest
     {
-        [Required(ErrorMessage = "Р›РѕРіРёРЅ РѕР±СЏР·Р°С‚РµР»РµРЅ")]
+        [Required(ErrorMessage = "Логин обязателен")]
         public string Login { get; set; }
 
         public string Password { get; set; }

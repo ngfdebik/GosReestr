@@ -1,4 +1,4 @@
-using AuthTest.Server.Models;
+п»їusing AuthTest.Server.Models;
 using EgrWebEntity.ModelTable;
 using LinqToDB;
 using LinqToDB.Data;
@@ -44,39 +44,39 @@ namespace AuthTest.Server.Controllers
             using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
             {
                 TableViewModel tableViewModel = new TableViewModel();
-                tableViewModel.ЕГРИП_СвФЛ = _dbcontext.ЕГРИП_СвФЛ?.ToList();
-                tableViewModel.ЕГРЮЛ_СвЮЛ = _dbcontext.ЕГРЮЛ_СвЮЛ.ToList();
-                tableViewModel.ЕГРИП_ОКВЭД = _dbcontext.ЕГРИП_ОКВЭД.ToList();
-                tableViewModel.ЕГРИП_СвАдрМЖ = _dbcontext.ЕГРИП_СвАдрМЖ.ToList();
-                tableViewModel.ЕГРИП_СвГражд = _dbcontext.ЕГРИП_СвГражд.ToList();
-                tableViewModel.ЕГРИП_СвИП = _dbcontext.ЕГРИП_СвИП.ToList();
-                //tableViewModel.ЕГРИП_СвЛицензия = _dbcontext.ЕГРИП_СвЛицензия.ToList();
-                tableViewModel.ЕГРИП_СвПрекращ = _dbcontext.ЕГРИП_СвПрекращ.ToList();
-                tableViewModel.ЕГРИП_СвРегИП = _dbcontext.ЕГРИП_СвРегИП.ToList();
-                tableViewModel.ЕГРИП_СвРегОрг = _dbcontext.ЕГРИП_СвРегОрг?.ToList();
-                tableViewModel.ЕГРИП_СвРегПФ = _dbcontext.ЕГРИП_СвРегПФ.ToList();
-                tableViewModel.ЕГРИП_СвРегФСС = _dbcontext.ЕГРИП_СвРегФСС.ToList();
-                tableViewModel.ЕГРИП_СвУчетНО = _dbcontext.ЕГРИП_СвУчетНО.ToList();
-                tableViewModel.ЕГРЮЛ_ОКВЭД = _dbcontext.ЕГРЮЛ_ОКВЭД.ToList();
-                //tableViewModel.ЕГРЮЛ_СвАдресЮЛ = _dbcontext.ЕГРЮЛ_СвАдресЮЛ.ToList();
-                tableViewModel.ЕГРЮЛ_СвДержРеестрАО = _dbcontext.ЕГРЮЛ_СвДержРеестрАО?.ToList();
-                tableViewModel.ЕГРЮЛ_СвДоляООО = _dbcontext.ЕГРЮЛ_СвДоляООО?.ToList();
-                tableViewModel.ЕГРЮЛ_СвЗапЕГРЮЛ = _dbcontext.ЕГРЮЛ_СвЗапЕГРЮЛ.ToList();
-                tableViewModel.ЕГРЮЛ_СвЛицензия = _dbcontext.ЕГРЮЛ_СвЛицензия.ToList();
-                tableViewModel.ЕГРЮЛ_СвНаимЮЛ = _dbcontext.ЕГРЮЛ_СвНаимЮЛ.ToList();
-                //tableViewModel.ЕГРЮЛ_СвОбрЮЛ = _dbcontext.ЕГРЮЛ_СвОбрЮЛ.ToList();
-                tableViewModel.ЕГРЮЛ_СвПодразд = _dbcontext.ЕГРЮЛ_СвПодразд.ToList();
-                tableViewModel.ЕГРЮЛ_СвПредш = _dbcontext.ЕГРЮЛ_СвПредш.ToList();
-                tableViewModel.ЕГРЮЛ_СвПреем = _dbcontext.ЕГРЮЛ_СвПреем.ToList();
-                tableViewModel.ЕГРЮЛ_СвПрекрЮЛ = _dbcontext.ЕГРЮЛ_СвПрекрЮЛ.ToList();
-                tableViewModel.ЕГРЮЛ_СвРегОрг = _dbcontext.ЕГРЮЛ_СвРегОрг?.ToList();
-                tableViewModel.ЕГРЮЛ_СвРегПФ = _dbcontext.ЕГРЮЛ_СвРегПФ.ToList();
-                tableViewModel.ЕГРЮЛ_СвРегФСС = _dbcontext.ЕГРЮЛ_СвРегФСС.ToList();
-                tableViewModel.ЕГРЮЛ_СвРеорг = _dbcontext.ЕГРЮЛ_СвРеорг.ToList();
-                tableViewModel.ЕГРЮЛ_СвСтатус = _dbcontext.ЕГРЮЛ_СвСтатус?.ToList();
-                tableViewModel.ЕГРЮЛ_СвУчетНО = _dbcontext.ЕГРЮЛ_СвУчетНО.ToList();
-                tableViewModel.ЕГРЮЛ_СвУчредит = _dbcontext.ЕГРЮЛ_СвУчредит.ToList();
-                tableViewModel.ЕГРЮЛ_СведДолжнФЛ = _dbcontext.ЕГРЮЛ_СведДолжнФЛ.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР¤Р› = _dbcontext.Р•Р“Р РРџ_РЎРІР¤Р›?.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІР®Р›.ToList();
+                tableViewModel.Р•Р“Р РРџ_РћРљР’Р­Р” = _dbcontext.Р•Р“Р РРџ_РћРљР’Р­Р”.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІРђРґСЂРњР– = _dbcontext.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ = _dbcontext.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІРРџ = _dbcontext.Р•Р“Р РРџ_РЎРІРРџ.ToList();
+                //tableViewModel.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ = _dbcontext.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰ = _dbcontext.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР РµРіРРџ = _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРРџ.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі = _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР РµРіРџР¤ = _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ = _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.ToList();
+                tableViewModel.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ = _dbcontext.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РћРљР’Р­Р” = _dbcontext.Р•Р“Р Р®Р›_РћРљР’Р­Р”.ToList();
+                //tableViewModel.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ = _dbcontext.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ = _dbcontext.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ = _dbcontext.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.ToList();
+                //tableViewModel.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ = _dbcontext.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€ = _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј = _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі = _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤ = _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ = _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі = _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ = _dbcontext.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ = _dbcontext.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚ = _dbcontext.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.ToList();
+                tableViewModel.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.ToList();
             }
 
             return View();
@@ -108,17 +108,17 @@ namespace AuthTest.Server.Controllers
             {
                 Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-                // Валидация файла
+                // Р’Р°Р»РёРґР°С†РёСЏ С„Р°Р№Р»Р°
                 if (file == null || file.Length == 0)
                 {
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Файл пустой"
+                        error = "Р¤Р°Р№Р» РїСѓСЃС‚РѕР№"
                     });
                 }
 
-                // Сброс глобальных переменных
+                // РЎР±СЂРѕСЃ РіР»РѕР±Р°Р»СЊРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
                 entitiesInWork.Clear();
                 IPSubTables.ClearIPSubTables();
                 ULSubTables.ClearULSubTables();
@@ -132,12 +132,12 @@ namespace AuthTest.Server.Controllers
                     StartTime = DateTime.UtcNow
                 };
 
-                // Обработка XML файла
+                // РћР±СЂР°Р±РѕС‚РєР° XML С„Р°Р№Р»Р°
                 if (Path.GetExtension(file.FileName) == ".xml")
                 {
                     await ProcessXmlFile(file, processingResult);
                 }
-                // Обработка ZIP архива
+                // РћР±СЂР°Р±РѕС‚РєР° ZIP Р°СЂС…РёРІР°
                 else if (Path.GetExtension(file.FileName) == ".zip")
                 {
                     await ProcessZipFile(file, processingResult);
@@ -147,11 +147,11 @@ namespace AuthTest.Server.Controllers
                     return BadRequest(new
                     {
                         success = false,
-                        error = "Неподдерживаемый формат файла"
+                        error = "РќРµРїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Р№ С„РѕСЂРјР°С‚ С„Р°Р№Р»Р°"
                     });
                 }
 
-                // Ожидание завершения обработки
+                // РћР¶РёРґР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ РѕР±СЂР°Р±РѕС‚РєРё
                 await WaitForProcessingCompletion();
 
                 processingResult.EndTime = DateTime.UtcNow;
@@ -161,7 +161,7 @@ namespace AuthTest.Server.Controllers
                 return Ok(new
                 {
                     success = true,
-                    message = "Файл успешно обработан",
+                    message = "Р¤Р°Р№Р» СѓСЃРїРµС€РЅРѕ РѕР±СЂР°Р±РѕС‚Р°РЅ",
                     data = processingResult
                 });
             }
@@ -170,35 +170,35 @@ namespace AuthTest.Server.Controllers
                 return StatusCode(500, new
                 {
                     success = false,
-                    error = "Внутренняя ошибка сервера при обработке файла"
+                    error = "Р’РЅСѓС‚СЂРµРЅРЅСЏСЏ РѕС€РёР±РєР° СЃРµСЂРІРµСЂР° РїСЂРё РѕР±СЂР°Р±РѕС‚РєРµ С„Р°Р№Р»Р°"
                 });
             }
         }
 
-        // Вспомогательные методы остаются без изменений
+        // Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹ РѕСЃС‚Р°СЋС‚СЃСЏ Р±РµР· РёР·РјРµРЅРµРЅРёР№
 
         private async Task ProcessXmlFile(IFormFile file, UploadProcessingResult result)
         {
             using var stream = new StreamReader(file.OpenReadStream(), Encoding.GetEncoding(1251));
-            var serializer = new XmlSerializer(typeof(Файл));
-            var model = serializer.Deserialize(stream) as Файл;
+            var serializer = new XmlSerializer(typeof(Р¤Р°Р№Р»));
+            var model = serializer.Deserialize(stream) as Р¤Р°Р№Р»;
 
             if (model == null)
             {
-                throw new InvalidOperationException("Не удалось десериализовать XML файл");
+                throw new InvalidOperationException("РќРµ СѓРґР°Р»РѕСЃСЊ РґРµСЃРµСЂРёР°Р»РёР·РѕРІР°С‚СЊ XML С„Р°Р№Р»");
             }
 
-            result.TotalDocuments = Convert.ToInt32(model.КолДок);
+            result.TotalDocuments = Convert.ToInt32(model.РљРѕР»Р”РѕРє);
             docCount = result.TotalDocuments;
 
-            var isULType = model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД");
-            result.DataType = isULType ? "Юридические лица" : "Индивидуальные предприниматели";
+            var isULType = model.РўРёРїРРЅС„.Equals("Р•Р“Р Р®Р›_РћРўРљР _РЎР’Р•Р”");
+            result.DataType = isULType ? "Р®СЂРёРґРёС‡РµСЃРєРёРµ Р»РёС†Р°" : "РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Рµ РїСЂРµРґРїСЂРёРЅРёРјР°С‚РµР»Рё";
 
-            // ОГРАНИЧЕНИЕ ПАРАЛЛЕЛИЗМА - максимум 5 одновременных операций
+            // РћР“Р РђРќРР§Р•РќРР• РџРђР РђР›Р›Р•Р›РР—РњРђ - РјР°РєСЃРёРјСѓРј 5 РѕРґРЅРѕРІСЂРµРјРµРЅРЅС‹С… РѕРїРµСЂР°С†РёР№
             var semaphore = new SemaphoreSlim(5);
             var tasks = new List<Task>();
 
-            foreach (Документ document in model.Документ)
+            foreach (Р”РѕРєСѓРјРµРЅС‚ document in model.Р”РѕРєСѓРјРµРЅС‚)
             {
                 await semaphore.WaitAsync();
 
@@ -229,7 +229,7 @@ namespace AuthTest.Server.Controllers
                         {
                             result.FailedDocuments++;
                         }
-                        //_logger.LogError(ex, "Ошибка обработки документа");
+                        //_logger.LogError(ex, "РћС€РёР±РєР° РѕР±СЂР°Р±РѕС‚РєРё РґРѕРєСѓРјРµРЅС‚Р°");
                     }
                     finally
                     {
@@ -266,18 +266,18 @@ namespace AuthTest.Server.Controllers
                     {
                         using (var entryStream = entry.Open())
                         {
-                            var serializer = new XmlSerializer(typeof(Файл));
-                            var model = serializer.Deserialize(entryStream) as Файл;
+                            var serializer = new XmlSerializer(typeof(Р¤Р°Р№Р»));
+                            var model = serializer.Deserialize(entryStream) as Р¤Р°Р№Р»;
 
                             if (model != null)
                             {
-                                result.TotalDocuments += Convert.ToInt32(model.КолДок);
+                                result.TotalDocuments += Convert.ToInt32(model.РљРѕР»Р”РѕРє);
                                 docCount = result.TotalDocuments;
 
-                                var isULType = model.ТипИнф.Equals("ЕГРЮЛ_ОТКР_СВЕД");
+                                var isULType = model.РўРёРїРРЅС„.Equals("Р•Р“Р Р®Р›_РћРўРљР _РЎР’Р•Р”");
                                 var fileTasks = new List<Task>();
 
-                                foreach (Документ document in model.Документ)
+                                foreach (Р”РѕРєСѓРјРµРЅС‚ document in model.Р”РѕРєСѓРјРµРЅС‚)
                                 {
                                     await semaphore.WaitAsync();
 
@@ -297,7 +297,7 @@ namespace AuthTest.Server.Controllers
                                                 await ParseIPDataDBAsync(document, dbContext);
                                             }
 
-                                            // Используем lock для потокобезопасности
+                                            // РСЃРїРѕР»СЊР·СѓРµРј lock РґР»СЏ РїРѕС‚РѕРєРѕР±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё
                                             lock (lockObject)
                                             {
                                                 result.SuccessfulDocuments++;
@@ -309,7 +309,7 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 result.FailedDocuments++;
                                             }
-                                            //_logger.LogError(ex, "Ошибка обработки документа в ZIP файле");
+                                            //_logger.LogError(ex, "РћС€РёР±РєР° РѕР±СЂР°Р±РѕС‚РєРё РґРѕРєСѓРјРµРЅС‚Р° РІ ZIP С„Р°Р№Р»Рµ");
                                         }
                                         finally
                                         {
@@ -349,14 +349,14 @@ namespace AuthTest.Server.Controllers
             {
                 if (DateTime.UtcNow - startTime > maxWaitTime)
                 {
-                    throw new TimeoutException("Превышено время ожидания обработки файла");
+                    throw new TimeoutException("РџСЂРµРІС‹С€РµРЅРѕ РІСЂРµРјСЏ РѕР¶РёРґР°РЅРёСЏ РѕР±СЂР°Р±РѕС‚РєРё С„Р°Р№Р»Р°");
                 }
 
                 await Task.Delay(checkInterval);
             }
         }
 
-        // DTO класс для результата обработки
+        // DTO РєР»Р°СЃСЃ РґР»СЏ СЂРµР·СѓР»СЊС‚Р°С‚Р° РѕР±СЂР°Р±РѕС‚РєРё
         public class UploadProcessingResult
         {
             public int SuccessfulDocuments { get; set; }
@@ -385,17 +385,17 @@ namespace AuthTest.Server.Controllers
                 switch (buttonId)
                 {
                     case "Alltable":
-                        tableViewModel.ЕГРИП_СвИП = _dbcontext.ЕГРИП_СвИП.ToList();
-                        tableViewModel.ЕГРЮЛ_СвЮЛ = _dbcontext.ЕГРЮЛ_СвЮЛ.ToList();
+                        tableViewModel.Р•Р“Р РРџ_РЎРІРРџ = _dbcontext.Р•Р“Р РРџ_РЎРІРРџ.ToList();
+                        tableViewModel.Р•Р“Р Р®Р›_РЎРІР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІР®Р›.ToList();
                         return Json(tableViewModel);
                     case "IPtable":
-                        tableViewModel.ЕГРИП_СвИП = _dbcontext.ЕГРИП_СвИП.ToList();
+                        tableViewModel.Р•Р“Р РРџ_РЎРІРРџ = _dbcontext.Р•Р“Р РРџ_РЎРІРРџ.ToList();
                         return Json(tableViewModel);
                     case "ULtable":
-                        tableViewModel.ЕГРЮЛ_СвЮЛ = _dbcontext.ЕГРЮЛ_СвЮЛ.ToList();
+                        tableViewModel.Р•Р“Р Р®Р›_РЎРІР®Р› = _dbcontext.Р•Р“Р Р®Р›_РЎРІР®Р›.ToList();
                         return Json(tableViewModel);
                     default:
-                        return BadRequest("Некорректный buttonId");
+                        return BadRequest("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ buttonId");
                 }
             }
         }
@@ -408,14 +408,14 @@ namespace AuthTest.Server.Controllers
 
             using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
             {
-                //получаем записи по таблице table
+                //РїРѕР»СѓС‡Р°РµРј Р·Р°РїРёСЃРё РїРѕ С‚Р°Р±Р»РёС†Рµ table
                 var dbSet = _dbcontext.Set(Type.GetType("EgrWebEntity.ModelTable." + table + ", EgrWebEntity, Version = 1.0.0.0, Culture = neutral, PublicKeyToken = null"));
                 foreach (dynamic entity in dbSet)
                 {
-                    //приводим к интерфейсу чтобы можно было обратиться к полю idЛицо
+                    //РїСЂРёРІРѕРґРёРј Рє РёРЅС‚РµСЂС„РµР№СЃСѓ С‡С‚РѕР±С‹ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РѕР±СЂР°С‚РёС‚СЊСЃСЏ Рє РїРѕР»СЋ idР›РёС†Рѕ
                     var entry = (IGenericTable)entity;
 
-                    if (entry.idЛицо == id)
+                    if (entry.idР›РёС†Рѕ == id)
                     {
                         details.Add(entity);
                     }
@@ -446,7 +446,7 @@ namespace AuthTest.Server.Controllers
 
             using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
             {
-                logs.AddRange(from l in _dbcontext.ИсторияИзменений where l.Таблица == table && l.ИНН == INN select l);
+                logs.AddRange(from l in _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№ where l.РўР°Р±Р»РёС†Р° == table && l.РРќРќ == INN select l);
             }
 
             return Json(logs);
@@ -459,40 +459,40 @@ namespace AuthTest.Server.Controllers
 
             using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
             {
-                inn = (from u in _dbcontext.ЮрЛицо where u.Id == id select u).FirstOrDefault().ИНН;
+                inn = (from u in _dbcontext.Р®СЂР›РёС†Рѕ where u.Id == id select u).FirstOrDefault().РРќРќ;
             }
 
             return Json(inn);
         }
 
-        private async Task ParseULDataDBAsync(Документ document, DbContextTable dbContext)
+        private async Task ParseULDataDBAsync(Р”РѕРєСѓРјРµРЅС‚ document, DbContextTable dbContext)
         {
             try
             {
-                Документ documentXML = (Документ)document;
+                Р”РѕРєСѓРјРµРЅС‚ documentXML = (Р”РѕРєСѓРјРµРЅС‚)document;
                 bool firstTime = false;
 
-                if (documentXML.СвЮЛ == null)
+                if (documentXML.РЎРІР®Р› == null)
                 {
                     return;
                 }
 
-                // если с текущим ЮЛ работает другой процесс ждем пока закончится обработка
-                //while (entitiesInWork.Contains(documentXML.СвЮЛ.ИНН))
+                // РµСЃР»Рё СЃ С‚РµРєСѓС‰РёРј Р®Р› СЂР°Р±РѕС‚Р°РµС‚ РґСЂСѓРіРѕР№ РїСЂРѕС†РµСЃСЃ Р¶РґРµРј РїРѕРєР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ РѕР±СЂР°Р±РѕС‚РєР°
+                //while (entitiesInWork.Contains(documentXML.РЎРІР®Р›.РРќРќ))
                 //{
-                //    Console.WriteLine($"Лицо {documentXML.СвЮЛ.ИНН} уже в обработке, ожидание завершения.");
+                //    Console.WriteLine($"Р›РёС†Рѕ {documentXML.РЎРІР®Р›.РРќРќ} СѓР¶Рµ РІ РѕР±СЂР°Р±РѕС‚РєРµ, РѕР¶РёРґР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ.");
                 //    Thread.Sleep(5000);
                 //}
-                // добавляем ЮЛ в список обрабатываемых
-                // entitiesInWork.Add(documentXML.СвЮЛ.ИНН);
+                // РґРѕР±Р°РІР»СЏРµРј Р®Р› РІ СЃРїРёСЃРѕРє РѕР±СЂР°Р±Р°С‚С‹РІР°РµРјС‹С…
+                // entitiesInWork.Add(documentXML.РЎРІР®Р›.РРќРќ);
 
                 using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
                 {
-                    //создаем объект для работы с конкретным ЮЛ в бд
+                    //СЃРѕР·РґР°РµРј РѕР±СЉРµРєС‚ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РєРѕРЅРєСЂРµС‚РЅС‹Рј Р®Р› РІ Р±Рґ
                     UL ULDB = new UL();
 
-                    //ищем запись в бд
-                    UL data = (from u in _dbcontext.ЮрЛицо where u.ИНН == documentXML.СвЮЛ.ИНН select u).FirstOrDefault();
+                    //РёС‰РµРј Р·Р°РїРёСЃСЊ РІ Р±Рґ
+                    UL data = (from u in _dbcontext.Р®СЂР›РёС†Рѕ where u.РРќРќ == documentXML.РЎРІР®Р›.РРќРќ select u).FirstOrDefault();
                     if (data != null)
                     {
                         ULDB = data;
@@ -501,7 +501,7 @@ namespace AuthTest.Server.Controllers
                     {
                         lock (locker)
                         {
-                            data = ULSubTables.ULInProcessing.Where(e => e.ИНН == documentXML.СвЮЛ.ИНН).FirstOrDefault();
+                            data = ULSubTables.ULInProcessing.Where(e => e.РРќРќ == documentXML.РЎРІР®Р›.РРќРќ).FirstOrDefault();
                         }
 
                         if (data != null)
@@ -510,11 +510,11 @@ namespace AuthTest.Server.Controllers
                         }
                         else
                         {
-                            //если записи нет заполняем поля согласно данным из xml
-                            ULDB = new UL { ДатаОГРН = documentXML.СвЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.ОГРН, ИНН = documentXML.СвЮЛ.ИНН, КПП = documentXML.СвЮЛ.КПП, СпрОПФ = documentXML.СвЮЛ.СпрОПФ, КодОПФ = documentXML.СвЮЛ.КодОПФ, ПолнНаимОПФ = documentXML.СвЮЛ.ПолнНаимОПФ, ИдДок = documentXML.ИдДок };
+                            //РµСЃР»Рё Р·Р°РїРёСЃРё РЅРµС‚ Р·Р°РїРѕР»РЅСЏРµРј РїРѕР»СЏ СЃРѕРіР»Р°СЃРЅРѕ РґР°РЅРЅС‹Рј РёР· xml
+                            ULDB = new UL { Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РћР“Р Рќ, РРќРќ = documentXML.РЎРІР®Р›.РРќРќ, РљРџРџ = documentXML.РЎРІР®Р›.РљРџРџ, РЎРїСЂРћРџР¤ = documentXML.РЎРІР®Р›.РЎРїСЂРћРџР¤, РљРѕРґРћРџР¤ = documentXML.РЎРІР®Р›.РљРѕРґРћРџР¤, РџРѕР»РЅРќР°РёРјРћРџР¤ = documentXML.РЎРІР®Р›.РџРѕР»РЅРќР°РёРјРћРџР¤, РРґР”РѕРє = documentXML.РРґР”РѕРє };
                             firstTime = true;
-                            _dbcontext.ЮрЛицо.Add(ULDB);
-                            //добавляем запись в бд (чтобы работал внешний ключ у подчиненных записей)
+                            _dbcontext.Р®СЂР›РёС†Рѕ.Add(ULDB);
+                            //РґРѕР±Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ РІ Р±Рґ (С‡С‚РѕР±С‹ СЂР°Р±РѕС‚Р°Р» РІРЅРµС€РЅРёР№ РєР»СЋС‡ Сѓ РїРѕРґС‡РёРЅРµРЅРЅС‹С… Р·Р°РїРёСЃРµР№)
                             _dbcontext.SaveChanges();
 
                             lock (locker)
@@ -525,23 +525,23 @@ namespace AuthTest.Server.Controllers
 
                     }
 
-                    //добавляем запись о xml документе
+                    //РґРѕР±Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ Рѕ xml РґРѕРєСѓРјРµРЅС‚Рµ
                     Document documentDB = new Document();
-                    documentDB.ДатаЗагрузки = DateTime.Now;
-                    documentDB.ИдДок = documentXML.ИдДок;
-                    documentDB.idЮЛ = ULDB.Id;
+                    documentDB.Р”Р°С‚Р°Р—Р°РіСЂСѓР·РєРё = DateTime.Now;
+                    documentDB.РРґР”РѕРє = documentXML.РРґР”РѕРє;
+                    documentDB.idР®Р› = ULDB.Id;
 
                     ULDB.document = new List<Document> { documentDB };
-                    _dbcontext.ЮрЛицо.Update(ULDB);
+                    _dbcontext.Р®СЂР›РёС†Рѕ.Update(ULDB);
                     _dbcontext.SaveChanges();
 
-                    //проходим по всем таблицам дбконтекста
+                    //РїСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј С‚Р°Р±Р»РёС†Р°Рј РґР±РєРѕРЅС‚РµРєСЃС‚Р°
                     foreach (var entity in _dbcontext.Model.GetEntityTypes())
                     {
                         switch (entity.ShortName())
                         {
                             case "EGRULOKVED":
-                                if (documentXML.СвЮЛ.СвОКВЭД == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р” == null)
                                 {
                                     continue;
                                 }
@@ -549,25 +549,25 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRULOKVED> previousEntries;
                                     var currentEntries = new List<EGRULOKVED>();
-                                    var currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), Версия = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ПрВерсОКВЭД, ГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ГРН, ДатаГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ДатаЗаписи, КодОквэд = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, Наименование = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.НаимОКВЭД, ОснКод = true, idЛицо = ULDB.Id };
-                                    DateTime? currentEntriesDate = documentXML.СвЮЛ.СвОКВЭД.СвОКВЭДОсн != null ? documentXML.СвЮЛ.СвОКВЭД.СвОКВЭДОсн?.ГРНДата.ДатаЗаписи : documentXML.СвЮЛ.СвОКВЭД.СвОКВЭДДоп?.FirstOrDefault().ГРНДата.ДатаЗаписи;
+                                    var currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), Р’РµСЂСЃРёСЏ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РљРѕРґРћРєРІСЌРґ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РќР°РёРјРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = true, idР›РёС†Рѕ = ULDB.Id };
+                                    DateTime? currentEntriesDate = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”РћСЃРЅ != null ? documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё : documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”Р”РѕРї?.FirstOrDefault().Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё;
 
                                     lock (listLockers[0])
                                     {
-                                        previousEntries = ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Where(e => e.idЛицо == ULDB.Id).ToList();
+                                        previousEntries = ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).ToList();
 
                                         if (previousEntries.Count != 0)
                                         {
-                                            if (previousEntries.FirstOrDefault()?.ДатаГРНИП <= currentEntriesDate)
+                                            if (previousEntries.FirstOrDefault()?.Р”Р°С‚Р°Р“Р РќРРџ <= currentEntriesDate)
                                             {
-                                                ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.RemoveAll(e => e.idЛицо == ULDB.Id);
-                                                ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Add(currentEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.RemoveAll(e => e.idР›РёС†Рѕ == ULDB.Id);
+                                                ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Add(currentEntry);
 
-                                                foreach (СвОКВЭДДоп okvedDop in documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДДоп)
+                                                foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                                 {
-                                                    currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНДата.ГРН, ДатаГРНИП = okvedDop.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id };
+                                                    currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id };
                                                     currentEntries.Add(currentEntry);
-                                                    ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Add(currentEntry);
+                                                    ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Add(currentEntry);
                                                 }
                                             }
                                         }
@@ -575,34 +575,34 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (firstTime == false)
                                             {
-                                                _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_ОКВЭД).Load();
+                                                _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РћРљР’Р­Р”).Load();
 
-                                                if (ULDB.ЕГРЮЛ_ОКВЭД?.FirstOrDefault() != null)
+                                                if (ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”?.FirstOrDefault() != null)
                                                 {
-                                                    previousEntries = ULDB.ЕГРЮЛ_ОКВЭД.ToList();
-                                                    ULSubTables.ЕГРЮЛ_ОКВЭД_Delete.Add(ULDB.ЕГРЮЛ_ОКВЭД?.FirstOrDefault().idЛицо.ToString());
+                                                    previousEntries = ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”.ToList();
+                                                    ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Delete.Add(ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                                 }
                                             }
 
-                                            ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Add(currentEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Add(currentEntry);
 
-                                            foreach (СвОКВЭДДоп okvedDop in documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДДоп)
+                                            foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                             {
-                                                currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНДата.ГРН, ДатаГРНИП = okvedDop.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id };
+                                                currentEntry = new EGRULOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id };
                                                 currentEntries.Add(currentEntry);
-                                                ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Add(currentEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Add(currentEntry);
                                             }
                                         }
                                     }
 
 
-                                    if (previousEntries?.Count > 0 && previousEntries.FirstOrDefault()?.ДатаГРНИП <= currentEntriesDate)
+                                    if (previousEntries?.Count > 0 && previousEntries.FirstOrDefault()?.Р”Р°С‚Р°Р“Р РќРРџ <= currentEntriesDate)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
                                         foreach (var oldEntry in previousEntries)
                                         {
-                                            var newEntry = currentEntries.Where(e => e.КодОквэд == oldEntry.КодОквэд || e.Наименование == oldEntry.Наименование).FirstOrDefault();
+                                            var newEntry = currentEntries.Where(e => e.РљРѕРґРћРєРІСЌРґ == oldEntry.РљРѕРґРћРєРІСЌРґ || e.РќР°РёРјРµРЅРѕРІР°РЅРёРµ == oldEntry.РќР°РёРјРµРЅРѕРІР°РЅРёРµ).FirstOrDefault();
 
                                             if (newEntry == null)
                                             {
@@ -613,19 +613,19 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                                 {
-                                                    if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                    if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                         continue;
 
                                                     ChangeLog changes = new ChangeLog();
 
-                                                    changes.Таблица = "EGRULOKVED";
-                                                    changes.Столбец = property.Name;
-                                                    changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                                    changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                    changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                    changes.ДатаИзменения = DateTime.Now;
+                                                    changes.РўР°Р±Р»РёС†Р° = "EGRULOKVED";
+                                                    changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                    changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                                    changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                    changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                    changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                    //_dbcontext.ИсторияИзменений.Add(changes);
+                                                    //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                     changeList.Add(changes);
                                                 }
                                             }
@@ -633,107 +633,107 @@ namespace AuthTest.Server.Controllers
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                ////подгружаем данные текущей таблицы для лица, которое сейчас обрабатываем
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_ОКВЭД).Load();
+                                ////РїРѕРґРіСЂСѓР¶Р°РµРј РґР°РЅРЅС‹Рµ С‚РµРєСѓС‰РµР№ С‚Р°Р±Р»РёС†С‹ РґР»СЏ Р»РёС†Р°, РєРѕС‚РѕСЂРѕРµ СЃРµР№С‡Р°СЃ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РћРљР’Р­Р”).Load();
 
-                                //if (ULDB.ЕГРЮЛ_ОКВЭД?.Count > 0)
+                                //if (ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”?.Count > 0)
                                 //{
-                                //    foreach (EGRULOKVED entry in ULDB.ЕГРЮЛ_ОКВЭД)
+                                //    foreach (EGRULOKVED entry in ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”)
                                 //    {
-                                //        //помечаем старые записи в бд на удаление
+                                //        //РїРѕРјРµС‡Р°РµРј СЃС‚Р°СЂС‹Рµ Р·Р°РїРёСЃРё РІ Р±Рґ РЅР° СѓРґР°Р»РµРЅРёРµ
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    //сохраняем старые записи для истории изменений
-                                //    var previousEntries = ULDB.ЕГРЮЛ_ОКВЭД;
-                                //    //записываем основной ОКВЭД
-                                //    ULDB.ЕГРЮЛ_ОКВЭД = new List<EGRULOKVED> { new EGRULOKVED { Id = Guid.NewGuid().ToString(), Версия = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ПрВерсОКВЭД, ГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ГРН, ДатаГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ДатаЗаписи, КодОквэд = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, Наименование = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.НаимОКВЭД, ОснКод = true, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_ОКВЭД.FirstOrDefault()).State = EntityState.Added;
+                                //    //СЃРѕС…СЂР°РЅСЏРµРј СЃС‚Р°СЂС‹Рµ Р·Р°РїРёСЃРё РґР»СЏ РёСЃС‚РѕСЂРёРё РёР·РјРµРЅРµРЅРёР№
+                                //    var previousEntries = ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”;
+                                //    //Р·Р°РїРёСЃС‹РІР°РµРј РѕСЃРЅРѕРІРЅРѕР№ РћРљР’Р­Р”
+                                //    ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р” = new List<EGRULOKVED> { new EGRULOKVED { Id = Guid.NewGuid().ToString(), Р’РµСЂСЃРёСЏ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РљРѕРґРћРєРІСЌРґ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РќР°РёРјРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = true, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”.FirstOrDefault()).State = EntityState.Added;
 
-                                //    //записываем доп ОКВЭДы
-                                //    foreach (СвОКВЭДДоп okvedDop in documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДДоп)
+                                //    //Р·Р°РїРёСЃС‹РІР°РµРј РґРѕРї РћРљР’Р­Р”С‹
+                                //    foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_ОКВЭД.Add(new EGRULOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНДата.ГРН, ДатаГРНИП = okvedDop.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id });
-                                //        _dbcontext.Entry(ULDB.ЕГРЮЛ_ОКВЭД.Last()).State = EntityState.Added;
+                                //        ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”.Add(new EGRULOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id });
+                                //        _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    var currentEntries = ULDB.ЕГРЮЛ_ОКВЭД;
+                                //    var currentEntries = ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”;
 
                                 //    foreach (var oldEntry in previousEntries)
                                 //    {
-                                //        //сопоставляем старую запись с новой (если таковая имеется)
-                                //        var newEntry = currentEntries.Where(e => e.КодОквэд == oldEntry.КодОквэд || e.Наименование == oldEntry.Наименование).FirstOrDefault();
+                                //        //СЃРѕРїРѕСЃС‚Р°РІР»СЏРµРј СЃС‚Р°СЂСѓСЋ Р·Р°РїРёСЃСЊ СЃ РЅРѕРІРѕР№ (РµСЃР»Рё С‚Р°РєРѕРІР°СЏ РёРјРµРµС‚СЃСЏ)
+                                //        var newEntry = currentEntries.Where(e => e.РљРѕРґРћРєРІСЌРґ == oldEntry.РљРѕРґРћРєРІСЌРґ || e.РќР°РёРјРµРЅРѕРІР°РЅРёРµ == oldEntry.РќР°РёРјРµРЅРѕРІР°РЅРёРµ).FirstOrDefault();
 
                                 //        if (newEntry == null)
                                 //        {
                                 //            continue;
                                 //        }
 
-                                //        //цикл по всем полям класса текущей таблицы
+                                //        //С†РёРєР» РїРѕ РІСЃРµРј РїРѕР»СЏРј РєР»Р°СЃСЃР° С‚РµРєСѓС‰РµР№ С‚Р°Р±Р»РёС†С‹
                                 //        foreach (var property in typeof(EGRULOKVED).GetProperties())
                                 //        {
-                                //            //сравниваем одноименные поля записей
+                                //            //СЃСЂР°РІРЅРёРІР°РµРј РѕРґРЅРѕРёРјРµРЅРЅС‹Рµ РїРѕР»СЏ Р·Р°РїРёСЃРµР№
                                 //            if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //            {
-                                //                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                //                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                 //                    continue;
 
-                                //                //записываем изменения
+                                //                //Р·Р°РїРёСЃС‹РІР°РµРј РёР·РјРµРЅРµРЅРёСЏ
                                 //                ChangeLog changes = new ChangeLog();
 
-                                //                changes.Таблица = "EGRULOKVED";
-                                //                changes.Столбец = property.Name;
-                                //                changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //                changes.ДатаИзменения = DateTime.Now;
+                                //                changes.РўР°Р±Р»РёС†Р° = "EGRULOKVED";
+                                //                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //                //_dbcontext.ИсторияИзменений.Add(changes);
+                                //                //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            }
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    //если по текущей таблице, у лица нет записей просто записываем все что есть
-                                //    ULDB.ЕГРЮЛ_ОКВЭД = new List<EGRULOKVED> { new EGRULOKVED { Id = Guid.NewGuid().ToString(), Версия = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ПрВерсОКВЭД, ГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ГРН, ДатаГРНИП = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.ГРНДата.ДатаЗаписи, КодОквэд = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, Наименование = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.НаимОКВЭД, ОснКод = true, idЛицо = ULDB.Id } };
+                                //    //РµСЃР»Рё РїРѕ С‚РµРєСѓС‰РµР№ С‚Р°Р±Р»РёС†Рµ, Сѓ Р»РёС†Р° РЅРµС‚ Р·Р°РїРёСЃРµР№ РїСЂРѕСЃС‚Рѕ Р·Р°РїРёСЃС‹РІР°РµРј РІСЃРµ С‡С‚Рѕ РµСЃС‚СЊ
+                                //    ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р” = new List<EGRULOKVED> { new EGRULOKVED { Id = Guid.NewGuid().ToString(), Р’РµСЂСЃРёСЏ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РљРѕРґРћРєРІСЌРґ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РќР°РёРјРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = true, idР›РёС†Рѕ = ULDB.Id } };
 
-                                //    foreach (СвОКВЭДДоп okvedDop in documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДДоп)
+                                //    foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_ОКВЭД.Add(new EGRULOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНДата.ГРН, ДатаГРНИП = okvedDop.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id });
+                                //        ULDB.Р•Р“Р Р®Р›_РћРљР’Р­Р”.Add(new EGRULOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id });
                                 //    }
                                 //}
 
                                 break;
 
                             case "EGRULSvAddressUL":
-                                if (documentXML.СвЮЛ.СвАдресЮЛ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvAddressUL previousEntry;
-                                    var newEntry = new EGRULSvAddressUL { Id = Guid.NewGuid().ToString(), Индекс = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Индекс, Кварт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Кварт, Дом = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Дом, КодАдрКладр = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодАдрКладр, КодРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодРегион, НаимРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.НаимРегион, НаимГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.НаимГород, ТипГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.ТипГород, НаимУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.НаимУлица, ТипУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.ТипУлица, ГРН = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ДатаЗаписи, НаимНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.НаимНаселПункт, ТипНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.ТипНаселПункт, ТипРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.ТипРегион, НаимРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.НаимРайон, ТипРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.ТипРайон, ПризнНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ПризнНедАдресЮЛ, ТекстНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ТекстНедАдресЮЛ, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvAddressUL { Id = Guid.NewGuid().ToString(), РРЅРґРµРєСЃ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РРЅРґРµРєСЃ, РљРІР°СЂС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРІР°СЂС‚, Р”РѕРј = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РќР°РёРјР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РўРёРїР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РќР°РёРјР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РќР°РёРјР Р°Р№РѕРЅ, РўРёРїР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РўРёРїР Р°Р№РѕРЅ, РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р›, РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р›, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[1])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[1])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -742,22 +742,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвАдресЮЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвАдресЮЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвАдресЮЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвАдресЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[1])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -765,88 +765,88 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRULSvAddressUL",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвЮЛ.ИНН,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRULSvAddressUL",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІР®Р›.РРќРќ,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвАдресЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвАдресЮЛ = new List<EGRULSvAddressUL> { new EGRULSvAddressUL { Id = ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Индекс = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Индекс, Кварт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Кварт, Дом = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Дом, КодАдрКладр = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодАдрКладр, КодРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодРегион, НаимРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.НаимРегион, НаимГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.НаимГород, ТипГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.ТипГород, НаимУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.НаимУлица, ТипУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.ТипУлица, ГРН = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ДатаЗаписи, НаимНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.НаимНаселПункт, ТипНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.ТипНаселПункт, ТипРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.ТипРегион, НаимРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.НаимРайон, ТипРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.ТипРайон, ПризнНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ПризнНедАдресЮЛ, ТекстНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ТекстНедАдресЮЛ, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р› = new List<EGRULSvAddressUL> { new EGRULSvAddressUL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РРЅРґРµРєСЃ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РРЅРґРµРєСЃ, РљРІР°СЂС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРІР°СЂС‚, Р”РѕРј = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РќР°РёРјР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РўРёРїР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РќР°РёРјР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РќР°РёРјР Р°Р№РѕРЅ, РўРёРїР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РўРёРїР Р°Р№РѕРЅ, РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р›, РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р›, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvAddressUL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvAddressUL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвАдресЮЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvAddressUL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвАдресЮЛ = new List<EGRULSvAddressUL> { new EGRULSvAddressUL { Id = Guid.NewGuid().ToString(), Индекс = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Индекс, Кварт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Кварт, Дом = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Дом, КодАдрКладр = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодАдрКладр, КодРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.КодРегион, НаимРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.НаимРегион, НаимГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.НаимГород, ТипГород = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Город?.ТипГород, НаимУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.НаимУлица, ТипУлица = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Улица?.ТипУлица, ГРН = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.ГРНДата.ДатаЗаписи, НаимНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.НаимНаселПункт, ТипНаселПункт = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.НаселПункт?.ТипНаселПункт, ТипРегион = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Регион?.ТипРегион, НаимРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.НаимРайон, ТипРайон = documentXML.СвЮЛ.СвАдресЮЛ.АдресРФ?.Район?.ТипРайон, ПризнНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ПризнНедАдресЮЛ, ТекстНедАдресЮЛ = documentXML.СвЮЛ.СвАдресЮЛ.СвНедАдресЮЛ?.ТекстНедАдресЮЛ, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р› = new List<EGRULSvAddressUL> { new EGRULSvAddressUL { Id = Guid.NewGuid().ToString(), РРЅРґРµРєСЃ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РРЅРґРµРєСЃ, РљРІР°СЂС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРІР°СЂС‚, Р”РѕРј = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РќР°РёРјР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РўРёРїР“РѕСЂРѕРґ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїРЈР»РёС†Р° = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїР РµРіРёРѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РќР°РёРјР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РќР°РёРјР Р°Р№РѕРЅ, РўРёРїР Р°Р№РѕРЅ = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РўРёРїР Р°Р№РѕРЅ, РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РџСЂРёР·РЅРќРµРґРђРґСЂРµСЃР®Р›, РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРђРґСЂРµСЃР®Р›.РЎРІРќРµРґРђРґСЂРµСЃР®Р›?.РўРµРєСЃС‚РќРµРґРђРґСЂРµСЃР®Р›, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvDerjRegistryAO":
-                                if (documentXML.СвЮЛ.СвДержРеестрАО == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvDerjRegistryAO previousEntry;
-                                    var newEntry = new EGRULSvDerjRegistryAO { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ИНН, ОГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvDerjRegistryAO { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[2])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[2])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвДержРеестрАО.ДержРеестрАО.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -855,22 +855,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвДержРеестрАО).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Delete.Add(ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[2])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвДержРеестрАО.ДержРеестрАО.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -878,67 +878,67 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRULSvDerjRegistryAO",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвЮЛ.ИНН,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRULSvDerjRegistryAO",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІР®Р›.РРќРќ,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвДержРеестрАО).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвДержРеестрАО = new List<EGRULSvDerjRegistryAO> { new EGRULSvDerjRegistryAO { Id = ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ИНН, ОГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ = new List<EGRULSvDerjRegistryAO> { new EGRULSvDerjRegistryAO { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvDerjRegistryAO).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvDerjRegistryAO";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвДержРеестрАО?.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvDerjRegistryAO";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвДержРеестрАО = new List<EGRULSvDerjRegistryAO> { new EGRULSvDerjRegistryAO { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ИНН, ОГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвДержРеестрАО?.ДержРеестрАО?.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ = new List<EGRULSvDerjRegistryAO> { new EGRULSvDerjRegistryAO { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р”РµСЂР¶Р РµРµСЃС‚СЂРђРћ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvShareOOO":
-                                if (documentXML.СвЮЛ.СвДоляООО == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ == null)
                                 {
                                     continue;
                                 }
@@ -946,11 +946,11 @@ namespace AuthTest.Server.Controllers
                                 {
                                     EGRULSvShareOOO previousEntry;
                                     (EGRULSvShareOOO Entry, DateTime? Date) EntryDatePair;
-                                    var newEntry = new EGRULSvShareOOO { Id = Guid.NewGuid().ToString(), НоминСтоим = documentXML.СвЮЛ.СвДоляООО?.НоминСтоим, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvShareOOO { Id = Guid.NewGuid().ToString(), РќРѕРјРёРЅРЎС‚РѕРёРј = documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ?.РќРѕРјРёРЅРЎС‚РѕРёРј, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[3])
                                     {
-                                        EntryDatePair = ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.Where(e => e.Entry.idЛицо == ULDB.Id).FirstOrDefault();
+                                        EntryDatePair = ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.Where(e => e.Entry.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                         previousEntry = EntryDatePair.Entry;
                                     }
 
@@ -958,10 +958,10 @@ namespace AuthTest.Server.Controllers
                                     {
                                         lock (listLockers[3])
                                         {
-                                            if (EntryDatePair.Date <= documentXML.СвЮЛ.СвДоляООО.ГРНДата.ДатаЗаписи)
+                                            if (EntryDatePair.Date <= documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.RemoveAll(e => e.Entry.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.Add((newEntry, documentXML.СвЮЛ.СвДоляООО?.ГРНДата.ДатаЗаписи));
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.RemoveAll(e => e.Entry.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.Add((newEntry, documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё));
                                             }
                                         }
 
@@ -970,22 +970,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвДоляООО).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвДоляООО_Delete.Add(ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[3])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.Add((newEntry, documentXML.СвЮЛ.СвДоляООО?.ГРНДата.ДатаЗаписи));
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.Add((newEntry, documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё));
                                         }
                                     }
 
-                                    if (previousEntry != null && EntryDatePair.Date <= documentXML.СвЮЛ.СвДоляООО.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && EntryDatePair.Date <= documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -993,67 +993,67 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRULSvShareOOO",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвЮЛ.ИНН,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRULSvShareOOO",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІР®Р›.РРќРќ,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвДоляООО).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвДоляООО = new List<EGRULSvShareOOO> { new EGRULSvShareOOO { Id = ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), НоминСтоим = documentXML.СвЮЛ.СвДоляООО?.НоминСтоим, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ = new List<EGRULSvShareOOO> { new EGRULSvShareOOO { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РќРѕРјРёРЅРЎС‚РѕРёРј = documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ?.РќРѕРјРёРЅРЎС‚РѕРёРј, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvShareOOO).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvShareOOO";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвДоляООО?.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvShareOOO";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ?.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвДоляООО = new List<EGRULSvShareOOO> { new EGRULSvShareOOO { Id = Guid.NewGuid().ToString(), НоминСтоим = documentXML.СвЮЛ.СвДоляООО?.НоминСтоим, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ = new List<EGRULSvShareOOO> { new EGRULSvShareOOO { Id = Guid.NewGuid().ToString(), РќРѕРјРёРЅРЎС‚РѕРёРј = documentXML.РЎРІР®Р›.РЎРІР”РѕР»СЏРћРћРћ?.РќРѕРјРёРЅРЎС‚РѕРёРј, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvZapEGRUL":
-                                if (documentXML.СвЮЛ.СвЗапЕГРЮЛ == null || documentXML.СвЮЛ.СвЗапЕГРЮЛ.Count == 0)
+                                if (documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р› == null || documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›.Count == 0)
                                 {
                                     continue;
                                 }
@@ -1061,35 +1061,35 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRULSvZapEGRUL> previousEntries;
                                     var currentEntries = new List<EGRULSvZapEGRUL>();
-                                    DateTime? currentEntriesDate = documentXML.СвЮЛ.СвЗапЕГРЮЛ.Select(d => d.ДатаЗап).ToArray()?.Max();
+                                    DateTime? currentEntriesDate = documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›.Select(d => d.Р”Р°С‚Р°Р—Р°Рї).ToArray()?.Max();
 
                                     lock (listLockers[4])
                                     {
-                                        previousEntries = ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).ToList();
+                                        previousEntries = ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).ToList();
 
                                         if (previousEntries.Count != 0)
                                         {
-                                            if (previousEntries.Select(d => d.ДатаЗап).ToArray()?.Max() <= currentEntriesDate)
+                                            if (previousEntries.Select(d => d.Р”Р°С‚Р°Р—Р°Рї).ToArray()?.Max() <= currentEntriesDate)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntries.FirstOrDefault().idЛицо);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntries.FirstOrDefault().idР›РёС†Рѕ);
 
-                                                foreach (СвЗапЕГРЮЛ zapEGRUL in documentXML.СвЮЛ.СвЗапЕГРЮЛ)
+                                                foreach (РЎРІР—Р°РїР•Р“Р Р®Р› zapEGRUL in documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›)
                                                 {
-                                                    foreach (СведПредДок svedPredDoc in zapEGRUL.СведПредДок)
+                                                    foreach (РЎРІРµРґРџСЂРµРґР”РѕРє svedPredDoc in zapEGRUL.РЎРІРµРґРџСЂРµРґР”РѕРє)
                                                     {
-                                                        EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), ГРН = zapEGRUL.ГРН, ДатаЗап = zapEGRUL.ДатаЗап, ИдЗап = zapEGRUL.ИдЗап, НаимВидЗап = zapEGRUL.ВидЗап?.НаимВидЗап, КодСПВЗ = zapEGRUL.ВидЗап?.КодСПВЗ, НаимНО = zapEGRUL.СвРегОрг?.НаимНО, КодНО = zapEGRUL.СвРегОрг?.КодНО, idЛицо = ULDB.Id };
-                                                        zapEGRULBD.НаимДок = svedPredDoc.НаимДок;
-                                                        zapEGRULBD.НомДок = svedPredDoc.НомДок;
-                                                        zapEGRULBD.ДатаДок = svedPredDoc.ДатаДок;
+                                                        EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = zapEGRUL.Р“Р Рќ, Р”Р°С‚Р°Р—Р°Рї = zapEGRUL.Р”Р°С‚Р°Р—Р°Рї, РРґР—Р°Рї = zapEGRUL.РРґР—Р°Рї, РќР°РёРјР’РёРґР—Р°Рї = zapEGRUL.Р’РёРґР—Р°Рї?.РќР°РёРјР’РёРґР—Р°Рї, РљРѕРґРЎРџР’Р— = zapEGRUL.Р’РёРґР—Р°Рї?.РљРѕРґРЎРџР’Р—, РќР°РёРјРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, idР›РёС†Рѕ = ULDB.Id };
+                                                        zapEGRULBD.РќР°РёРјР”РѕРє = svedPredDoc.РќР°РёРјР”РѕРє;
+                                                        zapEGRULBD.РќРѕРјР”РѕРє = svedPredDoc.РќРѕРјР”РѕРє;
+                                                        zapEGRULBD.Р”Р°С‚Р°Р”РѕРє = svedPredDoc.Р”Р°С‚Р°Р”РѕРє;
 
-                                                        if (zapEGRUL.СвСвид != null)
+                                                        if (zapEGRUL.РЎРІРЎРІРёРґ != null)
                                                         {
-                                                            zapEGRULBD.Серия = zapEGRUL.СвСвид.Серия;
-                                                            zapEGRULBD.Номер = zapEGRUL.СвСвид.Номер;
-                                                            zapEGRULBD.ДатаВыдСвид = zapEGRUL.СвСвид.ДатаВыдСвид;
+                                                            zapEGRULBD.РЎРµСЂРёСЏ = zapEGRUL.РЎРІРЎРІРёРґ.РЎРµСЂРёСЏ;
+                                                            zapEGRULBD.РќРѕРјРµСЂ = zapEGRUL.РЎРІРЎРІРёРґ.РќРѕРјРµСЂ;
+                                                            zapEGRULBD.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ = zapEGRUL.РЎРІРЎРІРёРґ.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ;
                                                         }
 
-                                                        ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert.Add(zapEGRULBD);
+                                                        ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert.Add(zapEGRULBD);
                                                     }
                                                 }
                                             }
@@ -1098,32 +1098,32 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (firstTime == false)
                                             {
-                                                _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЗапЕГРЮЛ).Load();
+                                                _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›).Load();
 
-                                                if (ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ?.FirstOrDefault() != null)
+                                                if (ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›?.FirstOrDefault() != null)
                                                 {
-                                                    //previousEntries = ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ.ToList();
-                                                    ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                    //previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.ToList();
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                                 }
                                             }
 
-                                            foreach (СвЗапЕГРЮЛ zapEGRUL in documentXML.СвЮЛ.СвЗапЕГРЮЛ)
+                                            foreach (РЎРІР—Р°РїР•Р“Р Р®Р› zapEGRUL in documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›)
                                             {
-                                                foreach (СведПредДок svedPredDoc in zapEGRUL.СведПредДок)
+                                                foreach (РЎРІРµРґРџСЂРµРґР”РѕРє svedPredDoc in zapEGRUL.РЎРІРµРґРџСЂРµРґР”РѕРє)
                                                 {
-                                                    EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), ГРН = zapEGRUL.ГРН, ДатаЗап = zapEGRUL.ДатаЗап, ИдЗап = zapEGRUL.ИдЗап, НаимВидЗап = zapEGRUL.ВидЗап?.НаимВидЗап, КодСПВЗ = zapEGRUL.ВидЗап?.КодСПВЗ, НаимНО = zapEGRUL.СвРегОрг?.НаимНО, КодНО = zapEGRUL.СвРегОрг?.КодНО, idЛицо = ULDB.Id };
-                                                    zapEGRULBD.НаимДок = svedPredDoc.НаимДок;
-                                                    zapEGRULBD.НомДок = svedPredDoc.НомДок;
-                                                    zapEGRULBD.ДатаДок = svedPredDoc.ДатаДок;
+                                                    EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = zapEGRUL.Р“Р Рќ, Р”Р°С‚Р°Р—Р°Рї = zapEGRUL.Р”Р°С‚Р°Р—Р°Рї, РРґР—Р°Рї = zapEGRUL.РРґР—Р°Рї, РќР°РёРјР’РёРґР—Р°Рї = zapEGRUL.Р’РёРґР—Р°Рї?.РќР°РёРјР’РёРґР—Р°Рї, РљРѕРґРЎРџР’Р— = zapEGRUL.Р’РёРґР—Р°Рї?.РљРѕРґРЎРџР’Р—, РќР°РёРјРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, idР›РёС†Рѕ = ULDB.Id };
+                                                    zapEGRULBD.РќР°РёРјР”РѕРє = svedPredDoc.РќР°РёРјР”РѕРє;
+                                                    zapEGRULBD.РќРѕРјР”РѕРє = svedPredDoc.РќРѕРјР”РѕРє;
+                                                    zapEGRULBD.Р”Р°С‚Р°Р”РѕРє = svedPredDoc.Р”Р°С‚Р°Р”РѕРє;
 
-                                                    if (zapEGRUL.СвСвид != null)
+                                                    if (zapEGRUL.РЎРІРЎРІРёРґ != null)
                                                     {
-                                                        zapEGRULBD.Серия = zapEGRUL.СвСвид.Серия;
-                                                        zapEGRULBD.Номер = zapEGRUL.СвСвид.Номер;
-                                                        zapEGRULBD.ДатаВыдСвид = zapEGRUL.СвСвид.ДатаВыдСвид;
+                                                        zapEGRULBD.РЎРµСЂРёСЏ = zapEGRUL.РЎРІРЎРІРёРґ.РЎРµСЂРёСЏ;
+                                                        zapEGRULBD.РќРѕРјРµСЂ = zapEGRUL.РЎРІРЎРІРёРґ.РќРѕРјРµСЂ;
+                                                        zapEGRULBD.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ = zapEGRUL.РЎРІРЎРІРёРґ.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ;
                                                     }
 
-                                                    ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert.Add(zapEGRULBD);
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert.Add(zapEGRULBD);
                                                 }
                                             }
                                         }
@@ -1131,43 +1131,43 @@ namespace AuthTest.Server.Controllers
 
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЗапЕГРЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ?.Count > 0)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›?.Count > 0)
                                 //{
-                                //    foreach (var entry in ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ)
+                                //    foreach (var entry in ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›)
                                 //    {
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    //var previousEntries = ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ;
+                                //    //var previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›;
 
-                                //    foreach (СвЗапЕГРЮЛ zapEGRUL in documentXML.СвЮЛ.СвЗапЕГРЮЛ)
+                                //    foreach (РЎРІР—Р°РїР•Р“Р Р®Р› zapEGRUL in documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›)
                                 //    {
-                                //        foreach (СведПредДок svedPredDoc in zapEGRUL.СведПредДок)
+                                //        foreach (РЎРІРµРґРџСЂРµРґР”РѕРє svedPredDoc in zapEGRUL.РЎРІРµРґРџСЂРµРґР”РѕРє)
                                 //        {
-                                //            EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), ГРН = zapEGRUL.ГРН, ДатаЗап = zapEGRUL.ДатаЗап, ИдЗап = zapEGRUL.ИдЗап, НаимВидЗап = zapEGRUL.ВидЗап?.НаимВидЗап, КодСПВЗ = zapEGRUL.ВидЗап?.КодСПВЗ, НаимНО = zapEGRUL.СвРегОрг?.НаимНО, КодНО = zapEGRUL.СвРегОрг?.КодНО, idЛицо = ULDB.Id };
-                                //            zapEGRULBD.НаимДок = svedPredDoc.НаимДок;
-                                //            zapEGRULBD.НомДок = svedPredDoc.НомДок;
-                                //            zapEGRULBD.ДатаДок = svedPredDoc.ДатаДок;
+                                //            EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = zapEGRUL.Р“Р Рќ, Р”Р°С‚Р°Р—Р°Рї = zapEGRUL.Р”Р°С‚Р°Р—Р°Рї, РРґР—Р°Рї = zapEGRUL.РРґР—Р°Рї, РќР°РёРјР’РёРґР—Р°Рї = zapEGRUL.Р’РёРґР—Р°Рї?.РќР°РёРјР’РёРґР—Р°Рї, РљРѕРґРЎРџР’Р— = zapEGRUL.Р’РёРґР—Р°Рї?.РљРѕРґРЎРџР’Р—, РќР°РёРјРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, idР›РёС†Рѕ = ULDB.Id };
+                                //            zapEGRULBD.РќР°РёРјР”РѕРє = svedPredDoc.РќР°РёРјР”РѕРє;
+                                //            zapEGRULBD.РќРѕРјР”РѕРє = svedPredDoc.РќРѕРјР”РѕРє;
+                                //            zapEGRULBD.Р”Р°С‚Р°Р”РѕРє = svedPredDoc.Р”Р°С‚Р°Р”РѕРє;
 
-                                //            if (zapEGRUL.СвСвид != null)
+                                //            if (zapEGRUL.РЎРІРЎРІРёРґ != null)
                                 //            {
-                                //                zapEGRULBD.Серия = zapEGRUL.СвСвид.Серия;
-                                //                zapEGRULBD.Номер = zapEGRUL.СвСвид.Номер;
-                                //                zapEGRULBD.ДатаВыдСвид = zapEGRUL.СвСвид.ДатаВыдСвид;
+                                //                zapEGRULBD.РЎРµСЂРёСЏ = zapEGRUL.РЎРІРЎРІРёРґ.РЎРµСЂРёСЏ;
+                                //                zapEGRULBD.РќРѕРјРµСЂ = zapEGRUL.РЎРІРЎРІРёРґ.РќРѕРјРµСЂ;
+                                //                zapEGRULBD.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ = zapEGRUL.РЎРІРЎРІРёРґ.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ;
                                 //            }
 
-                                //            ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ.Add(zapEGRULBD);
-                                //            _dbcontext.Entry(ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ.Last()).State = EntityState.Added;
+                                //            ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.Add(zapEGRULBD);
+                                //            _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.Last()).State = EntityState.Added;
                                 //        }
                                 //    }
 
-                                //    //var currentEntries = ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ;
+                                //    //var currentEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›;
 
                                 //    //foreach (var oldEntry in previousEntries)
                                 //    //{
-                                //    //    var newEntry = currentEntries.Where(e => e.КодОквэд == oldEntry.КодОквэд || e.Наименование == oldEntry.Наименование).FirstOrDefault();
+                                //    //    var newEntry = currentEntries.Where(e => e.РљРѕРґРћРєРІСЌРґ == oldEntry.РљРѕРґРћРєРІСЌРґ || e.РќР°РёРјРµРЅРѕРІР°РЅРёРµ == oldEntry.РќР°РёРјРµРЅРѕРІР°РЅРёРµ).FirstOrDefault();
 
                                 //    //    if (newEntry == null)
                                 //    //    {
@@ -1178,44 +1178,44 @@ namespace AuthTest.Server.Controllers
                                 //    //    {
                                 //    //        if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //    //        {
-                                //    //            if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ИП")
+                                //    //            if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "РРџ")
                                 //    //                continue;
 
                                 //    //            ChangeLog changes = new ChangeLog();
 
-                                //    //            changes.Таблица = "EGRULOKVED";
-                                //    //            changes.Столбец = property.Name;
-                                //    //            changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //    //            changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //    //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //    //            changes.ДатаИзменения = DateTime.Now;
+                                //    //            changes.РўР°Р±Р»РёС†Р° = "EGRULOKVED";
+                                //    //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //    //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //    //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //    //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //    //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //    //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //    //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //    //        }
                                 //    //    }
                                 //    //}
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ = new List<EGRULSvZapEGRUL>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р› = new List<EGRULSvZapEGRUL>();
 
-                                //    foreach (СвЗапЕГРЮЛ zapEGRUL in documentXML.СвЮЛ.СвЗапЕГРЮЛ)
+                                //    foreach (РЎРІР—Р°РїР•Р“Р Р®Р› zapEGRUL in documentXML.РЎРІР®Р›.РЎРІР—Р°РїР•Р“Р Р®Р›)
                                 //    {
-                                //        foreach (СведПредДок svedPredDoc in zapEGRUL.СведПредДок)
+                                //        foreach (РЎРІРµРґРџСЂРµРґР”РѕРє svedPredDoc in zapEGRUL.РЎРІРµРґРџСЂРµРґР”РѕРє)
                                 //        {
-                                //            EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), ГРН = zapEGRUL.ГРН, ДатаЗап = zapEGRUL.ДатаЗап, ИдЗап = zapEGRUL.ИдЗап, НаимВидЗап = zapEGRUL.ВидЗап?.НаимВидЗап, КодСПВЗ = zapEGRUL.ВидЗап?.КодСПВЗ, НаимНО = zapEGRUL.СвРегОрг?.НаимНО, КодНО = zapEGRUL.СвРегОрг?.КодНО, idЛицо = ULDB.Id };
-                                //            zapEGRULBD.НаимДок = svedPredDoc.НаимДок;
-                                //            zapEGRULBD.НомДок = svedPredDoc.НомДок;
-                                //            zapEGRULBD.ДатаДок = svedPredDoc.ДатаДок;
+                                //            EGRULSvZapEGRUL zapEGRULBD = new EGRULSvZapEGRUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = zapEGRUL.Р“Р Рќ, Р”Р°С‚Р°Р—Р°Рї = zapEGRUL.Р”Р°С‚Р°Р—Р°Рї, РРґР—Р°Рї = zapEGRUL.РРґР—Р°Рї, РќР°РёРјР’РёРґР—Р°Рї = zapEGRUL.Р’РёРґР—Р°Рї?.РќР°РёРјР’РёРґР—Р°Рї, РљРѕРґРЎРџР’Р— = zapEGRUL.Р’РёРґР—Р°Рї?.РљРѕРґРЎРџР’Р—, РќР°РёРјРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = zapEGRUL.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, idР›РёС†Рѕ = ULDB.Id };
+                                //            zapEGRULBD.РќР°РёРјР”РѕРє = svedPredDoc.РќР°РёРјР”РѕРє;
+                                //            zapEGRULBD.РќРѕРјР”РѕРє = svedPredDoc.РќРѕРјР”РѕРє;
+                                //            zapEGRULBD.Р”Р°С‚Р°Р”РѕРє = svedPredDoc.Р”Р°С‚Р°Р”РѕРє;
 
-                                //            if (zapEGRUL.СвСвид != null)
+                                //            if (zapEGRUL.РЎРІРЎРІРёРґ != null)
                                 //            {
-                                //                zapEGRULBD.Серия = zapEGRUL.СвСвид.Серия;
-                                //                zapEGRULBD.Номер = zapEGRUL.СвСвид.Номер;
-                                //                zapEGRULBD.ДатаВыдСвид = zapEGRUL.СвСвид.ДатаВыдСвид;
+                                //                zapEGRULBD.РЎРµСЂРёСЏ = zapEGRUL.РЎРІРЎРІРёРґ.РЎРµСЂРёСЏ;
+                                //                zapEGRULBD.РќРѕРјРµСЂ = zapEGRUL.РЎРІРЎРІРёРґ.РќРѕРјРµСЂ;
+                                //                zapEGRULBD.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ = zapEGRUL.РЎРІРЎРІРёРґ.Р”Р°С‚Р°Р’С‹РґРЎРІРёРґ;
                                 //            }
 
-                                //            ULDB.ЕГРЮЛ_СвЗапЕГРЮЛ.Add(zapEGRULBD);
+                                //            ULDB.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.Add(zapEGRULBD);
                                 //        }
                                 //    }
                                 //}
@@ -1223,7 +1223,7 @@ namespace AuthTest.Server.Controllers
                                 break;
 
                             case "EGRULSvLicense":
-                                if (documentXML.СвЮЛ.СвЛицензия == null || documentXML.СвЮЛ.СвЛицензия.Count == 0)
+                                if (documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ == null || documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ.Count == 0)
                                 {
                                     continue;
                                 }
@@ -1231,24 +1231,24 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRULSvLicense> previousEntries;
                                     var currentEntries = new List<EGRULSvLicense>();
-                                    var dateArray = documentXML.СвЮЛ.СвЛицензия.Where(x => x.ГРНДата != null).Select(d => d.ГРНДата.ДатаЗаписи).ToArray();
+                                    var dateArray = documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ.Where(x => x.Р“Р РќР”Р°С‚Р° != null).Select(d => d.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray();
                                     DateTime? currentEntriesDate = dateArray.Length != 0 ? dateArray.Max() : null;
 
                                     lock (listLockers[5])
                                     {
-                                        previousEntries = ULSubTables.ЕГРЮЛ_СвЛицензия_Insert.Where(e => e.idЛицо == ULDB.Id).ToList();
+                                        previousEntries = ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).ToList();
                                     }
                                     if (previousEntries.Count != 0)
                                     {
                                         lock (listLockers[5])
                                         {
-                                            if (previousEntries.Select(d => d.ДатаЗаписи).ToArray()?.Max() <= currentEntriesDate)
+                                            if (previousEntries.Select(d => d.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray()?.Max() <= currentEntriesDate)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвЛицензия_Insert.RemoveAll(e => e.idЛицо == ULDB.Id);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == ULDB.Id);
 
-                                                foreach (var svLicense in documentXML.СвЮЛ.СвЛицензия)
+                                                foreach (var svLicense in documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ)
                                                 {
-                                                    ULSubTables.ЕГРЮЛ_СвЛицензия_Insert.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНДата?.ДатаЗаписи, ГРН = svLicense.ГРНДата?.ГРН, idЛицо = ULDB.Id });
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќР”Р°С‚Р°?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svLicense.Р“Р РќР”Р°С‚Р°?.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                                 }
                                             }
                                         }
@@ -1257,31 +1257,31 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЛицензия).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвЛицензия?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ?.FirstOrDefault() != null)
                                             {
-                                                previousEntries = ULDB.ЕГРЮЛ_СвЛицензия.ToList();
-                                                ULSubTables.ЕГРЮЛ_СвЛицензия_Delete.Add(ULDB.ЕГРЮЛ_СвЛицензия?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.ToList();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[5])
                                         {
-                                            foreach (var svLicense in documentXML.СвЮЛ.СвЛицензия)
+                                            foreach (var svLicense in documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвЛицензия_Insert.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНДата?.ДатаЗаписи, ГРН = svLicense.ГРНДата?.ГРН, idЛицо = ULDB.Id });
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќР”Р°С‚Р°?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svLicense.Р“Р РќР”Р°С‚Р°?.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                             }
                                         }
                                     }
 
-                                    if (previousEntries?.Count > 0 && previousEntries.Select(d => d.ДатаЗаписи).ToArray()?.Max() <= currentEntriesDate)
+                                    if (previousEntries?.Count > 0 && previousEntries.Select(d => d.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray()?.Max() <= currentEntriesDate)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
                                         foreach (var oldEntry in previousEntries)
                                         {
-                                            var newEntry = currentEntries.Where(e => e.НомЛиц == oldEntry.НомЛиц).FirstOrDefault();
+                                            var newEntry = currentEntries.Where(e => e.РќРѕРјР›РёС† == oldEntry.РќРѕРјР›РёС†).FirstOrDefault();
 
                                             if (newEntry == null)
                                             {
@@ -1292,17 +1292,17 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                                 {
-                                                    if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                    if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                         continue;
 
                                                     ChangeLog changes = new ChangeLog();
 
-                                                    changes.Таблица = "EGRULSvLicense";
-                                                    changes.Столбец = property.Name;
-                                                    changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                                    changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                    changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                    changes.ДатаИзменения = DateTime.Now;
+                                                    changes.РўР°Р±Р»РёС†Р° = "EGRULSvLicense";
+                                                    changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                    changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                                    changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                    changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                    changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
                                                     changeList.Add(changes);
                                                 }
@@ -1311,35 +1311,35 @@ namespace AuthTest.Server.Controllers
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЛицензия).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвЛицензия?.Count > 0)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ?.Count > 0)
                                 //{
-                                //    foreach (var entry in ULDB.ЕГРЮЛ_СвЛицензия)
+                                //    foreach (var entry in ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    var previousEntries = ULDB.ЕГРЮЛ_СвЛицензия;
+                                //    var previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ;
 
-                                //    ULDB.ЕГРЮЛ_СвЛицензия = new List<EGRULSvLicense>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ = new List<EGRULSvLicense>();
 
-                                //    foreach (var svLicense in documentXML.СвЮЛ.СвЛицензия)
+                                //    foreach (var svLicense in documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвЛицензия.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНДата.ДатаЗаписи, ГРН = svLicense.ГРНДата.ГРН, idЛицо = ULDB.Id });
-                                //        _dbcontext.Entry(ULDB.ЕГРЮЛ_СвЛицензия.Last()).State = EntityState.Added;
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svLicense.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
+                                //        _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    var currentEntries = ULDB.ЕГРЮЛ_СвЛицензия;
+                                //    var currentEntries = ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ;
 
                                 //    foreach (var oldEntry in previousEntries)
                                 //    {
-                                //        var newEntry = currentEntries.Where(e => e.НомЛиц == oldEntry.НомЛиц).FirstOrDefault();
+                                //        var newEntry = currentEntries.Where(e => e.РќРѕРјР›РёС† == oldEntry.РќРѕРјР›РёС†).FirstOrDefault();
 
                                 //        if (newEntry == null)
                                 //        {
@@ -1350,58 +1350,58 @@ namespace AuthTest.Server.Controllers
                                 //        {
                                 //            if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //            {
-                                //                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                //                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                 //                    continue;
 
                                 //                ChangeLog changes = new ChangeLog();
 
-                                //                changes.Таблица = "EGRULSvLicense";
-                                //                changes.Столбец = property.Name;
-                                //                changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //                changes.ДатаИзменения = DateTime.Now;
+                                //                changes.РўР°Р±Р»РёС†Р° = "EGRULSvLicense";
+                                //                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //                //_dbcontext.ИсторияИзменений.Add(changes);
+                                //                //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            }
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвЛицензия = new List<EGRULSvLicense>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ = new List<EGRULSvLicense>();
 
-                                //    foreach (var svLicense in documentXML.СвЮЛ.СвЛицензия)
+                                //    foreach (var svLicense in documentXML.РЎРІР®Р›.РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвЛицензия.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНДата.ДатаЗаписи, ГРН = svLicense.ГРНДата.ГРН, idЛицо = ULDB.Id });
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.Add(new EGRULSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svLicense.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                 //    }
                                 //}
 
                                 break;
 
                             case "EGRULSvNaimUL":
-                                if (documentXML.СвЮЛ.СвНаимЮЛ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvNaimUL previousEntry;
-                                    var newEntry = new EGRULSvNaimUL { Id = Guid.NewGuid().ToString(), ГРН = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ДатаЗаписи, НаимЮЛПолн = documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн, НаимЮЛСокр = documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvNaimUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ, РќР°РёРјР®Р›РЎРѕРєСЂ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[6])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[6])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -1410,102 +1410,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвНаимЮЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвНаимЮЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвНаимЮЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвНаимЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[6])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvNaimUL).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvNaimUL";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvNaimUL";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвНаимЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвНаимЮЛ = new List<EGRULSvNaimUL> { new EGRULSvNaimUL { Id = ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ГРН = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ДатаЗаписи, НаимЮЛПолн = documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн, НаимЮЛСокр = documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р› = new List<EGRULSvNaimUL> { new EGRULSvNaimUL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ, РќР°РёРјР®Р›РЎРѕРєСЂ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvNaimUL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvNaimUL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвНаимЮЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvNaimUL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвНаимЮЛ = new List<EGRULSvNaimUL> { new EGRULSvNaimUL { Id = Guid.NewGuid().ToString(), ГРН = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвНаимЮЛ.ГРНДата.ДатаЗаписи, НаимЮЛПолн = documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн, НаимЮЛСокр = documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р› = new List<EGRULSvNaimUL> { new EGRULSvNaimUL { Id = Guid.NewGuid().ToString(), Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ, РќР°РёРјР®Р›РЎРѕРєСЂ = documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvObrUL":
-                                if (documentXML.СвЮЛ.СвОбрЮЛ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvObrUL previousEntry;
-                                    var newEntry = new EGRULSvObrUL { Id = Guid.NewGuid().ToString(), ДатаОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ОГРН, НаимСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.НаимСпОбрЮЛ, КодСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.КодСпОбрЮЛ, ДатаЗаписи = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ГРН, ДатаРег = documentXML.СвЮЛ.СвОбрЮЛ.ДатаРег, НаимРО = documentXML.СвЮЛ.СвОбрЮЛ.НаимРО, РегНом = documentXML.СвЮЛ.СвОбрЮЛ.РегНом, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvObrUL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РћР“Р Рќ, РќР°РёРјРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РќР°РёРјРЎРїРћР±СЂР®Р›, РљРѕРґРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РљРѕРґРЎРїРћР±СЂР®Р›, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°Р РµРі, РќР°РёРјР Рћ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РќР°РёРјР Рћ, Р РµРіРќРѕРј = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р РµРіРќРѕРј, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[7])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[7])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -1514,81 +1514,81 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвОбрЮЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвОбрЮЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвОбрЮЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвОбрЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[7])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvObrUL).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvObrUL";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvObrUL";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвОбрЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвОбрЮЛ = new List<EGRULSvObrUL> { new EGRULSvObrUL { Id = ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ДатаОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ОГРН, НаимСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.НаимСпОбрЮЛ, КодСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.КодСпОбрЮЛ, ДатаЗаписи = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ГРН, ДатаРег = documentXML.СвЮЛ.СвОбрЮЛ.ДатаРег, НаимРО = documentXML.СвЮЛ.СвОбрЮЛ.НаимРО, РегНом = documentXML.СвЮЛ.СвОбрЮЛ.РегНом, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р› = new List<EGRULSvObrUL> { new EGRULSvObrUL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РћР“Р Рќ, РќР°РёРјРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РќР°РёРјРЎРїРћР±СЂР®Р›, РљРѕРґРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РљРѕРґРЎРїРћР±СЂР®Р›, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°Р РµРі, РќР°РёРјР Рћ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РќР°РёРјР Рћ, Р РµРіРќРѕРј = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р РµРіРќРѕРј, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvObrUL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvObrUL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвОбрЮЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvObrUL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвОбрЮЛ = new List<EGRULSvObrUL> { new EGRULSvObrUL { Id = Guid.NewGuid().ToString(), ДатаОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.СвОбрЮЛ.ОГРН, НаимСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.НаимСпОбрЮЛ, КодСпОбрЮЛ = documentXML.СвЮЛ.СвОбрЮЛ.СпОбрЮЛ?.КодСпОбрЮЛ, ДатаЗаписи = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвОбрЮЛ.ГРНДата.ГРН, ДатаРег = documentXML.СвЮЛ.СвОбрЮЛ.ДатаРег, НаимРО = documentXML.СвЮЛ.СвОбрЮЛ.НаимРО, РегНом = documentXML.СвЮЛ.СвОбрЮЛ.РегНом, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р› = new List<EGRULSvObrUL> { new EGRULSvObrUL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РћР“Р Рќ, РќР°РёРјРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РќР°РёРјРЎРїРћР±СЂР®Р›, РљРѕРґРЎРїРћР±СЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РЎРїРћР±СЂР®Р›?.РљРѕРґРЎРїРћР±СЂР®Р›, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р”Р°С‚Р°Р РµРі, РќР°РёРјР Рћ = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.РќР°РёРјР Рћ, Р РµРіРќРѕРј = documentXML.РЎРІР®Р›.РЎРІРћР±СЂР®Р›.Р РµРіРќРѕРј, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvPodrazd":
-                                if (documentXML.СвЮЛ.СвПодразд == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ == null)
                                 {
                                     continue;
                                 }
@@ -1596,24 +1596,24 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRULSvPodrazd> previousEntries;
                                     var currentEntries = new List<EGRULSvPodrazd>();
-                                    var entriesDates = documentXML.СвЮЛ.СвПодразд.СвФилиал.Select(d => d.АдрМНРФ?.ГРНДата.ДатаЗаписи).ToArray();
+                                    var entriesDates = documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ.РЎРІР¤РёР»РёР°Р».Select(d => d.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray();
                                     DateTime? currentEntriesDate = entriesDates.Count() > 0 ? entriesDates.Max() : DateTime.MinValue;
 
                                     lock (listLockers[8])
                                     {
-                                        previousEntries = ULSubTables.ЕГРЮЛ_СвПодразд_Insert.Where(e => e.idЛицо == ULDB.Id).ToList();
+                                        previousEntries = ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).ToList();
                                     }
                                     if (previousEntries.Count != 0)
                                     {
                                         lock (listLockers[8])
                                         {
-                                            if (previousEntries.Select(d => d.ДатаЗаписи).ToArray()?.Max() <= currentEntriesDate)
+                                            if (previousEntries.Select(d => d.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray()?.Max() <= currentEntriesDate)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвПодразд_Insert.RemoveAll(e => e.idЛицо == ULDB.Id);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == ULDB.Id);
 
-                                                foreach (var svFilial in documentXML.СвЮЛ.СвПодразд.СвФилиал)
+                                                foreach (var svFilial in documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ.РЎРІР¤РёР»РёР°Р»)
                                                 {
-                                                    ULSubTables.ЕГРЮЛ_СвПодразд_Insert.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), НаимПолн = svFilial.СвНаим?.НаимПолн, Дом = svFilial.АдрМНРФ?.Дом, КодАдрКладр = svFilial.АдрМНРФ?.КодАдрКладр, КодРегион = svFilial.АдрМНРФ?.КодРегион, Индекс = svFilial.АдрМНРФ?.Индекс, НаимРегион = svFilial.АдрМНРФ?.Регион?.НаимРегион, НаимГород = svFilial.АдрМНРФ?.Город?.НаимГород, НаимУлица = svFilial.АдрМНРФ?.Улица?.НаимУлица, ТипГород = svFilial.АдрМНРФ?.Город?.ТипГород, ТипРегион = svFilial.АдрМНРФ?.Регион?.ТипРегион, ТипУлица = svFilial.АдрМНРФ?.Улица?.ТипУлица, ДатаЗаписи = svFilial.АдрМНРФ?.ГРНДата.ДатаЗаписи, ГРН = svFilial.АдрМНРФ?.ГРНДата.ГРН, idЛицо = ULDB.Id });
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), РќР°РёРјРџРѕР»РЅ = svFilial.РЎРІРќР°РёРј?.РќР°РёРјРџРѕР»РЅ, Р”РѕРј = svFilial.РђРґСЂРњРќР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РРЅРґРµРєСЃ = svFilial.РђРґСЂРњРќР Р¤?.РРЅРґРµРєСЃ, РќР°РёРјР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РўРёРїРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                                 }
                                             }
                                         }
@@ -1622,50 +1622,50 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПодразд).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвПодразд?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ?.FirstOrDefault() != null)
                                             {
-                                                previousEntries = ULDB.ЕГРЮЛ_СвПодразд.ToList();
-                                                ULSubTables.ЕГРЮЛ_СвПодразд_Delete.Add(ULDB.ЕГРЮЛ_СвПодразд?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.ToList();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[8])
                                         {
-                                            foreach (var svFilial in documentXML.СвЮЛ.СвПодразд.СвФилиал)
+                                            foreach (var svFilial in documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ.РЎРІР¤РёР»РёР°Р»)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвПодразд_Insert.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), НаимПолн = svFilial.СвНаим?.НаимПолн, Дом = svFilial.АдрМНРФ?.Дом, КодАдрКладр = svFilial.АдрМНРФ?.КодАдрКладр, КодРегион = svFilial.АдрМНРФ?.КодРегион, Индекс = svFilial.АдрМНРФ?.Индекс, НаимРегион = svFilial.АдрМНРФ?.Регион?.НаимРегион, НаимГород = svFilial.АдрМНРФ?.Город?.НаимГород, НаимУлица = svFilial.АдрМНРФ?.Улица?.НаимУлица, ТипГород = svFilial.АдрМНРФ?.Город?.ТипГород, ТипРегион = svFilial.АдрМНРФ?.Регион?.ТипРегион, ТипУлица = svFilial.АдрМНРФ?.Улица?.ТипУлица, ДатаЗаписи = svFilial.АдрМНРФ?.ГРНДата.ДатаЗаписи, ГРН = svFilial.АдрМНРФ?.ГРНДата.ГРН, idЛицо = ULDB.Id });
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), РќР°РёРјРџРѕР»РЅ = svFilial.РЎРІРќР°РёРј?.РќР°РёРјРџРѕР»РЅ, Р”РѕРј = svFilial.РђРґСЂРњРќР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РРЅРґРµРєСЃ = svFilial.РђРґСЂРњРќР Р¤?.РРЅРґРµРєСЃ, РќР°РёРјР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РўРёРїРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                             }
                                         }
                                     }
 
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПодразд).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвПодразд?.Count > 0)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ?.Count > 0)
                                 //{
-                                //    foreach (var entry in ULDB.ЕГРЮЛ_СвПодразд)
+                                //    foreach (var entry in ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ)
                                 //    {
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    //var previousEntries = ULDB.ЕГРЮЛ_СвПодразд;
+                                //    //var previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ;
 
-                                //    ULDB.ЕГРЮЛ_СвПодразд = new List<EGRULSvPodrazd>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ = new List<EGRULSvPodrazd>();
 
-                                //    foreach (var svFilial in documentXML.СвЮЛ.СвПодразд.СвФилиал)
+                                //    foreach (var svFilial in documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ.РЎРІР¤РёР»РёР°Р»)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвПодразд.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), НаимПолн = svFilial.СвНаим?.НаимПолн, Дом = svFilial.АдрМНРФ?.Дом, КодАдрКладр = svFilial.АдрМНРФ?.КодАдрКладр, КодРегион = svFilial.АдрМНРФ?.КодРегион, Индекс = svFilial.АдрМНРФ?.Индекс, НаимРегион = svFilial.АдрМНРФ?.Регион?.НаимРегион, НаимГород = svFilial.АдрМНРФ?.Город?.НаимГород, НаимУлица = svFilial.АдрМНРФ?.Улица?.НаимУлица, ТипГород = svFilial.АдрМНРФ?.Город?.ТипГород, ТипРегион = svFilial.АдрМНРФ?.Регион?.ТипРегион, ТипУлица = svFilial.АдрМНРФ?.Улица?.ТипУлица, ДатаЗаписи = svFilial.АдрМНРФ?.ГРНДата.ДатаЗаписи, ГРН = svFilial.АдрМНРФ?.ГРНДата.ГРН, idЛицо = ULDB.Id });
-                                //        _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПодразд.Last()).State = EntityState.Added;
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), РќР°РёРјРџРѕР»РЅ = svFilial.РЎРІРќР°РёРј?.РќР°РёРјРџРѕР»РЅ, Р”РѕРј = svFilial.РђРґСЂРњРќР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РРЅРґРµРєСЃ = svFilial.РђРґСЂРњРќР Р¤?.РРЅРґРµРєСЃ, РќР°РёРјР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РўРёРїРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
+                                //        _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    //var currentEntries = ULDB.ЕГРЮЛ_СвПодразд;
+                                //    //var currentEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ;
 
                                 //    //foreach (var oldEntry in previousEntries)
                                 //    //{
-                                //    //    var newEntry = currentEntries.Where(e => e.НомЛиц == oldEntry.НомЛиц).FirstOrDefault();
+                                //    //    var newEntry = currentEntries.Where(e => e.РќРѕРјР›РёС† == oldEntry.РќРѕРјР›РёС†).FirstOrDefault();
 
                                 //    //    if (newEntry == null)
                                 //    //    {
@@ -1676,58 +1676,58 @@ namespace AuthTest.Server.Controllers
                                 //    //    {
                                 //    //        if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //    //        {
-                                //    //            if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ИП")
+                                //    //            if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "РРџ")
                                 //    //                continue;
 
                                 //    //            ChangeLog changes = new ChangeLog();
 
-                                //    //            changes.Таблица = "EGRULSvLicense";
-                                //    //            changes.Столбец = property.Name;
-                                //    //            changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //    //            changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //    //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //    //            changes.ДатаИзменения = DateTime.Now;
+                                //    //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvLicense";
+                                //    //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //    //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //    //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //    //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //    //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //    //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //    //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //    //        }
                                 //    //    }
                                 //    //}
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвПодразд = new List<EGRULSvPodrazd>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ = new List<EGRULSvPodrazd>();
 
-                                //    foreach (var svFilial in documentXML.СвЮЛ.СвПодразд.СвФилиал)
+                                //    foreach (var svFilial in documentXML.РЎРІР®Р›.РЎРІРџРѕРґСЂР°Р·Рґ.РЎРІР¤РёР»РёР°Р»)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвПодразд.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), НаимПолн = svFilial.СвНаим?.НаимПолн, Дом = svFilial.АдрМНРФ?.Дом, КодАдрКладр = svFilial.АдрМНРФ?.КодАдрКладр, КодРегион = svFilial.АдрМНРФ?.КодРегион, Индекс = svFilial.АдрМНРФ?.Индекс, НаимРегион = svFilial.АдрМНРФ?.Регион?.НаимРегион, НаимГород = svFilial.АдрМНРФ?.Город?.НаимГород, НаимУлица = svFilial.АдрМНРФ?.Улица?.НаимУлица, ТипГород = svFilial.АдрМНРФ?.Город?.ТипГород, ТипРегион = svFilial.АдрМНРФ?.Регион?.ТипРегион, ТипУлица = svFilial.АдрМНРФ?.Улица?.ТипУлица, ДатаЗаписи = svFilial.АдрМНРФ?.ГРНДата.ДатаЗаписи, ГРН = svFilial.АдрМНРФ?.ГРНДата.ГРН, idЛицо = ULDB.Id });
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.Add(new EGRULSvPodrazd { Id = Guid.NewGuid().ToString(), РќР°РёРјРџРѕР»РЅ = svFilial.РЎРІРќР°РёРј?.РќР°РёРјРџРѕР»РЅ, Р”РѕРј = svFilial.РђРґСЂРњРќР Р¤?.Р”РѕРј, РљРѕРґРђРґСЂРљР»Р°РґСЂ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґРђРґСЂРљР»Р°РґСЂ, РљРѕРґР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РРЅРґРµРєСЃ = svFilial.РђРґСЂРњРќР Р¤?.РРЅРґРµРєСЃ, РќР°РёРјР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РќР°РёРјРЈР»РёС†Р°, РўРёРїР“РѕСЂРѕРґ = svFilial.РђРґСЂРњРќР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїР РµРіРёРѕРЅ = svFilial.РђРґСЂРњРќР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, РўРёРїРЈР»РёС†Р° = svFilial.РђРґСЂРњРќР Р¤?.РЈР»РёС†Р°?.РўРёРїРЈР»РёС†Р°, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFilial.РђРґСЂРњРќР Р¤?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id });
                                 //    }
                                 //}
 
                                 break;
 
                             case "EGRULSvPredsh":
-                                if (documentXML.СвЮЛ.СвПредш == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvPredsh previousEntry;
-                                    var newEntry = new EGRULSvPredsh { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПредш.ИНН, ОГРН = documentXML.СвЮЛ.СвПредш.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПредш.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПредш.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПредш.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvPredsh { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[9])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвПредш_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[9])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПредш.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвПредш_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвПредш_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -1736,102 +1736,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПредш).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвПредш?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвПредш?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвПредш_Delete.Add(ULDB.ЕГРЮЛ_СвПредш?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[9])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвПредш_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПредш.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvPredsh).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvPredsh";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvPredsh";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПредш).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвПредш = new List<EGRULSvPredsh> { new EGRULSvPredsh { Id = ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПредш.ИНН, ОГРН = documentXML.СвЮЛ.СвПредш.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПредш.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПредш.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПредш.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€ = new List<EGRULSvPredsh> { new EGRULSvPredsh { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvPredsh).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvPredsh";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвПредш.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvPredsh";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвПредш = new List<EGRULSvPredsh> { new EGRULSvPredsh { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПредш.ИНН, ОГРН = documentXML.СвЮЛ.СвПредш.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПредш.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПредш.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПредш.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€ = new List<EGRULSvPredsh> { new EGRULSvPredsh { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРґС€.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvPreem":
-                                if (documentXML.СвЮЛ.СвПреем == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvPreem previousEntry;
-                                    var newEntry = new EGRULSvPreem { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПреем.ИНН, ОГРН = documentXML.СвЮЛ.СвПреем.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПреем.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПреем.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПреем.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvPreem { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[10])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвПреем_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[10])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПреем.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвПреем_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвПреем_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -1840,101 +1840,101 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПреем).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвПреем?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвПреем?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвПреем_Delete.Add(ULDB.ЕГРЮЛ_СвПреем?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[10])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвПреем_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПреем.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvPreem).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvPreem";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvPreem";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПреем).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвПреем = new List<EGRULSvPreem> { new EGRULSvPreem { Id = ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПреем.ИНН, ОГРН = documentXML.СвЮЛ.СвПреем.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПреем.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПреем.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПреем.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј = new List<EGRULSvPreem> { new EGRULSvPreem { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvPreem).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvPreem";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвПреем.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvPreem";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвПреем = new List<EGRULSvPreem> { new EGRULSvPreem { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвПреем.ИНН, ОГРН = documentXML.СвЮЛ.СвПреем.ОГРН, НаимЮЛПолн = documentXML.СвЮЛ.СвПреем.НаимЮЛПолн, ДатаЗаписи = documentXML.СвЮЛ.СвПреем.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвПреем.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј = new List<EGRULSvPreem> { new EGRULSvPreem { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.РќР°РёРјР®Р›РџРѕР»РЅ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРµРј.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvPrekrUL":
-                                if (documentXML.СвЮЛ.СвПрекрЮЛ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvPrekrUL previousEntry;
-                                    var newEntry = new EGRULSvPrekrUL { Id = Guid.NewGuid().ToString(), ДатаПрекрЮЛ = documentXML.СвЮЛ.СвПрекрЮЛ.СпПрекрЮЛ?.ДатаПрекрЮЛ, КодНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.КодНО, НаимНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.НаимНО, ГРН = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvPrekrUL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРїРџСЂРµРєСЂР®Р›?.Р”Р°С‚Р°РџСЂРµРєСЂР®Р›, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[11])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[11])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -1943,102 +1943,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПрекрЮЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвПрекрЮЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвПрекрЮЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвПрекрЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[11])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvPrekrUL).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvPrekrUL";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvPrekrUL";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвПрекрЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвПрекрЮЛ = new List<EGRULSvPrekrUL> { new EGRULSvPrekrUL { Id = ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ДатаПрекрЮЛ = documentXML.СвЮЛ.СвПрекрЮЛ.СпПрекрЮЛ?.ДатаПрекрЮЛ, КодНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.КодНО, НаимНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.НаимНО, ГРН = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р› = new List<EGRULSvPrekrUL> { new EGRULSvPrekrUL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРїРџСЂРµРєСЂР®Р›?.Р”Р°С‚Р°РџСЂРµРєСЂР®Р›, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvPrekrUL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvPrekrUL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвПрекрЮЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvPrekrUL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвПрекрЮЛ = new List<EGRULSvPrekrUL> { new EGRULSvPrekrUL { Id = Guid.NewGuid().ToString(), ДатаПрекрЮЛ = documentXML.СвЮЛ.СвПрекрЮЛ.СпПрекрЮЛ?.ДатаПрекрЮЛ, КодНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.КодНО, НаимНО = documentXML.СвЮЛ.СвПрекрЮЛ.СвРегОрг?.НаимНО, ГРН = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ГРН, ДатаЗаписи = documentXML.СвЮЛ.СвПрекрЮЛ.ГРНДата.ДатаЗаписи, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р› = new List<EGRULSvPrekrUL> { new EGRULSvPrekrUL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР®Р› = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРїРџСЂРµРєСЂР®Р›?.Р”Р°С‚Р°РџСЂРµРєСЂР®Р›, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРџСЂРµРєСЂР®Р›.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvRegOrg":
-                                if (documentXML.СвЮЛ.СвРегОрг == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvRegOrg previousEntry;
-                                    var newEntry = new EGRULSvRegOrg { Id = Guid.NewGuid().ToString(), АдрРО = documentXML.СвЮЛ.СвРегОрг?.АдрРО, НаимНО = documentXML.СвЮЛ.СвРегОрг?.НаимНО, КодНО = documentXML.СвЮЛ.СвРегОрг?.КодНО, ДатаЗаписи = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvRegOrg { Id = Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[12])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвРегОрг_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[12])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегОрг.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвРегОрг_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвРегОрг_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2047,102 +2047,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегОрг).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвРегОрг_Delete.Add(ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[12])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвРегОрг_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегОрг.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvRegOrg).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvRegOrg";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegOrg";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегОрг).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвРегОрг = new List<EGRULSvRegOrg> { new EGRULSvRegOrg { Id = ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), АдрРО = documentXML.СвЮЛ.СвРегОрг?.АдрРО, НаимНО = documentXML.СвЮЛ.СвРегОрг?.НаимНО, КодНО = documentXML.СвЮЛ.СвРегОрг?.КодНО, ДатаЗаписи = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі = new List<EGRULSvRegOrg> { new EGRULSvRegOrg { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvRegOrg).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvRegOrg";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвРегОрг?.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegOrg";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі?.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвРегОрг = new List<EGRULSvRegOrg> { new EGRULSvRegOrg { Id = Guid.NewGuid().ToString(), АдрРО = documentXML.СвЮЛ.СвРегОрг?.АдрРО, НаимНО = documentXML.СвЮЛ.СвРегОрг?.НаимНО, КодНО = documentXML.СвЮЛ.СвРегОрг?.КодНО, ДатаЗаписи = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегОрг?.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі = new List<EGRULSvRegOrg> { new EGRULSvRegOrg { Id = Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РќР°РёРјРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРћСЂРі?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvRegPF":
-                                if (documentXML.СвЮЛ.СвРегПФ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvRegPF previousEntry;
-                                    var newEntry = new EGRULSvRegPF { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвЮЛ.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvRegPF { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[13])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвРегПФ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[13])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегПФ.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвРегПФ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвРегПФ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2151,102 +2151,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегПФ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвРегПФ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвРегПФ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвРегПФ_Delete.Add(ULDB.ЕГРЮЛ_СвРегПФ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[13])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвРегПФ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегПФ.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvRegPF).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvRegPF";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegPF";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегПФ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвРегПФ = new List<EGRULSvRegPF> { new EGRULSvRegPF { Id = ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвЮЛ.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤ = new List<EGRULSvRegPF> { new EGRULSvRegPF { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvRegPF).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvRegPF";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвРегПФ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegPF";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвРегПФ = new List<EGRULSvRegPF> { new EGRULSvRegPF { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвЮЛ.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвЮЛ.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегПФ.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤ = new List<EGRULSvRegPF> { new EGRULSvRegPF { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіРџР¤.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvRegFSS":
-                                if (documentXML.СвЮЛ.СвРегФСС == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvRegFSS previousEntry;
-                                    var newEntry = new EGRULSvRegFSS { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегФСС?.ДатаРег, РегНомФСС = documentXML.СвЮЛ.СвРегФСС?.РегНомФСС, НаимФСС = documentXML.СвЮЛ.СвРегФСС?.СвОргФСС?.НаимФСС, КодФСС = documentXML.СвЮЛ.СвРегФСС?.СвОргФСС?.КодФСС, ДатаЗаписи = documentXML.СвЮЛ.СвРегФСС?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегФСС?.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvRegFSS { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р РµРіРќРѕРјР¤РЎРЎ, РќР°РёРјР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.РЎРІРћСЂРіР¤РЎРЎ?.РќР°РёРјР¤РЎРЎ, РљРѕРґР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.РЎРІРћСЂРіР¤РЎРЎ?.РљРѕРґР¤РЎРЎ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[14])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвРегФСС_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[14])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегФСС.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвРегФСС_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвРегФСС_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2255,101 +2255,101 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегФСС).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвРегФСС?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвРегФСС?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвРегФСС_Delete.Add(ULDB.ЕГРЮЛ_СвРегФСС?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[14])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвРегФСС_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРегФСС.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvRegFSS).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvRegFSS";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegFSS";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРегФСС).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвРегФСС = new List<EGRULSvRegFSS> { new EGRULSvRegFSS { Id = ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегФСС?.ДатаРег, РегНомФСС = documentXML.СвЮЛ.СвРегФСС?.РегНомФСС, НаимФСС = documentXML.СвЮЛ.СвРегФСС?.СвОргФСС?.НаимФСС, КодФСС = documentXML.СвЮЛ.СвРегФСС?.СвОргФСС?.КодФСС, ДатаЗаписи = documentXML.СвЮЛ.СвРегФСС?.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРегФСС?.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ = new List<EGRULSvRegFSS> { new EGRULSvRegFSS { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р РµРіРќРѕРјР¤РЎРЎ, РќР°РёРјР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.РЎРІРћСЂРіР¤РЎРЎ?.РќР°РёРјР¤РЎРЎ, РљРѕРґР¤РЎРЎ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.РЎРІРћСЂРіР¤РЎРЎ?.РљРѕРґР¤РЎРЎ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ?.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvRegFSS).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvRegFSS";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвРегФСС.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvRegFSS";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвРегФСС = new List<EGRULSvRegFSS> { new EGRULSvRegFSS { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвЮЛ.СвРегФСС.ДатаРег } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ = new List<EGRULSvRegFSS> { new EGRULSvRegFSS { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІР®Р›.РЎРІР РµРіР¤РЎРЎ.Р”Р°С‚Р°Р РµРі } };
                                 //}
 
                                 break;
 
                             case "EGRULSvReorg":
-                                if (documentXML.СвЮЛ.СвРеорг == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvReorg previousEntry;
-                                    var newEntry = new EGRULSvReorg { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ИНН, ОГРН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ОГРН, КодСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.КодСтатус, НаимСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.НаимСтатус, НаимЮЛПолн = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.НаимЮЛПолн, СостЮЛпосле = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.СостЮЛпосле, ДатаЗаписи = documentXML.СвЮЛ.СвРеорг.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРеорг.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvReorg { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РћР“Р Рќ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[15])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвРеорг_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[15])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРеорг.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвРеорг_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвРеорг_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2358,101 +2358,101 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРеорг).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвРеорг?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвРеорг?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвРеорг_Delete.Add(ULDB.ЕГРЮЛ_СвРеорг?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[15])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвРеорг_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвРеорг.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvReorg).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvReorg";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvReorg";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвРеорг).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвРеорг = new List<EGRULSvReorg> { new EGRULSvReorg { Id = ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ИНН, ОГРН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ОГРН, КодСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.КодСтатус, НаимСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.НаимСтатус, НаимЮЛПолн = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.НаимЮЛПолн, СостЮЛпосле = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.СостЮЛпосле, ДатаЗаписи = documentXML.СвЮЛ.СвРеорг.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРеорг.ГРНДата.ГРН } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі = new List<EGRULSvReorg> { new EGRULSvReorg { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РћР“Р Рќ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р“Р Рќ } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvReorg).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvReorg";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвРеорг.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvReorg";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвРеорг = new List<EGRULSvReorg> { new EGRULSvReorg { Id = Guid.NewGuid().ToString(), ИНН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ИНН, ОГРН = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.ОГРН, КодСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.КодСтатус, НаимСтатусЮЛ = documentXML.СвЮЛ.СвРеорг.СвСтатус?.НаимСтатус, НаимЮЛПолн = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.НаимЮЛПолн, СостЮЛпосле = documentXML.СвЮЛ.СвРеорг.СвРеоргЮЛ?.СостЮЛпосле, ДатаЗаписи = documentXML.СвЮЛ.СвРеорг.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвРеорг.ГРНДата.ГРН } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі = new List<EGRULSvReorg> { new EGRULSvReorg { Id = Guid.NewGuid().ToString(), РРќРќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РРќРќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РћР“Р Рќ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.РЎРІР РµРѕСЂРіР®Р›?.РЎРѕСЃС‚Р®Р›РїРѕСЃР»Рµ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІР РµРѕСЂРі.Р“Р РќР”Р°С‚Р°.Р“Р Рќ } };
                                 //}
 
                                 break;
 
                             case "EGRULSvStatus":
-                                if (documentXML.СвЮЛ.СвСтатусКорневой == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvStatus previousEntry;
-                                    var newEntry = new EGRULSvStatus { Id = Guid.NewGuid().ToString(), НаимСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.НаимСтатус, КодСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.КодСтатус, НомерЖурнала = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерЖурнала, ДатаПубликации = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаПубликации, НомерРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерРеш, ДатаРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаРеш, ДатаЗаписи = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvStatus { Id = Guid.NewGuid().ToString(), РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р° = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р°, Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё, РќРѕРјРµСЂР РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР РµС€, Р”Р°С‚Р°Р РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°Р РµС€, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[17])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвСтатус_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[17])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвСтатус_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвСтатус_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2461,102 +2461,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвСтатус).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвСтатус_Delete.Add(ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[17])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвСтатус_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvStatus).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvStatus";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvStatus";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвСтатус).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвСтатус = new List<EGRULSvStatus> { new EGRULSvStatus { Id = ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), НаимСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.НаимСтатус, КодСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.КодСтатус, НомерЖурнала = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерЖурнала, ДатаПубликации = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаПубликации, НомерРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерРеш, ДатаРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаРеш, ДатаЗаписи = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ = new List<EGRULSvStatus> { new EGRULSvStatus { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р° = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р°, Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё, РќРѕРјРµСЂР РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР РµС€, Р”Р°С‚Р°Р РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°Р РµС€, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvStatus).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvStatus";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвСтатус?.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvStatus";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ?.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвСтатус = new List<EGRULSvStatus> { new EGRULSvStatus { Id = Guid.NewGuid().ToString(), НаимСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.НаимСтатус, КодСтатусЮЛ = documentXML.СвЮЛ.СвСтатусКорневой.СвСтатус?.КодСтатус, НомерЖурнала = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерЖурнала, ДатаПубликации = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаПубликации, НомерРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.НомерРеш, ДатаРеш = documentXML.СвЮЛ.СвСтатусКорневой.СвРешИсклЮЛ?.ДатаРеш, ДатаЗаписи = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвСтатусКорневой.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ = new List<EGRULSvStatus> { new EGRULSvStatus { Id = Guid.NewGuid().ToString(), РќР°РёРјРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, РљРѕРґРЎС‚Р°С‚СѓСЃР®Р› = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р° = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР–СѓСЂРЅР°Р»Р°, Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°РџСѓР±Р»РёРєР°С†РёРё, РќРѕРјРµСЂР РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.РќРѕРјРµСЂР РµС€, Р”Р°С‚Р°Р РµС€ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.РЎРІР РµС€РСЃРєР»Р®Р›?.Р”Р°С‚Р°Р РµС€, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЎС‚Р°С‚СѓСЃРљРѕСЂРЅРµРІРѕР№.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvUstKap":
-                                if (documentXML.СвЮЛ.СвУстКап == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvUstKap previousEntry;
-                                    var newEntry = new EGRULSvUstKap { Id = Guid.NewGuid().ToString(), НаимВидКап = documentXML.СвЮЛ.СвУстКап.НаимВидКап, СумКап = documentXML.СвЮЛ.СвУстКап.СумКап, ДатаЗаписи = documentXML.СвЮЛ.СвУстКап.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвУстКап.ГРНДата.ГРН, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvUstKap { Id = Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РќР°РёРјР’РёРґРљР°Рї, РЎСѓРјРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РЎСѓРјРљР°Рї, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[18])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвУстКап_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[18])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвУстКап.ГРНДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвУстКап_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвУстКап_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2565,80 +2565,80 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвУстКап).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвУстКап?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвУстКап?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвУстКап_Delete.Add(ULDB.ЕГРЮЛ_СвУстКап?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[18])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвУстКап_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СвУстКап.ГРНДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvUstKap).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvUstKap";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvUstKap";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвУстКап).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвУстКап = new List<EGRULSvUstKap> { new EGRULSvUstKap { Id = ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), НаимВидКап = documentXML.СвЮЛ.СвУстКап.НаимВидКап, СумКап = documentXML.СвЮЛ.СвУстКап.СумКап, ДатаЗаписи = documentXML.СвЮЛ.СвУстКап.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвУстКап.ГРНДата.ГРН, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї = new List<EGRULSvUstKap> { new EGRULSvUstKap { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РќР°РёРјР’РёРґРљР°Рї, РЎСѓРјРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РЎСѓРјРљР°Рї, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvUstKap).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvUstKap";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвУстКап.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvUstKap";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвУстКап = new List<EGRULSvUstKap> { new EGRULSvUstKap { Id = Guid.NewGuid().ToString(), НаимВидКап = documentXML.СвЮЛ.СвУстКап.НаимВидКап, СумКап = documentXML.СвЮЛ.СвУстКап.СумКап, ДатаЗаписи = documentXML.СвЮЛ.СвУстКап.ГРНДата.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СвУстКап.ГРНДата.ГРН, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї = new List<EGRULSvUstKap> { new EGRULSvUstKap { Id = Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РќР°РёРјР’РёРґРљР°Рї, РЎСѓРјРљР°Рї = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.РЎСѓРјРљР°Рї, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРЈСЃС‚РљР°Рї.Р“Р РќР”Р°С‚Р°.Р“Р Рќ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvFounder":
-                                if (documentXML.СвЮЛ.СвУчредит == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚ == null)
                                 {
                                     continue;
                                 }
@@ -2646,27 +2646,27 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRULSvFounder> previousEntries;
                                     var currentEntries = new List<EGRULSvFounder>();
-                                    var founderDates = new[] { documentXML.СвЮЛ.СвУчредит.УчрФЛ.Where(x => x.ГРНДатаПерв != null).Select(d => d.ГРНДатаПерв.ДатаЗаписи), documentXML.СвЮЛ.СвУчредит.УчрЮЛРос.Where(x => x.ГРНДатаПерв != null).Select(d => d.ГРНДатаПерв.ДатаЗаписи) }.SelectMany(date => date).ToArray();
+                                    var founderDates = new[] { documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР¤Р›.Where(x => x.Р“Р РќР”Р°С‚Р°РџРµСЂРІ != null).Select(d => d.Р“Р РќР”Р°С‚Р°РџРµСЂРІ.Р”Р°С‚Р°Р—Р°РїРёСЃРё), documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР®Р›Р РѕСЃ.Where(x => x.Р“Р РќР”Р°С‚Р°РџРµСЂРІ != null).Select(d => d.Р“Р РќР”Р°С‚Р°РџРµСЂРІ.Р”Р°С‚Р°Р—Р°РїРёСЃРё) }.SelectMany(date => date).ToArray();
                                     DateTime? currentEntriesDate = founderDates.Count() > 0 ? founderDates.Max() : DateTime.MinValue;
 
                                     lock (listLockers[19])
                                     {
-                                        previousEntries = ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Where(e => e.idЛицо == ULDB.Id).ToList();
+                                        previousEntries = ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).ToList();
 
                                         if (previousEntries.Count != 0)
                                         {
-                                            if (previousEntries.Select(d => d.ДатаЗаписи).ToArray()?.Max() <= currentEntriesDate)
+                                            if (previousEntries.Select(d => d.Р”Р°С‚Р°Р—Р°РїРёСЃРё).ToArray()?.Max() <= currentEntriesDate)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвУчредит_Insert.RemoveAll(e => e.idЛицо == ULDB.Id);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.RemoveAll(e => e.idР›РёС†Рѕ == ULDB.Id);
 
-                                                foreach (var svFL in documentXML.СвЮЛ.СвУчредит.УчрФЛ)
+                                                foreach (var svFL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР¤Р›)
                                                 {
-                                                    ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svFL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svFL.ГРНДатаПерв?.ГРН, Отчество = svFL.СвФЛ?.Отчество, Имя = svFL.СвФЛ?.Имя, Фамилия = svFL.СвФЛ?.Фамилия, ИННФЛ = svFL.СвФЛ?.ИННФЛ, НоминСтоим = svFL.ДоляУстКап?.НоминСтоим, РазмерДоли = svFL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = svFL.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = svFL.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = svFL.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РРќРќР¤Р› = svFL.РЎРІР¤Р›?.РРќРќР¤Р›, РќРѕРјРёРЅРЎС‚РѕРёРј = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                                 }
 
-                                                foreach (var svUL in documentXML.СвЮЛ.СвУчредит.УчрЮЛРос)
+                                                foreach (var svUL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР®Р›Р РѕСЃ)
                                                 {
-                                                    ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svUL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svUL.ГРНДатаПерв?.ГРН, ИНН = svUL.НаимИННЮЛ?.ИНН, ОГРН = svUL.НаимИННЮЛ?.ОГРН, НаимЮЛПолн = svUL.НаимИННЮЛ?.НаимЮЛПолн, ТекстНедДанУчр = svUL.СвНедДанУчр?.ТекстНедДанУчр, ПризнНедДанУчр = svUL.СвНедДанУчр?.ПризнНедДанУчр, НоминСтоим = svUL.ДоляУстКап?.НоминСтоим, РазмерДоли = svUL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РРќРќ = svUL.РќР°РёРјРРќРќР®Р›?.РРќРќ, РћР“Р Рќ = svUL.РќР°РёРјРРќРќР®Р›?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = svUL.РќР°РёРјРРќРќР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ, РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ, РќРѕРјРёРЅРЎС‚РѕРёРј = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                                 }
                                             }
                                         }
@@ -2674,59 +2674,59 @@ namespace AuthTest.Server.Controllers
                                         {
                                             if (firstTime == false)
                                             {
-                                                _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвУчредит).Load();
+                                                _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚).Load();
 
-                                                if (ULDB.ЕГРЮЛ_СвУчредит?.FirstOrDefault() != null)
+                                                if (ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚?.FirstOrDefault() != null)
                                                 {
-                                                    previousEntries = ULDB.ЕГРЮЛ_СвУчредит.ToList();
-                                                    ULSubTables.ЕГРЮЛ_СвУчредит_Delete.Add(ULDB.ЕГРЮЛ_СвУчредит?.FirstOrDefault().idЛицо.ToString());
+                                                    previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.ToList();
+                                                    ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                                 }
                                             }
 
-                                            foreach (var svFL in documentXML.СвЮЛ.СвУчредит.УчрФЛ)
+                                            foreach (var svFL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР¤Р›)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svFL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svFL.ГРНДатаПерв?.ГРН, Отчество = svFL.СвФЛ?.Отчество, Имя = svFL.СвФЛ?.Имя, Фамилия = svFL.СвФЛ?.Фамилия, ИННФЛ = svFL.СвФЛ?.ИННФЛ, НоминСтоим = svFL.ДоляУстКап?.НоминСтоим, РазмерДоли = svFL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = svFL.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = svFL.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = svFL.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РРќРќР¤Р› = svFL.РЎРІР¤Р›?.РРќРќР¤Р›, РќРѕРјРёРЅРЎС‚РѕРёРј = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                             }
 
-                                            foreach (var svUL in documentXML.СвЮЛ.СвУчредит.УчрЮЛРос)
+                                            foreach (var svUL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР®Р›Р РѕСЃ)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svUL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svUL.ГРНДатаПерв?.ГРН, ИНН = svUL.НаимИННЮЛ?.ИНН, ОГРН = svUL.НаимИННЮЛ?.ОГРН, НаимЮЛПолн = svUL.НаимИННЮЛ?.НаимЮЛПолн, ТекстНедДанУчр = svUL.СвНедДанУчр?.ТекстНедДанУчр, ПризнНедДанУчр = svUL.СвНедДанУчр?.ПризнНедДанУчр, НоминСтоим = svUL.ДоляУстКап?.НоминСтоим, РазмерДоли = svUL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РРќРќ = svUL.РќР°РёРјРРќРќР®Р›?.РРќРќ, РћР“Р Рќ = svUL.РќР°РёРјРРќРќР®Р›?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = svUL.РќР°РёРјРРќРќР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ, РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ, РќРѕРјРёРЅРЎС‚РѕРёРј = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                             }
                                         }
                                     }
 
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвУчредит).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвУчредит?.Count > 0)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚?.Count > 0)
                                 //{
-                                //    foreach (var entry in ULDB.ЕГРЮЛ_СвУчредит)
+                                //    foreach (var entry in ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚)
                                 //    {
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    var previousEntries = ULDB.ЕГРЮЛ_СвУчредит;
+                                //    var previousEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚;
 
-                                //    ULDB.ЕГРЮЛ_СвУчредит = new List<EGRULSvFounder>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚ = new List<EGRULSvFounder>();
 
-                                //    foreach (var svFL in documentXML.СвЮЛ.СвУчредит.УчрФЛ)
+                                //    foreach (var svFL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР¤Р›)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвУчредит.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svFL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svFL.ГРНДатаПерв?.ГРН, Отчество = svFL.СвФЛ?.Отчество, Имя = svFL.СвФЛ?.Имя, Фамилия = svFL.СвФЛ?.Фамилия, ИННФЛ = svFL.СвФЛ?.ИННФЛ, НоминСтоим = svFL.ДоляУстКап?.НоминСтоим, РазмерДоли = svFL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
-                                //        _dbcontext.Entry(ULDB.ЕГРЮЛ_СвУчредит.Last()).State = EntityState.Added;
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = svFL.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = svFL.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = svFL.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РРќРќР¤Р› = svFL.РЎРІР¤Р›?.РРќРќР¤Р›, РќРѕРјРёРЅРЎС‚РѕРёРј = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
+                                //        _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    foreach (var svUL in documentXML.СвЮЛ.СвУчредит.УчрЮЛРос)
+                                //    foreach (var svUL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР®Р›Р РѕСЃ)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвУчредит.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svUL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svUL.ГРНДатаПерв?.ГРН, ИНН = svUL.НаимИННЮЛ?.ИНН, ОГРН = svUL.НаимИННЮЛ?.ОГРН, НаимЮЛПолн = svUL.НаимИННЮЛ?.НаимЮЛПолн, ТекстНедДанУчр = svUL.СвНедДанУчр?.ТекстНедДанУчр, ПризнНедДанУчр = svUL.СвНедДанУчр?.ПризнНедДанУчр, НоминСтоим = svUL.ДоляУстКап?.НоминСтоим, РазмерДоли = svUL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
-                                //        _dbcontext.Entry(ULDB.ЕГРЮЛ_СвУчредит.Last()).State = EntityState.Added;
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РРќРќ = svUL.РќР°РёРјРРќРќР®Р›?.РРќРќ, РћР“Р Рќ = svUL.РќР°РёРјРРќРќР®Р›?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = svUL.РќР°РёРјРРќРќР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ, РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ, РќРѕРјРёРЅРЎС‚РѕРёРј = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
+                                //        _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    var currentEntries = ULDB.ЕГРЮЛ_СвУчредит;
+                                //    var currentEntries = ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚;
 
                                 //    foreach (var oldEntry in previousEntries)
                                 //    {
-                                //        var newEntry = currentEntries.Where(e => e.ИННФЛ == oldEntry.ИННФЛ && e.ИННФЛ != null || e.ИНН == oldEntry.ИНН && e.ИНН != null).FirstOrDefault();
+                                //        var newEntry = currentEntries.Where(e => e.РРќРќР¤Р› == oldEntry.РРќРќР¤Р› && e.РРќРќР¤Р› != null || e.РРќРќ == oldEntry.РРќРќ && e.РРќРќ != null).FirstOrDefault();
 
                                 //        if (newEntry == null)
                                 //        {
@@ -2737,63 +2737,63 @@ namespace AuthTest.Server.Controllers
                                 //        {
                                 //            if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //            {
-                                //                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                //                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                 //                    continue;
 
                                 //                ChangeLog changes = new ChangeLog();
 
-                                //                changes.Таблица = "EGRULSvFounder";
-                                //                changes.Столбец = property.Name;
-                                //                changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //                changes.ДатаИзменения = DateTime.Now;
+                                //                changes.РўР°Р±Р»РёС†Р° = "EGRULSvFounder";
+                                //                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //                //_dbcontext.ИсторияИзменений.Add(changes);
+                                //                //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            }
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвУчредит = new List<EGRULSvFounder>();
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚ = new List<EGRULSvFounder>();
 
-                                //    foreach (var svFL in documentXML.СвЮЛ.СвУчредит.УчрФЛ)
+                                //    foreach (var svFL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР¤Р›)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвУчредит.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svFL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svFL.ГРНДатаПерв?.ГРН, Отчество = svFL.СвФЛ?.Отчество, Имя = svFL.СвФЛ?.Имя, Фамилия = svFL.СвФЛ?.Фамилия, ИННФЛ = svFL.СвФЛ?.ИННФЛ, НоминСтоим = svFL.ДоляУстКап?.НоминСтоим, РазмерДоли = svFL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svFL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = svFL.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = svFL.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = svFL.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РРќРќР¤Р› = svFL.РЎРІР¤Р›?.РРќРќР¤Р›, РќРѕРјРёРЅРЎС‚РѕРёРј = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svFL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                 //    }
 
-                                //    foreach (var svUL in documentXML.СвЮЛ.СвУчредит.УчрЮЛРос)
+                                //    foreach (var svUL in documentXML.РЎРІР®Р›.РЎРІРЈС‡СЂРµРґРёС‚.РЈС‡СЂР®Р›Р РѕСЃ)
                                 //    {
-                                //        ULDB.ЕГРЮЛ_СвУчредит.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), ДатаЗаписи = svUL.ГРНДатаПерв?.ДатаЗаписи, ГРН = svUL.ГРНДатаПерв?.ГРН, ИНН = svUL.НаимИННЮЛ?.ИНН, ОГРН = svUL.НаимИННЮЛ?.ОГРН, НаимЮЛПолн = svUL.НаимИННЮЛ?.НаимЮЛПолн, ТекстНедДанУчр = svUL.СвНедДанУчр?.ТекстНедДанУчр, ПризнНедДанУчр = svUL.СвНедДанУчр?.ПризнНедДанУчр, НоминСтоим = svUL.ДоляУстКап?.НоминСтоим, РазмерДоли = svUL.ДоляУстКап?.РазмерДоли?.Процент, idЛицо = ULDB.Id });
+                                //        ULDB.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Add(new EGRULSvFounder { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = svUL.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РРќРќ = svUL.РќР°РёРјРРќРќР®Р›?.РРќРќ, РћР“Р Рќ = svUL.РќР°РёРјРРќРќР®Р›?.РћР“Р Рќ, РќР°РёРјР®Р›РџРѕР»РЅ = svUL.РќР°РёРјРРќРќР®Р›?.РќР°РёРјР®Р›РџРѕР»РЅ, РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РўРµРєСЃС‚РќРµРґР”Р°РЅРЈС‡СЂ, РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ = svUL.РЎРІРќРµРґР”Р°РЅРЈС‡СЂ?.РџСЂРёР·РЅРќРµРґР”Р°РЅРЈС‡СЂ, РќРѕРјРёРЅРЎС‚РѕРёРј = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.РќРѕРјРёРЅРЎС‚РѕРёРј, Р Р°Р·РјРµСЂР”РѕР»Рё = svUL.Р”РѕР»СЏРЈСЃС‚РљР°Рї?.Р Р°Р·РјРµСЂР”РѕР»Рё?.РџСЂРѕС†РµРЅС‚, idР›РёС†Рѕ = ULDB.Id });
                                 //    }
                                 //}
 
                                 break;
 
                             case "EGRULSvUL":
-                                if (documentXML.СвЮЛ == null)
+                                if (documentXML.РЎРІР®Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvUL previousEntry;
-                                    var newEntry = new EGRULSvUL { Id = Guid.NewGuid().ToString(), ПолнНаимОПФ = documentXML.СвЮЛ.ПолнНаимОПФ, КодОПФ = documentXML.СвЮЛ.КодОПФ, СпрОПФ = documentXML.СвЮЛ.СпрОПФ, КПП = documentXML.СвЮЛ.КПП, ИНН = documentXML.СвЮЛ.ИНН, ДатаОГРН = documentXML.СвЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.ОГРН, ДатаВып = documentXML.СвЮЛ.ДатаВып, НаимСокр = (String.IsNullOrEmpty(documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр)) ? documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн : documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, ОКВЭДОсн = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvUL { Id = Guid.NewGuid().ToString(), РџРѕР»РЅРќР°РёРјРћРџР¤ = documentXML.РЎРІР®Р›.РџРѕР»РЅРќР°РёРјРћРџР¤, РљРѕРґРћРџР¤ = documentXML.РЎРІР®Р›.РљРѕРґРћРџР¤, РЎРїСЂРћРџР¤ = documentXML.РЎРІР®Р›.РЎРїСЂРћРџР¤, РљРџРџ = documentXML.РЎРІР®Р›.РљРџРџ, РРќРќ = documentXML.РЎРІР®Р›.РРќРќ, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РћР“Р Рќ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІР®Р›.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = (String.IsNullOrEmpty(documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ)) ? documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ : documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[20])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СвЮЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[20])
                                         {
-                                            if (previousEntry.ДатаВып <= documentXML.СвЮЛ.ДатаВып)
+                                            if (previousEntry.Р”Р°С‚Р°Р’С‹Рї <= documentXML.РЎРІР®Р›.Р”Р°С‚Р°Р’С‹Рї)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СвЮЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СвЮЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2802,102 +2802,102 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЮЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР®Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СвЮЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СвЮЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СвЮЛ_Delete.Add(ULDB.ЕГРЮЛ_СвЮЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[20])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СвЮЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаВып <= documentXML.СвЮЛ.ДатаВып)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р’С‹Рї <= documentXML.РЎРІР®Р›.Р”Р°С‚Р°Р’С‹Рї)
                                     {
                                         foreach (var property in typeof(EGRULSvUL).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvUL";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvUL";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СвЮЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІР®Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СвЮЛ = new List<EGRULSvUL> { new EGRULSvUL { Id = ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ПолнНаимОПФ = documentXML.СвЮЛ.ПолнНаимОПФ, КодОПФ = documentXML.СвЮЛ.КодОПФ, СпрОПФ = documentXML.СвЮЛ.СпрОПФ, КПП = documentXML.СвЮЛ.КПП, ИНН = documentXML.СвЮЛ.ИНН, ДатаОГРН = documentXML.СвЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.ОГРН, ДатаВып = documentXML.СвЮЛ.ДатаВып, НаимСокр = (String.IsNullOrEmpty(documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр)) ? documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн : documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, ОКВЭДОсн = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР®Р› = new List<EGRULSvUL> { new EGRULSvUL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), РџРѕР»РЅРќР°РёРјРћРџР¤ = documentXML.РЎРІР®Р›.РџРѕР»РЅРќР°РёРјРћРџР¤, РљРѕРґРћРџР¤ = documentXML.РЎРІР®Р›.РљРѕРґРћРџР¤, РЎРїСЂРћРџР¤ = documentXML.РЎРІР®Р›.РЎРїСЂРћРџР¤, РљРџРџ = documentXML.РЎРІР®Р›.РљРџРџ, РРќРќ = documentXML.РЎРІР®Р›.РРќРќ, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РћР“Р Рќ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІР®Р›.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = (String.IsNullOrEmpty(documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ)) ? documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ : documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvUL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvUL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СвЮЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvUL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІР®Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СвЮЛ = new List<EGRULSvUL> { new EGRULSvUL { Id = Guid.NewGuid().ToString(), ПолнНаимОПФ = documentXML.СвЮЛ.ПолнНаимОПФ, КодОПФ = documentXML.СвЮЛ.КодОПФ, СпрОПФ = documentXML.СвЮЛ.СпрОПФ, КПП = documentXML.СвЮЛ.КПП, ИНН = documentXML.СвЮЛ.ИНН, ДатаОГРН = documentXML.СвЮЛ.ДатаОГРН, ОГРН = documentXML.СвЮЛ.ОГРН, ДатаВып = documentXML.СвЮЛ.ДатаВып, НаимСокр = (String.IsNullOrEmpty(documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр)) ? documentXML.СвЮЛ.СвНаимЮЛ.НаимЮЛПолн : documentXML.СвЮЛ.СвНаимЮЛ.СвНаимЮЛСокр?.НаимСокр, ОКВЭДОсн = documentXML.СвЮЛ.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІР®Р› = new List<EGRULSvUL> { new EGRULSvUL { Id = Guid.NewGuid().ToString(), РџРѕР»РЅРќР°РёРјРћРџР¤ = documentXML.РЎРІР®Р›.РџРѕР»РЅРќР°РёРјРћРџР¤, РљРѕРґРћРџР¤ = documentXML.РЎРІР®Р›.РљРѕРґРћРџР¤, РЎРїСЂРћРџР¤ = documentXML.РЎРІР®Р›.РЎРїСЂРћРџР¤, РљРџРџ = documentXML.РЎРІР®Р›.РљРџРџ, РРќРќ = documentXML.РЎРІР®Р›.РРќРќ, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІР®Р›.Р”Р°С‚Р°РћР“Р Рќ, РћР“Р Рќ = documentXML.РЎРІР®Р›.РћР“Р Рќ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІР®Р›.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = (String.IsNullOrEmpty(documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ)) ? documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РќР°РёРјР®Р›РџРѕР»РЅ : documentXML.РЎРІР®Р›.РЎРІРќР°РёРјР®Р›.РЎРІРќР°РёРјР®Р›РЎРѕРєСЂ?.РќР°РёРјРЎРѕРєСЂ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІР®Р›.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRULSvedDoljnFL":
-                                if (documentXML.СвЮЛ.СведДолжнФЛ == null)
+                                if (documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRULSvedDoljnFL previousEntry;
-                                    var newEntry = new EGRULSvedDoljnFL { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ГРН, Отчество = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Отчество, Имя = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Имя, Фамилия = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Фамилия, НаимДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимДолжн, НаимВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимВидДолжн, ИННФЛ = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.ИННФЛ, ВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.ВидДолжн, idЛицо = ULDB.Id };
+                                    var newEntry = new EGRULSvedDoljnFL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РќР°РёРјР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР”РѕР»Р¶РЅ, РќР°РёРјР’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР’РёРґР”РѕР»Р¶РЅ, РРќРќР¤Р› = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРќРќР¤Р›, Р’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.Р’РёРґР”РѕР»Р¶РЅ, idР›РёС†Рѕ = ULDB.Id };
 
                                     lock (listLockers[21])
                                     {
-                                        previousEntry = ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert.Where(e => e.idЛицо == ULDB.Id).FirstOrDefault();
+                                        previousEntry = ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert.Where(e => e.idР›РёС†Рѕ == ULDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[21])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert.Add(newEntry);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -2906,82 +2906,82 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СведДолжнФЛ).Load();
+                                            _dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›).Load();
 
-                                            if (ULDB.ЕГРЮЛ_СведДолжнФЛ?.FirstOrDefault() != null)
+                                            if (ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = ULDB.ЕГРЮЛ_СведДолжнФЛ?.FirstOrDefault();
-                                                ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Delete.Add(ULDB.ЕГРЮЛ_СведДолжнФЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›?.FirstOrDefault();
+                                                ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Delete.Add(ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[21])
                                         {
-                                            ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert.Add(newEntry);
+                                            ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         foreach (var property in typeof(EGRULSvedDoljnFL).GetProperties())
                                         {
                                             if (property.GetValue(previousEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                             {
-                                                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ЮрЛицо")
+                                                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "Р®СЂР›РёС†Рѕ")
                                                     continue;
 
                                                 ChangeLog changes = new ChangeLog();
 
-                                                changes.Таблица = "EGRULSvedDoljnFL";
-                                                changes.Столбец = property.Name;
-                                                changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                                changes.ДатаИзменения = DateTime.Now;
+                                                changes.РўР°Р±Р»РёС†Р° = "EGRULSvedDoljnFL";
+                                                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                IPSubTables.ИсторияИзменений_Insert.Add(changes);
+                                                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Add(changes);
                                             }
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(ULDB).Collection(u => u.ЕГРЮЛ_СведДолжнФЛ).Load();
+                                //_dbcontext.Entry(ULDB).Collection(u => u.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›).Load();
 
-                                //if (ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault() != null)
+                                //if (ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault();
+                                //    var previousEntry = ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault();
 
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    ULDB.ЕГРЮЛ_СведДолжнФЛ = new List<EGRULSvedDoljnFL> { new EGRULSvedDoljnFL { Id = ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault()?.Id != null ? ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ГРН, Отчество = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Отчество, Имя = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Имя, Фамилия = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Фамилия, НаимДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимДолжн, НаимВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимВидДолжн, ИННФЛ = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.ИННФЛ, ВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.ВидДолжн, idЛицо = ULDB.Id } };
-                                //    _dbcontext.Entry(ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault()).State = EntityState.Deleted;
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р› = new List<EGRULSvedDoljnFL> { new EGRULSvedDoljnFL { Id = ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault()?.Id != null ? ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault()?.Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РќР°РёРјР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР”РѕР»Р¶РЅ, РќР°РёРјР’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР’РёРґР”РѕР»Р¶РЅ, РРќРќР¤Р› = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРќРќР¤Р›, Р’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.Р’РёРґР”РѕР»Р¶РЅ, idР›РёС†Рѕ = ULDB.Id } };
+                                //    _dbcontext.Entry(ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault()).State = EntityState.Added;
 
                                 //    foreach (var property in typeof(EGRULSvedDoljnFL).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRULSvedDoljnFL";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(ULDB.ЕГРЮЛ_СведДолжнФЛ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвЮЛ.ИНН;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRULSvedDoljnFL";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІР®Р›.РРќРќ;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //        }
                                 //    }
                                 //}
                                 //else
                                 //{
-                                //    ULDB.ЕГРЮЛ_СведДолжнФЛ = new List<EGRULSvedDoljnFL> { new EGRULSvedDoljnFL { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ДатаЗаписи, ГРН = documentXML.СвЮЛ.СведДолжнФЛ.ГРНДатаПерв?.ГРН, Отчество = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Отчество, Имя = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Имя, Фамилия = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.Фамилия, НаимДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимДолжн, НаимВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.НаимВидДолжн, ИННФЛ = documentXML.СвЮЛ.СведДолжнФЛ.СвФЛ?.ИННФЛ, ВидДолжн = documentXML.СвЮЛ.СведДолжнФЛ.СвДолжн?.ВидДолжн, idЛицо = ULDB.Id } };
+                                //    ULDB.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р› = new List<EGRULSvedDoljnFL> { new EGRULSvedDoljnFL { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р Рќ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Р“Р РќР”Р°С‚Р°РџРµСЂРІ?.Р“Р Рќ, РћС‚С‡РµСЃС‚РІРѕ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.Р¤Р°РјРёР»РёСЏ, РќР°РёРјР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР”РѕР»Р¶РЅ, РќР°РёРјР’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.РќР°РёРјР’РёРґР”РѕР»Р¶РЅ, РРќРќР¤Р› = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР¤Р›?.РРќРќР¤Р›, Р’РёРґР”РѕР»Р¶РЅ = documentXML.РЎРІР®Р›.РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.РЎРІР”РѕР»Р¶РЅ?.Р’РёРґР”РѕР»Р¶РЅ, idР›РёС†Рѕ = ULDB.Id } };
                                 //}
 
                                 break;
                         }
                     }
 
-                    //_dbcontext.ЮрЛицо.Update(ULDB);
+                    //_dbcontext.Р®СЂР›РёС†Рѕ.Update(ULDB);
                     //try
                     //{
                     //    _dbcontext.SaveChanges();
@@ -2989,14 +2989,14 @@ namespace AuthTest.Server.Controllers
                     //}
                     //catch (DbUpdateConcurrencyException ex)
                     //{
-                    //    // если возникают ошибки параллельной обработки парсим документ еще раз
+                    //    // РµСЃР»Рё РІРѕР·РЅРёРєР°СЋС‚ РѕС€РёР±РєРё РїР°СЂР°Р»Р»РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё РїР°СЂСЃРёРј РґРѕРєСѓРјРµРЅС‚ РµС‰Рµ СЂР°Р·
                     //    if (documentXML.retry == false)
                     //    {
                     //        documentXML.retry = true;
-                    //        Console.WriteLine($"Возникла ошибка параллельной обработки лица {documentXML.СвЮЛ.ИНН}, совершается вторая попытка парсинга");
-                    //        if (entitiesInWork.Contains(documentXML.СвЮЛ.ИНН))
+                    //        Console.WriteLine($"Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР° РїР°СЂР°Р»Р»РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё Р»РёС†Р° {documentXML.РЎРІР®Р›.РРќРќ}, СЃРѕРІРµСЂС€Р°РµС‚СЃСЏ РІС‚РѕСЂР°СЏ РїРѕРїС‹С‚РєР° РїР°СЂСЃРёРЅРіР°");
+                    //        if (entitiesInWork.Contains(documentXML.РЎРІР®Р›.РРќРќ))
                     //        {
-                    //            entitiesInWork.Remove(documentXML.СвЮЛ.ИНН);
+                    //            entitiesInWork.Remove(documentXML.РЎРІР®Р›.РРќРќ);
                     //        }
                     //        ParseULDataDB((object)documentXML);
                     //    }
@@ -3004,10 +3004,10 @@ namespace AuthTest.Server.Controllers
 
                     //try
                     //{
-                    //    // после окончания работы убираем ЮЛ из списка обрабатываемых 
-                    //    if (entitiesInWork.Contains(documentXML.СвЮЛ.ИНН))
+                    //    // РїРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ СЂР°Р±РѕС‚С‹ СѓР±РёСЂР°РµРј Р®Р› РёР· СЃРїРёСЃРєР° РѕР±СЂР°Р±Р°С‚С‹РІР°РµРјС‹С… 
+                    //    if (entitiesInWork.Contains(documentXML.РЎРІР®Р›.РРќРќ))
                     //    {
-                    //        entitiesInWork.Remove(documentXML.СвЮЛ.ИНН);
+                    //        entitiesInWork.Remove(documentXML.РЎРІР®Р›.РРќРќ);
                     //    }
                     //}
                     //catch (Exception e)
@@ -3017,73 +3017,73 @@ namespace AuthTest.Server.Controllers
 
                     if (docCount - 1 == finishedWorkersCount)
                     {
-                        _dbcontext.ЕГРЮЛ_ОКВЭД.Where(e => ULSubTables.ЕГРЮЛ_ОКВЭД_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.DistinctBy(e => new { e.idЛицо, e.КодОквэд }).ToList());
+                        _dbcontext.Р•Р“Р Р®Р›_РћРљР’Р­Р”.Where(e => ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.DistinctBy(e => new { e.idР›РёС†Рѕ, e.РљРѕРґРћРєРІСЌРґ }).ToList());
 
-                        _dbcontext.ЕГРЮЛ_СвАдресЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвДержРеестрАО.Where(e => ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвДоляООО.Where(e => ULSubTables.ЕГРЮЛ_СвДоляООО_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.Select(e => e.Entry));
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.Select(e => e.Entry));
 
-                        _dbcontext.ЕГРЮЛ_СвЗапЕГРЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвНаимЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвОбрЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвПодразд.Where(e => ULSubTables.ЕГРЮЛ_СвПодразд_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвПодразд_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвПредш.Where(e => ULSubTables.ЕГРЮЛ_СвПредш_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвПредш_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвЛицензия.Where(e => ULSubTables.ЕГРЮЛ_СвЛицензия_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвЛицензия_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвПреем.Where(e => ULSubTables.ЕГРЮЛ_СвПреем_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвПреем_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвПрекрЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвРегОрг.Where(e => ULSubTables.ЕГРЮЛ_СвРегОрг_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвРегОрг_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвРегПФ.Where(e => ULSubTables.ЕГРЮЛ_СвРегПФ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвРегПФ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвРегФСС.Where(e => ULSubTables.ЕГРЮЛ_СвРегФСС_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвРегФСС_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвРеорг.Where(e => ULSubTables.ЕГРЮЛ_СвРеорг_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвРеорг_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвСтатус.Where(e => ULSubTables.ЕГРЮЛ_СвСтатус_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвСтатус_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвУстКап.Where(e => ULSubTables.ЕГРЮЛ_СвУстКап_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвУстКап_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвУчетНО.Where(e => ULSubTables.ЕГРЮЛ_СвУчетНО_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвУчетНО_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвУчредит.Where(e => ULSubTables.ЕГРЮЛ_СвУчредит_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвУчредит_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СвЮЛ.Where(e => ULSubTables.ЕГРЮЛ_СвЮЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СвЮЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІР®Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert);
 
-                        _dbcontext.ЕГРЮЛ_СведДолжнФЛ.Where(e => ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert);
+                        _dbcontext.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›.Where(e => ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert);
 
-                        _dbcontext.BulkCopy(IPSubTables.ИсторияИзменений_Insert);
+                        _dbcontext.BulkCopy(IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert);
 
                         ULSubTables.ClearULSubTables();
                     }
@@ -3094,45 +3094,45 @@ namespace AuthTest.Server.Controllers
                     }
                 }
 
-                //var юрЛицо = new ЮрЛицо { /* заполнение данных */ };
-                //dbContext.ЮрЛицо.Add(юрЛицо);
+                //var СЋСЂР›РёС†Рѕ = new Р®СЂР›РёС†Рѕ { /* Р·Р°РїРѕР»РЅРµРЅРёРµ РґР°РЅРЅС‹С… */ };
+                //dbContext.Р®СЂР›РёС†Рѕ.Add(СЋСЂР›РёС†Рѕ);
 
-                // Сохраняем каждые 10 записей или сразу
+                // РЎРѕС…СЂР°РЅСЏРµРј РєР°Р¶РґС‹Рµ 10 Р·Р°РїРёСЃРµР№ РёР»Рё СЃСЂР°Р·Сѓ
                 await dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, "Ошибка в ParseULDataDBAsync");
+                //_logger.LogError(ex, "РћС€РёР±РєР° РІ ParseULDataDBAsync");
                 throw;
             }
         }
 
-        private async Task ParseIPDataDBAsync(Документ document, DbContextTable dbContext)
+        private async Task ParseIPDataDBAsync(Р”РѕРєСѓРјРµРЅС‚ document, DbContextTable dbContext)
         {
             try
             {
-                Документ documentXML = (Документ)document;
+                Р”РѕРєСѓРјРµРЅС‚ documentXML = (Р”РѕРєСѓРјРµРЅС‚)document;
                 bool firstTime = false;
 
-                if (documentXML.СвИП == null)
+                if (documentXML.РЎРІРРџ == null)
                 {
                     return;
                 }
 
-                //while (entitiesInWork.Contains(documentXML.СвИП.ИННФЛ))
+                //while (entitiesInWork.Contains(documentXML.РЎРІРРџ.РРќРќР¤Р›))
                 //{
-                //    Console.WriteLine($"Лицо {documentXML.СвИП.ИННФЛ} уже в обработке, ожидание завершения.");
+                //    Console.WriteLine($"Р›РёС†Рѕ {documentXML.РЎРІРРџ.РРќРќР¤Р›} СѓР¶Рµ РІ РѕР±СЂР°Р±РѕС‚РєРµ, РѕР¶РёРґР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРёСЏ.");
                 //    Thread.Sleep(5000);
                 //}
 
-                //entitiesInWork.Add(documentXML.СвИП.ИННФЛ);
+                //entitiesInWork.Add(documentXML.РЎРІРРџ.РРќРќР¤Р›);
 
                 using (DbContextTable _dbcontext = _contextFactory.CreateDbContext())
                 {
 
                     IP IPDB = new IP();
 
-                    IP data = (from u in _dbcontext.ИП where u.ИНН == documentXML.СвИП.ИННФЛ select u).FirstOrDefault();
+                    IP data = (from u in _dbcontext.РРџ where u.РРќРќ == documentXML.РЎРІРРџ.РРќРќР¤Р› select u).FirstOrDefault();
                     if (data != null)
                     {
                         IPDB = data;
@@ -3141,7 +3141,7 @@ namespace AuthTest.Server.Controllers
                     {
                         lock (locker)
                         {
-                            data = IPSubTables.IPInProcessing.Where(e => e.ИНН == documentXML.СвИП.ИННФЛ).FirstOrDefault();
+                            data = IPSubTables.IPInProcessing.Where(e => e.РРќРќ == documentXML.РЎРІРРџ.РРќРќР¤Р›).FirstOrDefault();
                         }
 
                         if (data != null)
@@ -3151,8 +3151,8 @@ namespace AuthTest.Server.Controllers
                         else
                         {
                             firstTime = true;
-                            IPDB = new IP { ДатаОГРНИП = documentXML.СвИП.ДатаОГРНИП, ИНН = documentXML.СвИП.ИННФЛ, НаимВидИП = documentXML.СвИП.НаимВидИП, КодВидИП = documentXML.СвИП.КодВидИП, ОГРНИП = documentXML.СвИП.ОГРНИП, ИдДок = documentXML.ИдДок };
-                            _dbcontext.ИП.Add(IPDB);
+                            IPDB = new IP { Р”Р°С‚Р°РћР“Р РќРРџ = documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›, РќР°РёРјР’РёРґРРџ = documentXML.РЎРІРРџ.РќР°РёРјР’РёРґРРџ, РљРѕРґР’РёРґРРџ = documentXML.РЎРІРРџ.РљРѕРґР’РёРґРРџ, РћР“Р РќРРџ = documentXML.РЎРІРРџ.РћР“Р РќРРџ, РРґР”РѕРє = documentXML.РРґР”РѕРє };
+                            _dbcontext.РРџ.Add(IPDB);
                             _dbcontext.SaveChanges();
 
                             lock (locker)
@@ -3163,42 +3163,42 @@ namespace AuthTest.Server.Controllers
                     }
 
                     Document documentDB = new Document();
-                    documentDB.ДатаЗагрузки = DateTime.Now;
-                    documentDB.ИдДок = documentXML.ИдДок;
-                    documentDB.idИП = IPDB.Id;
+                    documentDB.Р”Р°С‚Р°Р—Р°РіСЂСѓР·РєРё = DateTime.Now;
+                    documentDB.РРґР”РѕРє = documentXML.РРґР”РѕРє;
+                    documentDB.idРРџ = IPDB.Id;
 
                     IPDB.document = new List<Document> { documentDB };
                     _dbcontext.SaveChanges();
 
-                    _dbcontext.ИП.Update(IPDB);
+                    _dbcontext.РРџ.Update(IPDB);
 
                     foreach (var entity in _dbcontext.Model.GetEntityTypes())
                     {
                         switch (entity.ShortName())
                         {
                             case "EGRIPSVFL":
-                                if (documentXML.СвИП.СвФЛ == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР¤Р› == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSVFL previousEntry;
-                                    var newEntry = new EGRIPSVFL { Id = Guid.NewGuid().ToString(), Пол = documentXML.СвИП.СвФЛ?.Пол, Отчество = documentXML.СвИП.СвФЛ?.ФИОРус?.Отчество, Имя = documentXML.СвИП.СвФЛ?.ФИОРус?.Имя, Фамилия = documentXML.СвИП.СвФЛ?.ФИОРус?.Фамилия, ДатаЗаписи = documentXML.СвИП.СвФЛ?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвФЛ?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSVFL { Id = Guid.NewGuid().ToString(), РџРѕР» = documentXML.РЎРІРРџ.РЎРІР¤Р›?.РџРѕР», РћС‚С‡РµСЃС‚РІРѕ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.Р¤Р°РјРёР»РёСЏ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[0])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвФЛ_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
 
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[0])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвФЛ.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР¤Р›.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвФЛ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвФЛ_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -3207,22 +3207,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвФЛ).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР¤Р›).Load();
 
-                                            if (IPDB.ЕГРИП_СвФЛ?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР¤Р›?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвФЛ?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвФЛ_Delete.Add(IPDB.ЕГРИП_СвФЛ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР¤Р›?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР¤Р›?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[0])
                                         {
-                                            IPSubTables.ЕГРИП_СвФЛ_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвФЛ.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР¤Р›.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -3232,29 +3232,29 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSVFL",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSVFL",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                     //else
                                     //{
                                     //    lock (listLockers[0])
                                     //    {
-                                    //        IPSubTables.ЕГРИП_СвФЛ_Insert.Add(new EGRIPSVFL { Id = IPDB.ЕГРИП_СвФЛ?.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвФЛ?.FirstOrDefault().Id : Guid.NewGuid().ToString(), Пол = documentXML.СвИП.СвФЛ?.Пол, Отчество = documentXML.СвИП.СвФЛ?.ФИОРус?.Отчество, Имя = documentXML.СвИП.СвФЛ?.ФИОРус?.Имя, Фамилия = documentXML.СвИП.СвФЛ?.ФИОРус?.Фамилия, ДатаЗаписи = documentXML.СвИП.СвФЛ?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвФЛ?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id });
+                                    //        IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.Add(new EGRIPSVFL { Id = IPDB.Р•Р“Р РРџ_РЎРІР¤Р›?.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР¤Р›?.FirstOrDefault().Id : Guid.NewGuid().ToString(), РџРѕР» = documentXML.РЎРІРРџ.РЎРІР¤Р›?.РџРѕР», РћС‚С‡РµСЃС‚РІРѕ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РћС‚С‡РµСЃС‚РІРѕ, РРјСЏ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РРјСЏ, Р¤Р°РјРёР»РёСЏ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.Р¤Р°РјРёР»РёСЏ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id });
                                     //    }
                                     //}
                                 }
@@ -3262,7 +3262,7 @@ namespace AuthTest.Server.Controllers
                                 break;
 
                             case "EGRIPOKVED":
-                                if (documentXML.СвИП.СвОКВЭД == null)
+                                if (documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р” == null)
                                 {
                                     continue;
                                 }
@@ -3270,29 +3270,29 @@ namespace AuthTest.Server.Controllers
                                 {
                                     List<EGRIPOKVED> previousEntries;
                                     var currentEntries = new List<EGRIPOKVED>();
-                                    var currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), Версия = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ПрВерсОКВЭД, Наименование = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.НаимОКВЭД, КодОквэд = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, ОснКод = true, ДатаГРНИП = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
-                                    DateTime? currentEntriesDate = documentXML.СвИП.СвОКВЭД.СвОКВЭДОсн != null ? documentXML.СвИП.СвОКВЭД.СвОКВЭДОсн?.ГРНИПДата.ДатаЗаписи : documentXML.СвИП.СвОКВЭД.СвОКВЭДДоп?.FirstOrDefault().ГРНИПДата.ДатаЗаписи;
+                                    var currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), Р’РµСЂСЃРёСЏ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РџСЂР’РµСЂСЃРћРљР’Р­Р”, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РќР°РёРјРћРљР’Р­Р”, РљРѕРґРћРєРІСЌРґ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = true, Р”Р°С‚Р°Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
+                                    DateTime? currentEntriesDate = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”РћСЃРЅ != null ? documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё : documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”.РЎРІРћРљР’Р­Р”Р”РѕРї?.FirstOrDefault().Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё;
 
                                     lock (listLockers[1])
                                     {
-                                        previousEntries = IPSubTables.ЕГРИП_ОКВЭД_Insert.Where(e => e.idЛицо == IPDB.Id).ToList();
+                                        previousEntries = IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).ToList();
                                     }
                                     if (previousEntries.Count != 0)
                                     {
                                         lock (listLockers[1])
                                         {
-                                            if (previousEntries.FirstOrDefault()?.ДатаГРНИП <= currentEntriesDate)
+                                            if (previousEntries.FirstOrDefault()?.Р”Р°С‚Р°Р“Р РќРРџ <= currentEntriesDate)
                                             {
-                                                IPSubTables.ЕГРИП_ОКВЭД_Insert.RemoveAll(e => e.idЛицо == IPDB.Id);
-                                                IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(currentEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.RemoveAll(e => e.idР›РёС†Рѕ == IPDB.Id);
+                                                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(currentEntry);
 
-                                                foreach (СвОКВЭДДоп okvedDop in documentXML.СвИП.СвОКВЭД?.СвОКВЭДДоп)
+                                                foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                                 {
-                                                    currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНИПДата.ГРНИП, ДатаГРНИП = okvedDop.ГРНИПДата.ДатаЗаписи, idЛицо = IPDB.Id };
+                                                    currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = IPDB.Id };
                                                     currentEntries.Add(currentEntry);
                                                     lock (listLockers[1])
                                                     {
-                                                        IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(currentEntry);
+                                                        IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(currentEntry);
                                                     }
                                                 }
                                             }
@@ -3302,38 +3302,38 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_ОКВЭД).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РћРљР’Р­Р”).Load();
 
-                                            if (IPDB.ЕГРИП_ОКВЭД?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РћРљР’Р­Р”?.FirstOrDefault() != null)
                                             {
-                                                previousEntries = IPDB.ЕГРИП_ОКВЭД.ToList();
-                                                IPSubTables.ЕГРИП_ОКВЭД_Delete.Add(IPDB.ЕГРИП_ОКВЭД?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntries = IPDB.Р•Р“Р РРџ_РћРљР’Р­Р”.ToList();
+                                                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Delete.Add(IPDB.Р•Р“Р РРџ_РћРљР’Р­Р”?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[1])
                                         {
-                                            IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(currentEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(currentEntry);
                                         }
 
-                                        foreach (СвОКВЭДДоп okvedDop in documentXML.СвИП.СвОКВЭД?.СвОКВЭДДоп)
+                                        foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                         {
-                                            currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНИПДата.ГРНИП, ДатаГРНИП = okvedDop.ГРНИПДата.ДатаЗаписи, idЛицо = IPDB.Id };
+                                            currentEntry = new EGRIPOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = IPDB.Id };
                                             currentEntries.Add(currentEntry);
                                             lock (listLockers[1])
                                             {
-                                                IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(currentEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(currentEntry);
                                             }
                                         }
                                     }
 
-                                    if (previousEntries?.Count > 0 && previousEntries.FirstOrDefault()?.ДатаГРНИП <= currentEntriesDate)
+                                    if (previousEntries?.Count > 0 && previousEntries.FirstOrDefault()?.Р”Р°С‚Р°Р“Р РќРРџ <= currentEntriesDate)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
                                         foreach (var oldEntry in previousEntries)
                                         {
-                                            var newEntry = currentEntries.Where(e => e.КодОквэд == oldEntry.КодОквэд || e.Наименование == oldEntry.Наименование).FirstOrDefault();
+                                            var newEntry = currentEntries.Where(e => e.РљРѕРґРћРєРІСЌРґ == oldEntry.РљРѕРґРћРєРІСЌРґ || e.РќР°РёРјРµРЅРѕРІР°РЅРёРµ == oldEntry.РќР°РёРјРµРЅРѕРІР°РЅРёРµ).FirstOrDefault();
 
                                             if (newEntry == null)
                                             {
@@ -3344,19 +3344,19 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                                 {
-                                                    if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ИП")
+                                                    if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "РРџ")
                                                         continue;
 
                                                     ChangeLog changes = new ChangeLog();
 
-                                                    changes.Таблица = "EGRIPOKVED";
-                                                    changes.Столбец = property.Name;
-                                                    changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                                    changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                    changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                                    changes.ДатаИзменения = DateTime.Now;
+                                                    changes.РўР°Р±Р»РёС†Р° = "EGRIPOKVED";
+                                                    changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                    changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                                    changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                    changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                                    changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                    //_dbcontext.ИсторияИзменений.Add(changes);
+                                                    //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                     changeList.Add(changes);
                                                 }
                                             }
@@ -3364,18 +3364,18 @@ namespace AuthTest.Server.Controllers
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                     //else
                                     //{
                                     //    lock (listLockers[1])
                                     //    {
-                                    //        IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(new EGRIPOKVED { Id = Guid.NewGuid().ToString(), Версия = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ПрВерсОКВЭД, Наименование = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.НаимОКВЭД, КодОквэд = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, ОснКод = true, ДатаГРНИП = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id });
+                                    //        IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(new EGRIPOKVED { Id = Guid.NewGuid().ToString(), Р’РµСЂСЃРёСЏ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РџСЂР’РµСЂСЃРћРљР’Р­Р”, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РќР°РёРјРћРљР’Р­Р”, РљРѕРґРћРєРІСЌРґ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = true, Р”Р°С‚Р°Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id });
 
-                                    //        foreach (СвОКВЭДДоп okvedDop in documentXML.СвИП.СвОКВЭД?.СвОКВЭДДоп)
+                                    //        foreach (РЎРІРћРљР’Р­Р”Р”РѕРї okvedDop in documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”Р”РѕРї)
                                     //        {
-                                    //            IPSubTables.ЕГРИП_ОКВЭД_Insert.Add(new EGRIPOKVED { Id = Guid.NewGuid().ToString(), КодОквэд = okvedDop.КодОКВЭД, ОснКод = false, Наименование = okvedDop.НаимОКВЭД, Версия = okvedDop.ПрВерсОКВЭД, ГРНИП = okvedDop.ГРНИПДата.ГРНИП, ДатаГРНИП = okvedDop.ГРНИПДата.ДатаЗаписи, idЛицо = IPDB.Id });
+                                    //            IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Add(new EGRIPOKVED { Id = Guid.NewGuid().ToString(), РљРѕРґРћРєРІСЌРґ = okvedDop.РљРѕРґРћРљР’Р­Р”, РћСЃРЅРљРѕРґ = false, РќР°РёРјРµРЅРѕРІР°РЅРёРµ = okvedDop.РќР°РёРјРћРљР’Р­Р”, Р’РµСЂСЃРёСЏ = okvedDop.РџСЂР’РµСЂСЃРћРљР’Р­Р”, Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, Р”Р°С‚Р°Р“Р РќРРџ = okvedDop.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, idР›РёС†Рѕ = IPDB.Id });
                                     //        }
                                     //    }                                    
                                     //}
@@ -3385,27 +3385,27 @@ namespace AuthTest.Server.Controllers
 
                             case "EGRIPSvAdrMJ":
 
-                                if (documentXML.СвИП.СвАдрМЖ == null)
+                                if (documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР– == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvAdrMJ previousEntry;
-                                    var newEntry = new EGRIPSvAdrMJ { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ГРНИП, КодРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.КодРегион, НаимГород = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Город?.НаимГород, НаимНаселПункт = documentXML.СвИП.СвАдрМЖ.АдресРФ?.НаселПункт?.НаимНаселПункт, НаимРайон = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Район?.НаимРайон, НаимРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Регион?.НаимРегион, ТипГород = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Город?.ТипГород, ТипНаселПункт = documentXML.СвИП.СвАдрМЖ.АдресРФ?.НаселПункт?.ТипНаселПункт, ТипРайон = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Район?.ТипРайон, ТипРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Регион?.ТипРегион, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvAdrMJ { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, РљРѕРґР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚, РќР°РёРјР Р°Р№РѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РќР°РёРјР Р°Р№РѕРЅ, РќР°РёРјР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РўРёРїР“РѕСЂРѕРґ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїР Р°Р№РѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РўРёРїР Р°Р№РѕРЅ, РўРёРїР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[2])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвАдрМЖ_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[2])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвАдрМЖ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвАдрМЖ_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -3413,25 +3413,25 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвАдрМЖ).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–).Load();
 
-                                            if (IPDB.ЕГРИП_СвАдрМЖ?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвАдрМЖ?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвАдрМЖ_Delete.Add(IPDB.ЕГРИП_СвАдрМЖ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
 
                                         }
 
                                         lock (listLockers[2])
                                         {
-                                            IPSubTables.ЕГРИП_СвАдрМЖ_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert.Add(newEntry);
                                         }
                                     }
 
 
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -3441,88 +3441,88 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvAdrMJ",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvAdrMJ",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
 
                                     //else
                                     //{                               
-                                    //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвАдрМЖ).Load();
+                                    //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–).Load();
 
-                                    //if (IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault() != null)
+                                    //if (IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault() != null)
                                     //{
-                                    //    _dbcontext.Entry(IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault()).State = EntityState.Deleted;
-                                    //    var previousEntry = IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault();
-                                    //    IPDB.ЕГРИП_СвАдрМЖ = new List<EGRIPSvAdrMJ> {  };
-                                    //    _dbcontext.Entry(IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault()).State = EntityState.Added;
+                                    //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault()).State = EntityState.Deleted;
+                                    //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault();
+                                    //    IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР– = new List<EGRIPSvAdrMJ> {  };
+                                    //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault()).State = EntityState.Added;
 
                                     //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                     //    foreach (var property in typeof(EGRIPSvAdrMJ).GetProperties())
                                     //    {
-                                    //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault())?.ToString())
+                                    //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault())?.ToString())
                                     //        {
                                     //            ChangeLog changes = new ChangeLog();
 
-                                    //            changes.Таблица = "EGRIPSvAdrMJ";
-                                    //            changes.Столбец = property.Name;
-                                    //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                    //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвАдрМЖ.FirstOrDefault())?.ToString();
-                                    //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                    //            changes.ДатаИзменения = DateTime.Now;
+                                    //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvAdrMJ";
+                                    //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                    //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                    //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.FirstOrDefault())?.ToString();
+                                    //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                    //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                    //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                    //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                     //            changeList.Add(changes);
                                     //        }
                                     //    }
 
-                                    //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                    //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                     //}
                                     //else
                                     //{
-                                    //    IPDB.ЕГРИП_СвАдрМЖ = new List<EGRIPSvAdrMJ> { new EGRIPSvAdrMJ { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвАдрМЖ.ГРНИПДата.ГРНИП, КодРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.КодРегион, НаимГород = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Город?.НаимГород, НаимНаселПункт = documentXML.СвИП.СвАдрМЖ.АдресРФ?.НаселПункт?.НаимНаселПункт, НаимРайон = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Район?.НаимРайон, НаимРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Регион?.НаимРегион, ТипГород = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Город?.ТипГород, ТипНаселПункт = documentXML.СвИП.СвАдрМЖ.АдресРФ?.НаселПункт?.ТипНаселПункт, ТипРайон = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Район?.ТипРайон, ТипРегион = documentXML.СвИП.СвАдрМЖ.АдресРФ?.Регион?.ТипРегион, idЛицо = IPDB.Id } };
+                                    //    IPDB.Р•Р“Р РРџ_РЎРІРђРґСЂРњР– = new List<EGRIPSvAdrMJ> { new EGRIPSvAdrMJ { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, РљРѕРґР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РљРѕРґР РµРіРёРѕРЅ, РќР°РёРјР“РѕСЂРѕРґ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РќР°РёРјР“РѕСЂРѕРґ, РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РќР°РёРјРќР°СЃРµР»РџСѓРЅРєС‚, РќР°РёРјР Р°Р№РѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РќР°РёРјР Р°Р№РѕРЅ, РќР°РёРјР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РќР°РёРјР РµРіРёРѕРЅ, РўРёРїР“РѕСЂРѕРґ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р“РѕСЂРѕРґ?.РўРёРїР“РѕСЂРѕРґ, РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.РќР°СЃРµР»РџСѓРЅРєС‚?.РўРёРїРќР°СЃРµР»РџСѓРЅРєС‚, РўРёРїР Р°Р№РѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р Р°Р№РѕРЅ?.РўРёРїР Р°Р№РѕРЅ, РўРёРїР РµРіРёРѕРЅ = documentXML.РЎРІРРџ.РЎРІРђРґСЂРњР–.РђРґСЂРµСЃР Р¤?.Р РµРіРёРѕРЅ?.РўРёРїР РµРіРёРѕРЅ, idР›РёС†Рѕ = IPDB.Id } };
                                     //}
                                 }
 
                                 break;
 
                             case "EGRIPSvGrajd":
-                                if (documentXML.СвИП.СвГражд == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvGrajd previousEntry;
-                                    var newEntry = new EGRIPSvGrajd { Id = Guid.NewGuid().ToString(), ВидГражд = documentXML.СвИП.СвГражд.ВидГражд, ДатаЗаписи = documentXML.СвИП.СвГражд.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвГражд.ГРНИПДата.ГРНИП, НаимСтран = documentXML.СвИП.СвГражд.НаимСтран, ОКСМ = documentXML.СвИП.СвГражд.ОКСМ, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvGrajd { Id = Guid.NewGuid().ToString(), Р’РёРґР“СЂР°Р¶Рґ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р’РёРґР“СЂР°Р¶Рґ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, РќР°РёРјРЎС‚СЂР°РЅ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РќР°РёРјРЎС‚СЂР°РЅ, РћРљРЎРњ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РћРљРЎРњ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[3])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвГражд_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[3])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвГражд.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвГражд_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвГражд_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -3530,22 +3530,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвГражд).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ).Load();
 
-                                            if (IPDB.ЕГРИП_СвГражд?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвГражд?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвГражд_Delete.Add(IPDB.ЕГРИП_СвГражд?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[3])
                                         {
-                                            IPSubTables.ЕГРИП_СвГражд_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвГражд.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -3555,87 +3555,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvGrajd",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvGrajd",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
 
 
-                                    //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвГражд).Load();
+                                    //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ).Load();
 
-                                    //if (IPDB.ЕГРИП_СвГражд.FirstOrDefault() != null)
+                                    //if (IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault() != null)
                                     //{
-                                    //    _dbcontext.Entry(IPDB.ЕГРИП_СвГражд.FirstOrDefault()).State = EntityState.Deleted;
-                                    //    var previousEntry = IPDB.ЕГРИП_СвГражд.FirstOrDefault();
-                                    //    IPDB.ЕГРИП_СвГражд = new List<EGRIPSvGrajd> { new EGRIPSvGrajd { Id = IPDB.ЕГРИП_СвГражд.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвГражд.FirstOrDefault().Id : Guid.NewGuid().ToString(), ВидГражд = documentXML.СвИП.СвГражд.ВидГражд, ДатаЗаписи = documentXML.СвИП.СвГражд.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвГражд.ГРНИПДата.ГРНИП, НаимСтран = documentXML.СвИП.СвГражд.НаимСтран, ОКСМ = documentXML.СвИП.СвГражд.ОКСМ, idЛицо = IPDB.Id } };
-                                    //    _dbcontext.Entry(IPDB.ЕГРИП_СвГражд.FirstOrDefault()).State = EntityState.Added;
+                                    //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault()).State = EntityState.Deleted;
+                                    //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault();
+                                    //    IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ = new List<EGRIPSvGrajd> { new EGRIPSvGrajd { Id = IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault().Id : Guid.NewGuid().ToString(), Р’РёРґР“СЂР°Р¶Рґ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р’РёРґР“СЂР°Р¶Рґ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, РќР°РёРјРЎС‚СЂР°РЅ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РќР°РёРјРЎС‚СЂР°РЅ, РћРљРЎРњ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РћРљРЎРњ, idР›РёС†Рѕ = IPDB.Id } };
+                                    //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault()).State = EntityState.Added;
 
                                     //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                     //    foreach (var property in typeof(EGRIPSvGrajd).GetProperties())
                                     //    {
-                                    //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвГражд.FirstOrDefault())?.ToString())
+                                    //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault())?.ToString())
                                     //        {
                                     //            ChangeLog changes = new ChangeLog();
 
-                                    //            changes.Таблица = "EGRIPSvGrajd";
-                                    //            changes.Столбец = property.Name;
-                                    //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                    //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвГражд.FirstOrDefault())?.ToString();
-                                    //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                    //            changes.ДатаИзменения = DateTime.Now;
+                                    //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvGrajd";
+                                    //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                    //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                    //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.FirstOrDefault())?.ToString();
+                                    //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                    //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                    //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                    //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                     //            changeList.Add(changes);
                                     //        }
                                     //    }
 
-                                    //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                    //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                     //}
                                     //else
                                     //{
-                                    //    IPDB.ЕГРИП_СвГражд = new List<EGRIPSvGrajd> { new EGRIPSvGrajd { Id = Guid.NewGuid().ToString(), ВидГражд = documentXML.СвИП.СвГражд.ВидГражд, ДатаЗаписи = documentXML.СвИП.СвГражд.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвГражд.ГРНИПДата.ГРНИП, НаимСтран = documentXML.СвИП.СвГражд.НаимСтран, ОКСМ = documentXML.СвИП.СвГражд.ОКСМ, idЛицо = IPDB.Id } };
+                                    //    IPDB.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ = new List<EGRIPSvGrajd> { new EGRIPSvGrajd { Id = Guid.NewGuid().ToString(), Р’РёРґР“СЂР°Р¶Рґ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р’РёРґР“СЂР°Р¶Рґ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, РќР°РёРјРЎС‚СЂР°РЅ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РќР°РёРјРЎС‚СЂР°РЅ, РћРљРЎРњ = documentXML.РЎРІРРџ.РЎРІР“СЂР°Р¶Рґ.РћРљРЎРњ, idР›РёС†Рѕ = IPDB.Id } };
                                     //}
                                 }
 
                                 break;
 
                             case "EGRIPSvIP":
-                                if (documentXML.СвИП == null)
+                                if (documentXML.РЎРІРРџ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvIP previousEntry;
-                                    var newEntry = new EGRIPSvIP { Id = Guid.NewGuid().ToString(), НаимВидИП = documentXML.СвИП.НаимВидИП, КодВидИП = documentXML.СвИП.КодВидИП, ИНН = documentXML.СвИП.ИННФЛ, ДатаОГРН = documentXML.СвИП.ДатаОГРНИП, ОГРН = documentXML.СвИП.ОГРНИП, ДатаВып = documentXML.СвИП.ДатаВып, НаимСокр = documentXML.СвИП.СвФЛ?.ФИОРус?.Фамилия + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Имя + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Отчество, ОКВЭДОсн = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvIP { Id = Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРРџ = documentXML.РЎРІРРџ.РќР°РёРјР’РёРґРРџ, РљРѕРґР’РёРґРРџ = documentXML.РЎРІРРџ.РљРѕРґР’РёРґРРџ, РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, РћР“Р Рќ = documentXML.РЎРІРРџ.РћР“Р РќРРџ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.Р¤Р°РјРёР»РёСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РРјСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РћС‚С‡РµСЃС‚РІРѕ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[4])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвИП_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[4])
                                         {
-                                            if (previousEntry.ДатаОГРН <= documentXML.СвИП.ДатаОГРНИП)
+                                            if (previousEntry.Р”Р°С‚Р°РћР“Р Рќ <= documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ)
                                             {
-                                                IPSubTables.ЕГРИП_СвИП_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвИП_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -3643,22 +3643,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвИП).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРРџ).Load();
 
-                                            if (IPDB.ЕГРИП_СвИП?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІРРџ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвИП?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвИП_Delete.Add(IPDB.ЕГРИП_СвИП?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРРџ?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІРРџ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[4])
                                         {
-                                            IPSubTables.ЕГРИП_СвИП_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаОГРН <= documentXML.СвИП.ДатаОГРНИП)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°РћР“Р Рќ <= documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -3668,67 +3668,67 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvIP",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvIP",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвИП).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРРџ).Load();
 
-                                //if (IPDB.ЕГРИП_СвИП.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвИП.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвИП.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвИП = new List<EGRIPSvIP> { new EGRIPSvIP { Id = IPDB.ЕГРИП_СвИП.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвИП.FirstOrDefault().Id : Guid.NewGuid().ToString(), НаимВидИП = documentXML.СвИП.НаимВидИП, КодВидИП = documentXML.СвИП.КодВидИП, ИНН = documentXML.СвИП.ИННФЛ, ДатаОГРН = documentXML.СвИП.ДатаОГРНИП, ОГРН = documentXML.СвИП.ОГРНИП, ДатаВып = documentXML.СвИП.ДатаВып, НаимСокр = documentXML.СвИП.СвФЛ?.ФИОРус?.Фамилия + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Имя + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Отчество, ОКВЭДОсн = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвИП.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРРџ = new List<EGRIPSvIP> { new EGRIPSvIP { Id = IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault().Id : Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРРџ = documentXML.РЎРІРРџ.РќР°РёРјР’РёРґРРџ, РљРѕРґР’РёРґРРџ = documentXML.РЎРІРРџ.РљРѕРґР’РёРґРРџ, РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, РћР“Р Рќ = documentXML.РЎРІРРџ.РћР“Р РќРРџ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.Р¤Р°РјРёР»РёСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РРјСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РћС‚С‡РµСЃС‚РІРѕ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvIP).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвИП.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvIP";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвИП.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvIP";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРРџ.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвИП = new List<EGRIPSvIP> { new EGRIPSvIP { Id = Guid.NewGuid().ToString(), НаимВидИП = documentXML.СвИП.НаимВидИП, КодВидИП = documentXML.СвИП.КодВидИП, ИНН = documentXML.СвИП.ИННФЛ, ДатаОГРН = documentXML.СвИП.ДатаОГРНИП, ОГРН = documentXML.СвИП.ОГРНИП, ДатаВып = documentXML.СвИП.ДатаВып, НаимСокр = documentXML.СвИП.СвФЛ?.ФИОРус?.Фамилия + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Имя + " " + documentXML.СвИП.СвФЛ?.ФИОРус?.Отчество, ОКВЭДОсн = documentXML.СвИП.СвОКВЭД?.СвОКВЭДОсн?.КодОКВЭД, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРРџ = new List<EGRIPSvIP> { new EGRIPSvIP { Id = Guid.NewGuid().ToString(), РќР°РёРјР’РёРґРРџ = documentXML.РЎРІРРџ.РќР°РёРјР’РёРґРРџ, РљРѕРґР’РёРґРРџ = documentXML.РЎРІРРџ.РљРѕРґР’РёРґРРџ, РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›, Р”Р°С‚Р°РћР“Р Рќ = documentXML.РЎРІРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, РћР“Р Рќ = documentXML.РЎРІРРџ.РћР“Р РќРРџ, Р”Р°С‚Р°Р’С‹Рї = documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї, РќР°РёРјРЎРѕРєСЂ = documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.Р¤Р°РјРёР»РёСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РРјСЏ + " " + documentXML.РЎРІРРџ.РЎРІР¤Р›?.Р¤РРћР СѓСЃ?.РћС‚С‡РµСЃС‚РІРѕ, РћРљР’Р­Р”РћСЃРЅ = documentXML.РЎРІРРџ.РЎРІРћРљР’Р­Р”?.РЎРІРћРљР’Р­Р”РћСЃРЅ?.РљРѕРґРћРљР’Р­Р”, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvLicense":
-                                if (documentXML.СвИП.СвЛицензия == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР›РёС†РµРЅР·РёСЏ == null)
                                 {
                                     continue;
                                 }
@@ -3741,27 +3741,27 @@ namespace AuthTest.Server.Controllers
 
                                     lock (listLockers[5])
                                     {
-                                        foreach (var entryDatePair in IPSubTables.ЕГРИП_СвЛицензия_Insert.Where(e => e.Entry.idЛицо == IPDB.Id))
+                                        foreach (var entryDatePair in IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Where(e => e.Entry.idР›РёС†Рѕ == IPDB.Id))
                                         {
                                             previousEntries.Add(entryDatePair.Entry);
                                         }
 
-                                        var licenseArray = IPSubTables.ЕГРИП_СвЛицензия_Insert.Where(e => e.Entry.idЛицо == IPDB.Id).Select(e => e.Date).ToArray();
+                                        var licenseArray = IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Where(e => e.Entry.idР›РёС†Рѕ == IPDB.Id).Select(e => e.Date).ToArray();
                                         previousEntriesDate = licenseArray.Count() > 0 ? licenseArray.Max() : DateTime.MinValue;
                                     }
                                     if (previousEntries.Count != 0)
                                     {
                                         lock (listLockers[5])
                                         {
-                                            if (previousEntriesDate <= documentXML.СвИП.ДатаВып)
+                                            if (previousEntriesDate <= documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї)
                                             {
-                                                IPSubTables.ЕГРИП_СвЛицензия_Insert.RemoveAll(e => e.Entry.idЛицо == IPDB.Id);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.RemoveAll(e => e.Entry.idР›РёС†Рѕ == IPDB.Id);
 
-                                                foreach (var svLicense in documentXML.СвИП.СвЛицензия)
+                                                foreach (var svLicense in documentXML.РЎРІРРџ.РЎРІР›РёС†РµРЅР·РёСЏ)
                                                 {
-                                                    currentEntry = new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНИПДата.ДатаЗаписи, ГРНИП = svLicense.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                                    currentEntry = new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
                                                     currentEntries.Add(currentEntry);
-                                                    IPSubTables.ЕГРИП_СвЛицензия_Insert.Add((currentEntry, documentXML.СвИП.ДатаВып));
+                                                    IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Add((currentEntry, documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї));
                                                 }
                                             }
                                         }
@@ -3771,29 +3771,29 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвЛицензия).Load();
-                                            if (IPDB.ЕГРИП_СвЛицензия?.FirstOrDefault() != null)
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ).Load();
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ?.FirstOrDefault() != null)
                                             {
-                                                previousEntries = IPDB.ЕГРИП_СвЛицензия.ToList();
-                                                IPSubTables.ЕГРИП_СвЛицензия_Delete.Add(IPDB.ЕГРИП_СвЛицензия?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntries = IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.ToList();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
                                         lock (listLockers[5])
                                         {
-                                            foreach (var svLicense in documentXML.СвИП.СвЛицензия)
+                                            foreach (var svLicense in documentXML.РЎРІРРџ.РЎРІР›РёС†РµРЅР·РёСЏ)
                                             {
-                                                currentEntry = new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНИПДата.ДатаЗаписи, ГРНИП = svLicense.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                                currentEntry = new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
                                                 currentEntries.Add(currentEntry);
-                                                IPSubTables.ЕГРИП_СвЛицензия_Insert.Add((currentEntry, documentXML.СвИП.ДатаВып));
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Add((currentEntry, documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї));
                                             }
                                         }
                                     }
-                                    if (previousEntries?.Count > 0 && previousEntriesDate <= documentXML.СвИП.ДатаВып)
+                                    if (previousEntries?.Count > 0 && previousEntriesDate <= documentXML.РЎРІРРџ.Р”Р°С‚Р°Р’С‹Рї)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
                                         foreach (var oldEntry in previousEntries)
                                         {
-                                            var newEntry = currentEntries.Where(e => e.НомЛиц == oldEntry.НомЛиц).FirstOrDefault();
+                                            var newEntry = currentEntries.Where(e => e.РќРѕРјР›РёС† == oldEntry.РќРѕРјР›РёС†).FirstOrDefault();
                                             if (newEntry == null)
                                             {
                                                 continue;
@@ -3803,19 +3803,19 @@ namespace AuthTest.Server.Controllers
 
                                                 if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                                 {
-                                                    if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ИП")
+                                                    if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "РРџ")
                                                         continue;
 
                                                     ChangeLog changes = new ChangeLog();
 
-                                                    changes.Таблица = "EGRIPSvLicense";
-                                                    changes.Столбец = property.Name;
-                                                    changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                                    changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                                    changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                                    changes.ДатаИзменения = DateTime.Now;
+                                                    changes.РўР°Р±Р»РёС†Р° = "EGRIPSvLicense";
+                                                    changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                                    changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                                    changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                                    changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                                    changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                                    //_dbcontext.ИсторияИзменений.Add(changes);
+                                                    //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                     changeList.Add(changes);
                                                 }
                                             }
@@ -3823,37 +3823,37 @@ namespace AuthTest.Server.Controllers
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
 
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвЛицензия).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ).Load();
 
-                                //if (IPDB.ЕГРИП_СвЛицензия.Count > 0)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.Count > 0)
                                 //{
-                                //    foreach (EGRIPSvLicense entry in IPDB.ЕГРИП_СвЛицензия)
+                                //    foreach (EGRIPSvLicense entry in IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
                                 //        _dbcontext.Entry(entry).State = EntityState.Deleted;
                                 //    }
 
-                                //    var previousEntries = IPDB.ЕГРИП_СвЛицензия;
-                                //    IPDB.ЕГРИП_СвЛицензия = new List<EGRIPSvLicense>();
+                                //    var previousEntries = IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ = new List<EGRIPSvLicense>();
 
-                                //    foreach (var svLicense in documentXML.СвИП.СвЛицензия)
+                                //    foreach (var svLicense in documentXML.РЎРІРРџ.РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
-                                //        IPDB.ЕГРИП_СвЛицензия.Add(new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНИПДата.ДатаЗаписи, ГРНИП = svLicense.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id });
-                                //        _dbcontext.Entry(IPDB.ЕГРИП_СвЛицензия.Last()).State = EntityState.Added;
+                                //        IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.Add(new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id });
+                                //        _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.Last()).State = EntityState.Added;
                                 //    }
 
-                                //    var currentEntries = IPDB.ЕГРИП_СвЛицензия;
+                                //    var currentEntries = IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var oldEntry in previousEntries)
                                 //    {
-                                //        var newEntry = currentEntries.Where(e => e.НомЛиц == oldEntry.НомЛиц).FirstOrDefault();
+                                //        var newEntry = currentEntries.Where(e => e.РќРѕРјР›РёС† == oldEntry.РќРѕРјР›РёС†).FirstOrDefault();
 
                                 //        if (newEntry == null)
                                 //        {
@@ -3865,60 +3865,60 @@ namespace AuthTest.Server.Controllers
 
                                 //            if (property.GetValue(oldEntry)?.ToString() != property.GetValue(newEntry)?.ToString())
                                 //            {
-                                //                if (property.Name == "Id" || property.Name == "idЛицо" || property.Name == "ИП")
+                                //                if (property.Name == "Id" || property.Name == "idР›РёС†Рѕ" || property.Name == "РРџ")
                                 //                    continue;
 
                                 //                ChangeLog changes = new ChangeLog();
 
-                                //                changes.Таблица = "EGRIPSvLicense";
-                                //                changes.Столбец = property.Name;
-                                //                changes.ЗначениеДо = property.GetValue(oldEntry)?.ToString();
-                                //                changes.ЗначениеПосле = property.GetValue(newEntry)?.ToString();
-                                //                changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //                changes.ДатаИзменения = DateTime.Now;
+                                //                changes.РўР°Р±Р»РёС†Р° = "EGRIPSvLicense";
+                                //                changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //                changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(oldEntry)?.ToString();
+                                //                changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString();
+                                //                changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //                changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //                //_dbcontext.ИсторияИзменений.Add(changes);
+                                //                //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //                changeList.Add(changes);
                                 //            }
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвЛицензия = new List<EGRIPSvLicense>();
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ = new List<EGRIPSvLicense>();
 
-                                //    foreach (var svLicense in documentXML.СвИП.СвЛицензия)
+                                //    foreach (var svLicense in documentXML.РЎРІРРџ.РЎРІР›РёС†РµРЅР·РёСЏ)
                                 //    {
-                                //        IPDB.ЕГРИП_СвЛицензия.Add(new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), ДатаНачЛиц = svLicense.ДатаНачЛиц, ДатаЛиц = svLicense.ДатаЛиц, НомЛиц = svLicense.НомЛиц, НаимЛицВидДеят = svLicense.НаимЛицВидДеят, ЛицОргВыдЛиц = svLicense.ЛицОргВыдЛиц, ДатаОкончЛиц = svLicense.ДатаОкончЛиц, ДатаЗаписи = svLicense.ГРНИПДата.ДатаЗаписи, ГРНИП = svLicense.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id });
+                                //        IPDB.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.Add(new EGRIPSvLicense { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РќР°С‡Р›РёС† = svLicense.Р”Р°С‚Р°РќР°С‡Р›РёС†, Р”Р°С‚Р°Р›РёС† = svLicense.Р”Р°С‚Р°Р›РёС†, РќРѕРјР›РёС† = svLicense.РќРѕРјР›РёС†, РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚ = svLicense.РќР°РёРјР›РёС†Р’РёРґР”РµСЏС‚, Р›РёС†РћСЂРіР’С‹РґР›РёС† = svLicense.Р›РёС†РћСЂРіР’С‹РґР›РёС†, Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС† = svLicense.Р”Р°С‚Р°РћРєРѕРЅС‡Р›РёС†, Р”Р°С‚Р°Р—Р°РїРёСЃРё = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = svLicense.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id });
                                 //    }
                                 //}
 
                                 break;
 
                             case "EGRIPSvPrekras_":
-                                if (documentXML.СвИП.СвПрекращ == null)
+                                if (documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvPrekras_ previousEntry;
-                                    var newEntry = new EGRIPSvPrekras_ { Id = Guid.NewGuid().ToString(), ДатаПрекращ = documentXML.СвИП.СвПрекращ.СвСтатус?.ДатаПрекращ, КодСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.КодСтатус, НаимСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.НаимСтатус, ДатаЗаписи = documentXML.СвИП.СвПрекращ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвПрекращ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvPrekras_ { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР°С‰ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.Р”Р°С‚Р°РџСЂРµРєСЂР°С‰, РљРѕРґРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[6])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвПрекращ_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[6])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвПрекращ.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвПрекращ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвПрекращ_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -3926,22 +3926,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвПрекращ).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰).Load();
 
-                                            if (IPDB.ЕГРИП_СвПрекращ?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвПрекращ?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвПрекращ_Delete.Add(IPDB.ЕГРИП_СвПрекращ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[6])
                                         {
-                                            IPSubTables.ЕГРИП_СвПрекращ_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвПрекращ.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -3951,87 +3951,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvPrekras_",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvPrekras_",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвПрекращ).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰).Load();
 
-                                //if (IPDB.ЕГРИП_СвПрекращ.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвПрекращ.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвПрекращ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвПрекращ = new List<EGRIPSvPrekras_> { new EGRIPSvPrekras_ { Id = IPDB.ЕГРИП_СвПрекращ.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвПрекращ.FirstOrDefault().Id : Guid.NewGuid().ToString(), ДатаПрекращ = documentXML.СвИП.СвПрекращ.СвСтатус?.ДатаПрекращ, КодСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.КодСтатус, НаимСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.НаимСтатус, ДатаЗаписи = documentXML.СвИП.СвПрекращ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвПрекращ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвПрекращ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰ = new List<EGRIPSvPrekras_> { new EGRIPSvPrekras_ { Id = IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault().Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР°С‰ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.Р”Р°С‚Р°РџСЂРµРєСЂР°С‰, РљРѕРґРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvPrekras_).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвПрекращ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvPrekras_";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвПрекращ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvPrekras_";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвПрекращ = new List<EGRIPSvPrekras_> { new EGRIPSvPrekras_ { Id = Guid.NewGuid().ToString(), ДатаПрекращ = documentXML.СвИП.СвПрекращ.СвСтатус?.ДатаПрекращ, КодСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.КодСтатус, НаимСтатус = documentXML.СвИП.СвПрекращ.СвСтатус?.НаимСтатус, ДатаЗаписи = documentXML.СвИП.СвПрекращ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвПрекращ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰ = new List<EGRIPSvPrekras_> { new EGRIPSvPrekras_ { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°РџСЂРµРєСЂР°С‰ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.Р”Р°С‚Р°РџСЂРµРєСЂР°С‰, РљРѕРґРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РљРѕРґРЎС‚Р°С‚СѓСЃ, РќР°РёРјРЎС‚Р°С‚СѓСЃ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.РЎРІРЎС‚Р°С‚СѓСЃ?.РќР°РёРјРЎС‚Р°С‚СѓСЃ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРџСЂРµРєСЂР°С‰.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvRegIP":
-                                if (documentXML.СвИП.СвРегИП == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР РµРіРРџ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvRegIP previousEntry;
-                                    var newEntry = new EGRIPSvRegIP { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвИП.СвРегИП.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегИП.ГРНИП, ДатаОГРНИП = documentXML.СвИП.СвРегИП.ДатаОГРНИП, ДатаРег = documentXML.СвИП.СвРегИП.ДатаРег, ИНН = documentXML.СвИП.СвРегИП.ИНН, НаимРО = documentXML.СвИП.СвРегИП.НаимРО, НаимЮЛПолн = documentXML.СвИП.СвРегИП.НаимЮЛПолн, ОГРН = documentXML.СвИП.СвРегИП.ОГРН, ОГРНИП = documentXML.СвИП.СвРегИП.ОГРНИП, РегНом = documentXML.СвИП.СвРегИП.РегНом, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvRegIP { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р“Р РќРРџ, Р”Р°С‚Р°РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р РµРі, РРќРќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РРќРќ, РќР°РёРјР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР Рћ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР®Р›РџРѕР»РЅ, РћР“Р Рќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р Рќ, РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р РќРРџ, Р РµРіРќРѕРј = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р РµРіРќРѕРј, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[7])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвРегИП_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[7])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегИП.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвРегИП_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвРегИП_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -4039,23 +4039,23 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегИП).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРРџ).Load();
 
-                                            if (IPDB.ЕГРИП_СвРегИП?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвРегИП?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвРегИП_Delete.Add(IPDB.ЕГРИП_СвРегИП?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
                                         lock (listLockers[7])
                                         {
-                                            IPSubTables.ЕГРИП_СвРегИП_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert.Add(newEntry);
                                         }
                                     }
 
 
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегИП.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -4065,87 +4065,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvRegIP",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvRegIP",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегИП).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРРџ).Load();
 
-                                //if (IPDB.ЕГРИП_СвРегИП.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвРегИП.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегИП.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвРегИП = new List<EGRIPSvRegIP> { new EGRIPSvRegIP { Id = IPDB.ЕГРИП_СвРегИП.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвРегИП.FirstOrDefault().Id : Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвИП.СвРегИП.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегИП.ГРНИП, ДатаОГРНИП = documentXML.СвИП.СвРегИП.ДатаОГРНИП, ДатаРег = documentXML.СвИП.СвРегИП.ДатаРег, ИНН = documentXML.СвИП.СвРегИП.ИНН, НаимРО = documentXML.СвИП.СвРегИП.НаимРО, НаимЮЛПолн = documentXML.СвИП.СвРегИП.НаимЮЛПолн, ОГРН = documentXML.СвИП.СвРегИП.ОГРН, ОГРНИП = documentXML.СвИП.СвРегИП.ОГРНИП, РегНом = documentXML.СвИП.СвРегИП.РегНом, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегИП.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ = new List<EGRIPSvRegIP> { new EGRIPSvRegIP { Id = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault().Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р“Р РќРРџ, Р”Р°С‚Р°РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р РµРі, РРќРќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РРќРќ, РќР°РёРјР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР Рћ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР®Р›РџРѕР»РЅ, РћР“Р Рќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р Рќ, РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р РќРРџ, Р РµРіРќРѕРј = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р РµРіРќРѕРј, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvRegIP).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвРегИП.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvRegIP";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвРегИП.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvRegIP";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвРегИП = new List<EGRIPSvRegIP> { new EGRIPSvRegIP { Id = Guid.NewGuid().ToString(), ДатаЗаписи = documentXML.СвИП.СвРегИП.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегИП.ГРНИП, ДатаОГРНИП = documentXML.СвИП.СвРегИП.ДатаОГРНИП, ДатаРег = documentXML.СвИП.СвРегИП.ДатаРег, ИНН = documentXML.СвИП.СвРегИП.ИНН, НаимРО = documentXML.СвИП.СвРегИП.НаимРО, НаимЮЛПолн = documentXML.СвИП.СвРегИП.НаимЮЛПолн, ОГРН = documentXML.СвИП.СвРегИП.ОГРН, ОГРНИП = documentXML.СвИП.СвРегИП.ОГРНИП, РегНом = documentXML.СвИП.СвРегИП.РегНом, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРРџ = new List<EGRIPSvRegIP> { new EGRIPSvRegIP { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р“Р РќРРџ, Р”Р°С‚Р°РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°РћР“Р РќРРџ, Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р”Р°С‚Р°Р РµРі, РРќРќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РРќРќ, РќР°РёРјР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР Рћ, РќР°РёРјР®Р›РџРѕР»РЅ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РќР°РёРјР®Р›РџРѕР»РЅ, РћР“Р Рќ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р Рќ, РћР“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.РћР“Р РќРРџ, Р РµРіРќРѕРј = documentXML.РЎРІРРџ.РЎРІР РµРіРРџ.Р РµРіРќРѕРј, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvGegOrg":
-                                if (documentXML.СвИП.СвРегОрг == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvGegOrg previousEntry;
-                                    var newEntry = new EGRIPSvGegOrg { Id = Guid.NewGuid().ToString(), АдрРО = documentXML.СвИП.СвРегОрг?.АдрРО, КодНО = documentXML.СвИП.СвРегОрг?.КодНО, НаимНО = documentXML.СвИП.СвРегОрг?.НаимНО, ДатаЗаписи = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvGegOrg { Id = Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[8])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвРегОрг_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[8])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегОрг.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвРегОрг_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвРегОрг_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert.Add(newEntry);
                                             }
                                         }
                                     }
@@ -4153,21 +4153,21 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегОрг).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі).Load();
 
-                                            if (IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвРегОрг_Delete.Add(IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
                                         lock (listLockers[8])
                                         {
-                                            IPSubTables.ЕГРИП_СвРегОрг_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегОрг.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -4177,87 +4177,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvGegOrg",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvGegOrg",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегОрг).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі).Load();
 
-                                //if (IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвРегОрг = new List<EGRIPSvGegOrg> { new EGRIPSvGegOrg { Id = IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault().Id : Guid.NewGuid().ToString(), АдрРО = documentXML.СвИП.СвРегОрг?.АдрРО, КодНО = documentXML.СвИП.СвРегОрг?.КодНО, НаимНО = documentXML.СвИП.СвРегОрг?.НаимНО, ДатаЗаписи = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі = new List<EGRIPSvGegOrg> { new EGRIPSvGegOrg { Id = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault().Id : Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvGegOrg).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvGegOrg";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвРегОрг?.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvGegOrg";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі?.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвРегОрг = new List<EGRIPSvGegOrg> { new EGRIPSvGegOrg { Id = Guid.NewGuid().ToString(), АдрРО = documentXML.СвИП.СвРегОрг?.АдрРО, КодНО = documentXML.СвИП.СвРегОрг?.КодНО, НаимНО = documentXML.СвИП.СвРегОрг?.НаимНО, ДатаЗаписи = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегОрг?.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі = new List<EGRIPSvGegOrg> { new EGRIPSvGegOrg { Id = Guid.NewGuid().ToString(), РђРґСЂР Рћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РђРґСЂР Рћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РљРѕРґРќРћ, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРћСЂРі?.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvRegPF":
-                                if (documentXML.СвИП.СвРегПФ == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvRegPF previousEntry;
-                                    var newEntry = new EGRIPSvRegPF { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвИП.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвИП.СвРегПФ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегПФ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvRegPF { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[9])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвРегПФ_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[9])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегПФ.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвРегПФ_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвРегПФ_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -4266,21 +4266,21 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегПФ).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРџР¤).Load();
 
-                                            if (IPDB.ЕГРИП_СвРегПФ?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвРегПФ?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвРегПФ_Delete.Add(IPDB.ЕГРИП_СвРегПФ?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
                                         lock (listLockers[9])
                                         {
-                                            IPSubTables.ЕГРИП_СвРегПФ_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегПФ.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -4290,87 +4290,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvRegPF",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvRegPF",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегПФ).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіРџР¤).Load();
 
-                                //if (IPDB.ЕГРИП_СвРегПФ.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвРегПФ.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегПФ.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвРегПФ = new List<EGRIPSvRegPF> { new EGRIPSvRegPF { Id = IPDB.ЕГРИП_СвРегПФ.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвРегПФ.FirstOrDefault().Id : Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвИП.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвИП.СвРегПФ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегПФ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегПФ.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤ = new List<EGRIPSvRegPF> { new EGRIPSvRegPF { Id = IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault().Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvRegPF).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвРегПФ.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvRegPF";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвРегПФ.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvRegPF";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвРегПФ = new List<EGRIPSvRegPF> { new EGRIPSvRegPF { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегПФ.ДатаРег, РегНомПФ = documentXML.СвИП.СвРегПФ.РегНомПФ, НаимПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.НаимПФ, КодПФ = documentXML.СвИП.СвРегПФ.СвОргПФ?.КодПФ, ДатаЗаписи = documentXML.СвИП.СвРегПФ.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегПФ.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіРџР¤ = new List<EGRIPSvRegPF> { new EGRIPSvRegPF { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р РµРіРќРѕРјРџР¤, РќР°РёРјРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РќР°РёРјРџР¤, РљРѕРґРџР¤ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.РЎРІРћСЂРіРџР¤?.РљРѕРґРџР¤, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіРџР¤.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvRegFSS":
-                                if (documentXML.СвИП.СвРегФСС == null)
+                                if (documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvRegFSS previousEntry;
-                                    var newEntry = new EGRIPSvRegFSS { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегФСС.ДатаРег, РегНомФСС = documentXML.СвИП.СвРегФСС.РегНомФСС, НаимФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.НаимФСС, КодФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.КодФСС, ДатаЗаписи = documentXML.СвИП.СвРегФСС.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегФСС.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvRegFSS { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р РµРіРќРѕРјР¤РЎРЎ, РќР°РёРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РќР°РёРјР¤РЎРЎ, РљРѕРґР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РљРѕРґР¤РЎРЎ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[10])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвРегФСС_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[10])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегФСС.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвРегФСС_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвРегФСС_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -4379,21 +4379,21 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегФСС).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ).Load();
 
-                                            if (IPDB.ЕГРИП_СвРегФСС?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвРегФСС?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвРегФСС_Delete.Add(IPDB.ЕГРИП_СвРегФСС?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
                                         lock (listLockers[10])
                                         {
-                                            IPSubTables.ЕГРИП_СвРегФСС_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвРегФСС.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -4403,87 +4403,87 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvRegFSS",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvRegFSS",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвРегФСС).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ).Load();
 
-                                //if (IPDB.ЕГРИП_СвРегФСС.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвРегФСС.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегФСС.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвРегФСС = new List<EGRIPSvRegFSS> { new EGRIPSvRegFSS { Id = IPDB.ЕГРИП_СвРегФСС.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвРегФСС.FirstOrDefault().Id : Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегФСС.ДатаРег, РегНомФСС = documentXML.СвИП.СвРегФСС.РегНомФСС, НаимФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.НаимФСС, КодФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.КодФСС, ДатаЗаписи = documentXML.СвИП.СвРегФСС.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегФСС.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвРегФСС.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ = new List<EGRIPSvRegFSS> { new EGRIPSvRegFSS { Id = IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault().Id : Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р РµРіРќРѕРјР¤РЎРЎ, РќР°РёРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РќР°РёРјР¤РЎРЎ, РљРѕРґР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РљРѕРґР¤РЎРЎ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvRegFSS).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвРегФСС.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvRegFSS";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвРегФСС.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvRegFSS";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвРегФСС = new List<EGRIPSvRegFSS> { new EGRIPSvRegFSS { Id = Guid.NewGuid().ToString(), ДатаРег = documentXML.СвИП.СвРегФСС.ДатаРег, РегНомФСС = documentXML.СвИП.СвРегФСС.РегНомФСС, НаимФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.НаимФСС, КодФСС = documentXML.СвИП.СвРегФСС.СвОргФСС?.КодФСС, ДатаЗаписи = documentXML.СвИП.СвРегФСС.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвРегФСС.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ = new List<EGRIPSvRegFSS> { new EGRIPSvRegFSS { Id = Guid.NewGuid().ToString(), Р”Р°С‚Р°Р РµРі = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р”Р°С‚Р°Р РµРі, Р РµРіРќРѕРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р РµРіРќРѕРјР¤РЎРЎ, РќР°РёРјР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РќР°РёРјР¤РЎРЎ, РљРѕРґР¤РЎРЎ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.РЎРІРћСЂРіР¤РЎРЎ?.РљРѕРґР¤РЎРЎ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІР РµРіР¤РЎРЎ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
 
                             case "EGRIPSvAccountingNO":
-                                if (documentXML.СвИП.СвУчетНО == null)
+                                if (documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ == null)
                                 {
                                     continue;
                                 }
                                 else
                                 {
                                     EGRIPSvAccountingNO previousEntry;
-                                    var newEntry = new EGRIPSvAccountingNO { Id = Guid.NewGuid().ToString(), ИННФЛ = documentXML.СвИП.СвУчетНО.ИННФЛ, ДатаПостУч = documentXML.СвИП.СвУчетНО.ДатаПостУч, НаимНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, КодНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, ДатаЗаписи = documentXML.СвИП.СвУчетНО.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвУчетНО.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id };
+                                    var newEntry = new EGRIPSvAccountingNO { Id = Guid.NewGuid().ToString(), РРќРќР¤Р› = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РРќРќР¤Р›, Р”Р°С‚Р°РџРѕСЃС‚РЈС‡ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р”Р°С‚Р°РџРѕСЃС‚РЈС‡, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id };
 
                                     lock (listLockers[11])
                                     {
-                                        previousEntry = IPSubTables.ЕГРИП_СвУчетНО_Insert.Where(e => e.idЛицо == IPDB.Id).FirstOrDefault();
+                                        previousEntry = IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert.Where(e => e.idР›РёС†Рѕ == IPDB.Id).FirstOrDefault();
                                     }
                                     if (previousEntry != null)
                                     {
                                         lock (listLockers[11])
                                         {
-                                            if (previousEntry.ДатаЗаписи <= documentXML.СвИП.СвУчетНО.ГРНИПДата.ДатаЗаписи)
+                                            if (previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                             {
-                                                IPSubTables.ЕГРИП_СвУчетНО_Insert.RemoveAll(e => e.idЛицо == previousEntry.idЛицо);
-                                                IPSubTables.ЕГРИП_СвУчетНО_Insert.Add(newEntry);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert.RemoveAll(e => e.idР›РёС†Рѕ == previousEntry.idР›РёС†Рѕ);
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert.Add(newEntry);
                                             }
                                         }
 
@@ -4492,22 +4492,22 @@ namespace AuthTest.Server.Controllers
                                     {
                                         if (firstTime == false)
                                         {
-                                            _dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвУчетНО).Load();
+                                            _dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ).Load();
 
-                                            if (IPDB.ЕГРИП_СвУчетНО?.FirstOrDefault() != null)
+                                            if (IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ?.FirstOrDefault() != null)
                                             {
-                                                previousEntry = IPDB.ЕГРИП_СвУчетНО?.FirstOrDefault();
-                                                IPSubTables.ЕГРИП_СвУчетНО_Delete.Add(IPDB.ЕГРИП_СвУчетНО?.FirstOrDefault().idЛицо.ToString());
+                                                previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ?.FirstOrDefault();
+                                                IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Delete.Add(IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ?.FirstOrDefault().idР›РёС†Рѕ.ToString());
                                             }
                                         }
 
                                         lock (listLockers[11])
                                         {
-                                            IPSubTables.ЕГРИП_СвУчетНО_Insert.Add(newEntry);
+                                            IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert.Add(newEntry);
                                         }
                                     }
 
-                                    if (previousEntry != null && previousEntry.ДатаЗаписи <= documentXML.СвИП.СвУчетНО.ГРНИПДата.ДатаЗаписи)
+                                    if (previousEntry != null && previousEntry.Р”Р°С‚Р°Р—Р°РїРёСЃРё <= documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё)
                                     {
                                         List<ChangeLog> changeList = new List<ChangeLog>();
 
@@ -4517,61 +4517,61 @@ namespace AuthTest.Server.Controllers
                                             {
                                                 ChangeLog changes = new()
                                                 {
-                                                    Таблица = "EGRIPSvAccountingNO",
-                                                    Столбец = property.Name,
-                                                    ЗначениеДо = property.GetValue(previousEntry)?.ToString(),
-                                                    ЗначениеПосле = property.GetValue(newEntry)?.ToString(),
-                                                    ИНН = documentXML.СвИП.ИННФЛ,
-                                                    ДатаИзменения = DateTime.Now
+                                                    РўР°Р±Р»РёС†Р° = "EGRIPSvAccountingNO",
+                                                    РЎС‚РѕР»Р±РµС† = property.Name,
+                                                    Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString(),
+                                                    Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(newEntry)?.ToString(),
+                                                    РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›,
+                                                    Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now
                                                 };
 
-                                                // //_dbcontext.ИсторияИзменений.Add(changes);
+                                                // //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                                 changeList.Add(changes);
                                             }
                                         }
 
                                         lock (listLockers[16])
                                         {
-                                            IPSubTables.ИсторияИзменений_Insert.AddRange(changeList);
+                                            IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.AddRange(changeList);
                                         }
                                     }
                                 }
 
-                                //_dbcontext.Entry(IPDB).Collection(u => u.ЕГРИП_СвУчетНО).Load();
+                                //_dbcontext.Entry(IPDB).Collection(u => u.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ).Load();
 
-                                //if (IPDB.ЕГРИП_СвУчетНО.FirstOrDefault() != null)
+                                //if (IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault() != null)
                                 //{
-                                //    var previousEntry = IPDB.ЕГРИП_СвУчетНО.FirstOrDefault();
+                                //    var previousEntry = IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault();
 
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвУчетНО.FirstOrDefault()).State = EntityState.Deleted;
-                                //    IPDB.ЕГРИП_СвУчетНО = new List<EGRIPSvAccountingNO> { new EGRIPSvAccountingNO { Id = IPDB.ЕГРИП_СвУчетНО.FirstOrDefault()?.Id != null ? IPDB.ЕГРИП_СвУчетНО.FirstOrDefault().Id : Guid.NewGuid().ToString(), ИННФЛ = documentXML.СвИП.СвУчетНО.ИННФЛ, ДатаПостУч = documentXML.СвИП.СвУчетНО.ДатаПостУч, НаимНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, КодНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, ДатаЗаписи = documentXML.СвИП.СвУчетНО.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвУчетНО.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
-                                //    _dbcontext.Entry(IPDB.ЕГРИП_СвУчетНО.FirstOrDefault()).State = EntityState.Added;
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault()).State = EntityState.Deleted;
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ = new List<EGRIPSvAccountingNO> { new EGRIPSvAccountingNO { Id = IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault()?.Id != null ? IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault().Id : Guid.NewGuid().ToString(), РРќРќР¤Р› = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РРќРќР¤Р›, Р”Р°С‚Р°РџРѕСЃС‚РЈС‡ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р”Р°С‚Р°РџРѕСЃС‚РЈС‡, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
+                                //    _dbcontext.Entry(IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault()).State = EntityState.Added;
 
                                 //    List<ChangeLog> changeList = new List<ChangeLog>();
 
                                 //    foreach (var property in typeof(EGRIPSvAccountingNO).GetProperties())
                                 //    {
-                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.ЕГРИП_СвУчетНО.FirstOrDefault())?.ToString())
+                                //        if (property.GetValue(previousEntry)?.ToString() != property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault())?.ToString())
                                 //        {
                                 //            ChangeLog changes = new ChangeLog();
 
-                                //            changes.Таблица = "EGRIPSvAccountingNO";
-                                //            changes.Столбец = property.Name;
-                                //            changes.ЗначениеДо = property.GetValue(previousEntry)?.ToString();
-                                //            changes.ЗначениеПосле = property.GetValue(IPDB.ЕГРИП_СвУчетНО.FirstOrDefault())?.ToString();
-                                //            changes.ИНН = documentXML.СвИП.ИННФЛ;
-                                //            changes.ДатаИзменения = DateTime.Now;
+                                //            changes.РўР°Р±Р»РёС†Р° = "EGRIPSvAccountingNO";
+                                //            changes.РЎС‚РѕР»Р±РµС† = property.Name;
+                                //            changes.Р—РЅР°С‡РµРЅРёРµР”Рѕ = property.GetValue(previousEntry)?.ToString();
+                                //            changes.Р—РЅР°С‡РµРЅРёРµРџРѕСЃР»Рµ = property.GetValue(IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.FirstOrDefault())?.ToString();
+                                //            changes.РРќРќ = documentXML.РЎРІРРџ.РРќРќР¤Р›;
+                                //            changes.Р”Р°С‚Р°РР·РјРµРЅРµРЅРёСЏ = DateTime.Now;
 
-                                //            //_dbcontext.ИсторияИзменений.Add(changes);
+                                //            //_dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.Add(changes);
                                 //            changeList.Add(changes);
                                 //        }
                                 //    }
 
-                                //    _dbcontext.ИсторияИзменений.AddRange(changeList);
+                                //    _dbcontext.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№.AddRange(changeList);
                                 //}
                                 //else
                                 //{
-                                //    IPDB.ЕГРИП_СвУчетНО = new List<EGRIPSvAccountingNO> { new EGRIPSvAccountingNO { Id = Guid.NewGuid().ToString(), ИННФЛ = documentXML.СвИП.СвУчетНО.ИННФЛ, ДатаПостУч = documentXML.СвИП.СвУчетНО.ДатаПостУч, НаимНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, КодНО = documentXML.СвИП.СвУчетНО.СвНО.НаимНО, ДатаЗаписи = documentXML.СвИП.СвУчетНО.ГРНИПДата.ДатаЗаписи, ГРНИП = documentXML.СвИП.СвУчетНО.ГРНИПДата.ГРНИП, idЛицо = IPDB.Id } };
+                                //    IPDB.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ = new List<EGRIPSvAccountingNO> { new EGRIPSvAccountingNO { Id = Guid.NewGuid().ToString(), РРќРќР¤Р› = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РРќРќР¤Р›, Р”Р°С‚Р°РџРѕСЃС‚РЈС‡ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р”Р°С‚Р°РџРѕСЃС‚РЈС‡, РќР°РёРјРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, РљРѕРґРќРћ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.РЎРІРќРћ.РќР°РёРјРќРћ, Р”Р°С‚Р°Р—Р°РїРёСЃРё = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р”Р°С‚Р°Р—Р°РїРёСЃРё, Р“Р РќРРџ = documentXML.РЎРІРРџ.РЎРІРЈС‡РµС‚РќРћ.Р“Р РќРРџР”Р°С‚Р°.Р“Р РќРРџ, idР›РёС†Рѕ = IPDB.Id } };
                                 //}
 
                                 break;
@@ -4589,12 +4589,12 @@ namespace AuthTest.Server.Controllers
                     //    if (documentXML.retry == false)
                     //    {
                     //        documentXML.retry = true;
-                    //        Console.WriteLine($"Возникла ошибка параллельной обработки лица {documentXML.СвИП.ИННФЛ}, совершается вторая попытка парсинга");
+                    //        Console.WriteLine($"Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР° РїР°СЂР°Р»Р»РµР»СЊРЅРѕР№ РѕР±СЂР°Р±РѕС‚РєРё Р»РёС†Р° {documentXML.РЎРІРРџ.РРќРќР¤Р›}, СЃРѕРІРµСЂС€Р°РµС‚СЃСЏ РІС‚РѕСЂР°СЏ РїРѕРїС‹С‚РєР° РїР°СЂСЃРёРЅРіР°");
                     //        lock (locker)
                     //        {
-                    //            if (entitiesInWork.Contains(documentXML.СвИП.ИННФЛ))
+                    //            if (entitiesInWork.Contains(documentXML.РЎРІРРџ.РРќРќР¤Р›))
                     //            {
-                    //                entitiesInWork.Remove(documentXML.СвИП.ИННФЛ);
+                    //                entitiesInWork.Remove(documentXML.РЎРІРРџ.РРќРќР¤Р›);
                     //            }
                     //        }
                     //        ParseIPDataDB((object)documentXML);
@@ -4605,9 +4605,9 @@ namespace AuthTest.Server.Controllers
                     //{
                     //    lock (locker)
                     //    {
-                    //        if (entitiesInWork.Contains(documentXML.СвИП.ИННФЛ))
+                    //        if (entitiesInWork.Contains(documentXML.РЎРІРРџ.РРќРќР¤Р›))
                     //        {
-                    //            entitiesInWork.Remove(documentXML.СвИП.ИННФЛ);
+                    //            entitiesInWork.Remove(documentXML.РЎРІРРџ.РРќРќР¤Р›);
                     //        }
                     //    }                  
                     //}
@@ -4618,50 +4618,50 @@ namespace AuthTest.Server.Controllers
 
                     if (docCount - 1 == finishedWorkersCount)
                     {
-                        _dbcontext.ЕГРИП_ОКВЭД.Where(e => IPSubTables.ЕГРИП_ОКВЭД_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_ОКВЭД_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РћРљР’Р­Р”.Where(e => IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert);
 
-                        _dbcontext.ЕГРИП_СвУчетНО.Where(e => IPSubTables.ЕГРИП_СвУчетНО_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвУчетНО_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert);
 
-                        _dbcontext.ЕГРИП_СвАдрМЖ.Where(e => IPSubTables.ЕГРИП_СвАдрМЖ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвАдрМЖ_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert);
 
-                        _dbcontext.ЕГРИП_СвФЛ.Where(e => IPSubTables.ЕГРИП_СвФЛ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвФЛ_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР¤Р›.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert);
 
-                        _dbcontext.ЕГРИП_СвРегОрг.Where(e => IPSubTables.ЕГРИП_СвРегОрг_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвРегОрг_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert);
 
-                        _dbcontext.ЕГРИП_СвГражд.Where(e => IPSubTables.ЕГРИП_СвГражд_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвГражд_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert);
 
-                        _dbcontext.ЕГРИП_СвИП.Where(e => IPSubTables.ЕГРИП_СвИП_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвИП_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІРРџ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert);
 
-                        _dbcontext.ЕГРИП_СвЛицензия.Where(e => IPSubTables.ЕГРИП_СвЛицензия_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
 
                         List<EGRIPSvLicense> svLicenseList = new List<EGRIPSvLicense>();
-                        foreach (var entries in IPSubTables.ЕГРИП_СвЛицензия_Insert)
+                        foreach (var entries in IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert)
                         {
                             svLicenseList.Add(entries.Entry);
                         }
 
                         _dbcontext.BulkCopy(svLicenseList);
 
-                        _dbcontext.ЕГРИП_СвПрекращ.Where(e => IPSubTables.ЕГРИП_СвПрекращ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвПрекращ_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert);
 
-                        _dbcontext.ЕГРИП_СвРегФСС.Where(e => IPSubTables.ЕГРИП_СвРегФСС_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвРегФСС_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert);
 
-                        _dbcontext.ЕГРИП_СвРегИП.Where(e => IPSubTables.ЕГРИП_СвРегИП_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвРегИП_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРРџ.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert);
 
-                        _dbcontext.ЕГРИП_СвРегПФ.Where(e => IPSubTables.ЕГРИП_СвРегПФ_Delete.Contains(e.idЛицо.ToString())).ExecuteDelete();
-                        _dbcontext.BulkCopy(IPSubTables.ЕГРИП_СвРегПФ_Insert);
+                        _dbcontext.Р•Р“Р РРџ_РЎРІР РµРіРџР¤.Where(e => IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Delete.Contains(e.idР›РёС†Рѕ.ToString())).ExecuteDelete();
+                        _dbcontext.BulkCopy(IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert);
 
-                        _dbcontext.BulkCopy(IPSubTables.ИсторияИзменений_Insert);
+                        _dbcontext.BulkCopy(IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert);
 
                         IPSubTables.ClearIPSubTables();
                     }
@@ -4675,7 +4675,7 @@ namespace AuthTest.Server.Controllers
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, "Ошибка в ParseIPDataDBAsync");
+                //_logger.LogError(ex, "РћС€РёР±РєР° РІ ParseIPDataDBAsync");
                 throw;
             }
         }
@@ -4684,75 +4684,75 @@ namespace AuthTest.Server.Controllers
         {
             public static List<IP> IPInProcessing = new List<IP>();
 
-            public static List<EGRIPOKVED>? ЕГРИП_ОКВЭД_Insert = new List<EGRIPOKVED>();
-            public static List<EGRIPSvAccountingNO>? ЕГРИП_СвУчетНО_Insert = new List<EGRIPSvAccountingNO>();
-            public static List<EGRIPSvAdrMJ>? ЕГРИП_СвАдрМЖ_Insert = new List<EGRIPSvAdrMJ>();
-            public static List<EGRIPSVFL>? ЕГРИП_СвФЛ_Insert = new List<EGRIPSVFL>();
-            public static List<EGRIPSvGegOrg>? ЕГРИП_СвРегОрг_Insert = new List<EGRIPSvGegOrg>();
-            public static List<EGRIPSvGrajd> ЕГРИП_СвГражд_Insert = new List<EGRIPSvGrajd>();
-            public static List<EGRIPSvIP>? ЕГРИП_СвИП_Insert = new List<EGRIPSvIP>();
-            public static List<(EGRIPSvLicense Entry, DateTime Date)> ЕГРИП_СвЛицензия_Insert = new List<(EGRIPSvLicense Entry, DateTime Date)>();
-            public static List<EGRIPSvPrekras_> ЕГРИП_СвПрекращ_Insert = new List<EGRIPSvPrekras_>();
-            public static List<EGRIPSvRegFSS> ЕГРИП_СвРегФСС_Insert = new List<EGRIPSvRegFSS>();
-            public static List<EGRIPSvRegIP> ЕГРИП_СвРегИП_Insert = new List<EGRIPSvRegIP>();
-            public static List<EGRIPSvRegPF> ЕГРИП_СвРегПФ_Insert = new List<EGRIPSvRegPF>();
+            public static List<EGRIPOKVED>? Р•Р“Р РРџ_РћРљР’Р­Р”_Insert = new List<EGRIPOKVED>();
+            public static List<EGRIPSvAccountingNO>? Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert = new List<EGRIPSvAccountingNO>();
+            public static List<EGRIPSvAdrMJ>? Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert = new List<EGRIPSvAdrMJ>();
+            public static List<EGRIPSVFL>? Р•Р“Р РРџ_РЎРІР¤Р›_Insert = new List<EGRIPSVFL>();
+            public static List<EGRIPSvGegOrg>? Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert = new List<EGRIPSvGegOrg>();
+            public static List<EGRIPSvGrajd> Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert = new List<EGRIPSvGrajd>();
+            public static List<EGRIPSvIP>? Р•Р“Р РРџ_РЎРІРРџ_Insert = new List<EGRIPSvIP>();
+            public static List<(EGRIPSvLicense Entry, DateTime Date)> Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert = new List<(EGRIPSvLicense Entry, DateTime Date)>();
+            public static List<EGRIPSvPrekras_> Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert = new List<EGRIPSvPrekras_>();
+            public static List<EGRIPSvRegFSS> Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert = new List<EGRIPSvRegFSS>();
+            public static List<EGRIPSvRegIP> Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert = new List<EGRIPSvRegIP>();
+            public static List<EGRIPSvRegPF> Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert = new List<EGRIPSvRegPF>();
 
-            public static List<string?> ЕГРИП_ОКВЭД_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвУчетНО_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвАдрМЖ_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвФЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвРегОрг_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвГражд_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвИП_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвЛицензия_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвПрекращ_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвРегФСС_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвРегИП_Delete = new List<string?>();
-            public static List<string?> ЕГРИП_СвРегПФ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РћРљР’Р­Р”_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР¤Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІРРџ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР РµРіРРџ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Delete = new List<string?>();
 
-            public static List<ChangeLog> ИсторияИзменений_Insert = new List<ChangeLog>();
+            public static List<ChangeLog> РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert = new List<ChangeLog>();
 
             public static void ClearIPSubTables()
             {
                 IPSubTables.IPInProcessing.Clear();
 
-                IPSubTables.ЕГРИП_ОКВЭД_Insert.Clear();
-                IPSubTables.ЕГРИП_ОКВЭД_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РћРљР’Р­Р”_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвУчетНО_Insert.Clear();
-                IPSubTables.ЕГРИП_СвУчетНО_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРЈС‡РµС‚РќРћ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвАдрМЖ_Insert.Clear();
-                IPSubTables.ЕГРИП_СвАдрМЖ_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРђРґСЂРњР–_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвФЛ_Insert.Clear();
-                IPSubTables.ЕГРИП_СвФЛ_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР¤Р›_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвРегОрг_Insert.Clear();
-                IPSubTables.ЕГРИП_СвРегОрг_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРћСЂРі_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвГражд_Insert.Clear();
-                IPSubTables.ЕГРИП_СвГражд_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР“СЂР°Р¶Рґ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвИП_Insert.Clear();
-                IPSubTables.ЕГРИП_СвИП_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРРџ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвЛицензия_Insert.Clear();
-                IPSubTables.ЕГРИП_СвЛицензия_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвПрекращ_Insert.Clear();
-                IPSubTables.ЕГРИП_СвПрекращ_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІРџСЂРµРєСЂР°С‰_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвРегФСС_Insert.Clear();
-                IPSubTables.ЕГРИП_СвРегФСС_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіР¤РЎРЎ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвРегИП_Insert.Clear();
-                IPSubTables.ЕГРИП_СвРегИП_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРРџ_Delete.Clear();
 
-                IPSubTables.ЕГРИП_СвРегПФ_Insert.Clear();
-                IPSubTables.ЕГРИП_СвРегПФ_Delete.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Insert.Clear();
+                IPSubTables.Р•Р“Р РРџ_РЎРІР РµРіРџР¤_Delete.Clear();
 
-                IPSubTables.ИсторияИзменений_Insert.Clear();
+                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Clear();
             }
         }
 
@@ -4760,123 +4760,123 @@ namespace AuthTest.Server.Controllers
         {
             public static List<UL> ULInProcessing = new List<UL>();
 
-            public static List<EGRULOKVED> ЕГРЮЛ_ОКВЭД_Insert = new List<EGRULOKVED>();
-            public static List<EGRULSvAddressUL> ЕГРЮЛ_СвАдресЮЛ_Insert = new List<EGRULSvAddressUL>();
-            public static List<EGRULSvDerjRegistryAO> ЕГРЮЛ_СвДержРеестрАО_Insert = new List<EGRULSvDerjRegistryAO>();
-            public static List<(EGRULSvShareOOO Entry, DateTime? Date)> ЕГРЮЛ_СвДоляООО_Insert = new List<(EGRULSvShareOOO Entry, DateTime? Date)>();
-            public static List<EGRULSvZapEGRUL> ЕГРЮЛ_СвЗапЕГРЮЛ_Insert = new List<EGRULSvZapEGRUL>();
-            public static List<EGRULSvLicense> ЕГРЮЛ_СвЛицензия_Insert = new List<EGRULSvLicense>();
-            public static List<EGRULSvNaimUL> ЕГРЮЛ_СвНаимЮЛ_Insert = new List<EGRULSvNaimUL>();
-            public static List<EGRULSvObrUL> ЕГРЮЛ_СвОбрЮЛ_Insert = new List<EGRULSvObrUL>();
-            public static List<EGRULSvPodrazd> ЕГРЮЛ_СвПодразд_Insert = new List<EGRULSvPodrazd>();
-            public static List<EGRULSvPredsh> ЕГРЮЛ_СвПредш_Insert = new List<EGRULSvPredsh>();
-            public static List<EGRULSvPreem> ЕГРЮЛ_СвПреем_Insert = new List<EGRULSvPreem>();
-            public static List<EGRULSvPrekrUL> ЕГРЮЛ_СвПрекрЮЛ_Insert = new List<EGRULSvPrekrUL>();
-            public static List<EGRULSvRegOrg> ЕГРЮЛ_СвРегОрг_Insert = new List<EGRULSvRegOrg>();
-            public static List<EGRULSvRegPF> ЕГРЮЛ_СвРегПФ_Insert = new List<EGRULSvRegPF>();
-            public static List<EGRULSvRegFSS> ЕГРЮЛ_СвРегФСС_Insert = new List<EGRULSvRegFSS>();
-            public static List<EGRULSvReorg> ЕГРЮЛ_СвРеорг_Insert = new List<EGRULSvReorg>();
-            public static List<EGRULSvStatus> ЕГРЮЛ_СвСтатус_Insert = new List<EGRULSvStatus>();
-            public static List<EGRULSvUstKap> ЕГРЮЛ_СвУстКап_Insert = new List<EGRULSvUstKap>();
-            public static List<EGRULSvAccountingNO> ЕГРЮЛ_СвУчетНО_Insert = new List<EGRULSvAccountingNO>();
-            public static List<EGRULSvFounder> ЕГРЮЛ_СвУчредит_Insert = new List<EGRULSvFounder>();
-            public static List<EGRULSvUL> ЕГРЮЛ_СвЮЛ_Insert = new List<EGRULSvUL>();
-            public static List<EGRULSvedDoljnFL> ЕГРЮЛ_СведДолжнФЛ_Insert = new List<EGRULSvedDoljnFL>();
+            public static List<EGRULOKVED> Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert = new List<EGRULOKVED>();
+            public static List<EGRULSvAddressUL> Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert = new List<EGRULSvAddressUL>();
+            public static List<EGRULSvDerjRegistryAO> Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert = new List<EGRULSvDerjRegistryAO>();
+            public static List<(EGRULSvShareOOO Entry, DateTime? Date)> Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert = new List<(EGRULSvShareOOO Entry, DateTime? Date)>();
+            public static List<EGRULSvZapEGRUL> Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert = new List<EGRULSvZapEGRUL>();
+            public static List<EGRULSvLicense> Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert = new List<EGRULSvLicense>();
+            public static List<EGRULSvNaimUL> Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert = new List<EGRULSvNaimUL>();
+            public static List<EGRULSvObrUL> Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert = new List<EGRULSvObrUL>();
+            public static List<EGRULSvPodrazd> Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert = new List<EGRULSvPodrazd>();
+            public static List<EGRULSvPredsh> Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert = new List<EGRULSvPredsh>();
+            public static List<EGRULSvPreem> Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert = new List<EGRULSvPreem>();
+            public static List<EGRULSvPrekrUL> Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert = new List<EGRULSvPrekrUL>();
+            public static List<EGRULSvRegOrg> Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert = new List<EGRULSvRegOrg>();
+            public static List<EGRULSvRegPF> Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert = new List<EGRULSvRegPF>();
+            public static List<EGRULSvRegFSS> Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert = new List<EGRULSvRegFSS>();
+            public static List<EGRULSvReorg> Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert = new List<EGRULSvReorg>();
+            public static List<EGRULSvStatus> Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert = new List<EGRULSvStatus>();
+            public static List<EGRULSvUstKap> Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert = new List<EGRULSvUstKap>();
+            public static List<EGRULSvAccountingNO> Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Insert = new List<EGRULSvAccountingNO>();
+            public static List<EGRULSvFounder> Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert = new List<EGRULSvFounder>();
+            public static List<EGRULSvUL> Р•Р“Р Р®Р›_РЎРІР®Р›_Insert = new List<EGRULSvUL>();
+            public static List<EGRULSvedDoljnFL> Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert = new List<EGRULSvedDoljnFL>();
 
-            public static List<string?> ЕГРЮЛ_ОКВЭД_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвАдресЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвДержРеестрАО_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвДоляООО_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвЗапЕГРЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвЛицензия_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвНаимЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвОбрЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвПодразд_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвПредш_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвПреем_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвПрекрЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвРегОрг_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвРегПФ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвРегФСС_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвРеорг_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвСтатус_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвУстКап_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвУчетНО_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвУчредит_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СвЮЛ_Delete = new List<string?>();
-            public static List<string?> ЕГРЮЛ_СведДолжнФЛ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РћРљР’Р­Р”_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІР®Р›_Delete = new List<string?>();
+            public static List<string?> Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Delete = new List<string?>();
 
             public static void ClearULSubTables()
             {
                 ULSubTables.ULInProcessing.Clear();
 
-                ULSubTables.ЕГРЮЛ_ОКВЭД_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_ОКВЭД_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РћРљР’Р­Р”_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвАдресЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРђРґСЂРµСЃР®Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвДержРеестрАО_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РµСЂР¶Р РµРµСЃС‚СЂРђРћ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвДоляООО_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвДоляООО_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР”РѕР»СЏРћРћРћ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СведДолжнФЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРµРґР”РѕР»Р¶РЅР¤Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвЗапЕГРЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР—Р°РїР•Р“Р Р®Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвЛицензия_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвЛицензия_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР›РёС†РµРЅР·РёСЏ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвНаимЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРќР°РёРјР®Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвОбрЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРћР±СЂР®Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвПодразд_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвПодразд_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџРѕРґСЂР°Р·Рґ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвПредш_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвПредш_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРґС€_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвПреем_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвПреем_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРµРј_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвПрекрЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРџСЂРµРєСЂР®Р›_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвРегОрг_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвРегОрг_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРћСЂРі_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвРегПФ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвРегПФ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіРџР¤_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвРегФСС_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвРегФСС_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРіР¤РЎРЎ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвРеорг_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвРеорг_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР РµРѕСЂРі_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвСтатус_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвСтатус_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЎС‚Р°С‚СѓСЃ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвУстКап_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвУстКап_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈСЃС‚РљР°Рї_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвУчетНО_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвУчетНО_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡РµС‚РќРћ_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвУчредит_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвУчредит_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІРЈС‡СЂРµРґРёС‚_Delete.Clear();
 
-                ULSubTables.ЕГРЮЛ_СвЮЛ_Insert.Clear();
-                ULSubTables.ЕГРЮЛ_СвЮЛ_Delete.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Insert.Clear();
+                ULSubTables.Р•Р“Р Р®Р›_РЎРІР®Р›_Delete.Clear();
 
-                IPSubTables.ИсторияИзменений_Insert.Clear();
+                IPSubTables.РСЃС‚РѕСЂРёСЏРР·РјРµРЅРµРЅРёР№_Insert.Clear();
             }
         }
     }

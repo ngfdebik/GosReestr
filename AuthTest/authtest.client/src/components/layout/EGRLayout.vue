@@ -329,7 +329,6 @@
           //Object.keys(tableData.егриП_СвИП[0]).forEach((element) => {
           //    this.IPTableHeaders.push(element);
           //})
-
           tableData.ЕГРИП_СвИП.forEach((entity) => {
             if (entity.idЛицо != null) {
               this.SharedTableContent.sharedIPTableContent.push(entity);
@@ -339,13 +338,11 @@
           //Object.keys(tableData.ЕГРЮЛ_СвЮЛ[0]).forEach((element) => {
           //    this.ULTableHeaders.push(element);
           //})
-
           tableData.ЕГРЮЛ_СвЮЛ.forEach((entity) => {
             if (entity.idЛицо != null) {
               this.SharedTableContent.sharedULTableContent.push(entity);
             }
           });
-
           this.sharedIPTableContent_buffer = this.filteredSharedIPTableContent = this.SharedTableContent.sharedIPTableContent;
           this.sharedULTableContent_buffer = this.filteredSharedULTableContent = this.SharedTableContent.sharedULTableContent;
 
@@ -399,17 +396,20 @@
           });
 
           const tableData = response.data;
+          //Предыдущая версия закоментирвоана
+          //// Заполняем IP-таблицу
+          //this.IPTableContent = tableData.ЕГРИП_СвИП.filter(entity => entity.idЛицо != null);//Id -idЛицо
 
-          // Заполняем IP-таблицу
-          this.IPTableContent = tableData.ЕГРИП_СвИП.filter(entity => entity.idЛицо != null);//Id -idЛицо
+          //// Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
+          //this.SharedTableContent.sharedIPTableContent = [...this.IPTableContent]; // или нужные данные
+          //this.SharedTableContent.sharedULTableContent = []; // пусто для IP
 
-          // Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
-          this.SharedTableContent.sharedIPTableContent = [...this.IPTableContent]; // или нужные данные
-          this.SharedTableContent.sharedULTableContent = []; // пусто для IP
-
-          // Буферы
-          this.IPTableContent_buffer = [...this.IPTableContent];
-          this.filteredIPTableContent = [...this.IPTableContent];
+          //// Буферы
+          //this.IPTableContent_buffer = [...this.IPTableContent];
+          //this.filteredIPTableContent = [...this.IPTableContent];
+          const fullIPData = tableData.ЕГРИП_СвИП.filter(entity => entity.idЛицо != null);
+          this.IPTableContent_buffer = [...fullIPData];
+          this.filteredIPTableContent = [...fullIPData];
           this.loadedCount = 50;
           this.updateDisplayedRows();
         } catch (error) {
@@ -457,15 +457,19 @@
           });
 
           const tableData = response.data;
-          this.ULTableContent = tableData.ЕГРЮЛ_СвЮЛ.filter(entity => entity.idЛицо != null);//Id -idЛицо
+          //Предыдущая версия закоментирвоана
+          //this.ULTableContent = tableData.ЕГРЮЛ_СвЮЛ.filter(entity => entity.idЛицо != null);//Id -idЛицо
 
-          // Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
-          this.SharedTableContent.sharedIPTableContent = []; // или нужные данные
-          this.SharedTableContent.sharedULTableContent = [...this.ULTableContent]; // пусто для IP
+          //// Если нужно — заполняем shared часть (но для IP, возможно, только sharedIP)
+          //this.SharedTableContent.sharedIPTableContent = []; // или нужные данные
+          //this.SharedTableContent.sharedULTableContent = [...this.ULTableContent]; // пусто для IP
 
-          // Буферы
-          this.ULTableContent_buffer = [...this.ULTableContent];
-          this.filteredULTableContent = [...this.ULTableContent];
+          //// Буферы
+          //this.ULTableContent_buffer = [...this.ULTableContent];
+          //this.filteredULTableContent = [...this.ULTableContent];
+          const fullULData = tableData.ЕГРЮЛ_СвЮЛ.filter(entity => entity.idЛицо != null);
+          this.ULTableContent_buffer = [...fullULData];
+          this.filteredULTableContent = [...fullULData];
           this.loadedCount = 50;
           this.updateDisplayedRows();
         } catch (error) {

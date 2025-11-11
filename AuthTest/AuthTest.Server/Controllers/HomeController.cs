@@ -211,11 +211,11 @@ namespace AuthTest.Server.Controllers
 
                         if (isULType)
                         {
-                            await ParseULDataDBAsync(document, dbContext);
+                            await ParseULDataDBAsync(document);
                         }
                         else
                         {
-                            await ParseIPDataDBAsync(document, dbContext);
+                            await ParseIPDataDBAsync(document);
                         }
 
                         lock (result)
@@ -290,11 +290,11 @@ namespace AuthTest.Server.Controllers
 
                                             if (isULType)
                                             {
-                                                await ParseULDataDBAsync(document, dbContext);
+                                                await ParseULDataDBAsync(document);
                                             }
                                             else
                                             {
-                                                await ParseIPDataDBAsync(document, dbContext);
+                                                await ParseIPDataDBAsync(document);
                                             }
 
                                             // Используем lock для потокобезопасности
@@ -465,7 +465,7 @@ namespace AuthTest.Server.Controllers
             return Json(inn);
         }
 
-        private async Task ParseULDataDBAsync(Документ document, DbContextTable dbContext)
+        private async Task ParseULDataDBAsync(Документ document)
         {
             try
             {
@@ -3092,13 +3092,15 @@ namespace AuthTest.Server.Controllers
                     {
                         finishedWorkersCount++;
                     }
+
+                    await _dbcontext.SaveChangesAsync();
                 }
 
                 //var юрЛицо = new ЮрЛицо { /* заполнение данных */ };
                 //dbContext.ЮрЛицо.Add(юрЛицо);
 
                 // Сохраняем каждые 10 записей или сразу
-                await dbContext.SaveChangesAsync();
+                
             }
             catch (Exception ex)
             {
@@ -3107,7 +3109,7 @@ namespace AuthTest.Server.Controllers
             }
         }
 
-        private async Task ParseIPDataDBAsync(Документ document, DbContextTable dbContext)
+        private async Task ParseIPDataDBAsync(Документ document)
         {
             try
             {
@@ -4670,8 +4672,10 @@ namespace AuthTest.Server.Controllers
                     {
                         finishedWorkersCount++;
                     }
+
+                    await _dbcontext.SaveChangesAsync();
                 }
-                await dbContext.SaveChangesAsync();
+                
             }
             catch (Exception ex)
             {

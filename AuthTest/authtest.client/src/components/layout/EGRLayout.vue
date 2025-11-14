@@ -30,6 +30,7 @@
         </div>
       </div>
     </div>
+    <FileUploadZone/>
 
     <ModalDetails v-model="isModalOpen"
                   :entity-id="String(modalEntity.idЛицо)"

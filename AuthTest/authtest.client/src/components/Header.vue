@@ -72,18 +72,24 @@
           </div>
 
           <div class="user-actions">
-            <button v-if="isAdmin"
+            <div v-if="isAdmin">
+              <label for="file-upload" class="custom-file-upload">
+                Загрузка файлов
+              </label>
+              <input id="file-upload" type="file" />
+            </div>
+            <!-- <button v-if="isAdmin"
                     class="action-button upload-button"
                     @click="toggleUploadZone"
                     type="button"
                     :disabled="isUploadInProgress">
-              {{ getUploadButtonText }}
-            </button>
-            <div v-show="isUploadOpen && isAdmin" class="upload-container">
+              Загрузка файлов
+            </button> -->
+            <!-- <div v-show="isUploadOpen && isAdmin" class="upload-container">
               <div class="upload-wrapper">
                 <FileUploadZone ref="fileUploadZone" @upload-complete="handleUploadComplete" />
               </div>
-            </div>
+            </div> -->
             <button class="action-button clear-button"
                     @click="$emit('clear-filters')"
                     type="button">
@@ -104,9 +110,9 @@
 
   export default {
     name: 'Header',
-    components: {
-      FileUploadZone,
-    },
+    // components: {
+    //   FileUploadZone,
+    // },
     props: {
       isAdmin: Boolean,
       isLoggedIn: Boolean,
@@ -134,12 +140,12 @@
       getUploadDoc(){
         return this.isExportingWord;
       },
-      getUploadButtonText() {
-        if (this.isUploadInProgress) {
-          return 'Идет загрузка...';
-        }
-        return this.isUploadOpen ? 'Закрыть загрузку' : 'Загрузка файлов';
-      }
+      // getUploadButtonText() {
+      //   if (this.isUploadInProgress) {
+      //     return 'Идет загрузка...';
+      //   }
+      //   return this.isUploadOpen ? 'Закрыть загрузку' : 'Загрузка файлов';
+      // }
     },
     async created() {
       if (this.isLoggedIn) {
@@ -173,10 +179,10 @@
         });
       },
       toggleUploadZone() {
-        this.isUploadOpen = !this.isUploadOpen;
-        if (this.isUploadOpen) {
-          this.isMenuOpen = false;
-        }
+        // this.isUploadOpen = !this.isUploadOpen;
+        // if (this.isUploadOpen) {
+        //   this.isMenuOpen = false;
+        // }
       },
       handleUploadComplete(uploadData) {
         console.log('Загрузка завершена в Header:', uploadData);
@@ -274,6 +280,18 @@
     display: flex;
     align-items: center;
     padding: 0 15px;
+  }
+  input[type="file"] {
+  display: none;
+  }
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #198754;
+    border-color: #6c757d;
   }
 
   .logo-image {
@@ -448,12 +466,6 @@
     transition: all 0.3s ease;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
-  }
-
-  .upload-button {
-    color: #fff;
-    background-color: #198754;
-    border-color: #6c757d;
   }
 
     .upload-button:hover {

@@ -1,13 +1,8 @@
 <!-- src/components/FileUploadZone.vue -->
 <template>
-  
-  <div class="upload-zone">
+  <div v-show="isDragOver" class="upload-zone">
     <h5 class="upload-title">Загрузка данных</h5>
       <div class="drop-zone"
-           @dragover="handleDragOver"
-           @dragenter="handleDragEnter"
-           @dragleave="handleDragLeave"
-           @drop="handleDrop"
            @click="triggerFileInput"
            :class="{ 'drop-zone--active': isDragging }">
           
@@ -57,6 +52,7 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
       return {
         isDragging: false,
         isUploading: false,
+        isDragOver : false,
         uploadProgress: 0,
         statusMessage: '',
         statusClass: '',
@@ -92,20 +88,35 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
     },
     mounted() {
       // Критически важные обработчики на уровне документа
-      document.addEventListener('dragover', this.preventDragDrop, false);
-      document.addEventListener('drop', this.preventDragDrop, false);
+      document.addEventListener('dragover', this.handleDocumentDragOver, false);
+      // document.addEventListener('drop', this.preventDragDrop, false);
+      document.addEventListener('dragenter', this.handleDragEnter, false);
+      document.addEventListener('dragleave', this.handleDragLeave, false);
+      document.addEventListener('drop', this.handleDocumentDrop, false);
     },
     beforeUnmount() {
-      document.removeEventListener('dragover', this.preventDragDrop, false);
-      document.removeEventListener('drop', this.preventDragDrop, false);
+       document.removeEventListener('dragover', this.handleDocumentDragOver, false);
+      // document.removeEventListener('drop', this.preventDragDrop, false);
+      document.removeEventListener('dragenter', this.handleDragEnter, false);
+      document.removeEventListener('dragleave', this.handleDragLeave, false);
+      document.removeEventListener('drop', this.handleDocumentDrop, false);
     },
     methods: {
 
       // Универсальный метод для предотвращения поведения по умолчанию
-      preventDragDrop(e) {
+      // preventDragDrop(e) {
+      //   e.preventDefault();
+      //   e.stopPropagation();
+      //   return false;
+      // },
+      handleDocumentDragOver(e) {
         e.preventDefault();
         e.stopPropagation();
-        return false;
+      },
+
+      handleDocumentDrop(e) {
+        e.preventDefault();
+        e.stopPropagation();
       },
       triggerFileInput() {
         if (!this.isUploading) {
@@ -120,45 +131,71 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
         }
       },
 
-      handleDragOver(event) {
-        this.preventDragDrop(event);
+      handleDragOver(e) {
+        e.preventDefault();
+        e.stopPropagation();
         if (!this.isDragging && !this.isUploading) {
           this.isDragging = true;
         }
         // Указываем браузеру, что мы хотим скопировать файл
         if (!this.isUploading) {
-          event.dataTransfer.dropEffect = 'copy';
+          e.dataTransfer.dropEffect = 'copy';
         }
       },
 
-      handleDragEnter(event) {
-        if (this.isUploading) return;
-        event.preventDefault();
-        event.stopPropagation();
-        this.dragCounter++;
-        this.isDragging = true;
+      handleDragEnter(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (!this.isUploading) {
+          this.isDragOver = true;
+          this.isDragging = true;
+        }
       },
 
-      handleDragLeave(event) {
-        this.preventDragDrop(event);
-        this.dragCounter--;
+      handleDragLeave(e) {
+        e.preventDefault();
+        e.stopPropagation();
         
-        // Сбрасываем состояние только когда вышли из элемента
-        if (this.dragCounter === 0) {
+        // Проверяем, что мы действительно вышли из компонента
+        // relatedTarget - элемент, на который перешел курсор
+        if (!this.$el.contains(e.relatedTarget)) {
+          this.isDragOver = false;
           this.isDragging = false;
         }
       },
 
-      handleDrop(event) {
-        if (this.isUploading) return;
-        this.isDragging = false;
+      handleDrop(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('drop event');
+        
         this.dragCounter = 0;
-        const file = event.dataTransfer.files[0];
-        if (this.isValidFile(file)) {
-          this.uploadFile(file);
-        } else {
-          this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+        this.isDragOver = false;
+        this.isDragging = false;
+
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          const file = files[0];
+          if (this.isValidFile(file)) {
+            this.uploadFile(file);
+          } else {
+            this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+          }
         }
+      },
+
+      // showUploadZone() {
+      //   this.isDragOver = true;
+      // },
+
+      //   handleFiles(files) {
+      //     console.log('Загружены файлы:', files);
+      //   },
+
+      hideUploadZone() {
+        this.isDragOver = false;
       },
 
       isValidFile(file) {
@@ -216,10 +253,21 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
 
 <style scoped>
   .upload-zone {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 16px;
+    background-color: #090d10cf;
+    position: absolute;
+    z-index: 20;
+    top: 160px;
+    height: 804px;
+    width: 100%;
+    /* visibility: hidden; */
+    /* opacity: 0;
+    transition: opacity 0.3s ease; */
   }
+
+  /* .upload-zone.active {
+    visibility: visible;
+   opacity: 1; 
+  } */
   .upload-title {
     font-size: 1.25rem;
     font-weight: 500;
@@ -242,14 +290,14 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
     align-items: center;
 }
 
-.drop-zone:hover {
+/* .drop-zone:hover {
     border-color: #0d6efd;
     background-color: #e9ecef;
-}
+} */
 
 .drop-zone--active {
-    border-color: #0d6efd;
-    background-color: #e7f1ff;
+    border-color: #727272b6;
+    background-color: #535353ab;
     border-style: solid;
 }
 

@@ -7,6 +7,7 @@
       :message="globalAlert.message"
       :alert-class="globalAlert.alertClass"
       :header-color="globalAlert.headerColor"
+      :content = "filesInfo"
     />
     
     <GlobalLoader />
@@ -40,7 +41,8 @@
           message: '',
           alertClass: 'default',
           headerColor: '#4CAF50'
-        }
+        },
+        filesInfo: []
       };
     },
     computed: {
@@ -73,7 +75,17 @@
       ...mapActions(['initializeAuth', 'logout']),
 
       // Глобальная функция для показа алерта
-      showGlobalAlert(message, type = 'info') {
+      addInfo(info){
+        filesInfo.unshift(info)
+      },
+
+      showGlobalAlert(status, name) {
+        let object = {
+          status : status,
+          name : name 
+        }
+        addInfo(object)
+
         const alertConfig = {
           success: {
             title: 'Успех',
@@ -103,6 +115,7 @@
         this.globalAlert.message = message;
         this.globalAlert.alertClass = config.alertClass;
         this.globalAlert.headerColor = config.headerColor;
+        this.globalAlert.content = filesInfo;
         this.globalAlert.show = true;
       },
       async handleLogout() {

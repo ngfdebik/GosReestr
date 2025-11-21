@@ -219,14 +219,14 @@ import UploadApiSrvice from '@/services/UploadApiSrvice';
             // Опционально: уведомить родителя о завершении
             // this.$emit('upload-complete', 'Файл успешно загружен и обработан!', 'success');
             if (window.showGlobalAlert) {
-              window.showGlobalAlert('Файл успешно загружен и обработан!', 'success');
+              window.showGlobalAlert("Ok", resp.name);
             }
             console.log(resp);
           })
           .catch(err => {
             console.error('Upload error:', err);
             if (window.showGlobalAlert) {
-              window.showGlobalAlert('Не удалось подключиться к серверу', 'error');
+              window.showGlobalAlert("Error", err.name);
             }
             // this.emit('upload-complete', 'Не удалось подключиться к серверу', 'alert-danger')
             

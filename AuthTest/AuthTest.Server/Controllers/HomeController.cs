@@ -161,6 +161,7 @@ namespace AuthTest.Server.Controllers
                 return Ok(new
                 {
                     success = true,
+                    name = file.FileName,
                     message = "Файл успешно обработан",
                     data = processingResult
                 });

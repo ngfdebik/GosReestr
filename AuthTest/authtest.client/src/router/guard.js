@@ -6,6 +6,6 @@ export const guestGuard = (to, from, next) => {
   if (requiresGuest || store.getters.isAuthenticated) {
     next();
   } else {
-    next('/EGR');
+    next('/');
   }
 };

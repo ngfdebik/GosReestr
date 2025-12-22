@@ -1,8 +1,10 @@
 <!-- src/components/CustomAlert.vue -->
 <template>
-  <div class="custom-alert-icon" :class="{ 'expanded': isExpanded }" @click="toggleSize">
-    <img v-if="!isExpanded" src="/src/assets/complete.png" class="status-image" />
-    
+  <div v-show="visible" class="custom-alert-icon" :class="{ 'expanded': isExpanded }" @click="toggleSize">
+    <div v-if="!isExpanded" class="status-block">
+      <img v-if="status" src="/src/assets/complete.png" class="status-image" />
+      <img v-else src="/src/assets/error.png" class="status-image" />
+    </div>
     <div v-else class="expanded-content">
       <div class="close-button-container">
         <button class="close-button" @click="close">
@@ -24,6 +26,8 @@
 </template>
 
 <script>
+import { toRaw } from 'vue'
+
 export default {
   name: 'CustomAlert',
   props: {
@@ -34,10 +38,6 @@ export default {
     title: {
       type: String,
       default: 'Уведомление'
-    },
-    message: {
-      type: String,
-      default: ''
     },
     alertClass: {
       type: String,
@@ -80,6 +80,9 @@ export default {
       return {
         backgroundColor: this.headerColor
       }
+    },
+    status() {
+      return this.content[this.content.length-1]?.status == "OK"
     }
   },
   methods: {
@@ -108,6 +111,10 @@ export default {
   align-items: center;
   z-index: 1000;
 } */
+.status-block{
+  display: flex;
+  justify-content: center;
+}
 
 .custom-alert-icon {
   background: rgb(221, 221, 221);

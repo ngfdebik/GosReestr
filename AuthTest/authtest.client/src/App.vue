@@ -76,15 +76,17 @@
 
       // Глобальная функция для показа алерта
       addInfo(info){
-        filesInfo.unshift(info)
+        this.filesInfo.unshift(info)
       },
 
       showGlobalAlert(status, name) {
+        name = name.length <= 15 ? name : name.substring(0, 15) + "...";
+
         let object = {
           status : status,
           name : name 
         }
-        addInfo(object)
+        this.addInfo(object)
 
         const alertConfig = {
           success: {
@@ -109,13 +111,12 @@
           }
         };
 
-        const config = alertConfig[type] || alertConfig.info;
+        const config = /*alertConfig[type] || */alertConfig.info;
         
         this.globalAlert.title = config.title;
-        this.globalAlert.message = message;
         this.globalAlert.alertClass = config.alertClass;
         this.globalAlert.headerColor = config.headerColor;
-        this.globalAlert.content = filesInfo;
+        this.globalAlert.content = this.filesInfo;
         this.globalAlert.show = true;
       },
       async handleLogout() {

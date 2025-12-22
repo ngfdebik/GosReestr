@@ -1,7 +1,6 @@
 <!-- src/components/layout/EGRLayout.vue -->
 <template>
   <div class="egr-layout">
-
     <!--:isUploadingExcel="isUploadingExcel"-->
     <Header :isAdmin="isAdmin"
             :isLoggedIn="isLoggedIn"
@@ -31,7 +30,6 @@
       </div>
     </div>
     <FileUploadZone/>
-
     <ModalDetails v-model="isModalOpen"
                   :entity-id="String(modalEntity.idЛицо)"
                   :entity-inn="modalEntity.ИНН"

@@ -1,3 +1,4 @@
+<!--Версия два-->>
 <template>
   <header class="page-header">
     <div class="header-content">
@@ -50,51 +51,106 @@
       </div>
 
       <!-- Блок с пользователем -->
+      <!-- Обновленный блок user-section -->
       <div class="user-section">
-        <div v-if="isLoggedIn" class="user-info">
-          <div class="user-main">
-            <p class="user-name">{{ userFullName || 'Пользователь' }}</p>
-            <button class="edit-button" @click="goToEdit">
-              <img src="/svg/Pen.svg" class="edit-icon" />
-            </button>
-            <div class="avatar-wrapper" @click="toggleMenu">
-              <img class="avatar-image" src="/svg/Avatar.svg" />
-              <p class="avatar-initial">{{ userInitial }}</p>
-              <div v-if="isMenuOpen" class="user-menu">
-                <div v-if="isAdmin" class="menu-item">
-                  <button class="menu-link" @click="goToManage">Администрирование</button>
-                </div>
-                <div class="menu-item">
-                  <button class="menu-link" @click="logout">Выйти</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div v-if="isLoggedIn" class="user-container">
+          <!-- Блок с кнопками действий -->
           <div class="user-actions">
-            <div v-if="isAdmin">
+            <div v-if="isAdmin" class="admin-actions">
               <label for="file-upload" class="custom-file-upload">
                 Загрузка файлов
               </label>
-              <input id="file-upload" type="file" />
+              <input id="file-upload"
+                     type="file"
+                     ref="fileInput"
+                     class="file-input"
+                     @change="upload"
+                     accept=".xml,.zip" />
             </div>
-            <!-- <button v-if="isAdmin"
-                    class="action-button upload-button"
-                    @click="toggleUploadZone"
-                    type="button"
-                    :disabled="isUploadInProgress">
-              Загрузка файлов
-            </button> -->
-            <!-- <div v-show="isUploadOpen && isAdmin" class="upload-container">
-              <div class="upload-wrapper">
-                <FileUploadZone ref="fileUploadZone" @upload-complete="handleUploadComplete" />
-              </div>
-            </div> -->
             <button class="action-button clear-button"
                     @click="$emit('clear-filters')"
                     type="button">
-              Сбросить фильтры
+              Сброс фильтров
             </button>
+          </div>
+
+          <!-- Блок с информацией пользователя -->
+          <div class="user-info-wrapper">
+            <div class="user-main">
+              <div class="user-name-container">
+                <p class="user-name">{{ userFullName || 'Пользователь' }}</p>
+                <button class="edit-button" @click="toggleEditing" title="Редактировать профиль">
+                  <img src="/svg/Pen.svg" class="edit-icon" />
+                </button>
+              </div>
+
+              <!-- Меню редактирования -->
+              <div v-if="isEditingOpen" class="edit-menu-wrapper">
+                <div class="edit-component">
+                  <form class="edit-form" @submit.prevent="editUser">
+                      <!-- Ошибки -->
+                      <div v-if="Object.keys(errors).length > 0" class="error-text">
+                        <div v-for="error in Object.values(errors)" :key="error">{{ error }}</div>
+                      </div>
+
+                      <!-- Заголовок -->
+                      <label class="form-name-label">
+                        Редактирование пользователя {{ userData.login }}
+                      </label>
+
+                      <!-- Скрытый логин -->
+                      <input type="hidden" v-model="userData.login" />
+
+                      <!-- Новый пароль -->
+                      <label for="password">Новый пароль</label>
+                      <input type="password"
+                             id="password"
+                             v-model="userData.password"
+                             :class="{ 'is-invalid': errors.password }" />
+                      <span v-if="errors.password" class="error-text">{{ errors.password }}</span>
+
+                      <!-- Подтверждение пароля -->
+                      <label for="confirmPassword">Подтвердите пароль</label>
+                      <input type="password"
+                             id="confirmPassword"
+                             v-model="userData.confirmPassword"
+                             :class="{ 'is-invalid': errors.confirmPassword }" />
+                      <span v-if="errors.confirmPassword" class="error-text">{{ errors.confirmPassword }}</span>
+
+                      <!-- ФИО -->
+                      <label for="fullName">ФИО</label>
+                      <input type="text" id="fullName" v-model="userData.fullName" />
+
+                      <!-- Кнопка -->
+                      <button type="submit" class="submit-button" :disabled="loading">
+                        {{ loading ? 'Загрузка...' : 'Изменить' }}
+                      </button>
+
+                      <!-- Сообщение об успехе/ошибке -->
+                      <div v-if="userEditStatusMessage"
+                           class="success-label"
+                           :class="userEditStatusMessage.includes('успеш') ? 'success-text' : 'error-text'">
+                        {{ userEditStatusMessage }}
+                      </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Аватар с выпадающим меню -->
+              <div class="avatar-wrapper" @click="toggleMenu">
+                <div class="avatar-circle">
+                  <p class="avatar-initial">{{ userInitial }}</p>
+                </div>
+                <div v-if="isMenuOpen" class="user-menu">
+                  <div v-if="isAdmin" class="menu-item">
+                    <button class="menu-link" @click="goToManage">Администрирование</button>
+                  </div>
+                  <div class="menu-item">
+                    <button class="menu-link" @click="logout">Выйти</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -106,13 +162,10 @@
   import userApi from '@/services/UserApiService';
   import { useRouter } from 'vue-router';
   import store from '@/auth/store';
-  import FileUploadZone from '@/components/FileUploadZone.vue';
+  import fileUpload from '@/components/FileUploadZone.vue';
 
   export default {
     name: 'Header',
-    // components: {
-    //   FileUploadZone,
-    // },
     props: {
       isAdmin: Boolean,
       isLoggedIn: Boolean,
@@ -123,21 +176,31 @@
         isUploadInProgress: false,
         userFullName: '',
         isMenuOpen: false,
+        isEditingOpen: false,
         isUploadOpen: false,
         router: useRouter(),
         // Состояния экспорта
         isExportingExcel: false,
         isExportingWord: false,
+        loading: false,
+        errors: {},
+        userData: {
+          login: '',
+          password: '',
+          confirmPassword: '',
+          fullName: ''
+        },
+        userEditStatusMessage: '',
       };
     },
     computed: {
       userInitial() {
         return this.userFullName ? this.userFullName[0]?.toUpperCase() || '?' : '?';
       },
-      getUploadExcel(){
+      getUploadExcel() {
         return this.isExportingExcel;
       },
-      getUploadDoc(){
+      getUploadDoc() {
         return this.isExportingWord;
       },
       // getUploadButtonText() {
@@ -153,10 +216,61 @@
       }
     },
     methods: {
+      upload(event)
+      {
+        fileUpload.methods.handleFileSelect(event);
+      },
+      async editUser() {
+        if (!this.validateForm())
+          return;
+
+        this.loading = true;
+        this.userEditStatusMessage = '';
+
+        try {
+          const response = await userApi.edit(this.userData)
+
+          if (response.success) {
+            this.userEditStatusMessage = response.message
+
+            // Очистка полей пароля после успешного обновления
+            this.userData.password = ''
+            this.userData.confirmPassword = ''
+          }
+          else {
+            const error = await response.json()
+            this.userEditStatusMessage = error.message || 'Ошибка изменения пользователя'
+          }
+        } catch (error) {
+          this.userEditStatusMessage = 'Ошибка соединения с сервером'
+          console.error('Ошибка:', error)
+        } finally {
+          this.loading = false
+        }
+      },
+      validateForm() {
+        Object.keys(this.errors).forEach(key => delete this.errors[key])
+
+        let isValid = true
+
+        if (this.userData.password && this.userData.password !== this.userData.confirmPassword) {
+          this.errors.confirmPassword = 'Пароли не совпадают'
+          isValid = false
+        }
+
+        if (this.userData.password && this.userData.password.length < 6) {
+          this.errors.password = 'Пароль должен содержать не менее 6 символов'
+          isValid = false
+        }
+
+        return isValid;
+      },
       async loadCurrentUser() {
         try {
           const response = await userApi.getCurrent();
           this.userFullName = response.FullName;
+          this.userData.login = response.Login;
+          this.userData.fullName = response.FullName;
         } catch (error) {
           console.error('Ошибка загрузки данных пользователя:', error);
         }
@@ -164,6 +278,12 @@
       toggleMenu() {
         this.isMenuOpen = !this.isMenuOpen;
         if (this.isMenuOpen) {
+          this.isUploadOpen = false;
+        }
+      },
+      toggleEditing() {
+        this.isEditingOpen = !this.isEditingOpen;
+        if (this.isEditingOpen) {
           this.isUploadOpen = false;
         }
       },
@@ -194,14 +314,23 @@
         }
       },
       handleClickOutside(event) {
+        const editButton = this.$el.querySelector('.edit-button');
+        if (editButton && editButton.contains(event.target)) {
+          return;
+        }
         const userBlock = this.$el.querySelector('.user-info');
         const uploadBlock = this.$el.querySelector('.upload-container');
         const uploadButton = this.$el.querySelector('.upload-button');
+
+        const isEditingBlock = this.$el.querySelector('.user-menu');
 
         const isUploadButtonClick = uploadButton && uploadButton.contains(event.target);
 
         if (userBlock && !userBlock.contains(event.target)) {
           this.isMenuOpen = false;
+        }
+        if (isEditingBlock && !isEditingBlock.contains(event.target)) {
+          this.isEditingOpen = false;
         }
 
         if (uploadBlock && !uploadBlock.contains(event.target) && !isUploadButtonClick) {
@@ -237,7 +366,89 @@
 </script>
 
 <style scoped>
-  /* Стили остаются почти без изменений — удаляем только loader-overlay */
+  .edit-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: column;
+  }
+
+  .edit-form {
+    width: 25vw;
+    border-radius: 20px;
+    padding: 1.5rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column; /* ← важно: вертикальная колонка */
+    gap: 0.75rem; /* ← равномерный отступ между всеми элементами */
+  }
+
+  .form-name-label {
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 0; /* убираем возможные отступы */
+    padding: 0;
+    display: block; /* ← обязательно block, а не inline-block! */
+  }
+
+  .error-text {
+    color: #dc3545;
+    font-size: 0.875rem;
+  }
+
+  .success-text {
+    color: #198754;
+  }
+
+  .success-label {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .submit-button {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    width: 100%;
+  }
+
+  /* Унифицируем стили для всех лейблов */
+  label {
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    appearance: none;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+  }
+
   .export-spinner {
     width: 16px;
     height: 16px;
@@ -246,10 +457,6 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto;
-    min-height: 18px; /* чтобы не "прыгала" кнопка */
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   @keyframes spin {
@@ -257,246 +464,331 @@
       transform: rotate(360deg);
     }
   }
+
   .page-header {
-    background-color: #e4e3e8;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    height: 160px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    height: 70px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
   .header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 24px;
     display: flex;
-    width: 100%;
     align-items: center;
-    padding: 0 15px;
+    gap: 32px;
   }
 
-  /* Logo Section */
+  /* Логотип */
   .logo-section {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
+    flex-shrink: 0;
   }
+
   input[type="file"] {
-  display: none;
+    display: none;
   }
+
   .custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
     padding: 6px 12px;
+    background: #10b981;
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
     cursor: pointer;
-    color: #fff;
-    background-color: #198754;
-    border-color: #6c757d;
+    transition: all 0.2s ease;
   }
+
+    .custom-file-upload:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
 
   .logo-image {
-    height: 8vh;
-    padding-left: 1rem;
+    height: 36px;
+    transition: transform 0.3s ease;
   }
 
-  /* Button Sections */
+    .logo-image:hover {
+      transform: scale(1.05);
+    }
+
+  /* Основные кнопки навигации */
   .button-section {
-    flex: 0 0 8.333333%;
-    display: flex;
-    justify-content: center;
-    padding: 0 15px;
+    position: relative;
   }
 
-    .button-section:nth-child(2) {
-      margin-left: 8.333333%;
+    .button-section::after {
+      content: '';
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 24px;
+      width: 1px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .button-section:last-child::after {
+      display: none;
     }
 
   .nav-button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.25rem;
+    gap: 4px;
+    padding: 8px 12px;
     border: none;
     background: transparent;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
+    transition: all 0.2s ease;
+    min-width: 80px;
   }
 
     .nav-button:hover:not(:disabled) {
-      background-color: #d4d3d9;
-      border-radius: 0.375rem;
+      background: rgba(13, 110, 253, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-button:active:not(:disabled) {
+      transform: translateY(0);
     }
 
     .nav-button:disabled {
-      opacity: 0.6;
+      opacity: 0.5;
       cursor: not-allowed;
     }
 
   .button-icon {
-    height: 8vh;
-    margin: 0 auto;
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
   }
 
   .button-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #495057;
     margin: 0;
-    font-size: 0.875rem;
-    color: #212529;
-    text-align: center;
-    min-height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    line-height: 1.2;
   }
 
   /* User Section */
   .user-section {
-    position: absolute;
-    right: 0%;
+    margin-left: auto;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding: 0 15px;
+    align-items: center;
+    gap: 16px;
   }
-
-  .user-info {
-    padding-top: 0.5rem;
+  .user-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .admin-actions {
+    display: flex;
+    align-items: center;
+  }
+  .user-info-wrapper {
+    position: relative;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: row;
     align-items: flex-end;
-    width: 100%;
   }
 
   .user-main {
     display: flex;
     align-items: center;
-    margin-bottom: 0.25rem;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
-
+  .user-name-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
   .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
     margin: 0;
-    text-align: right;
-    margin-right: 0.5rem;
-    font-size: 0.875rem;
-    color: #212529;
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, #176ce3 0%, #1255b4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .edit-button {
-    padding: 0;
-    border: none;
-    background-color: #e4e3e8;
+    background: rgba(13, 110, 253, 0.1);
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    padding: 4px 6px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
   }
 
+    .edit-button:hover {
+      background: rgba(13, 110, 253, 0.15);
+      border-color: rgba(13, 110, 253, 0.3);
+      transform: translateY(-1px);
+    }
+
   .edit-icon {
-    height: 2.5vh;
+    height: 14px;
+    width: 14px;
+    opacity: 0.8;
   }
 
   .avatar-wrapper {
     position: relative;
-    padding: 0;
-    cursor: pointer;
-    background: transparent;
-    border: none;
   }
 
   .avatar-image {
-    position: relative;
+    display: none;
+  }
+  .avatar-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #176ce3 0%, #1255b4 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
   }
 
+    .avatar-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
   .avatar-initial {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
     margin: 0;
-    font-size: 0.75rem;
-    color: #212529;
-    font-weight: 500;
   }
-
+  /* Позиционирование выпадающих меню */
+  .edit-menu-wrapper {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 1002;
+    min-width: 280px;
+  }
   .user-menu {
     position: absolute;
+    top: calc(100% + 8px);
     right: 0;
-    top: 100%;
     background: white;
-    border: 1px solid #dee2e6;
-    border-radius: 0.375rem;
-    padding: 0.5rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    min-width: 160px;
-    margin-top: 0.25rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e2e8f0;
+    min-width: 200px;
+    z-index: 1001;
+    overflow: hidden;
   }
 
   .menu-item {
-    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
   }
 
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
   .menu-link {
-    border: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
     background: transparent;
-    padding: 0;
-    color: #0d6efd;
-    text-decoration: underline;
+    border: none;
+    color: #4a5568;
+    font-size: 14px;
     cursor: pointer;
-    font-size: 0.875rem;
+    transition: background 0.2s ease;
   }
 
     .menu-link:hover {
-      color: #0a58ca;
+      background: #f7fafc;
+      color: #2d3748;
     }
 
   /* User Actions */
   .user-actions {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    width: 100%;
-    position: relative;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 0;
   }
 
   .action-button {
-    font-size: 0.875rem;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid transparent;
-    border-radius: 0.375rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-size: 12px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
+    transition: all 0.2s ease;
   }
 
-    .upload-button:hover {
-      background-color: #5c636a;
-      border-color: #565e64;
-    }
+  .upload-button:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+  }
 
   .clear-button {
-    color: #fff;
-    background-color: #cd1010;
-    border-color: #6c757d;
+    background: #dc2626;
+    color: white;
+    border-color: #dc2626;
   }
 
     .clear-button:hover {
-      background-color: #5c636a;
-      border-color: #565e64;
+      background: #b91c1c;
+      transform: translateY(-1px);
     }
 
   /* Upload Container */
   .upload-container {
-    z-index: 1000;
-    border-radius: 15px;
-    position: absolute;
-    width: 30vw;
-    height: auto;
-    top: 100%;
+    width: 320px;
     right: 0;
-    margin-top: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: calc(100% + 8px);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     background: white;
-    border: 1px solid #dee2e6;
+    z-index: 1001;
   }
 
   .upload-wrapper {
@@ -505,79 +797,64 @@
   }
 
   /* Responsive Design */
+  /* Адаптивность */
   @media (max-width: 1200px) {
     .header-content {
-      padding: 0 10px;
+      gap: 20px;
+      padding: 0 16px;
     }
 
-    .button-section {
-      flex: 0 0 10%;
-      padding: 0 10px;
+    .nav-button {
+      min-width: 70px;
+      padding: 6px 8px;
     }
 
-    .logo-section {
-      flex: 0 0 15%;
-    }
-
-    .user-section {
-      flex: 0 0 20%;
-      margin-left: 10%;
-    }
-
-    .upload-container {
-      width: 40vw;
-      right: -50%;
+    .button-text {
+      font-size: 11px;
     }
   }
 
   @media (max-width: 768px) {
+    .page-header {
+      height: 60px;
+    }
+
     .header-content {
-      flex-direction: column;
-      padding: 0.5rem;
+      gap: 12px;
+      padding: 0 12px;
     }
-
-    .logo-section,
-    .button-section,
-    .user-section {
-      flex: 0 0 100%;
-      margin: 0;
-      padding: 0.5rem;
-      justify-content: center;
+    .user-container {
+      gap: 12px;
     }
-
-      .button-section:nth-child(2) {
-        margin-left: 0;
-      }
-
-    .user-info {
-      align-items: center;
-    }
-
     .user-main {
-      justify-content: center;
+      padding: 6px 12px;
+      gap: 12px;
+    }
+    .logo-image {
+      height: 28px;
     }
 
+    .button-section {
+      display: none;
+    }
+
+    .user-name {
+      max-width: 120px;
+      font-size: 13px;
+    }
+    .user-name-container {
+      padding-right: 8px;
+    }
     .user-actions {
-      align-items: center;
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
       flex-direction: column;
     }
 
-    .user-menu {
-      right: auto;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .upload-container {
-      width: 90vw;
-      right: 5%;
-      top: 100%;
-    }
-
-    .action-button {
-      margin-left: 0;
-      margin-bottom: 0.25rem;
-      width: 100%;
+    .action-button, .custom-file-upload {
+      padding: 8px 16px;
+      font-size: 13px;
     }
   }
 </style>

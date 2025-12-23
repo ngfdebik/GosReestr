@@ -220,6 +220,7 @@ export default {
         } else {
           this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
         }
+        this.resetFileInput();
       }
     },
     
@@ -253,7 +254,7 @@ export default {
         }
         
         // Эмитим событие успеха
-        this.$emit('upload-success', response);
+        //this.$emit('upload-success', response);
         
       } catch (error) {
         console.error('Ошибка загрузки:', error);
@@ -271,7 +272,7 @@ export default {
         }
         
         // Эмитим событие ошибки
-        this.$emit('upload-error', error);
+        //this.$emit('upload-error', error);
         
         // Показываем сообщение в компоненте
         this.showMessage(errorMessage, 'alert-danger');
@@ -279,7 +280,7 @@ export default {
       } finally {
         this.isUploading = false;
         this.uploadProgress = 0;
-        this.resetFileInput();
+        
         
         // Небольшая задержка для сброса состояния
         setTimeout(() => {

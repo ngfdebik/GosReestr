@@ -216,10 +216,6 @@
       }
     },
     methods: {
-      upload(event)
-      {
-        fileUpload.methods.handleFileSelect(event);
-      },
       async editUser() {
         if (!this.validateForm())
           return;
@@ -335,6 +331,31 @@
 
         if (uploadBlock && !uploadBlock.contains(event.target) && !isUploadButtonClick) {
           this.isUploadOpen = false;
+        }
+      },
+
+      handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file && !this.isUploading) {
+          if (this.isValidFile(file)) {
+            this.uploadFile(file);
+          } else {
+            //this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+          }
+          this.resetFileInput();
+        }
+      },
+      
+      isValidFile(file) {
+        if (!file) return false;
+        const validExtensions = ['.xml', '.zip'];
+        const fileName = file.name.toLowerCase();
+        return validExtensions.some(ext => fileName.endsWith(ext));
+      },
+
+      resetFileInput() {
+        if (this.$refs.fileInput && this.$refs.fileInput.value) {
+          this.$refs.fileInput.value = '';
         }
       },
 

@@ -335,15 +335,17 @@
       },
 
       handleFileSelect(event) {
-        const file = event.target.files[0];
-        if (file && !this.isUploading) {
-          if (this.isValidFile(file)) {
-            this.uploadFile(file);
-          } else {
-            //this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+        const fileList = event.target.files;
+        Array.from(fileList).forEach((file) => {
+          if (file && !this.isUploading) {
+            if (this.isValidFile(file)) {
+              this.uploadFile(file);
+            } else {
+              this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+            }
+            this.resetFileInput();
           }
-          this.resetFileInput();
-        }
+        })
       },
       
       isValidFile(file) {

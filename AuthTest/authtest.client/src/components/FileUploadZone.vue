@@ -184,11 +184,9 @@ export default {
       this.dragCounter = 0;
       
       // Получаем файлы
-      const files = e.dataTransfer.files;
-      
-      if (files.length > 0) {
-        const file = files[0];
-        
+
+      const fileList = e.dataTransfer.files;
+      Array.from(fileList).forEach((file) => {
         // Валидация файла
         if (this.isValidFile(file)) {
           // Немедленная обработка
@@ -198,8 +196,7 @@ export default {
         } else {
           this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
         }
-      }
-      
+      })
       return false;
     },
     
@@ -210,15 +207,17 @@ export default {
     },
     
     handleFileSelect(event) {
-      const file = event.target.files[0];
-      if (file && !this.isUploading) {
-        if (this.isValidFile(file)) {
-          this.uploadFile(file);
-        } else {
-          this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+      const fileList = event.target.files;
+      Array.from(fileList).forEach((file) => {
+        if (file && !this.isUploading) {
+          if (this.isValidFile(file)) {
+            this.uploadFile(file);
+          } else {
+            this.showMessage('Неверный формат файла. Только .xml или .zip.', 'alert-danger');
+          }
+          this.resetFileInput();
         }
-        this.resetFileInput();
-      }
+      })
     },
     
     isValidFile(file) {
@@ -245,7 +244,7 @@ export default {
       
       try {
         const response = await UploadApiSrvice.uploadFile(formData);
-        
+        console.log(response.name);
         if (window.showGlobalAlert) {
           window.showGlobalAlert("OK", response.name || "Файл успешно загружен");
         }

@@ -167,12 +167,9 @@ export default {
       );
       
       if (isLeavingWindow) {
-        this.dragCounter = Math.max(0, this.dragCounter - 1);
-        
-        if (this.dragCounter === 0) {
-          this.isDragOver = false;
-          this.isDragging = false;
-        }
+        this.dragCounter = 0;
+        this.isDragOver = false;
+        this.isDragging = false;
       }
     },
     
@@ -314,8 +311,8 @@ export default {
   background-color: #090d10cf;
   position: absolute;
   z-index: 2147483647; /* Максимальный z-index */
-  top: 160px;
-  height: 804px;
+  top: 72px;
+  height: 888px;
   width: 100%;
   display: flex;
   flex-direction: column;
